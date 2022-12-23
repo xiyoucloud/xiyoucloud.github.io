@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>xiyoucloud</title>
+  
+  <subtitle>西柚云</subtitle>
+  <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://xiyoucloud.github.io/"/>
+  <updated>2022-08-18T00:58:38.690Z</updated>
+  <id>https://xiyoucloud.github.io/</id>
+  
+  <author>
+    <name>柚子糖</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>摘抄的句子</title>
+    <link href="https://xiyoucloud.github.io/2022/08/17/%E6%91%98%E6%8A%84%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
+    <id>https://xiyoucloud.github.io/2022/08/17/%E6%91%98%E6%8A%84%E7%9A%84%E5%8F%A5%E5%AD%90/</id>
+    <published>2022-08-17T15:01:39.000Z</published>
+    <updated>2022-08-18T00:58:38.690Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;句子&quot;&gt;&lt;a href=&quot;#句子&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="文学" scheme="https://xiyoucloud.github.io/tags/%E6%96%87%E5%AD%A6/"/>
+    
+  </entry>
+  
+</feed>
