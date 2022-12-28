@@ -52,6 +52,17 @@
 <body>
   <div id="app">
     
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
       
     <main class="content on">
       
@@ -75,6 +86,12 @@
       </div>
       <div>
         
+        <img
+          src="images/xiyou.svg"
+          class="cover-logo"
+          alt="xiyoucloud"
+        />
+        
       </div>
     </div>
   </div>
@@ -93,7 +110,7 @@
   <script>
     try {
       var typed = new Typed("#subtitle", {
-        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        strings: ['西柚云超算，为科研而生！', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
         startDelay: 0,
         typeSpeed: 200,
         loop: true,
@@ -111,14 +128,8 @@
   <ul class="ads">
     
         <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
+            <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">
+                <img src="/images/xiyou.png" width="300" alt="云服务器限时秒杀">
             </a>
         </li>
     
@@ -495,7 +506,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2015-2022
+        2022
         <i class="ri-heart-fill heart_icon"></i> 柚子糖
       </li>
     </ul>
@@ -548,7 +559,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="xiyoucloud"></a>
+    <a href="/"><img src="/images/xiyou.svg" alt="xiyoucloud"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -570,19 +581,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
-    </li>
-    
-    <li class="nav-item">
       <a class="nav-item-link" href="/friends">友链</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/2019/about">关于我</a>
     </li>
     
   </ul>
@@ -619,13 +618,13 @@
   <div class="reward-box">
     
     <div class="reward-item">
-      <img class="reward-img" src="/images/alipay.jpg">
+      <img class="reward-img" src="/images/alipay.png">
       <span class="reward-type">支付宝</span>
     </div>
     
     
     <div class="reward-item">
-      <img class="reward-img" src="/images/wechat.jpg">
+      <img class="reward-img" src="/images/wepay.png">
       <span class="reward-type">微信</span>
     </div>
     
@@ -766,6 +765,10 @@
 
 <!-- ClickBoom1 -->
 
+<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
 <!-- ClickBoom2 -->
 
 <!-- CodeCopy -->
@@ -827,7 +830,9 @@
 </script>
  
 <!-- CanvasBackground -->
-
+ 
+<script src="/js/dz.js"></script>
+ 
 <script>
   if (window.mermaid) {
     mermaid.initialize({ theme: "forest" });
@@ -835,6 +840,23 @@
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="86"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=66"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 
