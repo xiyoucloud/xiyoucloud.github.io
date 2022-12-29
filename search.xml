@@ -1,6 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GEO和TCGA数据下载慢和下载中断的解决办法</title>
+    <url>/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>很多同学下载GEO数据库的数据和TCGA的数据网速特别的慢，或者总是中断，生信之路的第一个跟头就摔在了数据下载</p>
+<p>下面给大家分享一个下载神器——西柚云代理下载！</p>
+<p><a href="https://links.jianshu.com/go?to=https://fileproxy.xiyoucloud.net/%23/">https://fileproxy.xiyoucloud.net/#/</a></p>
+<span id="more"></span>
+
+<p>首先在GEO数据库上面找到您所需要的数据，然后页面往下拉</p>
+<p>找到Series Matrix File(s)，点进去</p>
+<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/21c9e84a1f3f4aaf9137fbf25c803746.png" class="" title="img">
+
+
+
+<p> 找到您要下载的文件，右键-复制链接地址</p>
+<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/bd9232fab68b4e598afe3e0fa95a4403.png" class="" title="img">
+
+<p>打开我们的代理下载网站</p>
+<p><strong><a href="https://fileproxy.xiyoucloud.net/#/">https://fileproxy.xiyoucloud.net/#/</a></strong></p>
+<p>输入您用于接收下载链接的邮箱</p>
+<p>把上一步复制的链接粘贴到下载地址</p>
+<p>点提交信息</p>
+<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/098a89d29f85418fac593b41e14f767e.png" class="" title="img">
+
+<p>下载完成后会自动发送到预留邮箱里面</p>
+<p>tar数据直接复制粘贴进去会提示url非法，这个是因为还需要进一步提取下载链接才能下载，具体方法可以参考网站里面的教程</p>
+<p>TCGA的使用教程可以看网站里面的教程，篇幅有限就不一一列举了。</p>
+<p><strong>最重要的是！！！这个代理下载服务是完全免费的！！！</strong></p>
+]]></content>
+      <tags>
+        <tag>代理下载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>conda的安装和卸载</title>
+    <url>/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=559359158&bvid=BV1xe4y1U7Fe&cid=881565520&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+<iframe src="//player.bilibili.com/player.html?aid=731773217&bvid=BV1aD4y1r7H1&cid=881602406&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<blockquote>
+<p>针对 ubuntu20.04<br>ubuntu20.04 是 “西柚云” 主要使用的操作系统  <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li>下载 conda 的安装脚本（这里使用清华大学的镜像）<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~  # 推荐将 conda 安装在家目录下</span><br><span class="line">wget -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></li>
+<li>执行conda安装脚本<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash Miniconda3-py39_4.10.3-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></li>
+<li>阅读并同意conda的相关协议，不停地回车然后输入yes再回车就安装成功了, 执行脚本后输入的文字的顺序可以参考这个<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">回车</span><br><span class="line">q</span><br><span class="line">yes</span><br><span class="line">回车</span><br><span class="line">yes</span><br></pre></td></tr></table></figure></li>
+<li>为了让安装立即生效，需要执行 .bashrc 脚本，这样会立即进入到 conda 的 base 环境下<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+<li>添加官方源和国内源，这<strong>几乎</strong>是提速 conda 的唯一方式了。<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加官方源</span></span><br><span class="line">conda config --add channels r # R软件包</span><br><span class="line">conda config --add channels conda-forge # Conda社区维护的不在默认通道中的软件</span><br><span class="line">conda config --add channels bioconda # 生物信息学类工具</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加国内源头 （选其一添加即可）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加中科大源</span></span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加清华大学源（偶尔抽风，此时需要换其他国内源）</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加阿里云源</span></span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/free</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/main</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></li>
+<li>查看 conda 源是否配置成功，可以看出各 channel 的优先级（从上到下优先级依次增加）<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda config --get channels</span><br></pre></td></tr></table></figure>
+<img src="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/048bebbd30d24fe182b924fd13e647d8.png" class="" title="在这里插入图片描述"></li>
+</ol>
+<p><strong>安装完成！</strong></p>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>conda 的卸载很方便，因为 conda 的安装并不会污染其他系统目录，conda 几乎将所有数据都保存在 miniconda3 目录下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf .conda</span><br><span class="line">rm -rf .condarc</span><br><span class="line">rm -rf miniconda3</span><br></pre></td></tr></table></figure>
+<p>然后再删除 ~/.bashrc 文件中的 conda 初始化添加的语句，也就是删除图示内容</p>
+<img src="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/2dfb6c21b1514a6e9952b78b92e704ad.png" class="" title="在这里插入图片描述">
+<p>使用文字描述一下这个动作：使用 vim 编辑 .bashrc，将光标移动到要删除的文字后方，输入 i 进入 vim 的编辑模式，然后敲击键盘上的”Backspace” 删除相应文字，文字删除完毕后，按键盘上的 “Esc” 进入 vim 的命令模式，输入 “:wq”  然后回车保存对文件的更改。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>删完之后执行一下 .bashrc 文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p><strong>卸载完成！</strong></p>
+<h2 id="重装"><a href="#重装" class="headerlink" title="重装"></a>重装</h2><p>所谓重装，就是将原来安装的 conda 卸载后再重新安装一次。（参考上述步骤）</p>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可"><a href="#更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可" class="headerlink" title="更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可"></a>更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除当前配置的源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用户和用户组</title>
+    <url>/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h1><blockquote>
+<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<p>用户和用户组是用来划分权限的抽象，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。</p>
+<p>用户和用户组是多对多的关系，即1个用户可以对应多个用户组，1个用户组也可以包含多个用户。</p>
+<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221225211630067.png" class="" title="image-20221225211630067">
+
+<span id="more"></span>
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>useradd：通常用于在脚本中创建用户</p>
+<p>adduser：交互式地创建用户，手动设置密码，自动创建家目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br></pre></td></tr></table></figure>
+
+<h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><p>usermod：修改用户信息</p>
+<p>userdel：删除用户</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改用户名</span></span><br><span class="line">usermod -l 新用户名 旧用户名</span><br><span class="line"><span class="comment"># 修改用户家目录</span></span><br><span class="line">usermod -d 新家目录 用户名</span><br><span class="line"><span class="comment"># 锁定用户不能登陆</span></span><br><span class="line">usermod -L 用户名</span><br><span class="line"><span class="comment"># 解除用户锁定</span></span><br><span class="line">usermod -U 用户名</span><br><span class="line"><span class="comment"># 查看用户状态</span></span><br><span class="line">passwd -S 用户名</span><br><span class="line"><span class="comment"># 删除用户的同时删除家目录</span></span><br><span class="line">usermod -r 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户</span></span><br><span class="line">userdel 用户名</span><br><span class="line"><span class="comment"># 删除用户名和用户的家目录</span></span><br><span class="line">userdel -r 用户名 </span><br></pre></td></tr></table></figure>
+
+<h2 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看新增用户组命令的使用方法</span></span><br><span class="line">addgroup --<span class="built_in">help</span></span><br><span class="line">groupadd --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br></pre></td></tr></table></figure>
+
+<h2 id="管理用户组"><a href="#管理用户组" class="headerlink" title="管理用户组"></a>管理用户组</h2><p>groups：查看用户组信息</p>
+<p>id：查看用户的 uid 和 gid 信息</p>
+<p>groupmod：修改用户组信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看系统中所有的用户组</span></span><br><span class="line"><span class="built_in">cat</span> /etc/group</span><br><span class="line"><span class="comment"># 查看当前用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span></span><br><span class="line"><span class="comment"># 查看某用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span> txb</span><br><span class="line"><span class="comment"># 查看用户id、用户组、用户组id</span></span><br><span class="line"><span class="built_in">id</span> txb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组名</span></span><br><span class="line">groupmod -n 新组名 旧组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组 id</span></span><br><span class="line">groupmod -g 组<span class="built_in">id</span> 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">groupdel 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将用户添加到某个用户组</span></span><br><span class="line">gpasswd -a 用户名 组名</span><br></pre></td></tr></table></figure>
+
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>passwd:修改用户密码信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd </span><br><span class="line"></span><br><span class="line"><span class="comment"># 锁定用户密码，用户不能登陆</span></span><br><span class="line">passwd -l 用户名</span><br><span class="line"><span class="comment"># 解除锁定</span></span><br><span class="line">passwd -u 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看用户的密码是否被锁定</span></span><br><span class="line">passwd -S</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户密码，删除后用户不能登陆系统，重新设置密码后可以登陆系统</span></span><br><span class="line">passed -d 用户名</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221214121232905.png" class="" title="image-20221214121232905">
+
+<p>查看系统在线人员信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">who</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221229170041437.png" class="" title="image-20221229170041437">
+
+<p>强制用户下线：</p>
+<p>任何用户都可让自己强制下线，强制其他用户下线需要 root 权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pts/0 是用户使用的终端的名称</span></span><br><span class="line">sudo pkill -<span class="built_in">kill</span> -t pts/2</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>西柚云Linux教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建博客小技巧</title>
+    <url>/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h1><h2 id="视频插件"><a href="#视频插件" class="headerlink" title="视频插件"></a>视频插件</h2><p><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">hexo-tag-aplayer</a></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 插入网络视频</span><br><span class="line">&#123;% dplayer &quot;url=https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/mp4/mp4_demo.mp4&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># 插入acfun 视频</span><br><span class="line">&lt;iframe src=&quot;https://www.acfun.cn/player/ac12945786&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; id=&quot;ACPlayer-re&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line"># 插入 B 站视频</span><br><span class="line">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=606228531&amp;bvid=BV1y84y1t7Y9&amp;cid=922973653&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<iframe src="https://www.acfun.cn/player/ac12945786" style="width:100%;height:500px;min-width:375px;min-height:200px" id="ACPlayer-re" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<span id="more"></span>
+
+
+<iframe src="//player.bilibili.com/player.html?aid=606228531&bvid=BV1y84y1t7Y9&cid=922973653&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+<h2 id="其他好用的-hexo-插件"><a href="#其他好用的-hexo-插件" class="headerlink" title="其他好用的 hexo 插件"></a>其他好用的 hexo 插件</h2><ol>
+<li><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">二次元看板娘：hexo-helper-live2d</a></li>
+<li><a href="https://github.com/netcan/hexo-generator-index-pin-top">博客文章置顶：hexo-generator-index-pin-top</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>bash练习</title>
     <url>/2022/12/29/bash%E7%BB%83%E4%B9%A0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -80,106 +225,5 @@
       <tags>
         <tag>bash练习</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>搭建博客小技巧</title>
-    <url>/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h1><h2 id="视频插件"><a href="#视频插件" class="headerlink" title="视频插件"></a>视频插件</h2><p><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">hexo-tag-aplayer</a></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 插入网络视频</span><br><span class="line">&#123;% dplayer &quot;url=https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/mp4/mp4_demo.mp4&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># 插入acfun 视频</span><br><span class="line">&lt;iframe src=&quot;https://www.acfun.cn/player/ac12945786&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; id=&quot;ACPlayer-re&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line"># 插入 B 站视频</span><br><span class="line">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=606228531&amp;bvid=BV1y84y1t7Y9&amp;cid=922973653&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-<iframe src="https://www.acfun.cn/player/ac12945786" style="width:100%;height:500px;min-width:375px;min-height:200px" id="ACPlayer-re" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-<span id="more"></span>
-
-
-<iframe src="//player.bilibili.com/player.html?aid=606228531&bvid=BV1y84y1t7Y9&cid=922973653&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-
-
-
-<h2 id="其他好用的-hexo-插件"><a href="#其他好用的-hexo-插件" class="headerlink" title="其他好用的 hexo 插件"></a>其他好用的 hexo 插件</h2><ol>
-<li><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">二次元看板娘：hexo-helper-live2d</a></li>
-<li><a href="https://github.com/netcan/hexo-generator-index-pin-top">博客文章置顶：hexo-generator-index-pin-top</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用户和用户组</title>
-    <url>/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h1><blockquote>
-<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
-</blockquote>
-<p>用户和用户组是用来划分权限的抽象，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。</p>
-<p>用户和用户组是多对多的关系，即1个用户可以对应多个用户组，1个用户组也可以包含多个用户。</p>
-<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221225211630067.png" class="" title="image-20221225211630067">
-
-<span id="more"></span>
-
-<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>useradd：通常用于在脚本中创建用户</p>
-<p>adduser：交互式地创建用户，手动设置密码，自动创建家目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br></pre></td></tr></table></figure>
-
-<h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><p>usermod：修改用户信息</p>
-<p>userdel：删除用户</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改用户名</span></span><br><span class="line">usermod -l 新用户名 旧用户名</span><br><span class="line"><span class="comment"># 修改用户家目录</span></span><br><span class="line">usermod -d 新家目录 用户名</span><br><span class="line"><span class="comment"># 锁定用户不能登陆</span></span><br><span class="line">usermod -L 用户名</span><br><span class="line"><span class="comment"># 解除用户锁定</span></span><br><span class="line">usermod -U 用户名</span><br><span class="line"><span class="comment"># 查看用户状态</span></span><br><span class="line">passwd -S 用户名</span><br><span class="line"><span class="comment"># 删除用户的同时删除家目录</span></span><br><span class="line">usermod -r 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户</span></span><br><span class="line">userdel 用户名</span><br><span class="line"><span class="comment"># 删除用户名和用户的家目录</span></span><br><span class="line">userdel -r 用户名 </span><br></pre></td></tr></table></figure>
-
-<h2 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看新增用户组命令的使用方法</span></span><br><span class="line">addgroup --<span class="built_in">help</span></span><br><span class="line">groupadd --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br></pre></td></tr></table></figure>
-
-<h2 id="管理用户组"><a href="#管理用户组" class="headerlink" title="管理用户组"></a>管理用户组</h2><p>groups：查看用户组信息</p>
-<p>id：查看用户的 uid 和 gid 信息</p>
-<p>groupmod：修改用户组信息</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看系统中所有的用户组</span></span><br><span class="line"><span class="built_in">cat</span> /etc/group</span><br><span class="line"><span class="comment"># 查看当前用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span></span><br><span class="line"><span class="comment"># 查看某用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span> txb</span><br><span class="line"><span class="comment"># 查看用户id、用户组、用户组id</span></span><br><span class="line"><span class="built_in">id</span> txb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组名</span></span><br><span class="line">groupmod -n 新组名 旧组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组 id</span></span><br><span class="line">groupmod -g 组<span class="built_in">id</span> 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">groupdel 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将用户添加到某个用户组</span></span><br><span class="line">gpasswd -a 用户名 组名</span><br></pre></td></tr></table></figure>
-
-<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>passwd:修改用户密码信息</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd </span><br><span class="line"></span><br><span class="line"><span class="comment"># 锁定用户密码，用户不能登陆</span></span><br><span class="line">passwd -l 用户名</span><br><span class="line"><span class="comment"># 解除锁定</span></span><br><span class="line">passwd -u 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看用户的密码是否被锁定</span></span><br><span class="line">passwd -S</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户密码，删除后用户不能登陆系统，重新设置密码后可以登陆系统</span></span><br><span class="line">passed -d 用户名</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221214121232905.png" class="" title="image-20221214121232905">
-
-<p>查看系统在线人员信息：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">who</span></span><br></pre></td></tr></table></figure>
-
-<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221229170041437.png" class="" title="image-20221229170041437">
-
-<p>强制用户下线：</p>
-<p>任何用户都可让自己强制下线，强制其他用户下线需要 root 权限</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pts/0 是用户使用的终端的名称</span></span><br><span class="line">sudo pkill -<span class="built_in">kill</span> -t pts/2</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-]]></content>
-      <tags>
-        <tag>西柚云Linux教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GEO和TCGA数据下载慢和下载中断的解决办法</title>
-    <url>/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>很多同学下载GEO数据库的数据和TCGA的数据网速特别的慢，或者总是中断，生信之路的第一个跟头就摔在了数据下载</p>
-<p>下面给大家分享一个下载神器——西柚云代理下载！</p>
-<p><a href="https://links.jianshu.com/go?to=https://fileproxy.xiyoucloud.net/%23/">https://fileproxy.xiyoucloud.net/#/</a></p>
-<p>首先在GEO数据库上面找到您所需要的数据，然后页面往下拉</p>
-<p>找到Series Matrix File(s)，点进去</p>
-<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/21c9e84a1f3f4aaf9137fbf25c803746.png" class="" title="img">
-
-
-
-<p> 找到您要下载的文件，右键-复制链接地址</p>
-<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/bd9232fab68b4e598afe3e0fa95a4403.png" class="" title="img">
-
-<p>打开我们的代理下载网站</p>
-<p><strong><a href="https://fileproxy.xiyoucloud.net/#/">https://fileproxy.xiyoucloud.net/#/</a></strong></p>
-<p>输入您用于接收下载链接的邮箱</p>
-<p>把上一步复制的链接粘贴到下载地址</p>
-<p>点提交信息</p>
-<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/098a89d29f85418fac593b41e14f767e.png" class="" title="img">
-
-<p>下载完成后会自动发送到预留邮箱里面</p>
-<p>tar数据直接复制粘贴进去会提示url非法，这个是因为还需要进一步提取下载链接才能下载，具体方法可以参考网站里面的教程</p>
-<p>TCGA的使用教程可以看网站里面的教程，篇幅有限就不一一列举了。</p>
-<p><strong>最重要的是！！！这个代理下载服务是完全免费的！！！</strong></p>
-]]></content>
   </entry>
 </search>

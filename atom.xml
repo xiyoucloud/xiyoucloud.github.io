@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-29T11:15:36.172Z</updated>
+  <updated>2022-12-29T12:17:10.113Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,23 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>conda的安装和卸载</title>
+    <link href="https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/"/>
+    <id>https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/</id>
+    <published>2022-12-29T12:03:19.000Z</published>
+    <updated>2022-12-29T12:17:10.113Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=559359158&amp;bvid=BV1xe4y1U7Fe&amp;cid=881565520&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
+    
+  </entry>
+  
+  <entry>
     <title>GEO和TCGA数据下载慢和下载中断的解决办法</title>
     <link href="https://xiyoucloud.github.io/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>https://xiyoucloud.github.io/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
     <published>2022-12-29T11:11:41.000Z</published>
-    <updated>2022-12-29T11:15:36.172Z</updated>
+    <updated>2022-12-29T11:49:23.029Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;很多同学下载GEO数据库的数据和TCGA的数据网速特别的慢，或者总是中断，生信之路的第一个跟头就摔在了数据下载&lt;/p&gt;
+&lt;p&gt;下面给大家分享一个下载神器——西柚云代理下载！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://links.jianshu.com/go?to=https://fileproxy.xiyoucloud.net/%23/&quot;&gt;https://fileproxy.xiyoucloud.net/#/&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
+    
+    <category term="代理下载" scheme="https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
@@ -83,7 +98,7 @@
     <link href="https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/"/>
     <id>https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/</id>
     <published>2022-12-29T03:25:31.000Z</published>
-    <updated>2022-12-29T08:37:26.351Z</updated>
+    <updated>2022-12-29T11:22:59.303Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
