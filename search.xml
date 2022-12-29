@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>搭建博客小技巧</title>
-    <url>/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h1><h2 id="视频插件"><a href="#视频插件" class="headerlink" title="视频插件"></a>视频插件</h2><p><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">hexo-tag-aplayer</a></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 插入网络视频</span><br><span class="line">&#123;% dplayer &quot;url=https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/mp4/mp4_demo.mp4&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># 插入acfun 视频</span><br><span class="line">&lt;iframe src=&quot;https://www.acfun.cn/player/ac12945786&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; id=&quot;ACPlayer-re&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line"># 插入 B 站视频</span><br><span class="line">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=606228531&amp;bvid=BV1y84y1t7Y9&amp;cid=922973653&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-<iframe src="https://www.acfun.cn/player/ac12945786" style="width:100%;height:500px;min-width:375px;min-height:200px" id="ACPlayer-re" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-<span id="more"></span>
-
-
-<iframe src="//player.bilibili.com/player.html?aid=606228531&bvid=BV1y84y1t7Y9&cid=922973653&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-
-
-
-<h2 id="其他好用的-hexo-插件"><a href="#其他好用的-hexo-插件" class="headerlink" title="其他好用的 hexo 插件"></a>其他好用的 hexo 插件</h2><ol>
-<li><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">二次元看板娘：hexo-helper-live2d</a></li>
-<li><a href="https://github.com/netcan/hexo-generator-index-pin-top">博客文章置顶：hexo-generator-index-pin-top</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bash练习</title>
     <url>/2022/12/29/bash%E7%BB%83%E4%B9%A0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -102,6 +79,79 @@
 <h2 id="34-ps分析-统计VSZ-RSS各自总和"><a href="#34-ps分析-统计VSZ-RSS各自总和" class="headerlink" title="34.ps分析-统计VSZ,RSS各自总和"></a><a href="https://www.nowcoder.com/practice/7094b5f96e1a4c998ce01baf407beee6?tpId=195&tqId=39443&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=/exam/oj?page=1&tab=SHELL%E7%AF%87&topicId=195&difficulty=undefined&judgeStatus=undefined&tags=&title=">34.ps分析-统计VSZ,RSS各自总和</a></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk <span class="string">&#x27;&#123;</span></span><br><span class="line"><span class="string">    v += $5</span></span><br><span class="line"><span class="string">    r += $6</span></span><br><span class="line"><span class="string">&#125; END &#123;</span></span><br><span class="line"><span class="string">    printf(&quot;MEM TOTAL\nVSZ_SUM:%0.1fM,RSS_SUM:%0.3fM&quot;, v/1024, r/1024)</span></span><br><span class="line"><span class="string">&#125;&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>bash练习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建博客小技巧</title>
+    <url>/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="插入视频"><a href="#插入视频" class="headerlink" title="插入视频"></a>插入视频</h1><h2 id="视频插件"><a href="#视频插件" class="headerlink" title="视频插件"></a>视频插件</h2><p><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">hexo-tag-aplayer</a></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 插入网络视频</span><br><span class="line">&#123;% dplayer &quot;url=https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/mp4/mp4_demo.mp4&quot; %&#125;</span><br><span class="line"></span><br><span class="line"># 插入acfun 视频</span><br><span class="line">&lt;iframe src=&quot;https://www.acfun.cn/player/ac12945786&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; id=&quot;ACPlayer-re&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line"># 插入 B 站视频</span><br><span class="line">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=606228531&amp;bvid=BV1y84y1t7Y9&amp;cid=922973653&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<iframe src="https://www.acfun.cn/player/ac12945786" style="width:100%;height:500px;min-width:375px;min-height:200px" id="ACPlayer-re" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<span id="more"></span>
+
+
+<iframe src="//player.bilibili.com/player.html?aid=606228531&bvid=BV1y84y1t7Y9&cid=922973653&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+<h2 id="其他好用的-hexo-插件"><a href="#其他好用的-hexo-插件" class="headerlink" title="其他好用的 hexo 插件"></a>其他好用的 hexo 插件</h2><ol>
+<li><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">二次元看板娘：hexo-helper-live2d</a></li>
+<li><a href="https://github.com/netcan/hexo-generator-index-pin-top">博客文章置顶：hexo-generator-index-pin-top</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用户和用户组</title>
+    <url>/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h1><blockquote>
+<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<p>用户和用户组是用来划分权限的抽象，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。</p>
+<p>用户和用户组是多对多的关系，即1个用户可以对应多个用户组，1个用户组也可以包含多个用户。</p>
+<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221225211630067.png" class="" title="image-20221225211630067">
+
+<span id="more"></span>
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>useradd：通常用于在脚本中创建用户</p>
+<p>adduser：交互式地创建用户，手动设置密码，自动创建家目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br></pre></td></tr></table></figure>
+
+<h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><p>usermod：修改用户信息</p>
+<p>userdel：删除用户</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改用户名</span></span><br><span class="line">usermod -l 新用户名 旧用户名</span><br><span class="line"><span class="comment"># 修改用户家目录</span></span><br><span class="line">usermod -d 新家目录 用户名</span><br><span class="line"><span class="comment"># 锁定用户不能登陆</span></span><br><span class="line">usermod -L 用户名</span><br><span class="line"><span class="comment"># 解除用户锁定</span></span><br><span class="line">usermod -U 用户名</span><br><span class="line"><span class="comment"># 查看用户状态</span></span><br><span class="line">passwd -S 用户名</span><br><span class="line"><span class="comment"># 删除用户的同时删除家目录</span></span><br><span class="line">usermod -r 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户</span></span><br><span class="line">userdel 用户名</span><br><span class="line"><span class="comment"># 删除用户名和用户的家目录</span></span><br><span class="line">userdel -r 用户名 </span><br></pre></td></tr></table></figure>
+
+<h2 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看新增用户组命令的使用方法</span></span><br><span class="line">addgroup --<span class="built_in">help</span></span><br><span class="line">groupadd --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br></pre></td></tr></table></figure>
+
+<h2 id="管理用户组"><a href="#管理用户组" class="headerlink" title="管理用户组"></a>管理用户组</h2><p>groups：查看用户组信息</p>
+<p>id：查看用户的 uid 和 gid 信息</p>
+<p>groupmod：修改用户组信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看系统中所有的用户组</span></span><br><span class="line"><span class="built_in">cat</span> /etc/group</span><br><span class="line"><span class="comment"># 查看当前用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span></span><br><span class="line"><span class="comment"># 查看某用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span> txb</span><br><span class="line"><span class="comment"># 查看用户id、用户组、用户组id</span></span><br><span class="line"><span class="built_in">id</span> txb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组名</span></span><br><span class="line">groupmod -n 新组名 旧组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组 id</span></span><br><span class="line">groupmod -g 组<span class="built_in">id</span> 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">groupdel 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将用户添加到某个用户组</span></span><br><span class="line">gpasswd -a 用户名 组名</span><br></pre></td></tr></table></figure>
+
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>passwd:修改用户密码信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">passwd </span><br><span class="line"></span><br><span class="line"><span class="comment"># 锁定用户密码，用户不能登陆</span></span><br><span class="line">passwd -l 用户名</span><br><span class="line"><span class="comment"># 解除锁定</span></span><br><span class="line">passwd -u 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看用户的密码是否被锁定</span></span><br><span class="line">passwd -S</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户密码，删除后用户不能登陆系统，重新设置密码后可以登陆系统</span></span><br><span class="line">passed -d 用户名</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221214121232905.png" class="" title="image-20221214121232905">
+
+<p>查看系统在线人员信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">who</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221229170041437.png" class="" title="image-20221229170041437">
+
+<p>强制用户下线：</p>
+<p>任何用户都可让自己强制下线，强制其他用户下线需要 root 权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pts/0 是用户使用的终端的名称</span></span><br><span class="line">sudo pkill -<span class="built_in">kill</span> -t pts/2</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>西柚云Linux教程</tag>
       </tags>
   </entry>
 </search>
