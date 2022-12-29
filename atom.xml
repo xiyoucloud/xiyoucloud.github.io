@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-29T03:32:29.471Z</updated>
+  <updated>2022-12-29T07:46:33.210Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,21 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>搭建博客小技巧</title>
+    <link href="https://xiyoucloud.github.io/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://xiyoucloud.github.io/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/</id>
+    <published>2022-12-29T06:56:19.000Z</published>
+    <updated>2022-12-29T07:46:33.210Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;插入视频&quot;&gt;&lt;a href=&quot;#插入视频&quot; class=&quot;headerlink&quot; title=&quot;插入视频&quot;&gt;&lt;/a&gt;插入视频&lt;/h1&gt;&lt;h2 id=&quot;视频插件&quot;&gt;&lt;a href=&quot;#视频插件&quot; class=&quot;headerlink&quot; title=&quot;视频插件&quot;&gt;&lt;/a&gt;视频插件&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md&quot;&gt;hexo-tag-aplayer&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;使用方法&quot;&gt;&lt;a href=&quot;#使用方法&quot; class=&quot;headerlink&quot; title=&quot;使用方法&quot;&gt;&lt;/a&gt;使用方法&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 插入网络视频&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% dplayer &amp;quot;url=https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/mp4/mp4_demo.mp4&amp;quot; %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 插入acfun 视频&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;iframe src=&amp;quot;https://www.acfun.cn/player/ac12945786&amp;quot; style=&amp;quot;width:100%;height:500px;min-width:375px;min-height:200px&amp;quot; id=&amp;quot;ACPlayer-re&amp;quot; scrolling=&amp;quot;no&amp;quot; border=&amp;quot;0&amp;quot; frameborder=&amp;quot;no&amp;quot; framespacing=&amp;quot;0&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 插入 B 站视频&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;iframe src=&amp;quot;//player.bilibili.com/player.html?aid=606228531&amp;amp;bvid=BV1y84y1t7Y9&amp;amp;cid=922973653&amp;amp;page=1&amp;quot; style=&amp;quot;width:100%;height:500px;min-width:375px;min-height:200px&amp;quot;scrolling=&amp;quot;no&amp;quot; border=&amp;quot;0&amp;quot; frameborder=&amp;quot;no&amp;quot; framespacing=&amp;quot;0&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt; &amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;iframe src=&quot;https://www.acfun.cn/player/ac12945786&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; id=&quot;ACPlayer-re&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="搭建博客" scheme="https://xiyoucloud.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>bash练习</title>
     <link href="https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/"/>
     <id>https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/</id>
     <published>2022-12-29T03:25:31.000Z</published>
-    <updated>2022-12-29T03:32:29.471Z</updated>
+    <updated>2022-12-29T07:45:49.127Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;适用于 ubuntu 20.04&lt;br&gt;ubuntu 20.04 是 “西柚云” 主要使用的操作系统 &lt;a</summary>
-        
-      
+&lt;p&gt;适用于 ubuntu 20.04&lt;br&gt;ubuntu 20.04 是 “西柚云” 主要使用的操作系统 &lt;a href=&quot;https://www.xiyoucloud.net/aff/VKRWMUHQ&quot;&gt;西柚云官网&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=606228531&amp;bvid=BV1y84y1t7Y9&amp;cid=922973653&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
+
+
+&lt;h2 id=&quot;1-统计文件的行数&quot;&gt;&lt;a href=&quot;#1-统计文件的行数&quot; class=&quot;headerlink&quot; title=&quot;1.统计文件的行数&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.nowcoder.com/practice/205ccba30b264ae697a78f425f276779?tpId=195&amp;tqId=36211&amp;rp=1&amp;ru=/exam/oj&amp;qru=/exam/oj&amp;sourceUrl=/exam/oj?page=1&amp;tab=SHELL%E7%AF%87&amp;topicId=195&amp;difficulty=undefined&amp;judgeStatus=undefined&amp;tags=&amp;title=&quot;&gt;1.统计文件的行数&lt;/a&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 方法 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;wc&lt;/span&gt; -l nowcoder.txt | awk &lt;span class=&quot;string&quot;&gt;&amp;#x27;&amp;#123;print $1&amp;#125;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 方法 2-1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cat&lt;/span&gt; nowcoder.txt | &lt;span class=&quot;built_in&quot;&gt;wc&lt;/span&gt; -l&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 方法 2-2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;wc&lt;/span&gt; -l &amp;lt; nowcoder.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 方法 3-1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cat&lt;/span&gt; -n nowcoder.txt | awk &lt;span class=&quot;string&quot;&gt;&amp;#x27;&amp;#123;print $1&amp;#125;&amp;#x27;&lt;/span&gt; | &lt;span class=&quot;built_in&quot;&gt;tail&lt;/span&gt; -n 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 方法 3-2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cat&lt;/span&gt; -n nowcoder.txt | &lt;span class=&quot;built_in&quot;&gt;tail&lt;/span&gt; -n 1 | awk &lt;span class=&quot;string&quot;&gt;&amp;#x27;&amp;#123;print $1&amp;#125;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 方法 4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;i=0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt; p;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        i=$((i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt; &amp;lt; nowcoder.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$i&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
