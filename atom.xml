@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-29T09:05:35.251Z</updated>
+  <updated>2022-12-29T11:15:36.172Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GEO和TCGA数据下载慢和下载中断的解决办法</title>
+    <link href="https://xiyoucloud.github.io/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>https://xiyoucloud.github.io/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
+    <published>2022-12-29T11:11:41.000Z</published>
+    <updated>2022-12-29T11:15:36.172Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>用户和用户组</title>

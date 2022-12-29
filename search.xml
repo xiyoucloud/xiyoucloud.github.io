@@ -154,4 +154,32 @@
         <tag>西柚云Linux教程</tag>
       </tags>
   </entry>
+  <entry>
+    <title>GEO和TCGA数据下载慢和下载中断的解决办法</title>
+    <url>/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>很多同学下载GEO数据库的数据和TCGA的数据网速特别的慢，或者总是中断，生信之路的第一个跟头就摔在了数据下载</p>
+<p>下面给大家分享一个下载神器——西柚云代理下载！</p>
+<p><a href="https://links.jianshu.com/go?to=https://fileproxy.xiyoucloud.net/%23/">https://fileproxy.xiyoucloud.net/#/</a></p>
+<p>首先在GEO数据库上面找到您所需要的数据，然后页面往下拉</p>
+<p>找到Series Matrix File(s)，点进去</p>
+<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/21c9e84a1f3f4aaf9137fbf25c803746.png" class="" title="img">
+
+
+
+<p> 找到您要下载的文件，右键-复制链接地址</p>
+<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/bd9232fab68b4e598afe3e0fa95a4403.png" class="" title="img">
+
+<p>打开我们的代理下载网站</p>
+<p><strong><a href="https://fileproxy.xiyoucloud.net/#/">https://fileproxy.xiyoucloud.net/#/</a></strong></p>
+<p>输入您用于接收下载链接的邮箱</p>
+<p>把上一步复制的链接粘贴到下载地址</p>
+<p>点提交信息</p>
+<img src="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/098a89d29f85418fac593b41e14f767e.png" class="" title="img">
+
+<p>下载完成后会自动发送到预留邮箱里面</p>
+<p>tar数据直接复制粘贴进去会提示url非法，这个是因为还需要进一步提取下载链接才能下载，具体方法可以参考网站里面的教程</p>
+<p>TCGA的使用教程可以看网站里面的教程，篇幅有限就不一一列举了。</p>
+<p><strong>最重要的是！！！这个代理下载服务是完全免费的！！！</strong></p>
+]]></content>
+  </entry>
 </search>
