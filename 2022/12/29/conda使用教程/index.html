@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>用户和用户组 |  xiyoucloud</title>
+      <title>conda使用教程 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -67,7 +67,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-用户和用户组"
+  id="post-conda使用教程"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -78,7 +78,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  用户和用户组
+  conda使用教程
 </h1>
  
 
@@ -86,15 +86,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/" class="article-date">
-  <time datetime="2022-12-29T08:14:46.000Z" itemprop="datePublished">2022-12-29</time>
+      <a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+  <time datetime="2022-12-29T12:22:47.000Z" itemprop="datePublished">2022-12-29</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">667</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -103,7 +103,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -118,48 +118,55 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <blockquote>
-<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
-</blockquote>
-<p>用户和用户组是用来划分权限的抽象，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。</p>
-<p>用户和用户组是多对多的关系，即1个用户可以对应多个用户组，1个用户组也可以包含多个用户。</p>
-<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221225211630067.png" class="" title="image-20221225211630067">
+  <iframe src="//player.bilibili.com/player.html?aid=944424445&bvid=BV18W4y1E7sw&cid=881784737&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
-<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>useradd：通常用于在脚本中创建用户</p>
-<p>adduser：交互式地创建用户，手动设置密码，自动创建家目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br></pre></td></tr></table></figure>
 
-<h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><p>usermod：修改用户信息</p>
-<p>userdel：删除用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改用户名</span></span><br><span class="line">usermod -l 新用户名 旧用户名</span><br><span class="line"><span class="comment"># 修改用户家目录</span></span><br><span class="line">usermod -d 新家目录 用户名</span><br><span class="line"><span class="comment"># 锁定用户不能登陆</span></span><br><span class="line">usermod -L 用户名</span><br><span class="line"><span class="comment"># 解除用户锁定</span></span><br><span class="line">usermod -U 用户名</span><br><span class="line"><span class="comment"># 查看用户状态</span></span><br><span class="line">passwd -S 用户名</span><br><span class="line"><span class="comment"># 删除用户的同时删除家目录</span></span><br><span class="line">usermod -r 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户</span></span><br><span class="line">userdel 用户名</span><br><span class="line"><span class="comment"># 删除用户名和用户的家目录</span></span><br><span class="line">userdel -r 用户名 </span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>针对 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<p>参考教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_64316191/article/details/127435729">conda 的安装和卸载</a></p>
+<h2 id="虚拟环境管理"><a href="#虚拟环境管理" class="headerlink" title="虚拟环境管理"></a>虚拟环境管理</h2><ol>
+<li>conda env list （列出虚拟环境信息）</li>
+<li>conda create -n <env_name> (创建虚拟环境) <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda create -n py38 -y</span><br><span class="line">conda create -n py39 python=3.9 -y  # 官方推荐使用这种方式</span><br><span class="line">conda create -n py39_2 -y &amp;&amp; conda install -n py39_2 python=3.9 -y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">比较两种创建方式有何不同，并无任何不同</span></span><br><span class="line">diff miniconda3/envs/py39 miniconda3/envs/py39_2</span><br></pre></td></tr></table></figure>
+ <img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d12c93ef45d64d26959ebb08f504be54.png" class="" title="在这里插入图片描述">
+ 可以看到，在创建环境时指定 python 版本，和创建完环境后安装 python 的指定版本两者导致的结果并无不同，那为什么官方推荐在创建环境时使用 python=3.9 的方式指定 python<br>  版本呢？ 这是因为如果您要在该虚拟环境中使用 python，就应该在创建环境之初下载 python3.9 ，之后在这个虚拟环境中下载的其他包都会匹配 python3.9的依赖与约束。如果安装了很多其他包之后再安装 python3.9，处理环境依赖就会变得较为复杂，甚至导致一些不易察觉的 bug。</li>
+<li>conda activate <env_name> (进入虚拟环境) <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda activate py39</span><br></pre></td></tr></table></figure></li>
+<li>conda deactivate <env_name> (退出虚拟环境)  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda deactivate </span><br></pre></td></tr></table></figure></li>
+<li>conda remove -n <env_name> –all 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda create -n test -y</span><br><span class="line">conda env list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除 <span class="built_in">test</span> 虚拟环境</span></span><br><span class="line">conda remove -n test --all</span><br><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
+<li>导出虚拟环境 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">适用于在相同操作系统版本下 <span class="built_in">clone</span> 虚拟环境</span></span><br><span class="line">conda list --explicit &gt; spec-list.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">适用于所有平台之间 <span class="built_in">clone</span> 虚拟环境，这里的平台指的是操作系统，如win、centos、ubuntu</span></span><br><span class="line">conda env export &gt; environment.yml</span><br></pre></td></tr></table></figure></li>
+<li>根据导出的文件创建虚拟环境 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">代码示例</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据导出包创建 env_name1 的虚拟环境</span></span><br><span class="line">conda create -n env_name1 --file spec-list.txt</span><br><span class="line">conda env create --file environment.yml</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><p><strong>conda 处理 channels 的优先级的步骤:</strong><br>    1. 按通道优先级从高到低对包进行排序。<br>    2. 将捆绑的软件包（具有相同通道优先级的软件包）从最高版本号到最低版本号排序。例如，如果 channel A 包含 NumPy 1.12.0 和 1.13.1，则 NumPy 1.13.1 将被排序更高。<br>    3. 将仍然绑定的软件包（具有相同通道优先级和相同版本的软件包）从最高到最低内部版本号排序。例如，如果 channelA 同时包含 NumPy 1.12.0 build 1 和 build 2，则 build 2 首先排序。通道B 中的任何包都将排在通道A 之下。<br>    4. 安装排序列表中满足安装规范的第一个包</p>
+<ol>
+<li>列出 conda 中配置的 channels，根据从低到高的优先级排列 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --get channels </span><br></pre></td></tr></table></figure></li>
+<li>添加 channels，添加国内的 channels 也就是我们常说的添加国内源 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加中科大源</span></span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加清华大学源（偶尔抽风，此时需要更换为其他国内镜像源，更换国内镜像源的教程可以查看《conda安装教程》）</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加阿里云源</span></span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/free</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/main</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></li>
+<li>删除 channels <ul>
+<li>方法 1 （通过命令删除）：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">首先查看 channels</span></span><br><span class="line">conda config --get channels</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除指定的 channels</span></span><br><span class="line">conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除配置的所有镜像源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure></li>
+<li>方法 2 （编辑 .condarc 文件删除想要删除 channels 对应的行）  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.condarc</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>安装包时暂时添加 channels，此 channels 处于最高优先级 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c bioconda presto</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>使用 conda 安装包之前，需要在以下链接中搜索 conda 包，找到安装对应包的命令后再进行安装，如果不能在下面的链接中找到安装方法，即表明该包不能通过 conda 安装。<br><a target="_blank" rel="noopener" href="https://anaconda.org/search">搜 conda 包</a></p>
+<img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d801ccb2ddcb4be0b856700d701fee5e.png" class="" title="在这里插入图片描述">
 
-<h2 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看新增用户组命令的使用方法</span></span><br><span class="line">addgroup --<span class="built_in">help</span></span><br><span class="line">groupadd --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br></pre></td></tr></table></figure>
-
-<h2 id="管理用户组"><a href="#管理用户组" class="headerlink" title="管理用户组"></a>管理用户组</h2><p>groups：查看用户组信息</p>
-<p>id：查看用户的 uid 和 gid 信息</p>
-<p>groupmod：修改用户组信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统中所有的用户组</span></span><br><span class="line"><span class="built_in">cat</span> /etc/group</span><br><span class="line"><span class="comment"># 查看当前用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span></span><br><span class="line"><span class="comment"># 查看某用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span> txb</span><br><span class="line"><span class="comment"># 查看用户id、用户组、用户组id</span></span><br><span class="line"><span class="built_in">id</span> txb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组名</span></span><br><span class="line">groupmod -n 新组名 旧组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组 id</span></span><br><span class="line">groupmod -g 组<span class="built_in">id</span> 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">groupdel 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将用户添加到某个用户组</span></span><br><span class="line">gpasswd -a 用户名 组名</span><br></pre></td></tr></table></figure>
-
-<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>passwd:修改用户密码信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">passwd </span><br><span class="line"></span><br><span class="line"><span class="comment"># 锁定用户密码，用户不能登陆</span></span><br><span class="line">passwd -l 用户名</span><br><span class="line"><span class="comment"># 解除锁定</span></span><br><span class="line">passwd -u 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看用户的密码是否被锁定</span></span><br><span class="line">passwd -S</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户密码，删除后用户不能登陆系统，重新设置密码后可以登陆系统</span></span><br><span class="line">passed -d 用户名</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221214121232905.png" class="" title="image-20221214121232905">
-
-<p>查看系统在线人员信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">who</span></span><br></pre></td></tr></table></figure>
-
-<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221229170041437.png" class="" title="image-20221229170041437">
-
-<p>强制用户下线：</p>
-<p>任何用户都可让自己强制下线，强制其他用户下线需要 root 权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pts/0 是用户使用的终端的名称</span></span><br><span class="line">sudo pkill -<span class="built_in">kill</span> -t pts/2</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<ol>
+<li>conda list （查看当前虚拟环境已经安装的包）</li>
+<li>conda install <package_name>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda install --help</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-y: <span class="built_in">yes</span></span></span><br><span class="line">conda install requests -y</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-c: 临时增加一个 channel ，并且增加的 channels 会处于最高优先级</span></span><br><span class="line">conda install -c bioconda presto</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-vv: 显示下载过程中的详细日志，方便定位问题</span></span><br><span class="line">conda install numpy -y -vv</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后台下载</span></span><br><span class="line">nohup conda install pandas -y &amp;</span><br></pre></td></tr></table></figure></li>
+<li>conda 官方建议，使用 conda 安装的 python包和使用 pip 安装的 python 包是有略微不同的，如果可能，尽量使用 conda 来安装包。<a target="_blank" rel="noopener" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html?highlight=pip#id5">参考链接</a><ul>
+<li>在 conda 4.6 以后，conda 可以识别 pip 安装的 python包，不过目前这一功能还处于实验阶段。</li>
+<li>在 conda 中应该优先使用 conda 安装包，不要混用 conda 和 pip，可以设置一个虚拟环境专门用户 pip 管理 python 包</li>
+<li>conda 和 pip 都可以根据文件批量安装 python 包  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip list --format=freeze &gt; requirements.txt</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">conda install -n env_name --file requirements.txt</span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+</ul>
+</li>
+</ol>
+<h2 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h2><ol>
+<li>conda config –show <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 channels</span></span><br><span class="line">conda config --help</span><br><span class="line">conda config --get channels</span><br><span class="line">conda config --remove &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+我们很难记住那么多配置项的作用，如果需要可以查阅 conda 官方教程对各配置项的详解<br><a target="_blank" rel="noopener" href="https://conda.io/projects/conda/en/latest/configuration.html#">conda 配置项的作用</a></li>
+</ol>
  
       <!-- reward -->
       
@@ -230,12 +237,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/" rel="tag">西柚云Linux教程</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conda/" rel="tag">conda</a></li></ul>
 
     </footer>
   </div>
@@ -243,19 +250,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            GEO和TCGA数据下载慢和下载中断的解决办法
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="article-nav-link">
+      <a href="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">搭建博客小技巧</div>
+        <div class="article-nav-title">conda的安装和卸载</div>
       </a>
     
   </nav>

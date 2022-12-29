@@ -34,6 +34,63 @@
       </tags>
   </entry>
   <entry>
+    <title>conda使用教程</title>
+    <url>/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=944424445&bvid=BV18W4y1E7sw&cid=881784737&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+
+
+<blockquote>
+<p>针对 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<p>参考教程：<a href="https://blog.csdn.net/weixin_64316191/article/details/127435729">conda 的安装和卸载</a></p>
+<h2 id="虚拟环境管理"><a href="#虚拟环境管理" class="headerlink" title="虚拟环境管理"></a>虚拟环境管理</h2><ol>
+<li>conda env list （列出虚拟环境信息）</li>
+<li>conda create -n <env_name> (创建虚拟环境) <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda create -n py38 -y</span><br><span class="line">conda create -n py39 python=3.9 -y  # 官方推荐使用这种方式</span><br><span class="line">conda create -n py39_2 -y &amp;&amp; conda install -n py39_2 python=3.9 -y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">比较两种创建方式有何不同，并无任何不同</span></span><br><span class="line">diff miniconda3/envs/py39 miniconda3/envs/py39_2</span><br></pre></td></tr></table></figure>
+ <img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d12c93ef45d64d26959ebb08f504be54.png" class="" title="在这里插入图片描述">
+ 可以看到，在创建环境时指定 python 版本，和创建完环境后安装 python 的指定版本两者导致的结果并无不同，那为什么官方推荐在创建环境时使用 python=3.9 的方式指定 python<br>  版本呢？ 这是因为如果您要在该虚拟环境中使用 python，就应该在创建环境之初下载 python3.9 ，之后在这个虚拟环境中下载的其他包都会匹配 python3.9的依赖与约束。如果安装了很多其他包之后再安装 python3.9，处理环境依赖就会变得较为复杂，甚至导致一些不易察觉的 bug。</li>
+<li>conda activate <env_name> (进入虚拟环境) <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda activate py39</span><br></pre></td></tr></table></figure></li>
+<li>conda deactivate <env_name> (退出虚拟环境)  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda deactivate </span><br></pre></td></tr></table></figure></li>
+<li>conda remove -n <env_name> –all 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda create -n test -y</span><br><span class="line">conda env list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除 <span class="built_in">test</span> 虚拟环境</span></span><br><span class="line">conda remove -n test --all</span><br><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
+<li>导出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">适用于在相同操作系统版本下 <span class="built_in">clone</span> 虚拟环境</span></span><br><span class="line">conda list --explicit &gt; spec-list.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">适用于所有平台之间 <span class="built_in">clone</span> 虚拟环境，这里的平台指的是操作系统，如win、centos、ubuntu</span></span><br><span class="line">conda env export &gt; environment.yml</span><br></pre></td></tr></table></figure></li>
+<li>根据导出的文件创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">代码示例</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据导出包创建 env_name1 的虚拟环境</span></span><br><span class="line">conda create -n env_name1 --file spec-list.txt</span><br><span class="line">conda env create --file environment.yml</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><p><strong>conda 处理 channels 的优先级的步骤:</strong><br>    1. 按通道优先级从高到低对包进行排序。<br>    2. 将捆绑的软件包（具有相同通道优先级的软件包）从最高版本号到最低版本号排序。例如，如果 channel A 包含 NumPy 1.12.0 和 1.13.1，则 NumPy 1.13.1 将被排序更高。<br>    3. 将仍然绑定的软件包（具有相同通道优先级和相同版本的软件包）从最高到最低内部版本号排序。例如，如果 channelA 同时包含 NumPy 1.12.0 build 1 和 build 2，则 build 2 首先排序。通道B 中的任何包都将排在通道A 之下。<br>    4. 安装排序列表中满足安装规范的第一个包</p>
+<ol>
+<li>列出 conda 中配置的 channels，根据从低到高的优先级排列 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda config --get channels </span><br></pre></td></tr></table></figure></li>
+<li>添加 channels，添加国内的 channels 也就是我们常说的添加国内源 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加中科大源</span></span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加清华大学源（偶尔抽风，此时需要更换为其他国内镜像源，更换国内镜像源的教程可以查看《conda安装教程》）</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加阿里云源</span></span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/free</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/main</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></li>
+<li>删除 channels <ul>
+<li>方法 1 （通过命令删除）：  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">首先查看 channels</span></span><br><span class="line">conda config --get channels</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除指定的 channels</span></span><br><span class="line">conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除配置的所有镜像源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure></li>
+<li>方法 2 （编辑 .condarc 文件删除想要删除 channels 对应的行）  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi ~/.condarc</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>安装包时暂时添加 channels，此 channels 处于最高优先级 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install -c bioconda presto</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>使用 conda 安装包之前，需要在以下链接中搜索 conda 包，找到安装对应包的命令后再进行安装，如果不能在下面的链接中找到安装方法，即表明该包不能通过 conda 安装。<br><a href="https://anaconda.org/search">搜 conda 包</a></p>
+<img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d801ccb2ddcb4be0b856700d701fee5e.png" class="" title="在这里插入图片描述">
+
+<ol>
+<li>conda list （查看当前虚拟环境已经安装的包）</li>
+<li>conda install <package_name>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda install --help</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-y: <span class="built_in">yes</span></span></span><br><span class="line">conda install requests -y</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-c: 临时增加一个 channel ，并且增加的 channels 会处于最高优先级</span></span><br><span class="line">conda install -c bioconda presto</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-vv: 显示下载过程中的详细日志，方便定位问题</span></span><br><span class="line">conda install numpy -y -vv</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后台下载</span></span><br><span class="line">nohup conda install pandas -y &amp;</span><br></pre></td></tr></table></figure></li>
+<li>conda 官方建议，使用 conda 安装的 python包和使用 pip 安装的 python 包是有略微不同的，如果可能，尽量使用 conda 来安装包。<a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html?highlight=pip#id5">参考链接</a><ul>
+<li>在 conda 4.6 以后，conda 可以识别 pip 安装的 python包，不过目前这一功能还处于实验阶段。</li>
+<li>在 conda 中应该优先使用 conda 安装包，不要混用 conda 和 pip，可以设置一个虚拟环境专门用户 pip 管理 python 包</li>
+<li>conda 和 pip 都可以根据文件批量安装 python 包  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip list --format=freeze &gt; requirements.txt</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">conda install -n env_name --file requirements.txt</span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+</ul>
+</li>
+</ol>
+<h2 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h2><ol>
+<li>conda config –show <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 channels</span></span><br><span class="line">conda config --help</span><br><span class="line">conda config --get channels</span><br><span class="line">conda config --remove &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+我们很难记住那么多配置项的作用，如果需要可以查阅 conda 官方教程对各配置项的详解<br><a href="https://conda.io/projects/conda/en/latest/configuration.html#">conda 配置项的作用</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>conda的安装和卸载</title>
     <url>/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=559359158&bvid=BV1xe4y1U7Fe&cid=881565520&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -65,7 +122,8 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p><strong>卸载完成！</strong></p>
 <h2 id="重装"><a href="#重装" class="headerlink" title="重装"></a>重装</h2><p>所谓重装，就是将原来安装的 conda 卸载后再重新安装一次。（参考上述步骤）</p>
-<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可"><a href="#更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可" class="headerlink" title="更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可"></a>更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除当前配置的源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="更换镜像源："><a href="#更换镜像源：" class="headerlink" title="更换镜像源："></a>更换镜像源：</h3><p>首先删除当前配置的源，然后根据上述教程重新配置源即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除当前配置的源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
@@ -75,7 +133,7 @@
   <entry>
     <title>用户和用户组</title>
     <url>/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
 <p>用户和用户组是用来划分权限的抽象，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。</p>

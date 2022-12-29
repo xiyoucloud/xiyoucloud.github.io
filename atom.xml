@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-29T12:17:10.113Z</updated>
+  <updated>2022-12-29T12:32:45.249Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>conda使用教程</title>
+    <link href="https://xiyoucloud.github.io/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://xiyoucloud.github.io/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
+    <published>2022-12-29T12:22:47.000Z</published>
+    <updated>2022-12-29T12:32:45.249Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=944424445&amp;bvid=BV18W4y1E7sw&amp;cid=881784737&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
+    
+  </entry>
+  
+  <entry>
     <title>conda的安装和卸载</title>
     <link href="https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/"/>
     <id>https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/</id>
     <published>2022-12-29T12:03:19.000Z</published>
-    <updated>2022-12-29T12:17:10.113Z</updated>
+    <updated>2022-12-29T12:20:46.002Z</updated>
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=559359158&amp;bvid=BV1xe4y1U7Fe&amp;cid=881565520&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
@@ -57,10 +74,10 @@
     <link href="https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/"/>
     <id>https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</id>
     <published>2022-12-29T08:14:46.000Z</published>
-    <updated>2022-12-29T09:05:35.251Z</updated>
+    <updated>2022-12-29T13:00:44.768Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;用户和用户组&quot;&gt;&lt;a href=&quot;#用户和用户组&quot; class=&quot;headerlink&quot; title=&quot;用户和用户组&quot;&gt;&lt;/a&gt;用户和用户组&lt;/h1&gt;&lt;blockquote&gt;
+    <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;适用于 ubuntu 20.04&lt;br&gt;ubuntu 20.04 是 “西柚云” 主要使用的操作系统 &lt;a href=&quot;https://www.xiyoucloud.net/aff/VKRWMUHQ&quot;&gt;西柚云官网&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;用户和用户组是用来划分权限的抽象，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。&lt;/p&gt;
@@ -98,7 +115,7 @@
     <link href="https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/"/>
     <id>https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/</id>
     <published>2022-12-29T03:25:31.000Z</published>
-    <updated>2022-12-29T11:22:59.303Z</updated>
+    <updated>2022-12-29T12:21:50.452Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
