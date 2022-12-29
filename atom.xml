@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-29T13:18:55.015Z</updated>
+  <updated>2022-12-29T13:27:55.642Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何安装R包</title>
+    <link href="https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/"/>
+    <id>https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/</id>
+    <published>2022-12-29T13:23:39.000Z</published>
+    <updated>2022-12-29T13:27:55.642Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=774448127&amp;bvid=BV1k14y1577d&amp;cid=881813168&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>在rstudio-server中使用R包的不同版本</title>

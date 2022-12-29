@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>在rstudio-server中使用R包的不同版本 |  xiyoucloud</title>
+      <title>如何安装R包 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -67,7 +67,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-在rstudio-server中使用R包的不同版本"
+  id="post-如何安装R包"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -78,7 +78,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  在rstudio-server中使用R包的不同版本
+  如何安装R包
 </h1>
  
 
@@ -86,15 +86,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" class="article-date">
-  <time datetime="2022-12-29T13:08:39.000Z" itemprop="datePublished">2022-12-29</time>
+      <a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" class="article-date">
+  <time datetime="2022-12-29T13:23:39.000Z" itemprop="datePublished">2022-12-29</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">996</span>
+            <span class="post-count">742</span>
         </span>
     </span>
 
@@ -103,7 +103,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -118,36 +118,63 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=986974785&bvid=BV1xt4y1T7Gd&cid=881793170&page=1"style="width:100%;height:500px;min-width:375px;min-height:200px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=774448127&bvid=BV1k14y1577d&cid=881813168&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
+
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><strong>R 不支持在一个目录下安装同一个包的多个版本</strong>，在加载 R 包时，它按照系统中配置的 libpaths 的优先级从高到低查找，在某个 libpath 下找到这个包后，将这个包加载到环境中，即使后面找到这个包的其他版本，也不会再次加载了。（R包加载机制）</p>
-<p>如：在执行 library(“uwot”) 时，R 就会依次搜索 libpath 找到 uwot 的位置，即使 libpaths 中有多个 uwot，它找到第一个 uwot 后，就将 uwot 加载到环境中，而不会再加载后续找到的 uwot 包到环境中了。</p>
-<p>不过我们可以将当前加载到环境中的 uwot 这个包 unload，然后加载其他 libpath 中的 uwot 包。后面我会演示这个步骤。（切换 uwot 版本的原理）</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统中配置好的 libpath 输出，按照优先级从高到低的方式输出</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 示例输出：</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;/home/txb/R/x86_64-pc-linux-gnu-library/4.2&quot;</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span>              </span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span> <span class="string">&quot;/usr/lib/R/site-library&quot;</span>                    </span><br><span class="line"><span class="punctuation">[</span><span class="number">4</span><span class="punctuation">]</span> <span class="string">&quot;/usr/lib/R/library&quot;</span> </span><br></pre></td></tr></table></figure>
-<p>如图：/home/txb/rpackage 目录下的初始 uwot 版本是 0.1.14，我在这个目录下重新安装了 uwot 的 0.1.13 版本。两个版本没有共存，而是将原来的 uwot 0.1.14 版本卸载掉了，安装上了 uwot 的 0.1.13 版本。这就是我们为什么要构造新的 libpath 的原因 —— 同一个 libpath 下的包只有1个版本。</p>
-<img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/5464ff7939c74430acfb02a24a88e690.png" class="" title="在这里插入图片描述">
-<img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/5ede430fd04f42f29a09540c89da992b.png" class="" title="在这里插入图片描述">
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像。</p>
+<ol>
+<li><p>设置国内镜像源（<strong>可选</strong>）</p>
+<ul>
+<li><p>使用 install 下载：<a target="_blank" rel="noopener" href="https://cran.r-project.org/mirrors.html%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://cran.r-project.org/mirrors.html（镜像源列表）</a></p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> repos <span class="operator">=</span> <span class="string">&quot;https://mirrors.ustc.edu.cn/CRAN/&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用 BiocManager 下载 <a target="_blank" rel="noopener" href="https://www.bioconductor.org/about/mirrors/%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://www.bioconductor.org/about/mirrors/（镜像源列表）</a></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">从 BiocManager 镜像安装 XVector</span></span><br><span class="line">options(BioC_mirror=&quot;https://mirrors.tuna.tsinghua.edu.cn/bioconductor&quot;)</span><br><span class="line">BiocManager::install(&quot;XVector&quot;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">向 ~/.Rprofile 文件中写入配置镜像的代码可以永久配置镜像</span></span><br><span class="line">file.edit(&quot;~/.Rprofile&quot;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>搜索 R 包，找到安装命令</p>
+<ul>
+<li>在浏览器中搜索关键字：“xxx install” （推荐 google 搜索）</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>CRAN <a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/available_packages_by_name.html">https://cran.r-project.org/web/packages/available_packages_by_name.html</a> （能够在这里搜到的 R 包都能够通过 install.packages(“xxx”) 安装）<ul>
+<li>Bioconductor <a target="_blank" rel="noopener" href="https://www.bioconductor.org/help/search/index.html?/%EF%BC%8C%EF%BC%88%E8%83%BD%E5%A4%9F%E5%9C%A8%E8%BF%99%E9%87%8C%E6%90%9C%E5%88%B0%E7%9A%84">https://www.bioconductor.org/help/search/index.html?/，（能够在这里搜到的</a> R 包都能通过 BiocManager::install(“xxx”) 的方式安装）</li>
+</ul>
+</li>
+<li>GitHub <a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a> （通常在 github 仓库的 README.md 文件会提供安装方法）</li>
+</ul>
+<ol start="3">
+<li>安装 R 包</li>
+</ol>
+<h2 id="安装-R-包"><a href="#安装-R-包" class="headerlink" title="安装 R 包"></a>安装 R 包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">R 包工具下载方式, 养成好习惯，安装包时指定 lib</span></span><br><span class="line">install.packages(&quot;devtools&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;remotes&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;BiocManager&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><p>R 包的安装目录是使用 lib 参数指定的，指定这个参数可以将 R 包下载到对应的目录。在指定目录下安装好R包后，通过 .libPaths() 函数将该目录配置为新增的 libpath。</p>
-<p>通过在 Console 中执行 .libPaths() 函数配置好的 libpath 仅在当前 rsession 中生效，“Start New Session” 之后，配置的 libpath 就会失效。</p>
-<p>为了让 .libPaths() 配置的 libpath 永久生效，可以将相关的配置命令写入的 ~/.Rprofile 中，这样在“Start New Session” 之后，配置的 libpath 依然有效。</p>
-<p>实现方式 1: 将 R 包安装在 rpackage 目录并配置</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将包安装在指定的 libpath 示例：</span></span><br><span class="line"><span class="comment"># 注意：libpath 必须在系统中存在，如果不存在，需要新建对应的目录：mkdir -p /home/txb/rpackage</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 R 包下载在指定目录命令示例：</span></span><br><span class="line">remotes<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;jlmelville/uwot&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">devtools<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;xxx/xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看未添加 libpath 之前 uwot 的版本</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 向 R 包的 libpaths 中新增一个 libpath，并将它放在第 1 个元素 （最高优先级）</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">,</span>.libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 查看添加 libpath 之后 uwot 的版本</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>从 CRAN 安装：</p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>从 Bioconductor 安装：</p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;XVector&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>从 GitHub 在线安装：</p>
+<p>  推荐一个 GitHub 代理网站 <a target="_blank" rel="noopener" href="https://ghproxy.com/">https://ghproxy.com/</a>, 感谢该网站站长为中国开源做出的贡献！</p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里 R 包对应的 GitHub 链接是 https://github.com/tidyverse/stringr</span></span><br><span class="line">devtools<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">remotes<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 remotes 可以在安装时指定完整的 GitHub 链接，方便我们使用 GitHub 代理</span></span><br><span class="line">remotes<span class="operator">::</span>install_git<span class="punctuation">(</span><span class="string">&quot;https://github.com/tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用国内代理下载 R 包源码并安装</span></span><br><span class="line">remotes<span class="operator">::</span>install_git<span class="punctuation">(</span><span class="string">&quot;https://ghproxy.com/https://github.com/tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>从 GitHub 离线安装：</p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设我们将安装好的 zip包命名为 main.zip</span></span><br><span class="line">devtools<span class="operator">::</span>install_local<span class="punctuation">(</span><span class="string">&quot;main.zip&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 可以参考 https://ghproxy.com 使用 github 代理下载文件</span></span><br></pre></td></tr></table></figure>
 
-<p>实现方式 2：使用 conda 安装 R 包并配置 libpath</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 conda 安装指定版本的 R 包</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 创建 conda 环境</span></span></span><br><span class="line">conda create -n r-reticulate r-uwot==0.1.11 -y</span><br><span class="line">conda activate r-reticulate </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置 libpath</span></span><br><span class="line">.libPaths(c(&quot;/home/txb/miniconda3/envs/r-reticulate/lib/R/library&quot;, .libPaths()))</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看此时 R 找到的第 1 个 R 包的版本。</span></span><br><span class="line">library(&quot;uwot&quot;)</span><br><span class="line">packageVersion(&quot;uwot&quot;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h3><p>结合 rstudio-server 查看 R 包的版本。在这个步骤我先 “Start New Session” 将原先配置的 libpath 取消掉（后面会说明原因）。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">,</span>.libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/miniconda3/envs/r-reticulate/lib/R/library&quot;</span><span class="punctuation">,</span> .libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Seurat 中会 import uwot，此时 uwot 无法 unload，想要切换 uwot 版本，有两种方式。</span></span><br><span class="line"><span class="comment"># 1. 将 Seurat unload</span></span><br><span class="line"><span class="comment"># 2. “Start New Session”，然后再选中想要使用的 uwot 版本 (推荐)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;Seurat&quot;</span><span class="punctuation">)</span></span><br><span class="line">detach<span class="punctuation">(</span><span class="string">&quot;package:Seurat&quot;</span><span class="punctuation">,</span> unload <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/e69c3a3181f7466bafb4e6f27f02fd80.png" class="" title="请添加图片描述">
-<img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/24267bfcfa654dd2bb5ab21f0f909982.png" class="" title="请添加图片描述">
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 让 libpath 永久生效，将相关命令写入到文件</span><br><span class="line">file.edit(&quot;~/.Rprofile&quot;)</span><br></pre></td></tr></table></figure> 
+<p>  zip 包需要从 GitHub 下载(如图):</p>
+  <img src="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/a8af53aad80d4526923c61101c473a44.png" class="" title="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li><p>从在线源码安装：</p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里的 &quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot; 就是源码的下载路径</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot;</span><span class="punctuation">,</span> repos<span class="operator">=</span><span class="literal">NULL</span><span class="punctuation">,</span> type<span class="operator">=</span><span class="string">&quot;source&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>从离线源码安装：</p>
+  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将源码下载到本地，然后使用以下方式编译安装</span></span><br><span class="line"></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;/tmp/stringr_1.4.1.tar.gz&#x27;</span><span class="punctuation">,</span> repos<span class="operator">=</span><span class="literal">NULL</span><span class="punctuation">,</span> type<span class="operator">=</span><span class="string">&quot;source&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 下载方式示例：</span></span><br><span class="line">wget <span class="string">&quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样</strong></p>
+<h2 id="卸载-R-包"><a href="#卸载-R-包" class="headerlink" title="卸载 R 包"></a>卸载 R 包</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令示例，stringr 是包的名称</span></span><br><span class="line">remove.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -217,12 +244,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E5%8C%85/" rel="tag">R包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rstudio-server/" rel="tag">rstudio-server</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E5%8C%85/" rel="tag">R包</a></li></ul>
 
     </footer>
   </div>
@@ -230,19 +257,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            如何安装R包
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">
+      <a href="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">conda使用教程</div>
+        <div class="article-nav-title">在rstudio-server中使用R包的不同版本</div>
       </a>
     
   </nav>
