@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-28T03:57:08.026Z</updated>
+  <updated>2022-12-29T03:32:29.471Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,25 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>摘抄的句子</title>
-    <link href="https://xiyoucloud.github.io/2022/08/17/%E6%91%98%E6%8A%84%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-    <id>https://xiyoucloud.github.io/2022/08/17/%E6%91%98%E6%8A%84%E7%9A%84%E5%8F%A5%E5%AD%90/</id>
-    <published>2022-08-17T15:01:39.000Z</published>
-    <updated>2022-12-28T03:57:08.026Z</updated>
+    <title>bash练习</title>
+    <link href="https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/"/>
+    <id>https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/</id>
+    <published>2022-12-29T03:25:31.000Z</published>
+    <updated>2022-12-29T03:32:29.471Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;句子&quot;&gt;&lt;a href=&quot;#句子&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;适用于 ubuntu 20.04&lt;br&gt;ubuntu 20.04 是 “西柚云” 主要使用的操作系统 &lt;a</summary>
         
       
     
     
     
     
-    <category term="文学" scheme="https://xiyoucloud.github.io/tags/%E6%96%87%E5%AD%A6/"/>
+    <category term="bash练习" scheme="https://xiyoucloud.github.io/tags/bash%E7%BB%83%E4%B9%A0/"/>
     
   </entry>
   
