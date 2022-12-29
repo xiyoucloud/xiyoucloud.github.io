@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>如何安装R包 |  xiyoucloud</title>
+      <title>终端-工作目录-文件-路径-命令-参数(pwd,cd,ls) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -67,7 +67,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-如何安装R包"
+  id="post-终端-工作目录-文件-路径-命令-参数-pwd-cd-ls"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -78,7 +78,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何安装R包
+  终端-工作目录-文件-路径-命令-参数(pwd,cd,ls)
 </h1>
  
 
@@ -86,15 +86,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" class="article-date">
-  <time datetime="2022-12-29T13:23:39.000Z" itemprop="datePublished">2022-12-29</time>
+      <a href="/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/" class="article-date">
+  <time datetime="2022-12-29T17:57:46.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">742</span>
+            <span class="post-count">1.6k</span>
         </span>
     </span>
 
@@ -103,7 +103,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -118,63 +118,56 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=774448127&bvid=BV1k14y1577d&cid=881813168&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=902282431&bvid=BV1tP4y1U7zP&cid=883084717&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像。</p>
-<ol>
-<li><p>设置国内镜像源（<strong>可选</strong>）</p>
-<ul>
-<li><p>使用 install 下载：<a target="_blank" rel="noopener" href="https://cran.r-project.org/mirrors.html%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://cran.r-project.org/mirrors.html（镜像源列表）</a></p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> repos <span class="operator">=</span> <span class="string">&quot;https://mirrors.ustc.edu.cn/CRAN/&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
-<li><p>使用 BiocManager 下载 <a target="_blank" rel="noopener" href="https://www.bioconductor.org/about/mirrors/%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://www.bioconductor.org/about/mirrors/（镜像源列表）</a></p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">从 BiocManager 镜像安装 XVector</span></span><br><span class="line">options(BioC_mirror=&quot;https://mirrors.tuna.tsinghua.edu.cn/bioconductor&quot;)</span><br><span class="line">BiocManager::install(&quot;XVector&quot;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">向 ~/.Rprofile 文件中写入配置镜像的代码可以永久配置镜像</span></span><br><span class="line">file.edit(&quot;~/.Rprofile&quot;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>搜索 R 包，找到安装命令</p>
-<ul>
-<li>在浏览器中搜索关键字：“xxx install” （推荐 google 搜索）</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>CRAN <a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/available_packages_by_name.html">https://cran.r-project.org/web/packages/available_packages_by_name.html</a> （能够在这里搜到的 R 包都能够通过 install.packages(“xxx”) 安装）<ul>
-<li>Bioconductor <a target="_blank" rel="noopener" href="https://www.bioconductor.org/help/search/index.html?/%EF%BC%8C%EF%BC%88%E8%83%BD%E5%A4%9F%E5%9C%A8%E8%BF%99%E9%87%8C%E6%90%9C%E5%88%B0%E7%9A%84">https://www.bioconductor.org/help/search/index.html?/，（能够在这里搜到的</a> R 包都能通过 BiocManager::install(“xxx”) 的方式安装）</li>
-</ul>
-</li>
-<li>GitHub <a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a> （通常在 github 仓库的 README.md 文件会提供安装方法）</li>
-</ul>
-<ol start="3">
-<li>安装 R 包</li>
-</ol>
-<h2 id="安装-R-包"><a href="#安装-R-包" class="headerlink" title="安装 R 包"></a>安装 R 包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">R 包工具下载方式, 养成好习惯，安装包时指定 lib</span></span><br><span class="line">install.packages(&quot;devtools&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;remotes&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;BiocManager&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="1-终端（terminal）"><a href="#1-终端（terminal）" class="headerlink" title="1.终端（terminal）"></a>1.终端（terminal）</h2><p>终端是一种输入输出设备，用于人与计算机交互，早期是一种计算机硬件。（电传打字机）电传打字机将用户输入的文字翻译成纸带上的孔，然后将纸带输入到计算机中获得用户输入的文字。终端是人与计算机交互的桥梁。</p>
+<img src="/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/f818a5fd2ddc4ea1a021ba2fa7a027ed.jpeg" class="" title="请添加图片描述">
 
-<ul>
-<li><p>从 CRAN 安装：</p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
-<li><p>从 Bioconductor 安装：</p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;XVector&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
-<li><p>从 GitHub 在线安装：</p>
-<p>  推荐一个 GitHub 代理网站 <a target="_blank" rel="noopener" href="https://ghproxy.com/">https://ghproxy.com/</a>, 感谢该网站站长为中国开源做出的贡献！</p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里 R 包对应的 GitHub 链接是 https://github.com/tidyverse/stringr</span></span><br><span class="line">devtools<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line">remotes<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 remotes 可以在安装时指定完整的 GitHub 链接，方便我们使用 GitHub 代理</span></span><br><span class="line">remotes<span class="operator">::</span>install_git<span class="punctuation">(</span><span class="string">&quot;https://github.com/tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用国内代理下载 R 包源码并安装</span></span><br><span class="line">remotes<span class="operator">::</span>install_git<span class="punctuation">(</span><span class="string">&quot;https://ghproxy.com/https://github.com/tidyverse/stringr&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
-<li><p>从 GitHub 离线安装：</p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设我们将安装好的 zip包命名为 main.zip</span></span><br><span class="line">devtools<span class="operator">::</span>install_local<span class="punctuation">(</span><span class="string">&quot;main.zip&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 可以参考 https://ghproxy.com 使用 github 代理下载文件</span></span><br></pre></td></tr></table></figure>
 
-<p>  zip 包需要从 GitHub 下载(如图):</p>
-  <img src="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/a8af53aad80d4526923c61101c473a44.png" class="" title="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li><p>从在线源码安装：</p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里的 &quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot; 就是源码的下载路径</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot;</span><span class="punctuation">,</span> repos<span class="operator">=</span><span class="literal">NULL</span><span class="punctuation">,</span> type<span class="operator">=</span><span class="string">&quot;source&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
-<li><p>从离线源码安装：</p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将源码下载到本地，然后使用以下方式编译安装</span></span><br><span class="line"></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;/tmp/stringr_1.4.1.tar.gz&#x27;</span><span class="punctuation">,</span> repos<span class="operator">=</span><span class="literal">NULL</span><span class="punctuation">,</span> type<span class="operator">=</span><span class="string">&quot;source&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 下载方式示例：</span></span><br><span class="line">wget <span class="string">&quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样</strong></p>
-<h2 id="卸载-R-包"><a href="#卸载-R-包" class="headerlink" title="卸载 R 包"></a>卸载 R 包</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令示例，stringr 是包的名称</span></span><br><span class="line">remove.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure> 
+<p>现在使用的终端是使用软件模拟出来的虚拟终端，用于人与计算机交互，输出系统是屏幕，输入系统是键盘。如：<a target="_blank" rel="noopener" href="https://shell.aliyun.com/%EF%BC%88%E4%BD%BF%E7%94%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E7%A0%81%E7%99%BB%E9%99%86%EF%BC%89">https://shell.aliyun.com/（使用支付宝扫码登陆）</a></p>
+<img src="/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/0b2c8f22ae844f4182e8f5ba780661fa.png" class="" title="请添加图片描述">
+
+
+
+
+<p>我们可以在终端输入命令来与计算机进行交互。</p>
+<h2 id="2-工作目录（work-directory）"><a href="#2-工作目录（work-directory）" class="headerlink" title="2.工作目录（work directory）"></a>2.工作目录（work directory）</h2><p>工作目录是在终端中使用<code>pwd</code>（print work directory）命令输出的目录，通常也被称为“当前所在的目录”。</p>
+<p>它的意义是执行命令时如果涉及到目录，可以以它为参考来指定其他目录。当命令涉及到目录却并未指定时，则默认使用工作目录。如使用<code>ls</code>(list information about the files)列出某个目录下的文件和目录信息时，如果不指定目录，则默认列出工作目录下的文件和目录信息。使用<code>cd</code>（change directory）可以切换工作目录，将当前的工作目录切换为 /tmp 的命令为<code>cd /tmp</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出当前的工作目录</span></span><br><span class="line">pwd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不指定目录，列出当前工作目录下的文件信息</span></span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定目录，输入 tmp 目录下的文件信息</span></span><br><span class="line">ls /tmp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将当前的工作目录切换为 /tmp</span></span><br><span class="line">cd /tmp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不指定目录，列出当前工作目录(tmp)下的文件</span></span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-文件和目录"><a href="#3-文件和目录" class="headerlink" title="3.文件和目录"></a>3.文件和目录</h2><p>文件是一种数据的组织形式，通常人们以<strong>文件名</strong>来称呼一个文件，如：“新建文本文档.txt”。</p>
+<p>目录是一种组织文件的方式，不同目录下可能存在着拥有相同名称的文件或目录，为了消除歧义，人们称呼某个文件或目录时，会称呼为 “xx目录下的xx文件”、“xx目录下的xx目录”。但这还不够，因为一个系统中可能存在多个 a 目录。当说到 “a 目录下的 xx 文件” 时还是可能存在歧义。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A(&quot;/&quot;) --&gt; B(bin)</span><br><span class="line">A(&quot;/&quot;) --&gt; C(usr)</span><br><span class="line">B(bin) --&gt; D(xiyou.txt)</span><br><span class="line">C(usr) --&gt; E(bin)</span><br><span class="line">E(bin) --&gt; F(xiyou.txt)</span><br></pre></td></tr></table></figure>
+
+<p>为了彻底消除歧义，可以用<strong>路径</strong>来指代文件，在 linux 系统中，不同的文件或目录拥有不同的路径，也就是说每个文件或目录对应的路径是唯一的，使用路径来指代文件就没有歧义了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将工作目录切换为 /</span></span><br><span class="line">cd /</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出工作目录下的文件和目录信息</span></span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将各做目录切换为 /usr 目录</span></span><br><span class="line">cd /usr</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出工作目录下的文件和目录信息</span></span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据上图可以看到 / 目录下和 /usr 目录下都有 bin 目录 两个 bin 目录下都有 xiyou.txt文件，此时可以通过路径来区分它们</span></span><br><span class="line">/bin</span><br><span class="line">/usr/bin</span><br><span class="line">/bin/xiyou.txt</span><br><span class="line">/usr/bin/xiyou.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-路径"><a href="#4-路径" class="headerlink" title="4.路径"></a>4.路径</h2><p>在 linux 系统中，目录和文件都有其对应的路径，路径是区分不同文件或不同目录的唯一标识，目录和文件的区别是目录名可以作为文件路径的前缀，但文件名不能作为目录路径的前缀。假设在 /tmp 目录下有一个文件 xiyou.txt ，则目录 tmp 的路径为 /tmp， xiyou.txt 的路径是 /tmp/xiyou.txt。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(&quot;/&quot;) --&gt; B(tmp)</span><br><span class="line">B(tmp) --&gt; C(xiyou.txt)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>下图中 lib 的路径为<code>/usr/lib</code>，xiyou.txt 的路径为 <code>/tmp/xiyou.txt</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">/(&quot;/&quot;)--&gt; tmp</span><br><span class="line">/(&quot;/&quot;) --&gt; bin</span><br><span class="line">/(&quot;/&quot;) --&gt; usr</span><br><span class="line">/(&quot;/&quot;) --&gt; home</span><br><span class="line">home --&gt; shell</span><br><span class="line">usr --&gt; lib</span><br><span class="line">tmp --&gt; xiyou.txt</span><br></pre></td></tr></table></figure>
+
+<p>根目录：”/“ 代表根目录，是系统中<strong>所有</strong>目录的前缀。</p>
+<p>绝对路径：绝对路径是以 “/“（根目录）为标准，相对于根目录的文件路径，前文中所说的路径都是绝对路径。</p>
+<p>相对路径：当路径不以”/“开头时，则路径相对于当前的工作目录。使用 “.” 指代当前工作目录，使用”..”指代当前工作目录的父目录。使用 “../../“ 来指代当前文件的父目录的父目录，以此类推……</p>
+<p>家目录：”~”代表家目录，它的格式是 “/home/<username>“，如果用户名为 shell 的话，则家目录为 /home/shell<br>上一个工作目录：”-“代表最近一次 cd 切换前的工作目录，使用 cd 切换工作目录后如果想要切换回上一次的工作目录，可以使用<code>cd -</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tips：当前的工作目录可以用命令 <span class="built_in">pwd</span> 查看</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换工作目录为根目录</span></span><br><span class="line">cd /</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到 tmp 工作目录，注意这里的路径是相对路径，是相对于当前工作目录的路径，不以 <span class="string">&quot;/&quot;</span> 开头，不过当前的工作目录是 /， 相对于 / 的 tmp 目录对应的路径是 /tmp 。</span></span><br><span class="line">cd tmp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此时工作目录是 /tmp， 可是使用 <span class="string">&quot;..&quot;</span>指代它的上一层目录， 它的上一层目录就是根目录 /</span></span><br><span class="line">cd ..</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换工作目录为家目录</span></span><br><span class="line">cd ~</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 <span class="built_in">pwd</span> 查看家目录的路径</span></span><br><span class="line">pwd</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换工作目录为根目录 /</span></span><br><span class="line">cd -</span><br><span class="line">pwd</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-命令和参数"><a href="#5-命令和参数" class="headerlink" title="5.命令和参数"></a>5.命令和参数</h2><p>上文中使用到的<code>pwd</code>，<code>ls</code>，<code>cd</code>是 linux 中的命令。</p>
+<p>命令是 linux 中的可执行程序，执行后会让计算机做某种操作。</p>
+<p>参数是跟在命令后的描述信息，它们就像电路中的开关一样，控制着命令的执行过程和结果。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">前文中的 <span class="built_in">cd</span> /tmp ，<span class="built_in">cd</span> 是命令，/tmp 是参数，这个参数描述的是切换的目录的路径</span></span><br><span class="line">cd /tmp</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-l 是 <span class="built_in">ls</span> 的参数，它描述的是将目录下的文件以 list 的形式列出</span></span><br><span class="line">ls -l</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以多个参数搭配使用，下面这个命令表示以 list 的形式列出路径为 /etc 的目录下的文件</span></span><br><span class="line">ls  -l /etc </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参数的形式多种多样，这里的 --color=never 会让 <span class="built_in">ls</span> 的输出内容不以颜色来区分文件类型</span></span><br><span class="line">ls -l /tmp --color=never</span><br></pre></td></tr></table></figure>
+
+<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><p>在 linux 中，大多数命令可以通过 命令  –help 的方式查看命令的使用方法。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例:</span></span><br><span class="line">ls --help</span><br><span class="line">pwd --help</span><br><span class="line">cd --help</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -244,12 +237,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E5%8C%85/" rel="tag">R包</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/" rel="tag">西柚云Linux教程</a></li></ul>
 
     </footer>
   </div>
@@ -257,19 +250,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2022/12/29/Linux%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Linux课程大纲
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">在rstudio-server中使用R包的不同版本</div>
+        <div class="article-nav-title">Linux课程大纲</div>
       </a>
     
   </nav>
