@@ -34,6 +34,105 @@
       </tags>
   </entry>
   <entry>
+    <title>文本处理之awk</title>
+    <url>/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bawk/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=262900730&bvid=BV1KY411Z7nc&cid=901859829&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+
+
+<blockquote>
+<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><p>awk 是个Linux系统自带的处理文本文件的程序，其原理是逐行处理文本内容，适合处理每行格式相同的文本文件。如：csv 格式的文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef &gt; xiyou.txt</span><br><span class="line">awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> xiyou.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>awk [参数] ‘条件 {代码}’ filename</strong> 条件可以省略，默认处理所有行。只处理符合条件的行。</p>
+<p>参数：</p>
+<ul>
+<li>F 指定分割符，不指定默认为空格</li>
+<li>v 定义变量或修改 awk 代码中内置的变量</li>
+</ul>
+<p>awk 默认以空格作为分隔符，也可通过 F 参数指定特殊的符号为分隔符。</p>
+<p>代码中的特殊变量：</p>
+<ul>
+<li>$0: 当前处理行的文本内容</li>
+<li>$1 使用分隔符分割后的第 1 列的内容</li>
+<li>$2 使用分隔符分割后的第 2 列的内容，以此类推</li>
+<li>NF 使用分隔符分割后的最后 1 列的序号</li>
+<li>NF-1 使用分隔符分割后的倒数第 2 列的序号</li>
+<li>NR 当前的处理行的序号</li>
+<li>OFS awk 中代码 print 时的分隔符，默认值为 1 个空格</li>
+<li>FILENAME 文件名</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 打印文件的每一行第 1 列和第 2 列</span></span><br><span class="line">awk <span class="string">&#x27;&#123;print($1, $2)&#125;&#x27;</span> xiyou.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span> | awk -F <span class="string">&#x27;:&#x27;</span> <span class="string">&#x27;&#123;print $NF&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 只处理匹配正则表达式的行，即只处理以 txb 开头的行</span></span><br><span class="line">awk <span class="string">&#x27;/^txb/ &#123;</span></span><br><span class="line"><span class="string">	print(&quot;txb 用户运行的进程的 pid: &quot;, $2)</span></span><br><span class="line"><span class="string">&#125;&#x27;</span> xiyou.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理不匹配正则表达式的行</span></span><br><span class="line">awk <span class="string">&#x27;!/^txb/ &#123;</span></span><br><span class="line"><span class="string">	print(&quot;非txb 用户运行的进程的 pid: &quot;, $2)</span></span><br><span class="line"><span class="string">&#125;&#x27;</span> xiyou.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有用户的进程 id</span></span><br><span class="line">awk <span class="string">&#x27;(!/^txb/ || /^txb/) &amp;&amp; !/^UID/ &#123;</span></span><br><span class="line"><span class="string">	print( $1, &quot;用户运行的进程的 pid: &quot;, $2)</span></span><br><span class="line"><span class="string">&#125;&#x27;</span> xiyou.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在代码中使用 if，在代码中使用双引号，awk 能够处理比较字符串</span></span><br><span class="line">awk -v OFS=<span class="string">&#x27;#&#x27;</span> <span class="string">&#x27;&#123;</span></span><br><span class="line"><span class="string">if($1 == &quot;root&quot; &amp;&amp; $2 &gt; 1) &#123;</span></span><br><span class="line"><span class="string">	print(&quot;root 用户运行的进程的 pid: &quot;, $2)&#125;</span></span><br><span class="line"><span class="string">&#125;&#x27;</span> xiyou.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h3><table>
+<thead>
+<tr>
+<th>关系运算符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;</td>
+<td>大于 m &gt; n</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于 m &lt; n</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于 m &gt;=n</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于 m &lt;=n</td>
+</tr>
+<tr>
+<td>==</td>
+<td>等于 m == n</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于 m != n</td>
+</tr>
+<tr>
+<td>~</td>
+<td>正则匹配符号，text ~ /正则表达式/</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不匹配正则，text !~ /正则表达式/</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>逻辑运算符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a || b</td>
+<td>a 条件为真，或 b 条件为真，则整个表达式的值为真</td>
+</tr>
+<tr>
+<td>a &amp;&amp; b</td>
+<td>a 条件为真，且 b 条件为真，则整个表达式的值为真</td>
+</tr>
+<tr>
+<td>！a</td>
+<td>若 a 条件为真，则整个表达式的值为假</td>
+</tr>
+</tbody></table>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>西柚云Linux教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文本处理(sed,xargs,wc)</title>
     <url>/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=220445497&bvid=BV1X841177rm&cid=900840633&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
