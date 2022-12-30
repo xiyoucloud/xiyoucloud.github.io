@@ -38,6 +38,8 @@
 
       <!-- mermaid -->
       
+      <script src="https://cdn.staticfile.org/mermaid/9.3.0/mermaid.min.js"></script>
+      
       <style>
         .swal2-styled.swal2-confirm {
           font-size: 1.6rem;
@@ -147,7 +149,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p><strong>卸载完成！</strong></p>
 <h2 id="重装"><a href="#重装" class="headerlink" title="重装"></a>重装</h2><p>所谓重装，就是将原来安装的 conda 卸载后再重新安装一次。（参考上述步骤）</p>
-<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可"><a href="#更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可" class="headerlink" title="更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可"></a>更换镜像源：首先删除当前配置的源，然后根据上述教程重新配置源即可</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除当前配置的源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="更换镜像源："><a href="#更换镜像源：" class="headerlink" title="更换镜像源："></a>更换镜像源：</h3><p>首先删除当前配置的源，然后根据上述教程重新配置源即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除当前配置的源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure>
 
  
       <!-- reward -->
@@ -231,6 +234,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            conda使用教程
+          
+        </div>
+      </a>
     
     
       <a href="/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="article-nav-link">
@@ -564,6 +576,30 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
 

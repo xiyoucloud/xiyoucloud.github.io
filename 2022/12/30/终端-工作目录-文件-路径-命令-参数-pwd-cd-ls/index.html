@@ -38,6 +38,8 @@
 
       <!-- mermaid -->
       
+      <script src="https://cdn.staticfile.org/mermaid/9.3.0/mermaid.min.js"></script>
+      
       <style>
         .swal2-styled.swal2-confirm {
           font-size: 1.6rem;
@@ -103,7 +105,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">6 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -142,18 +144,32 @@
 
 <h2 id="3-文件和目录"><a href="#3-文件和目录" class="headerlink" title="3.文件和目录"></a>3.文件和目录</h2><p>文件是一种数据的组织形式，通常人们以<strong>文件名</strong>来称呼一个文件，如：“新建文本文档.txt”。</p>
 <p>目录是一种组织文件的方式，不同目录下可能存在着拥有相同名称的文件或目录，为了消除歧义，人们称呼某个文件或目录时，会称呼为 “xx目录下的xx文件”、“xx目录下的xx目录”。但这还不够，因为一个系统中可能存在多个 a 目录。当说到 “a 目录下的 xx 文件” 时还是可能存在歧义。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A(&quot;/&quot;) --&gt; B(bin)</span><br><span class="line">A(&quot;/&quot;) --&gt; C(usr)</span><br><span class="line">B(bin) --&gt; D(xiyou.txt)</span><br><span class="line">C(usr) --&gt; E(bin)</span><br><span class="line">E(bin) --&gt; F(xiyou.txt)</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">flowchart TB
+A("/") --> B(bin)
+A("/") --> C(usr)
+B(bin) --> D(xiyou.txt)
+C(usr) --> E(bin)
+E(bin) --> F(xiyou.txt)</pre>
 
 <p>为了彻底消除歧义，可以用<strong>路径</strong>来指代文件，在 linux 系统中，不同的文件或目录拥有不同的路径，也就是说每个文件或目录对应的路径是唯一的，使用路径来指代文件就没有歧义了。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将工作目录切换为 /</span></span><br><span class="line">cd /</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出工作目录下的文件和目录信息</span></span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将各做目录切换为 /usr 目录</span></span><br><span class="line">cd /usr</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出工作目录下的文件和目录信息</span></span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据上图可以看到 / 目录下和 /usr 目录下都有 bin 目录 两个 bin 目录下都有 xiyou.txt文件，此时可以通过路径来区分它们</span></span><br><span class="line">/bin</span><br><span class="line">/usr/bin</span><br><span class="line">/bin/xiyou.txt</span><br><span class="line">/usr/bin/xiyou.txt</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-路径"><a href="#4-路径" class="headerlink" title="4.路径"></a>4.路径</h2><p>在 linux 系统中，目录和文件都有其对应的路径，路径是区分不同文件或不同目录的唯一标识，目录和文件的区别是目录名可以作为文件路径的前缀，但文件名不能作为目录路径的前缀。假设在 /tmp 目录下有一个文件 xiyou.txt ，则目录 tmp 的路径为 /tmp， xiyou.txt 的路径是 /tmp/xiyou.txt。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(&quot;/&quot;) --&gt; B(tmp)</span><br><span class="line">B(tmp) --&gt; C(xiyou.txt)</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+A("/") --> B(tmp)
+B(tmp) --> C(xiyou.txt)</pre>
 
 
 
 <p>下图中 lib 的路径为<code>/usr/lib</code>，xiyou.txt 的路径为 <code>/tmp/xiyou.txt</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">/(&quot;/&quot;)--&gt; tmp</span><br><span class="line">/(&quot;/&quot;) --&gt; bin</span><br><span class="line">/(&quot;/&quot;) --&gt; usr</span><br><span class="line">/(&quot;/&quot;) --&gt; home</span><br><span class="line">home --&gt; shell</span><br><span class="line">usr --&gt; lib</span><br><span class="line">tmp --&gt; xiyou.txt</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TB
+/("/")--> tmp
+/("/") --> bin
+/("/") --> usr
+/("/") --> home
+home --> shell
+usr --> lib
+tmp --> xiyou.txt</pre>
 
 <p>根目录：”/“ 代表根目录，是系统中<strong>所有</strong>目录的前缀。</p>
 <p>绝对路径：绝对路径是以 “/“（根目录）为标准，相对于根目录的文件路径，前文中所说的路径都是绝对路径。</p>
@@ -167,7 +183,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">前文中的 <span class="built_in">cd</span> /tmp ，<span class="built_in">cd</span> 是命令，/tmp 是参数，这个参数描述的是切换的目录的路径</span></span><br><span class="line">cd /tmp</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-l 是 <span class="built_in">ls</span> 的参数，它描述的是将目录下的文件以 list 的形式列出</span></span><br><span class="line">ls -l</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以多个参数搭配使用，下面这个命令表示以 list 的形式列出路径为 /etc 的目录下的文件</span></span><br><span class="line">ls  -l /etc </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参数的形式多种多样，这里的 --color=never 会让 <span class="built_in">ls</span> 的输出内容不以颜色来区分文件类型</span></span><br><span class="line">ls -l /tmp --color=never</span><br></pre></td></tr></table></figure>
 
 <h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><p>在 linux 中，大多数命令可以通过 命令  –help 的方式查看命令的使用方法。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例:</span></span><br><span class="line">ls --help</span><br><span class="line">pwd --help</span><br><span class="line">cd --help</span><br></pre></td></tr></table></figure> 
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例:</span></span><br><span class="line">ls --help</span><br><span class="line">pwd --help</span><br><span class="line">cd --help</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -249,6 +265,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            创建文件(touch,mkdir,vim,重定向)
+          
+        </div>
+      </a>
     
     
       <a href="/2022/12/29/Linux%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/" class="article-nav-link">
@@ -582,6 +607,30 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
 
