@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T13:13:26.911Z</updated>
+  <updated>2022-12-30T13:24:56.444Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2022-12-30T13:16:59.000Z</published>
+    <updated>2022-12-30T13:24:56.444Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=432941989&amp;bvid=BV1C3411f77q&amp;cid=898761486&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>进程的后台运行(bg,fg,jobs,nohup,&amp;)</title>
@@ -345,25 +362,6 @@
     
     
     <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建博客小技巧</title>
-    <link href="https://xiyoucloud.github.io/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>https://xiyoucloud.github.io/2022/12/29/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B0%8F%E6%8A%80%E5%B7%A7/</id>
-    <published>2022-12-29T06:56:19.000Z</published>
-    <updated>2022-12-29T08:37:18.948Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;插入视频&quot;&gt;&lt;a href=&quot;#插入视频&quot; class=&quot;headerlink&quot; title=&quot;插入视频&quot;&gt;&lt;/a&gt;插入视频&lt;/h1&gt;&lt;h2 id=&quot;视频插件&quot;&gt;&lt;a href=&quot;#视频插件&quot; class=&quot;headerlink&quot; title=&quot;视频插件&quot;&gt;&lt;/a&gt;视频插件&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md&quot;&gt;hexo-tag-aplayer&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;使用方法&quot;&gt;&lt;a href=&quot;#使用方法&quot; class=&quot;headerlink&quot; title=&quot;使用方法&quot;&gt;&lt;/a&gt;使用方法&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 插入网络视频&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% dplayer &amp;quot;url=https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/mp4/mp4_demo.mp4&amp;quot; %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 插入acfun 视频&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;iframe src=&amp;quot;https://www.acfun.cn/player/ac12945786&amp;quot; style=&amp;quot;width:100%;height:500px;min-width:375px;min-height:200px&amp;quot; id=&amp;quot;ACPlayer-re&amp;quot; scrolling=&amp;quot;no&amp;quot; border=&amp;quot;0&amp;quot; frameborder=&amp;quot;no&amp;quot; framespacing=&amp;quot;0&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 插入 B 站视频&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;iframe src=&amp;quot;//player.bilibili.com/player.html?aid=606228531&amp;amp;bvid=BV1y84y1t7Y9&amp;amp;cid=922973653&amp;amp;page=1&amp;quot; style=&amp;quot;width:100%;height:500px;min-width:375px;min-height:200px&amp;quot;scrolling=&amp;quot;no&amp;quot; border=&amp;quot;0&amp;quot; frameborder=&amp;quot;no&amp;quot; framespacing=&amp;quot;0&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt; &amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;iframe src=&quot;https://www.acfun.cn/player/ac12945786&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; id=&quot;ACPlayer-re&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="搭建博客" scheme="https://xiyoucloud.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>进程的后台运行(bg,fg,jobs,nohup,&amp;) |  xiyoucloud</title>
+      <title>正则表达式 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-进程的后台运行-bg-fg-jobs-nohup"
+  id="post-正则表达式"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  进程的后台运行(bg,fg,jobs,nohup,&amp;)
+  正则表达式
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/" class="article-date">
-  <time datetime="2022-12-30T13:08:40.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time datetime="2022-12-30T13:16:59.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">845</span>
+            <span class="post-count">482</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -122,44 +122,126 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=520271004&bvid=BV1tM411C7ke&cid=897743562&page=1"style="width:100%;height:500px;min-width:375px;min-height:200px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=432941989&bvid=BV1C3411f77q&cid=898761486&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
-
 
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h2 id="让进程后台运行的方式"><a href="#让进程后台运行的方式" class="headerlink" title="让进程后台运行的方式"></a>让进程后台运行的方式</h2><h2 id="1-amp"><a href="#1-amp" class="headerlink" title="1.&amp;"></a>1.&amp;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sleep</span> 10086 &amp;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-ctrl-z-和bg搭配"><a href="#2-ctrl-z-和bg搭配" class="headerlink" title="2.ctrl + z 和bg搭配"></a>2.ctrl + z 和bg搭配</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sleep</span> 10010</span><br><span class="line"><span class="comment"># 按 ctrl + z</span></span><br><span class="line"><span class="comment"># 在终端输入 bg</span></span><br><span class="line"><span class="built_in">bg</span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="3-使用-nohup-的方式后台运行进程"><a href="#3-使用-nohup-的方式后台运行进程" class="headerlink" title="3.使用 nohup 的方式后台运行进程"></a>3.使用 nohup 的方式后台运行进程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> <span class="built_in">sleep</span> 1111 &amp;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看后台运行的进程（jobs）"><a href="#查看后台运行的进程（jobs）" class="headerlink" title="查看后台运行的进程（jobs）"></a>查看后台运行的进程（jobs）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">jobs</span> -l</span><br></pre></td></tr></table></figure>
-
-<h2 id="将后台运行的进程转到前台运行（fg）"><a href="#将后台运行的进程转到前台运行（fg）" class="headerlink" title="将后台运行的进程转到前台运行（fg）"></a>将后台运行的进程转到前台运行（fg）</h2><p>可以根据后台运行的进程编号将对应的进程转到前台来运行，编号可通过 jobs 命令查看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看进程编号</span></span><br><span class="line"><span class="built_in">jobs</span></span><br><span class="line"><span class="comment"># 将 1 号后台运行的进程转到前台运行</span></span><br><span class="line"><span class="built_in">fg</span> 1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不指定编号，默认将编号最大的进程转到前台运行</span></span><br><span class="line"><span class="built_in">fg</span></span><br></pre></td></tr></table></figure>
+<p>正则表达式是一串用于匹配字符的字符，字符就是我们能够看到的文字符号。正则表达式的的优点是可以使用少量字符匹配大量字符，这里我们将用于匹配其他字符的正则表达式称为<strong>模式</strong>。</p>
+<p>正则表达式是一项偏向于实践的知识，通过实践来学习会事半功倍，因此这里推荐大家到相应的正则表达式在线练习平台去学习。（会有视频演示）</p>
+<p>我们学习正则表达式，是为了利用它来更方便地处理文本。那么什么是文本呢？文件中的内容属于文本，ls 的输出内容也属于文本，文本就是我们能够看到的文字符号。后文学习的命令（grep，sed，awk）会使用到正则表达式来处理文本内容。</p>
+<p>当然，你可能还是对正则表达式的作用不甚清楚，这里我可以给出两条命令来演示一下它的功能。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除 test.txt 中包含数字的行</span></span><br><span class="line">sed -i <span class="string">&#x27;/[0-9]/d&#x27;</span> test.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死运行命令中包含有 jupyter 关键字的所有进程</span></span><br><span class="line">ps -ef | grep jupyter | awk <span class="string">&#x27;&#123;if ($0 ~ /grep/) &#123;next&#125;; print($2)&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="后台运行的进程在终端关闭后还能继续运行吗？"><a href="#后台运行的进程在终端关闭后还能继续运行吗？" class="headerlink" title="后台运行的进程在终端关闭后还能继续运行吗？"></a><strong>后台运行的进程在终端关闭后还能继续运行吗？</strong></h2><p>分情况，使用上文中的方式 1 和方式 2 运行的后台进程会在终端关闭后被杀死。</p>
-<p>而使用 nohup 运行的后台进程在终端关闭后而主机还在运行的情况下继续运行。</p>
-<p>下面我们来介绍一下原理:</p>
-<p>假设我们通过 SSH 协议连接到一台 Linux 主机，连接后我们可以在当前的终端执行命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们以上述的 3 种方式运行后台进程</span></span><br><span class="line"> <span class="comment">## &amp;</span></span><br><span class="line"><span class="built_in">sleep</span> 10010 &amp;</span><br><span class="line"> <span class="comment">## ctrl + z, bg</span></span><br><span class="line"><span class="built_in">sleep</span> 10086</span><br><span class="line"> <span class="comment">## nohup</span></span><br><span class="line"><span class="built_in">nohup</span> <span class="built_in">sleep</span> 111111 &amp;</span><br></pre></td></tr></table></figure>
-
-<h2 id="进程的组织结构："><a href="#进程的组织结构：" class="headerlink" title="进程的组织结构："></a><strong>进程的组织结构：</strong></h2><p>Linux 中进程的组织结构就像一棵树</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep &lt;username&gt;</span><br><span class="line">pstree -anph | grep sshd -A 5</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一般来说，父进程被杀死后，子进程也会被杀死，但使用 nohup 方式运行的后台进程会在 sshd 进程被杀死后将</span></span><br><span class="line"><span class="comment"># 进程托管给 linux 的 init 进程，这样这个进程就会继续运行了。</span></span><br><span class="line"></span><br><span class="line">ps -ef | grep <span class="built_in">sleep</span></span><br></pre></td></tr></table></figure>
-
-<p>使用 &amp; 和 （ctrl + z，bg）方式运行的进程在终端关闭后就被杀死了，而使用 nohup 后台运行的进程在终端关闭后还运行在机器中。这是因为通常终端与 Linux 服务器是通过 SSH 协议连接的，每次连接都会建立一个 sshd 进程，在这个终端下运行的所有进程都会作为这个 sshd 进程的子进程。终端关闭后 sshd 进程就结束了，于是它的子进程也就被杀死了。</p>
-<p>使用 nohup 运行的后台进程会在终端关闭后将进程托管到 Linux 的 init 进程，这个进程是一直在服务器中运行的，所以该进程的子进程不会因为父进程被杀死而结束。</p>
-<h2 id="运行进程时记录日志："><a href="#运行进程时记录日志：" class="headerlink" title="运行进程时记录日志："></a><strong>运行进程时记录日志：</strong></h2><p>在让进程后台运行时，我们通常需要记录日志，用于了解进程的运行情况。</p>
-<p>比如运行 jupyter notebook 时，我们通常将日志输入到文件中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> jupyter notebook 1&gt;jupyter.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-
-<p>这里的 2 表示的是错误输出，1 表示的是标准输出，标准输出会输出到终端。上述的 <code>2&gt;&amp;1</code> 会将标准错误输出重定向标准输出（终端），<code>1&gt;jupyter.log</code>会将标准输出中的内容重定向到 jupyter.log 文件中，这样进程输出的日志信息就全都记录在 jupyter.log 文件中了，查看 jupyter.log 文件中的内容，就能知道进程的运行状态了。</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<h2 id="表格来源：https-regexone-com"><a href="#表格来源：https-regexone-com" class="headerlink" title="表格来源：https://regexone.com/"></a>表格来源：<a target="_blank" rel="noopener" href="https://regexone.com/">https://regexone.com/</a></h2><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>匹配文本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/introduction_abcs">abc…</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/introduction_abcs">Letters</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/letters_and_digits">123…</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/letters_and_digits">Digits</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/letters_and_digits">\d</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/letters_and_digits">Any Digit</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/letters_and_digits">\D</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/letters_and_digits">Any Non-digit character</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/wildcards_dot">.</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/wildcards_dot">Any Character</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/wildcards_dot">.</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/wildcards_dot">Period</a></td>
+</tr>
+<tr>
+<td>[<a target="_blank" rel="noopener" href="https://regexone.com/lesson/matching_characters">abc]</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/matching_characters">Only a, b, or c</a></td>
+</tr>
+<tr>
+<td>[<a target="_blank" rel="noopener" href="https://regexone.com/lesson/excluding_characters">^abc]</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/excluding_characters">Not a, b, nor c</a></td>
+</tr>
+<tr>
+<td>[<a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">a-z]</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">Characters a to z</a></td>
+</tr>
+<tr>
+<td>[<a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">0-9]</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">Numbers 0 to 9</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">\w</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">Any Alphanumeric character</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">\W</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/character_ranges">Any Non-alphanumeric character</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/repeating_characters">{m}</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/repeating_characters">m Repetitions</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/repeating_characters">{m,n}</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/repeating_characters">m to n Repetitions</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/kleene_operators">*</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/kleene_operators">Zero or more repetitions</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/kleene_operators">+</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/kleene_operators">One or more repetitions</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/optional_characters">?</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/optional_characters">Optional character</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/whitespaces">\s</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/whitespaces">Any Whitespace</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/whitespaces">\S</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/whitespaces">Any Non-whitespace character</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/line_beginning_end">^…$</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/line_beginning_end">Starts and ends</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/capturing_groups">(…)</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/capturing_groups">Capture Group</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/nested_groups">(a(bc))</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/nested_groups">Capture Sub-group</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/more_groups">(.*)</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/more_groups">Capture all</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/conditionals">(abc|def)</a></td>
+<td><a target="_blank" rel="noopener" href="https://regexone.com/lesson/conditionals">Matches abc or def</a></td>
+</tr>
+</tbody></table>
+<h2 id="在线正则表达式练习平台：https-regexlearn-com-zh-cn-learn"><a href="#在线正则表达式练习平台：https-regexlearn-com-zh-cn-learn" class="headerlink" title="在线正则表达式练习平台：https://regexlearn.com/zh-cn/learn"></a>在线正则表达式练习平台：<a target="_blank" rel="noopener" href="https://regexlearn.com/zh-cn/learn">https://regexlearn.com/zh-cn/learn</a></h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -229,7 +311,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -242,19 +324,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            正则表达式
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/" class="article-nav-link">
+      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">进程介绍(ps)</div>
+        <div class="article-nav-title">进程的后台运行(bg,fg,jobs,nohup,&amp;)</div>
       </a>
     
   </nav>
