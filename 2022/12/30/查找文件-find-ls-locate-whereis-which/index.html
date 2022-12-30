@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>查看文件(cat,head,tail,less,more) |  xiyoucloud</title>
+      <title>查找文件(find,ls,locate,whereis,which) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-查看文件-cat-head-tail-less-more"
+  id="post-查找文件-find-ls-locate-whereis-which"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  查看文件(cat,head,tail,less,more)
+  查找文件(find,ls,locate,whereis,which)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6-cat-head-tail-less-more/" class="article-date">
-  <time datetime="2022-12-30T08:47:00.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6-find-ls-locate-whereis-which/" class="article-date">
+  <time datetime="2022-12-30T08:58:37.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">892</span>
+            <span class="post-count">726</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -122,34 +122,28 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=690104074&bvid=BV1k24y127zf&cid=888455696&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+  <iframe src="//player.bilibili.com/player.html?aid=220016762&bvid=BV1M841187rx&cid=889543162&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 <span id="more"></span>
+
 <blockquote>
 <p>针对 ubuntu20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统  <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<p>查看一个文件内容的方式是命令 + 文件路径<br>这里先构建 1 个文件，方便后面命令演示。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="comment"># 这样可以少打几个字符，这里的 $_ 等价于 /tmp/xiyouyun</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$_</span></span><br><span class="line"><span class="comment"># 向文件中写入内容, 以下命令会向文件中写入 1000 行 hello,xiyouyun</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..1000&#125;; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$i</span> hello xiyouyun &quot;</span> &gt;&gt; xiyou.txt; <span class="keyword">done</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 cat 查看文件的全部内容</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br><span class="line"><span class="comment"># 查看文件时显示行号</span></span><br><span class="line"><span class="built_in">cat</span> -b xiyou.txt</span><br><span class="line"><span class="comment"># 查看文件时显示隐藏字符</span></span><br><span class="line"><span class="built_in">cat</span> -A xiyou.txt</span><br></pre></td></tr></table></figure>
+<h2 id="文件的属性"><a href="#文件的属性" class="headerlink" title="文件的属性"></a>文件的属性</h2><p>文件的属性有：文件的大小（size），文件的名称（name），文件的类型（type），文件的路径（path），文件的修改日期（modify_time）……我们可以根据文件的属性，在系统中查找符合筛选条件的文件。</p>
+<h2 id="ls-列出指定路径下的文件信息"><a href="#ls-列出指定路径下的文件信息" class="headerlink" title="ls 列出指定路径下的文件信息"></a>ls 列出指定路径下的文件信息</h2><p>ls 配合 grep 可以通过文件名筛选文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 筛选路径 /etc/apt 目录下文件名中包含 list 的文件，这里的 “| grep list” 的原理可以先不管 </span></span><br><span class="line"><span class="built_in">ls</span> /etc/apt | grep list</span><br></pre></td></tr></table></figure>
 
-<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从文件的开始部分查看文件内容，默认 10 行</span></span><br><span class="line"><span class="built_in">head</span> xiyou.txt</span><br><span class="line"><span class="comment"># 查看文件的前 10 行</span></span><br><span class="line"><span class="built_in">head</span> -n 10 xiyou.txt</span><br></pre></td></tr></table></figure>
+<h2 id="find-可以对文件的属性进行筛选"><a href="#find-可以对文件的属性进行筛选" class="headerlink" title="find 可以对文件的属性进行筛选"></a>find 可以对文件的属性进行筛选</h2><p>find 命令可以对几乎所有的文件属性进行筛选，<strong>在 linux 系统中 * 可以匹配路径中的任意字符</strong><br>这里只列举几个常用的例子，更多的文件属性筛选可以查看文档：<a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/find.html">https://wangchujiang.com/linux-command/c/find.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出 /tmp 目录下的所有文件和目录</span></span><br><span class="line">find /tmp</span><br><span class="line"><span class="comment"># 列出 /etc/apt 目录下文件或目录名以 list 或 d 结尾的文件</span></span><br><span class="line">find /etc/apt <span class="string">&quot;*.list -o *.d&quot;</span></span><br><span class="line"><span class="comment"># 在前一条命令的基础上筛选文件类型为“文件”的</span></span><br><span class="line">find /etc/apt <span class="string">&quot;*.list -o *.d&quot;</span> -<span class="built_in">type</span> f</span><br><span class="line"><span class="comment"># 筛选文件类型为“目录”</span></span><br><span class="line">find /etc/apt <span class="string">&quot;*.list -o *.d&quot;</span> -<span class="built_in">type</span> d</span><br><span class="line"><span class="comment"># 默认会搜索路径下的所有子目录，通过 maxdepth 可以让它只搜索当前搜索到第 1 层子目录就不再继续往下搜索了</span></span><br><span class="line">find /etc/apt <span class="string">&quot;*.list -o *.d&quot;</span> -maxdepth 1 -<span class="built_in">type</span> f</span><br></pre></td></tr></table></figure>
 
-<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从文件的尾部查看文件内容，默认 10 行</span></span><br><span class="line"><span class="built_in">tail</span> xiyou.txt</span><br><span class="line"><span class="comment"># 查看文件的后 10 行</span></span><br><span class="line"><span class="built_in">tail</span> -n 10 xiyou.txt</span><br><span class="line"><span class="comment"># 向 ping.txt 中持续写入内容，可以暂时不管这条命令的含义</span></span><br><span class="line">ping g.cn &gt; ping.txt &amp;</span><br><span class="line"><span class="comment"># 查看文件的尾部，如果文件内容持续增长，则会动态刷新显示</span></span><br><span class="line"><span class="built_in">tail</span> -f ping.txt</span><br></pre></td></tr></table></figure>
+<h2 id="locate-查找系统中的文件"><a href="#locate-查找系统中的文件" class="headerlink" title="locate 查找系统中的文件"></a>locate 查找系统中的文件</h2><p>locate 命令来自于 mlocate 软件，需要使用命令 <code>apt install mlocate</code>安装，其用于<strong>快速</strong>定位软件的位置，支持正则表达式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到系统中 python 文件的位置</span></span><br><span class="line">locate *.py</span><br><span class="line"><span class="comment"># 列出系统中所有的文件名以 .R 结尾的文件</span></span><br><span class="line">locate *.R</span><br></pre></td></tr></table></figure>
 
-<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 less 查看文件的头部部分，按 Enter 滚动查看后面的行, 按 q 退出查看，按空格支持翻页</span></span><br><span class="line"><span class="comment"># 使用方向键支持上下滚动查看，使用 ?text 支持在当前页搜索</span></span><br><span class="line">less xiyou.txt</span><br></pre></td></tr></table></figure>
+<h2 id="whereis-定位系统中二进制文件的位置"><a href="#whereis-定位系统中二进制文件的位置" class="headerlink" title="whereis 定位系统中二进制文件的位置"></a>whereis 定位系统中二进制文件的位置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定位系统 R 可执行程序的位置</span></span><br><span class="line">whereis R</span><br><span class="line"><span class="comment"># 定位系统中 python 可执行程序的位置</span></span><br><span class="line">whereis python</span><br></pre></td></tr></table></figure>
 
-<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 more 查看文件的头部部分，more 只支持向下滚动，不能上下滚动，按 q 退出查看</span></span><br><span class="line">more xiyou.txt</span><br></pre></td></tr></table></figure>
+<h2 id="which-查找命令的绝对路径"><a href="#which-查找命令的绝对路径" class="headerlink" title="which 查找命令的绝对路径"></a>which 查找命令的绝对路径</h2><p>这在系统中安装了多个版本的软件时十分实用。如在 conda 环境中通常安装了多个 python 环境，可以使用这种方式定位到当前使用 python 命令使用的是哪个路径下的 python。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看执行 python 命令时，使用的是哪个路径下的程序</span></span><br><span class="line"><span class="built_in">which</span> python</span><br><span class="line"><span class="comment"># 查看执行 R 命令时，使用的是哪个路径下的程序</span></span><br><span class="line"><span class="built_in">which</span> R</span><br></pre></td></tr></table></figure>
 
-<h2 id="补充内容："><a href="#补充内容：" class="headerlink" title="补充内容："></a>补充内容：</h2><h3 id="如何快速清空-1-个文件？"><a href="#如何快速清空-1-个文件？" class="headerlink" title="如何快速清空 1 个文件？"></a><strong>如何快速清空 1 个文件？</strong></h3><h4 id="使用重定向"><a href="#使用重定向" class="headerlink" title="使用重定向"></a>使用重定向</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向文件中写入内容, 以下命令会向文件中写入 1000 行 hello,xiyouyun</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..1000&#125;; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$i</span> hello xiyouyun &quot;</span> &gt;&gt; xiyou.txt; <span class="keyword">done</span>;</span><br><span class="line"><span class="comment"># 清空一个文件</span></span><br><span class="line"><span class="built_in">cat</span> /dev/null &gt; xiyou.txt</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用-vim"><a href="#使用-vim" class="headerlink" title="使用 vim"></a>使用 vim</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向文件中写入内容, 以下命令会向文件中写入 1000 行 hello,xiyouyun</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..1000&#125;; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$i</span> hello xiyouyun &quot;</span> &gt;&gt; xiyou.txt; <span class="keyword">done</span>;</span><br><span class="line"><span class="comment"># 进入 vim 的命令模式，清空 1 个文件分为 3 步：</span></span><br><span class="line">	<span class="comment"># 1. 使用 gg 将光标跳转到文件的第 1 行</span></span><br><span class="line">	<span class="comment"># 2. 使用 d + Shift + g 清空整个文件</span></span><br><span class="line">	<span class="comment"># 3. 使用 Shift + z + z 保存文件</span></span><br><span class="line">vim xiyou.txt</span><br></pre></td></tr></table></figure>
-
-<h3 id="如何查看隐藏字符？"><a href="#如何查看隐藏字符？" class="headerlink" title="如何查看隐藏字符？"></a><strong>如何查看隐藏字符？</strong></h3><p>你想要编写一个 bash 脚本（一种能在 linux 系统上执行的程序），但你不会使用 linux 上的编辑器（nano 和 vim），所以你在你自己的 windows 电脑上编辑好后，将文件上传到 linux 上。却发现脚本并不能执行，这是因为在 windows 中使用的换行符和 linux 中使用的换行符是不同的，但是使用 <code>cat &lt;filename&gt;</code> 是看不出隐藏的换行符的。此时需要使用 <code>cat -A &lt;filename&gt;</code> 查看。如果你想让 windows 上编写的 bash 脚本能够在 linux 上执行怎么办呢？有两种办法:</p>
-<ol>
-<li>不要将在 win 上编写的脚本文件上传到 linux，而是复制文件的内容到 linux 的文件中。通常可以用Ctrl + Shift + v 在 linux 中粘贴内容。</li>
-<li>将文件上传到 linux 后，借助工具 dos2unix 将文件的格式转化为 linux 使用的格式</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个工具需要使用 apt install dos2unix 安装</span></span><br><span class="line"><span class="comment"># 假设有个 windows 换行格式的文件名为 xiyou.txt，你可以用以下命令将其转化为 linux 换行格式</span></span><br><span class="line"><span class="built_in">cat</span> -A xiyou.txt</span><br><span class="line">dos2unix xiyou.txt</span><br><span class="line"><span class="comment"># 通过查看文件中的隐藏字符对比两个文件有何变化</span></span><br><span class="line"><span class="built_in">cat</span> -A xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<h2 id="扩展内容"><a href="#扩展内容" class="headerlink" title="扩展内容"></a>扩展内容</h2><h3 id="find-常用操作"><a href="#find-常用操作" class="headerlink" title="find 常用操作"></a>find 常用操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除修改时间超过 1 天的文件（保留最近 24 小时的文件）</span></span><br><span class="line">find . -<span class="built_in">type</span> f -mtime 1 -<span class="built_in">exec</span>  <span class="built_in">rm</span> -rf &#123;&#125; \;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 筛选当前目录下大于 10MB 的文件</span></span><br><span class="line">find . -size +10M</span><br><span class="line"></span><br><span class="line"><span class="comment"># find 查找目录时跳过 tmp 目录</span></span><br><span class="line">find . -path <span class="string">&quot;/tmp&quot;</span> -prune -o -<span class="built_in">type</span> f -name *.bam -<span class="built_in">print</span></span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -219,7 +213,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6-cat-head-tail-less-more/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6-find-ls-locate-whereis-which/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -232,19 +226,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6-find-ls-locate-whereis-which/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            查找文件(find,ls,locate,whereis,which)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/" class="article-nav-link">
+      <a href="/2022/12/30/%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6-cat-head-tail-less-more/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">编辑文件(vim,nano)</div>
+        <div class="article-nav-title">查看文件(cat,head,tail,less,more)</div>
       </a>
     
   </nav>
