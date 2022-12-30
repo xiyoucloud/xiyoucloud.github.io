@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">742</span>
+            <span class="post-count">767</span>
         </span>
     </span>
 
@@ -130,36 +130,23 @@
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像。</p>
-<ol>
-<li><p>设置国内镜像源（<strong>可选</strong>）</p>
-<ul>
+<h3 id="1-设置国内镜像源（可选）"><a href="#1-设置国内镜像源（可选）" class="headerlink" title="1.设置国内镜像源（可选）"></a>1.设置国内镜像源（<strong>可选</strong>）</h3><ul>
 <li><p>使用 install 下载：<a target="_blank" rel="noopener" href="https://cran.r-project.org/mirrors.html%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://cran.r-project.org/mirrors.html（镜像源列表）</a></p>
   <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> repos <span class="operator">=</span> <span class="string">&quot;https://mirrors.ustc.edu.cn/CRAN/&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
 <li><p>使用 BiocManager 下载 <a target="_blank" rel="noopener" href="https://www.bioconductor.org/about/mirrors/%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://www.bioconductor.org/about/mirrors/（镜像源列表）</a></p>
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">从 BiocManager 镜像安装 XVector</span></span><br><span class="line">options(BioC_mirror=&quot;https://mirrors.tuna.tsinghua.edu.cn/bioconductor&quot;)</span><br><span class="line">BiocManager::install(&quot;XVector&quot;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">向 ~/.Rprofile 文件中写入配置镜像的代码可以永久配置镜像</span></span><br><span class="line">file.edit(&quot;~/.Rprofile&quot;)</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
-<li><p>搜索 R 包，找到安装命令</p>
-<ul>
+<h3 id="2-搜索-R-包，找到安装命令"><a href="#2-搜索-R-包，找到安装命令" class="headerlink" title="2.搜索 R 包，找到安装命令"></a>2.搜索 R 包，找到安装命令</h3><ul>
 <li>在浏览器中搜索关键字：“xxx install” （推荐 google 搜索）</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>CRAN <a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/available_packages_by_name.html">https://cran.r-project.org/web/packages/available_packages_by_name.html</a> （能够在这里搜到的 R 包都能够通过 install.packages(“xxx”) 安装）<ul>
+<li>CRAN <a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/available_packages_by_name.html">https://cran.r-project.org/web/packages/available_packages_by_name.html</a> （能够在这里搜到的 R 包都能够通过 install.packages(“xxx”) 安装）</li>
 <li>Bioconductor <a target="_blank" rel="noopener" href="https://www.bioconductor.org/help/search/index.html?/%EF%BC%8C%EF%BC%88%E8%83%BD%E5%A4%9F%E5%9C%A8%E8%BF%99%E9%87%8C%E6%90%9C%E5%88%B0%E7%9A%84">https://www.bioconductor.org/help/search/index.html?/，（能够在这里搜到的</a> R 包都能通过 BiocManager::install(“xxx”) 的方式安装）</li>
-</ul>
-</li>
 <li>GitHub <a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a> （通常在 github 仓库的 README.md 文件会提供安装方法）</li>
 </ul>
-<ol start="3">
-<li>安装 R 包</li>
-</ol>
-<h2 id="安装-R-包"><a href="#安装-R-包" class="headerlink" title="安装 R 包"></a>安装 R 包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">R 包工具下载方式, 养成好习惯，安装包时指定 lib</span></span><br><span class="line">install.packages(&quot;devtools&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;remotes&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;BiocManager&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装-R-包"><a href="#3-安装-R-包" class="headerlink" title="3.安装 R 包"></a>3.安装 R 包</h3><h3 id="安装R包的不同方式"><a href="#安装R包的不同方式" class="headerlink" title="安装R包的不同方式"></a>安装R包的不同方式</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># R 包安装工具的下载方式, 养成好习惯，安装包时指定 lib，这样能把R包安装在指定的目录下</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;remotes&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>从 CRAN 安装：</p>
-  <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;stringr&quot;</span>)</span><br></pre></td></tr></table></figure></li>
 <li><p>从 Bioconductor 安装：</p>
   <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;XVector&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
 <li><p>从 GitHub 在线安装：</p>
@@ -178,7 +165,7 @@
   <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将源码下载到本地，然后使用以下方式编译安装</span></span><br><span class="line"></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;/tmp/stringr_1.4.1.tar.gz&#x27;</span><span class="punctuation">,</span> repos<span class="operator">=</span><span class="literal">NULL</span><span class="punctuation">,</span> type<span class="operator">=</span><span class="string">&quot;source&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 下载方式示例：</span></span><br><span class="line">wget <span class="string">&quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样</strong></p>
-<h2 id="卸载-R-包"><a href="#卸载-R-包" class="headerlink" title="卸载 R 包"></a>卸载 R 包</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令示例，stringr 是包的名称</span></span><br><span class="line">remove.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure> 
+<h3 id="卸载-R-包"><a href="#卸载-R-包" class="headerlink" title="卸载 R 包"></a>卸载 R 包</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令示例，stringr 是包的名称</span></span><br><span class="line">remove.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">

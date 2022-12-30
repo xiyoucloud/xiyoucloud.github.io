@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>创建文件(touch,mkdir,vim,重定向) |  xiyoucloud</title>
+      <title>删除文件(rm,rmdir) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-创建文件-touch-mkdir-vim-重定向"
+  id="post-删除文件-rm-rmdir"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  创建文件(touch,mkdir,vim,重定向)
+  删除文件(rm,rmdir)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/" class="article-date">
-  <time datetime="2022-12-29T18:05:28.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/" class="article-date">
+  <time datetime="2022-12-30T08:18:00.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">713</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -122,37 +122,38 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=689969785&bvid=BV1c24y127Nq&cid=886497148&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=559933357&bvid=BV1Se4y117LF&cid=886499421&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
-
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<p><code>cd /tmp</code> (我们首先将工作目录切换到这个目录，之后所有的命令都在这个工作目录下执行)</p>
+<h2 id="rmdir-删除一个空目录"><a href="#rmdir-删除一个空目录" class="headerlink" title="rmdir 删除一个空目录"></a>rmdir 删除一个<strong>空目录</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 /tmp 目录下创建一个名为 xiyouyun 的目录</span></span><br><span class="line"><span class="built_in">cd</span> /tmp </span><br><span class="line"><span class="built_in">mkdir</span> xiyouyun</span><br><span class="line"><span class="comment"># 将工作目录切换为 xiyouyun</span></span><br><span class="line"><span class="built_in">cd</span> xiyouyun</span><br><span class="line"><span class="comment"># 在 xiyouyun 目录下创建一个名为 to_delete 的目录</span></span><br><span class="line"><span class="built_in">mkdir</span> to_delete</span><br><span class="line"><span class="comment"># 查看当前工作目录下的文件信息，确认 to_delete 目录是否被创建</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 删除 to_delete 目录</span></span><br><span class="line"><span class="built_in">rmdir</span> to_delete</span><br><span class="line"><span class="comment"># 查看当前目录下的文件信息，确认 to_delete 目录是否被删除</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 在当前工作目录下生成一个 xiyou.txt 的文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, xiyouyun&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 此时 xiyouyun 目录下存在一个名为 xiyou.txt 的文件，不能被删除</span></span><br><span class="line"><span class="built_in">rmdir</span> /tmp/xiyouyun</span><br></pre></td></tr></table></figure>
+<img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/66760ee238304567a8faaa25fc06113d.gif" class="" title="请添加图片描述">
+
+<h2 id="rm-删除文件或目录"><a href="#rm-删除文件或目录" class="headerlink" title="rm 删除文件或目录"></a>rm 删除文件或目录</h2><p>支持<strong>正则表达式</strong>匹配待删除的文件或目录, <code>*</code> 在匹配文件路径时可以代表任意字符。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 /tmp 目录下创建一个名为 xiyouyun 的目录</span></span><br><span class="line">cd /tmp </span><br><span class="line">mkdir xiyouyun</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将工作目录切换为xiyouyun</span></span><br><span class="line">cd xiyouyun</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 /tmp/xiyouyun 目录下创建 9 个文件，分别为 1.txt、2.txt …… 9.txt，可以暂时忽略这里的语法</span></span><br><span class="line">touch &#123;1..9&#125;.txt</span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除文件 1.txt</span></span><br><span class="line">rm 1.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除文件 9.txt, * 可以表示后面的 .txt, * 在表示路径时可以表示任意字符，因此这里的 9* 可以被解释为 9.txt</span></span><br><span class="line">rm 9*</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建两个目录 father/son 此时在 father 目录下会创建一个名为 son 的子目录，因此创建后 father 目录不是空目录</span></span><br><span class="line">mkdir -p father/son</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看目录层级结构，如果系统中不存在这个命令，可以借助 <span class="built_in">ls</span> 查看当前工作目录下的文件，或者通过 apt install tree 安装这个软件。</span></span><br><span class="line">tree</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除 father 目录，以及 father 目录下面的所有文件</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">失败，<span class="built_in">rmdir</span> 只能删除空目录</span></span><br><span class="line">rmdir father </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">rm</span> 命令默认删除文件，使用 -r 参数可以删除目录，-i 参数会在删除目录前一一询问用户是否删除该的文件，输入 <span class="built_in">yes</span> 并回车就会将对应的文件删除</span></span><br><span class="line">rm -r -i father </span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">rm</span> 的 -f 参数表示在删除文件时不用输入 <span class="built_in">yes</span> 确认，强制删除。</span></span><br><span class="line">mkdir -p father/son</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里的 -r 和 -f 可以连在一起写作 -rf，效果同分开写相同，下面这条命令会删除 father 目录和 father 目录下的所有文件</span></span><br><span class="line">rm -rf father</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+<img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/a0d6499fd4d84ad3a97da2560780719a.gif" class="" title="请添加图片描述">
+
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="区分文件和目录"><a href="#区分文件和目录" class="headerlink" title="区分文件和目录"></a>区分文件和目录</h3><p><code>mkdir</code> 能够创建目录，<code>touch</code> 能够创建文件，那么怎么区分文件或目录呢？</p>
 <ul>
-<li><p><code>mkdir xiyouyun</code> (创建一个目录，目录的名称为 xiyouyun，它的路径为 /tmp/xiyouyun)</p>
-<p>  <code>cd xiyouyun</code> (切换工作目录的路径到 /tmp/xiyouyun，使用 xiyouyun 而不是 /tmp/xiyouyun并不会导致错误， 这是因为当前的工作目录是 /tmp，所以在这个工作目录下可以用 xiyouyun 来代替 /tmp/xiyouyun)</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前工作目录的路径，路径中包含 xiyouyun，说明目录创建成功，当然，此前 change directory 成功也说明了目录创建成功。</span></span><br><span class="line">pwd</span><br></pre></td></tr></table></figure>
-  <img src="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/a682106b92ea4cb887e0a59158f71a20.png" class="" title="在这里插入图片描述"></li>
+<li><p>使用 <code>ls</code> 输出当前工作目录下的文件信息时，会通过不同的颜色来区分目录和文件，但这种方式不一定总是可靠。因为光凭颜色只能看出有一种颜色表示目录，另一种颜色表示文件，不能看出哪一种颜色对应目录，哪一种颜色对应文件。</p>
+</li>
+<li><p>在 windows 中可以通过文件后缀（如：1.txt）来区分文件和目录，文件有后缀，目录没后缀，这在 linux 系统中也不可行。</p>
+</li>
+<li><p>这里介绍一种方法：使用 <code>ls -l</code> 以 list（列表）的形式列出当前工作目录下的所有文件信息，每个文件或目录对应一行，看每一行的第 1 个字符就可以判断对应的文件信息是目录还是文件了。第 1 个字符为 <code>d</code> 的行表示该行对应的文件类型为目录，第 1 个字符为<code>-</code>的行表示该行对应的文件类型为文件。</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 xiyouyun 目录，如果 /tmp/xiyoyun 目录存在，不做操作</span></span><br><span class="line">mkdir -p /tmp/xiyouyun</span><br><span class="line">cd /tmp/xiyouyun</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 1 个目录</span></span><br><span class="line">mkdir directory</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建一个名为 file 的文件，文件名不带后缀</span></span><br><span class="line">touch file</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+  <img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/f91c9d36a4254f928bb367c8635a1b49.png" class="" title="在这里插入图片描述">
+  <img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/8dd46bbd1fec48c984fde6ae5ece2ed7.gif" class="" title="请添加图片描述"></li>
 </ul>
-<ul>
-<li><p><code>touch touch.txt</code>(创建一个空文件)</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">列出当前目录下的文件信息，查看文件是否被创建</span></span><br><span class="line">ls </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 touch.txt 文件的内容</span></span><br><span class="line">cat touch.txt</span><br></pre></td></tr></table></figure>
-  <img src="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/b4313903902a420e8f79aba24a1816ce.png" class="" title="在这里插入图片描述"></li>
-<li><p>创建一个文件并向其中写入内容，输入<code>vim vim.txt</code>命令后进入到 vim 界面，在英文输入法模式按 <kbd>i</kbd>，切换到 vim 的输入模式，输入内容 hello，xiyouyun，然后按下<kbd>Esc</kbd>，再依次输入”:wq” 3 个字符，然后按下回车，文件内容写入完毕。</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">列出当前目录下的文件信息，查看文件是否被创建</span></span><br><span class="line">ls </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 vim.txt 文件的内容</span></span><br><span class="line">cat vim.txt</span><br></pre></td></tr></table></figure>
-  <img src="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/626cb50b4d1d4693af2c85a00dda8ef5.gif" class="" title="请添加图片描述"></li>
-</ul>
-<ul>
-<li><p>使用 echo 创建文件并写入内容</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用重定向符号 &gt; 向 echo.txt 写入 hello</span></span><br><span class="line">echo &quot;hello&quot; &gt; echo.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 <span class="built_in">cat</span> 查看 echo.txt 文件的内容， 使用相对于工作目录的相对路径</span></span><br><span class="line">cat echo.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用重定向符号 &gt; 向 echo.txt 写入 xiyouyun</span></span><br><span class="line">echo &quot;xiyouyun&quot; &gt; echo.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 <span class="built_in">cat</span> 查看 echo.txt 文件的内容，可以看到第一次写入的内容被第二次写入的内容覆盖了，文件内容只包含第二次写入的内容</span></span><br><span class="line">cat echo.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果想要持续写入一个文件而不发生覆盖，需要使用追加重定向符号（&gt;&gt;）</span></span><br><span class="line">echo &quot;hello， xiyouyun&quot; &gt;&gt; echo.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看文件内容，可以看到，之前文件中的内容并没有被覆盖，而是在之前的文件内容后面追加了新的内容</span></span><br><span class="line">cat echo.txt</span><br></pre></td></tr></table></figure>
-  <img src="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/6d74fdb3efcf448a94e61331f4907ac3.gif" class="" title="请添加图片描述"></li>
-</ul>
-<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>mkdir 还有一个 -p 参数，可以用来创建多层目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">mkdir -p father/son</span><br><span class="line">mkdir -p grandfather/father/son </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tree 可以查看目录的组织结构，后面的 “| grep  -A 1 father” 可以暂时忽略它的含义</span></span><br><span class="line">tree | grep  -A 1 father</span><br></pre></td></tr></table></figure>
-<p>上面的代码执行后，会创建一个名为 father 的目录，在它的下面还有一个名为 son 的目录。<br>还有创建一个 grandfather 的目录，在它的下面有一个名为 father 的目录，father 目录的下面还有一个名为 son 的目录。</p>
-<img src="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/1e0579cecbab44b2b156745e67ca2a78.png" class="" title="在这里插入图片描述"><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<h3 id="删除文件的最佳实践"><a href="#删除文件的最佳实践" class="headerlink" title="删除文件的最佳实践"></a><strong>删除文件的最佳实践</strong></h3><p>我们之前说到 rmdir 和鸡肋，只能用来删除空目录，这是一种非常保守的做法。但 rm -rf 的时候会直接删除文件而无法找回，这是不是又有点激进呢？</p>
+<p>在使用图形化界面的电脑中，有一个“回收站（trash）”的概念，我们删除文件后，文件会被放入到”回收站“中，并不会立即被删除。此时文件还可以从”回收站“中恢复，只有在做完“清空回收站“后，文件才会被真正删除。而在终端中，你使用 rm 删掉一个文件后就无法恢复了，文件不会被放入回收站。</p>
+<p>这对初学者并不友好，慎重使用 rm 这个命令是需要刻意训练的。因为在图形化界面中删除一个文件后可以在想要使用这个文件时将它从 trash 中恢复，这会让人们在做出删除操作时很草率，这可能导致误删文件之后后悔莫及。</p>
+<p>这里我给大家介绍一个新命令：mv（move），它有两个参数 mv [source_path] [target_path]，第 1 个参数是想要删除的文件或目录的路径，第 2 个参数是 trash 的路径，trash 是一个目录。文件或目录会被移动到 trash 目录中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在家目录下创建 trash，之前的文章有说到，在路径中 ~ 可以表示家目录</span></span><br><span class="line"><span class="built_in">mkdir</span> ~/trash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 9 个文件</span></span><br><span class="line"><span class="built_in">touch</span> xiyou&#123;1..9&#125;.txt</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将刚刚的 9 个文件放入 trash, 上文的内容有说到，在路径中的 * 可以表示任意字符</span></span><br><span class="line"><span class="built_in">mv</span> xiyou*.txt ~/trash</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将xiyou9.txt文件从 trash 中恢复到当前目录中, 之前的文章有说到，在路径中 . 可以代表当前的工作目录</span></span><br><span class="line"><span class="built_in">mv</span> ~/trash/xiyou9.txt .</span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>为了避免“回收站”占用空间过大，记得使用 rm 命令定期删除其中不再需要的文件哦~</strong></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -222,7 +223,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -235,19 +236,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            删除文件(rm,rmdir)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/" class="article-nav-link">
+      <a href="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">终端-工作目录-文件-路径-命令-参数(pwd,cd,ls)</div>
+        <div class="article-nav-title">创建文件(touch,mkdir,vim,重定向)</div>
       </a>
     
   </nav>

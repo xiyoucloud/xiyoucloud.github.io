@@ -34,6 +34,45 @@
       </tags>
   </entry>
   <entry>
+    <title>删除文件(rm,rmdir)</title>
+    <url>/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=559933357&bvid=BV1Se4y117LF&cid=886499421&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+<blockquote>
+<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<h2 id="rmdir-删除一个空目录"><a href="#rmdir-删除一个空目录" class="headerlink" title="rmdir 删除一个空目录"></a>rmdir 删除一个<strong>空目录</strong></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在 /tmp 目录下创建一个名为 xiyouyun 的目录</span></span><br><span class="line"><span class="built_in">cd</span> /tmp </span><br><span class="line"><span class="built_in">mkdir</span> xiyouyun</span><br><span class="line"><span class="comment"># 将工作目录切换为 xiyouyun</span></span><br><span class="line"><span class="built_in">cd</span> xiyouyun</span><br><span class="line"><span class="comment"># 在 xiyouyun 目录下创建一个名为 to_delete 的目录</span></span><br><span class="line"><span class="built_in">mkdir</span> to_delete</span><br><span class="line"><span class="comment"># 查看当前工作目录下的文件信息，确认 to_delete 目录是否被创建</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 删除 to_delete 目录</span></span><br><span class="line"><span class="built_in">rmdir</span> to_delete</span><br><span class="line"><span class="comment"># 查看当前目录下的文件信息，确认 to_delete 目录是否被删除</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 在当前工作目录下生成一个 xiyou.txt 的文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, xiyouyun&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 此时 xiyouyun 目录下存在一个名为 xiyou.txt 的文件，不能被删除</span></span><br><span class="line"><span class="built_in">rmdir</span> /tmp/xiyouyun</span><br></pre></td></tr></table></figure>
+<img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/66760ee238304567a8faaa25fc06113d.gif" class="" title="请添加图片描述">
+
+<h2 id="rm-删除文件或目录"><a href="#rm-删除文件或目录" class="headerlink" title="rm 删除文件或目录"></a>rm 删除文件或目录</h2><p>支持<strong>正则表达式</strong>匹配待删除的文件或目录, <code>*</code> 在匹配文件路径时可以代表任意字符。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 /tmp 目录下创建一个名为 xiyouyun 的目录</span></span><br><span class="line">cd /tmp </span><br><span class="line">mkdir xiyouyun</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将工作目录切换为xiyouyun</span></span><br><span class="line">cd xiyouyun</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 /tmp/xiyouyun 目录下创建 9 个文件，分别为 1.txt、2.txt …… 9.txt，可以暂时忽略这里的语法</span></span><br><span class="line">touch &#123;1..9&#125;.txt</span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除文件 1.txt</span></span><br><span class="line">rm 1.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除文件 9.txt, * 可以表示后面的 .txt, * 在表示路径时可以表示任意字符，因此这里的 9* 可以被解释为 9.txt</span></span><br><span class="line">rm 9*</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建两个目录 father/son 此时在 father 目录下会创建一个名为 son 的子目录，因此创建后 father 目录不是空目录</span></span><br><span class="line">mkdir -p father/son</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看目录层级结构，如果系统中不存在这个命令，可以借助 <span class="built_in">ls</span> 查看当前工作目录下的文件，或者通过 apt install tree 安装这个软件。</span></span><br><span class="line">tree</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除 father 目录，以及 father 目录下面的所有文件</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">失败，<span class="built_in">rmdir</span> 只能删除空目录</span></span><br><span class="line">rmdir father </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">rm</span> 命令默认删除文件，使用 -r 参数可以删除目录，-i 参数会在删除目录前一一询问用户是否删除该的文件，输入 <span class="built_in">yes</span> 并回车就会将对应的文件删除</span></span><br><span class="line">rm -r -i father </span><br><span class="line">ls</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">rm</span> 的 -f 参数表示在删除文件时不用输入 <span class="built_in">yes</span> 确认，强制删除。</span></span><br><span class="line">mkdir -p father/son</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里的 -r 和 -f 可以连在一起写作 -rf，效果同分开写相同，下面这条命令会删除 father 目录和 father 目录下的所有文件</span></span><br><span class="line">rm -rf father</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+<img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/a0d6499fd4d84ad3a97da2560780719a.gif" class="" title="请添加图片描述">
+
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="区分文件和目录"><a href="#区分文件和目录" class="headerlink" title="区分文件和目录"></a>区分文件和目录</h3><p><code>mkdir</code> 能够创建目录，<code>touch</code> 能够创建文件，那么怎么区分文件或目录呢？</p>
+<ul>
+<li><p>使用 <code>ls</code> 输出当前工作目录下的文件信息时，会通过不同的颜色来区分目录和文件，但这种方式不一定总是可靠。因为光凭颜色只能看出有一种颜色表示目录，另一种颜色表示文件，不能看出哪一种颜色对应目录，哪一种颜色对应文件。</p>
+</li>
+<li><p>在 windows 中可以通过文件后缀（如：1.txt）来区分文件和目录，文件有后缀，目录没后缀，这在 linux 系统中也不可行。</p>
+</li>
+<li><p>这里介绍一种方法：使用 <code>ls -l</code> 以 list（列表）的形式列出当前工作目录下的所有文件信息，每个文件或目录对应一行，看每一行的第 1 个字符就可以判断对应的文件信息是目录还是文件了。第 1 个字符为 <code>d</code> 的行表示该行对应的文件类型为目录，第 1 个字符为<code>-</code>的行表示该行对应的文件类型为文件。</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 xiyouyun 目录，如果 /tmp/xiyoyun 目录存在，不做操作</span></span><br><span class="line">mkdir -p /tmp/xiyouyun</span><br><span class="line">cd /tmp/xiyouyun</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 1 个目录</span></span><br><span class="line">mkdir directory</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建一个名为 file 的文件，文件名不带后缀</span></span><br><span class="line">touch file</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+  <img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/f91c9d36a4254f928bb367c8635a1b49.png" class="" title="在这里插入图片描述">
+  <img src="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/8dd46bbd1fec48c984fde6ae5ece2ed7.gif" class="" title="请添加图片描述"></li>
+</ul>
+<h3 id="删除文件的最佳实践"><a href="#删除文件的最佳实践" class="headerlink" title="删除文件的最佳实践"></a><strong>删除文件的最佳实践</strong></h3><p>我们之前说到 rmdir 和鸡肋，只能用来删除空目录，这是一种非常保守的做法。但 rm -rf 的时候会直接删除文件而无法找回，这是不是又有点激进呢？</p>
+<p>在使用图形化界面的电脑中，有一个“回收站（trash）”的概念，我们删除文件后，文件会被放入到”回收站“中，并不会立即被删除。此时文件还可以从”回收站“中恢复，只有在做完“清空回收站“后，文件才会被真正删除。而在终端中，你使用 rm 删掉一个文件后就无法恢复了，文件不会被放入回收站。</p>
+<p>这对初学者并不友好，慎重使用 rm 这个命令是需要刻意训练的。因为在图形化界面中删除一个文件后可以在想要使用这个文件时将它从 trash 中恢复，这会让人们在做出删除操作时很草率，这可能导致误删文件之后后悔莫及。</p>
+<p>这里我给大家介绍一个新命令：mv（move），它有两个参数 mv [source_path] [target_path]，第 1 个参数是想要删除的文件或目录的路径，第 2 个参数是 trash 的路径，trash 是一个目录。文件或目录会被移动到 trash 目录中。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在家目录下创建 trash，之前的文章有说到，在路径中 ~ 可以表示家目录</span></span><br><span class="line"><span class="built_in">mkdir</span> ~/trash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 9 个文件</span></span><br><span class="line"><span class="built_in">touch</span> xiyou&#123;1..9&#125;.txt</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将刚刚的 9 个文件放入 trash, 上文的内容有说到，在路径中的 * 可以表示任意字符</span></span><br><span class="line"><span class="built_in">mv</span> xiyou*.txt ~/trash</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将xiyou9.txt文件从 trash 中恢复到当前目录中, 之前的文章有说到，在路径中 . 可以代表当前的工作目录</span></span><br><span class="line"><span class="built_in">mv</span> ~/trash/xiyou9.txt .</span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>为了避免“回收站”占用空间过大，记得使用 rm 命令定期删除其中不再需要的文件哦~</strong></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>西柚云Linux教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>创建文件(touch,mkdir,vim,重定向)</title>
     <url>/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=689969785&bvid=BV1c24y127Nq&cid=886497148&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -211,36 +250,23 @@ tmp --> xiyou.txt</pre>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像。</p>
-<ol>
-<li><p>设置国内镜像源（<strong>可选</strong>）</p>
-<ul>
+<h3 id="1-设置国内镜像源（可选）"><a href="#1-设置国内镜像源（可选）" class="headerlink" title="1.设置国内镜像源（可选）"></a>1.设置国内镜像源（<strong>可选</strong>）</h3><ul>
 <li><p>使用 install 下载：<a href="https://cran.r-project.org/mirrors.html%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://cran.r-project.org/mirrors.html（镜像源列表）</a></p>
   <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> repos <span class="operator">=</span> <span class="string">&quot;https://mirrors.ustc.edu.cn/CRAN/&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
 <li><p>使用 BiocManager 下载 <a href="https://www.bioconductor.org/about/mirrors/%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://www.bioconductor.org/about/mirrors/（镜像源列表）</a></p>
   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">从 BiocManager 镜像安装 XVector</span></span><br><span class="line">options(BioC_mirror=&quot;https://mirrors.tuna.tsinghua.edu.cn/bioconductor&quot;)</span><br><span class="line">BiocManager::install(&quot;XVector&quot;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">向 ~/.Rprofile 文件中写入配置镜像的代码可以永久配置镜像</span></span><br><span class="line">file.edit(&quot;~/.Rprofile&quot;)</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
-<li><p>搜索 R 包，找到安装命令</p>
-<ul>
+<h3 id="2-搜索-R-包，找到安装命令"><a href="#2-搜索-R-包，找到安装命令" class="headerlink" title="2.搜索 R 包，找到安装命令"></a>2.搜索 R 包，找到安装命令</h3><ul>
 <li>在浏览器中搜索关键字：“xxx install” （推荐 google 搜索）</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>CRAN <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">https://cran.r-project.org/web/packages/available_packages_by_name.html</a> （能够在这里搜到的 R 包都能够通过 install.packages(“xxx”) 安装）<ul>
+<li>CRAN <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">https://cran.r-project.org/web/packages/available_packages_by_name.html</a> （能够在这里搜到的 R 包都能够通过 install.packages(“xxx”) 安装）</li>
 <li>Bioconductor <a href="https://www.bioconductor.org/help/search/index.html?/%EF%BC%8C%EF%BC%88%E8%83%BD%E5%A4%9F%E5%9C%A8%E8%BF%99%E9%87%8C%E6%90%9C%E5%88%B0%E7%9A%84">https://www.bioconductor.org/help/search/index.html?/，（能够在这里搜到的</a> R 包都能通过 BiocManager::install(“xxx”) 的方式安装）</li>
-</ul>
-</li>
 <li>GitHub <a href="https://github.com/">https://github.com/</a> （通常在 github 仓库的 README.md 文件会提供安装方法）</li>
 </ul>
-<ol start="3">
-<li>安装 R 包</li>
-</ol>
-<h2 id="安装-R-包"><a href="#安装-R-包" class="headerlink" title="安装 R 包"></a>安装 R 包</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">R 包工具下载方式, 养成好习惯，安装包时指定 lib</span></span><br><span class="line">install.packages(&quot;devtools&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;remotes&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br><span class="line">install.packages(&quot;BiocManager&quot;, lib = &quot;/usr/local/lib/R/site-library&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装-R-包"><a href="#3-安装-R-包" class="headerlink" title="3.安装 R 包"></a>3.安装 R 包</h3><h3 id="安装R包的不同方式"><a href="#安装R包的不同方式" class="headerlink" title="安装R包的不同方式"></a>安装R包的不同方式</h3><figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># R 包安装工具的下载方式, 养成好习惯，安装包时指定 lib，这样能把R包安装在指定的目录下</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;remotes&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>从 CRAN 安装：</p>
-  <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;stringr&quot;</span>)</span><br></pre></td></tr></table></figure></li>
 <li><p>从 Bioconductor 安装：</p>
   <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;XVector&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
 <li><p>从 GitHub 在线安装：</p>
@@ -259,7 +285,7 @@ tmp --> xiyou.txt</pre>
   <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将源码下载到本地，然后使用以下方式编译安装</span></span><br><span class="line"></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;/tmp/stringr_1.4.1.tar.gz&#x27;</span><span class="punctuation">,</span> repos<span class="operator">=</span><span class="literal">NULL</span><span class="punctuation">,</span> type<span class="operator">=</span><span class="string">&quot;source&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 下载方式示例：</span></span><br><span class="line">wget <span class="string">&quot;https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz&quot;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><strong>其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样</strong></p>
-<h2 id="卸载-R-包"><a href="#卸载-R-包" class="headerlink" title="卸载 R 包"></a>卸载 R 包</h2><figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 命令示例，stringr 是包的名称</span></span><br><span class="line">remove.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="卸载-R-包"><a href="#卸载-R-包" class="headerlink" title="卸载 R 包"></a>卸载 R 包</h3><figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 命令示例，stringr 是包的名称</span></span><br><span class="line">remove.packages<span class="punctuation">(</span><span class="string">&quot;stringr&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>R包</tag>
       </tags>
