@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T13:24:56.444Z</updated>
+  <updated>2022-12-30T13:37:30.604Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文本处理之grep</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/</id>
+    <published>2022-12-30T13:35:18.000Z</published>
+    <updated>2022-12-30T13:37:30.604Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>正则表达式</title>
@@ -340,28 +363,6 @@
     
     
     <category term="代理下载" scheme="https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86%E4%B8%8B%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用户和用户组</title>
-    <link href="https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/"/>
-    <id>https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</id>
-    <published>2022-12-29T08:14:46.000Z</published>
-    <updated>2022-12-30T11:23:54.029Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;适用于 ubuntu 20.04&lt;br&gt;ubuntu 20.04 是 “西柚云” 主要使用的操作系统 &lt;a href=&quot;https://www.xiyoucloud.net/aff/VKRWMUHQ&quot;&gt;西柚云官网&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;用户和用户组是用来划分权限的抽象概念，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。&lt;/p&gt;
-&lt;p&gt;用户和用户组是多对多的关系，即1个用户可以对应多个用户组，1个用户组也可以包含多个用户。&lt;/p&gt;
-&lt;img src=&quot;/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221225211630067.png&quot; class=&quot;&quot; title=&quot;image-20221225211630067&quot;&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
