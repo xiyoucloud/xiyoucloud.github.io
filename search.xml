@@ -34,6 +34,44 @@
       </tags>
   </entry>
   <entry>
+    <title>移动和拷贝文件(mv,cp,ln)</title>
+    <url>/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=987650109&bvid=BV1nt4y1N7aZ&cid=892727922&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+
+<blockquote>
+<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<h2 id="移动和拷贝文件的三个相关概念"><a href="#移动和拷贝文件的三个相关概念" class="headerlink" title="移动和拷贝文件的三个相关概念"></a>移动和拷贝文件的三个相关概念</h2><ol>
+<li>拷贝：将文件或目录复制到另一个路径中；</li>
+<li>移动：将文件或目录移动到另一个路径中；</li>
+<li>链接：链接分为软链接和硬链接，软链接又被称为符号链接，软链接可以对文件和目录创建，硬链接只能对文件创建；软链接链接的是文件路径，硬链接链接的是文件内容。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建目录用于命令演示</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="comment"># 切换到 xiyouyun 目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$_</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> xiyou-1 xiyou-2</span><br><span class="line"><span class="built_in">touch</span> &#123;1..9&#125;.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="cp：拷贝，软硬链接"><a href="#cp：拷贝，软硬链接" class="headerlink" title="cp：拷贝，软硬链接"></a>cp：拷贝，软硬链接</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 拷贝文件</span></span><br><span class="line"><span class="built_in">cp</span> 1.txt 1-copy.txt</span><br><span class="line"><span class="comment"># 拷贝目录</span></span><br><span class="line"><span class="built_in">cp</span> -r xiyou-1 xiyou-1-copy</span><br><span class="line"><span class="comment"># 软链接, 只能在当前目录对文件建立软链接，不能对目录建立软链接</span></span><br><span class="line"><span class="built_in">cp</span> -s 1.txt 1-symbollink.txt </span><br><span class="line"><span class="comment"># 硬链接，只能在当前目录建立硬链接</span></span><br><span class="line"><span class="built_in">cp</span> -l 1.txt 1-hardlink.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于区分软硬链接的不同</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello&quot;</span> &gt; 1.txt</span><br><span class="line"> <span class="comment">## 可以通过软硬链接查看文件内容</span></span><br><span class="line"><span class="built_in">cat</span> 1-symbollink.txt </span><br><span class="line"><span class="built_in">cat</span> 1-hardlink.txt</span><br><span class="line"> <span class="comment">## 删除文件后，不能通过软链接查看文件内容</span></span><br><span class="line"><span class="built_in">rm</span> 1.txt</span><br><span class="line"><span class="built_in">cat</span> 1-symbollink.txt </span><br><span class="line"> <span class="comment">## 可以通过硬链接查看文件内容</span></span><br><span class="line"><span class="built_in">cat</span> 1-hardlink.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="mv：移动文件"><a href="#mv：移动文件" class="headerlink" title="mv：移动文件"></a>mv：移动文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将 1.txt 文件移动到 xiyou-1 目录中</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt xiyou-1</span><br><span class="line"><span class="comment"># 移动文件时，可以在指定路径时指定移动后的文件名，这里移动后文件名变为 22.txt</span></span><br><span class="line"><span class="built_in">mv</span> 2.txt xiyou-2/22.txt</span><br><span class="line"><span class="comment"># 将 xiyou-1/1.txt 移动到当前目录</span></span><br><span class="line"><span class="built_in">mv</span> xiyou-1/1.txt .</span><br><span class="line"><span class="comment"># 移动目录</span></span><br><span class="line"><span class="built_in">mv</span> xiyou-1 xiyou-2</span><br><span class="line"><span class="comment"># 使用 mv 对单个文件重命名</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt 11.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="ln：软硬链接"><a href="#ln：软硬链接" class="headerlink" title="ln：软硬链接"></a>ln：软硬链接</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 软链接，建立的软链接可不保存在当前目录</span></span><br><span class="line"><span class="built_in">ln</span> -s 3.txt xiyou-2/3-simbollink.txt</span><br><span class="line"><span class="comment"># 硬链接，建立的硬链接可不保存在当前目录</span></span><br><span class="line"><span class="built_in">ln</span> 3.txt xiyou-2/3-hardlink.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="如何判断一个文件是软链接"><a href="#如何判断一个文件是软链接" class="headerlink" title="如何判断一个文件是软链接?"></a>如何判断一个文件是软链接?</h2><p>（看箭头，看 ls -l 的输出）判断文件是否是软链接</p>
+<img src="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/0ac50948480041c7919f97cd87c9469b.png" class="" title="请添加图片描述">
+
+<h2 id="如何判断一个文件是否存在硬链接？"><a href="#如何判断一个文件是否存在硬链接？" class="headerlink" title="如何判断一个文件是否存在硬链接？"></a>如何判断一个文件是否存在硬链接？</h2><p>(看引用数，看 ls -l 的信息) 判断文件是否存在硬链接</p>
+   <img src="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/6eb734f8e28e4d4aaf1ec0aacd8d5a2d.png" class="" title="请添加图片描述">
+
+<h2 id="修改时备份"><a href="#修改时备份" class="headerlink" title="修改时备份"></a>修改时备份</h2><p>修改一个重要配置文件时，一定要做拷贝备份！这样出错时可以恢复文件到未修改的状态。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;xiyou#……&amp;*￥#（&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="comment"># 做拷贝备份</span></span><br><span class="line"><span class="built_in">cp</span> xiyou.txt xiyou.txt.bak</span><br><span class="line"><span class="comment"># 清空 1 个文件</span></span><br><span class="line"><span class="built_in">cat</span> /dev/null &gt; xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br><span class="line"><span class="comment"># 恢复被删除的文件</span></span><br><span class="line"><span class="built_in">mv</span> xiyou.txt.bak xiyou.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="mv可能会导致文件丢失"><a href="#mv可能会导致文件丢失" class="headerlink" title="mv可能会导致文件丢失"></a>mv可能会导致文件丢失</h2><p>mv 默认会覆盖目标路径下的同名文件, 这可能会导致文件信息丢失，因此使用 mv 移动文件时，要确保目标路径下没有同名文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;xiyou#……&amp;*￥#（&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br><span class="line"><span class="built_in">mv</span> 3.txt xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>西柚云Linux教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>压缩文件(tar,zip,7z,rar,gzip,bzip2)</title>
     <url>/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=520131164&bvid=BV11M411k7mA&cid=891610656&page=1"style="width:100%;height:500px;min-width:375px;min-height:200px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

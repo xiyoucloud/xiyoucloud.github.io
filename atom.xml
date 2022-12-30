@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T12:33:27.599Z</updated>
+  <updated>2022-12-30T12:45:34.290Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>移动和拷贝文件(mv,cp,ln)</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/</id>
+    <published>2022-12-30T12:36:11.000Z</published>
+    <updated>2022-12-30T12:45:34.290Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=987650109&amp;bvid=BV1nt4y1N7aZ&amp;cid=892727922&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>压缩文件(tar,zip,7z,rar,gzip,bzip2)</title>

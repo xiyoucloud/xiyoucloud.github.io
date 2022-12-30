@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>压缩文件(tar,zip,7z,rar,gzip,bzip2) |  xiyoucloud</title>
+      <title>移动和拷贝文件(mv,cp,ln) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-压缩文件-tar-zip-7z-rar-gzip-bzip2"
+  id="post-移动和拷贝文件-mv-cp-ln"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  压缩文件(tar,zip,7z,rar,gzip,bzip2)
+  移动和拷贝文件(mv,cp,ln)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" class="article-date">
-  <time datetime="2022-12-30T12:26:51.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" class="article-date">
+  <time datetime="2022-12-30T12:36:11.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">999</span>
+            <span class="post-count">744</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -122,36 +122,37 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=520131164&bvid=BV11M411k7mA&cid=891610656&page=1"style="width:100%;height:500px;min-width:375px;min-height:200px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=987650109&bvid=BV1nt4y1N7aZ&cid=892727922&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
+
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<p><strong>打包</strong>是将一个或多个文件的数据信息收集到1个文件中<br><strong>压缩</strong>是使用另一种数据格式存储文件，使得压缩后的文件占用存储空间更小。<br><strong>解压缩</strong>是从压缩后的文件中还原被压缩的文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建文件和目录用于练习压缩与解压缩</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="built_in">touch</span> &#123;1..9&#125;.txt</span><br><span class="line"><span class="built_in">mkdir</span> &#123;1..9&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="移动和拷贝文件的三个相关概念"><a href="#移动和拷贝文件的三个相关概念" class="headerlink" title="移动和拷贝文件的三个相关概念"></a>移动和拷贝文件的三个相关概念</h2><ol>
+<li>拷贝：将文件或目录复制到另一个路径中；</li>
+<li>移动：将文件或目录移动到另一个路径中；</li>
+<li>链接：链接分为软链接和硬链接，软链接又被称为符号链接，软链接可以对文件和目录创建，硬链接只能对文件创建；软链接链接的是文件路径，硬链接链接的是文件内容。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建目录用于命令演示</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="comment"># 切换到 xiyouyun 目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$_</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> xiyou-1 xiyou-2</span><br><span class="line"><span class="built_in">touch</span> &#123;1..9&#125;.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="tar用于压缩文件和目录，保留压缩前的文件"><a href="#tar用于压缩文件和目录，保留压缩前的文件" class="headerlink" title="tar用于压缩文件和目录，保留压缩前的文件"></a>tar用于压缩文件和目录，保留压缩前的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 仅打包文件，但并不压缩 create an archive</span></span><br><span class="line">tar -cf xiyou.tar 1 1.txt</span><br><span class="line"><span class="comment"># 从打包文件中提取出文件, extract from an archive</span></span><br><span class="line">tar -xf xiyou.tar</span><br><span class="line"><span class="comment"># 打包文件，并通过 gzip 对文件进行压缩，v 参数用于在压缩时显示详情，z 指定压缩工具为 gzip</span></span><br><span class="line">tar -czvf xiyou.tar.gz 1 1.txt</span><br><span class="line"><span class="comment"># 解压文件到 xiyou 目录，该目录需要提前创建</span></span><br><span class="line"><span class="built_in">mkdir</span> xiyou</span><br><span class="line">tar -xzvf xiyou.tar.gz -C xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 bzip2 的方式进行压缩与解压缩</span></span><br><span class="line">tar -cjvf xiyou.tar.bz2 1 1.txt</span><br><span class="line">tar -xjvf xiyou.tar.bz2 -C xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不解压文件，只查看压缩包中的内容</span></span><br><span class="line">tar -tf xiyou.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="cp：拷贝，软硬链接"><a href="#cp：拷贝，软硬链接" class="headerlink" title="cp：拷贝，软硬链接"></a>cp：拷贝，软硬链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拷贝文件</span></span><br><span class="line"><span class="built_in">cp</span> 1.txt 1-copy.txt</span><br><span class="line"><span class="comment"># 拷贝目录</span></span><br><span class="line"><span class="built_in">cp</span> -r xiyou-1 xiyou-1-copy</span><br><span class="line"><span class="comment"># 软链接, 只能在当前目录对文件建立软链接，不能对目录建立软链接</span></span><br><span class="line"><span class="built_in">cp</span> -s 1.txt 1-symbollink.txt </span><br><span class="line"><span class="comment"># 硬链接，只能在当前目录建立硬链接</span></span><br><span class="line"><span class="built_in">cp</span> -l 1.txt 1-hardlink.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于区分软硬链接的不同</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello&quot;</span> &gt; 1.txt</span><br><span class="line"> <span class="comment">## 可以通过软硬链接查看文件内容</span></span><br><span class="line"><span class="built_in">cat</span> 1-symbollink.txt </span><br><span class="line"><span class="built_in">cat</span> 1-hardlink.txt</span><br><span class="line"> <span class="comment">## 删除文件后，不能通过软链接查看文件内容</span></span><br><span class="line"><span class="built_in">rm</span> 1.txt</span><br><span class="line"><span class="built_in">cat</span> 1-symbollink.txt </span><br><span class="line"> <span class="comment">## 可以通过硬链接查看文件内容</span></span><br><span class="line"><span class="built_in">cat</span> 1-hardlink.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="zip-unzip：可用于压缩文件和目录，保留压缩前的文件"><a href="#zip-unzip：可用于压缩文件和目录，保留压缩前的文件" class="headerlink" title="zip/unzip：可用于压缩文件和目录，保留压缩前的文件"></a>zip/unzip：可用于压缩文件和目录，保留压缩前的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩目录时要添加 -r 参数，这样才能将目录下的所有文件添加到压缩包中</span></span><br><span class="line">zip -r xiyou2.zip 2 2.txt</span><br><span class="line"><span class="comment"># 将文件解压缩到目录中, 目录会自动被创建</span></span><br><span class="line">unzip -d xiyou2 xiyou2.zip</span><br><span class="line"><span class="comment"># 不解压文件，仅查看压缩文件中的文件信息</span></span><br><span class="line">unzip -l xiyou2.zip</span><br></pre></td></tr></table></figure>
+<h2 id="mv：移动文件"><a href="#mv：移动文件" class="headerlink" title="mv：移动文件"></a>mv：移动文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将 1.txt 文件移动到 xiyou-1 目录中</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt xiyou-1</span><br><span class="line"><span class="comment"># 移动文件时，可以在指定路径时指定移动后的文件名，这里移动后文件名变为 22.txt</span></span><br><span class="line"><span class="built_in">mv</span> 2.txt xiyou-2/22.txt</span><br><span class="line"><span class="comment"># 将 xiyou-1/1.txt 移动到当前目录</span></span><br><span class="line"><span class="built_in">mv</span> xiyou-1/1.txt .</span><br><span class="line"><span class="comment"># 移动目录</span></span><br><span class="line"><span class="built_in">mv</span> xiyou-1 xiyou-2</span><br><span class="line"><span class="comment"># 使用 mv 对单个文件重命名</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt 11.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="7z：开源免费，支持压缩文件和目录"><a href="#7z：开源免费，支持压缩文件和目录" class="headerlink" title="7z：开源免费，支持压缩文件和目录"></a>7z：开源免费，支持压缩文件和目录</h2><p><strong>sudo apt install p7zip-full</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩，r 表示递归操作目录下的所有子文件</span></span><br><span class="line">7za a -r xiyouyun.7z /tmp/xiyouyun/*</span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">7za x -r xiyouyun.7z</span><br></pre></td></tr></table></figure>
+<h2 id="ln：软硬链接"><a href="#ln：软硬链接" class="headerlink" title="ln：软硬链接"></a>ln：软硬链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 软链接，建立的软链接可不保存在当前目录</span></span><br><span class="line"><span class="built_in">ln</span> -s 3.txt xiyou-2/3-simbollink.txt</span><br><span class="line"><span class="comment"># 硬链接，建立的硬链接可不保存在当前目录</span></span><br><span class="line"><span class="built_in">ln</span> 3.txt xiyou-2/3-hardlink.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="rar：winrar在Linux中的替代品"><a href="#rar：winrar在Linux中的替代品" class="headerlink" title="rar：winrar在Linux中的替代品"></a>rar：winrar在Linux中的替代品</h2><p>使用 <strong>sudo apt install rar unrar</strong> 安装软件，rar 默认收费，且不支持 linux，这里使用的是第三方开发的 linux 包，使用第3方软件可能会有未知的错误（可能性极小），详情可查看 <a target="_blank" rel="noopener" href="https://www.rarlab.com/rar_add.htm">rar官网</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将当前目录下的所有文件名以 txt 结尾的文件压缩到 all.rar 中</span></span><br><span class="line">rar a all *.txt</span><br><span class="line"><span class="comment"># 解压 rar 文件</span></span><br><span class="line">unrar e all.rar</span><br></pre></td></tr></table></figure>
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="如何判断一个文件是软链接"><a href="#如何判断一个文件是软链接" class="headerlink" title="如何判断一个文件是软链接?"></a>如何判断一个文件是软链接?</h2><p>（看箭头，看 ls -l 的输出）判断文件是否是软链接</p>
+<img src="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/0ac50948480041c7919f97cd87c9469b.png" class="" title="请添加图片描述">
 
-<h2 id="bzip2只能压缩文件，不能压缩目录"><a href="#bzip2只能压缩文件，不能压缩目录" class="headerlink" title="bzip2只能压缩文件，不能压缩目录"></a>bzip2只能压缩文件，不能压缩目录</h2><p>bzip2不保留压缩前的文件，文件压缩后被保存为xx.bz2</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将文件压缩为 2.txt.bz2，原文件将会消失</span></span><br><span class="line">bzip2 2.txt</span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">bzip2 -d 2.txt.bz2</span><br></pre></td></tr></table></figure>
+<h2 id="如何判断一个文件是否存在硬链接？"><a href="#如何判断一个文件是否存在硬链接？" class="headerlink" title="如何判断一个文件是否存在硬链接？"></a>如何判断一个文件是否存在硬链接？</h2><p>(看引用数，看 ls -l 的信息) 判断文件是否存在硬链接</p>
+   <img src="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/6eb734f8e28e4d4aaf1ec0aacd8d5a2d.png" class="" title="请添加图片描述">
 
-<h2 id="gzip只能压缩文件，不能压缩目录"><a href="#gzip只能压缩文件，不能压缩目录" class="headerlink" title="gzip只能压缩文件，不能压缩目录,"></a>gzip只能压缩文件，不能压缩目录,</h2><p>gzip不保留压缩前的文件，文件压缩后被保存为 xx.gz</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩文件</span></span><br><span class="line">gzip 3.txt</span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">gzip -d 3.txt.gz</span><br></pre></td></tr></table></figure>
+<h2 id="修改时备份"><a href="#修改时备份" class="headerlink" title="修改时备份"></a>修改时备份</h2><p>修改一个重要配置文件时，一定要做拷贝备份！这样出错时可以恢复文件到未修改的状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;xiyou#……&amp;*￥#（&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="comment"># 做拷贝备份</span></span><br><span class="line"><span class="built_in">cp</span> xiyou.txt xiyou.txt.bak</span><br><span class="line"><span class="comment"># 清空 1 个文件</span></span><br><span class="line"><span class="built_in">cat</span> /dev/null &gt; xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br><span class="line"><span class="comment"># 恢复被删除的文件</span></span><br><span class="line"><span class="built_in">mv</span> xiyou.txt.bak xiyou.txt</span><br></pre></td></tr></table></figure>
 
-<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="解压缩注意事项："><a href="#解压缩注意事项：" class="headerlink" title="解压缩注意事项："></a><strong>解压缩注意事项：</strong></h2><p>在使用 tar 解压文件时，本地如果存在和压缩包中同名的文件，会直接被覆盖不会有任何提示，因此建议使用 tar 解压时指定一个空目录，将文件解压缩到空目录中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> xiyou</span><br><span class="line">tar -xzvf xiyou.tar.gz -C xiyou</span><br></pre></td></tr></table></figure>
-<h2 id="分卷压缩："><a href="#分卷压缩：" class="headerlink" title="分卷压缩："></a><strong>分卷压缩：</strong></h2><p>在很多应用场景中都存在数据大小的限制，如：“单次上传文件大小不能超过1GB”。这个时候就可以用到分卷压缩了。它可以将 1 个大文件压缩并按照规定大小划分成多卷，如将10GB的文件压缩后划分为10卷，每卷1GB，之后也能通过命令将10个卷重新组合成1个大文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个命令会向 xiyou.txt 文件写入 1000000 行数据, 大约 22MB</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..1000000&#125;; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$i</span> hello xiyouyun &quot;</span> &gt;&gt; xiyou.txt; <span class="keyword">done</span>;</span><br><span class="line"><span class="built_in">du</span> -sh xiyou.txt</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分卷压缩，每卷为1MB</span></span><br><span class="line">tar zcf - xiyou.txt |<span class="built_in">split</span> -d -b 1m - xiyou.tar.gz</span><br><span class="line"><span class="comment"># 分卷解压缩，因为压缩是使用的是 gzip，所以解压时也用 gzip</span></span><br><span class="line"><span class="comment"># 这里先删除xiyou.txt 文件，测试解压缩后是否能够还原 xiyou.txt</span></span><br><span class="line"><span class="built_in">rm</span> xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.tar.gz0* | tar zx</span><br><span class="line"><span class="built_in">tail</span> xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<h2 id="mv可能会导致文件丢失"><a href="#mv可能会导致文件丢失" class="headerlink" title="mv可能会导致文件丢失"></a>mv可能会导致文件丢失</h2><p>mv 默认会覆盖目标路径下的同名文件, 这可能会导致文件信息丢失，因此使用 mv 移动文件时，要确保目标路径下没有同名文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;xiyou#……&amp;*￥#（&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br><span class="line"><span class="built_in">mv</span> 3.txt xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -221,7 +222,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -234,19 +235,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            移动和拷贝文件(mv,cp,ln)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/" class="article-nav-link">
+      <a href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">传输文件(scp,ftp,wget,curl)</div>
+        <div class="article-nav-title">压缩文件(tar,zip,7z,rar,gzip,bzip2)</div>
       </a>
     
   </nav>
