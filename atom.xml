@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T12:45:34.290Z</updated>
+  <updated>2022-12-30T12:54:15.157Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文件的权限和属性(chmod,chown)</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/</id>
+    <published>2022-12-30T12:48:49.000Z</published>
+    <updated>2022-12-30T12:54:15.157Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=262822119&amp;bvid=BV1aY411o75b&amp;cid=895360256&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>移动和拷贝文件(mv,cp,ln)</title>

@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>移动和拷贝文件(mv,cp,ln) |  xiyoucloud</title>
+      <title>文件的权限和属性(chmod,chown) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-移动和拷贝文件-mv-cp-ln"
+  id="post-文件的权限和属性-chmod-chown"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  移动和拷贝文件(mv,cp,ln)
+  文件的权限和属性(chmod,chown)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" class="article-date">
-  <time datetime="2022-12-30T12:36:11.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" class="article-date">
+  <time datetime="2022-12-30T12:48:49.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">744</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -122,37 +122,117 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=987650109&bvid=BV1nt4y1N7aZ&cid=892727922&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+  <iframe src="//player.bilibili.com/player.html?aid=262822119&bvid=BV1aY411o75b&cid=895360256&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 <span id="more"></span>
+
+
 
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h2 id="移动和拷贝文件的三个相关概念"><a href="#移动和拷贝文件的三个相关概念" class="headerlink" title="移动和拷贝文件的三个相关概念"></a>移动和拷贝文件的三个相关概念</h2><ol>
-<li>拷贝：将文件或目录复制到另一个路径中；</li>
-<li>移动：将文件或目录移动到另一个路径中；</li>
-<li>链接：链接分为软链接和硬链接，软链接又被称为符号链接，软链接可以对文件和目录创建，硬链接只能对文件创建；软链接链接的是文件路径，硬链接链接的是文件内容。</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建目录用于命令演示</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="comment"># 切换到 xiyouyun 目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$_</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> xiyou-1 xiyou-2</span><br><span class="line"><span class="built_in">touch</span> &#123;1..9&#125;.txt</span><br></pre></td></tr></table></figure>
+<p>linux 是个多用户系统，那么如何保证多个用户使用同一个系统不会导致混乱、互相干扰呢？这就需要说到 linux 系统中的 文件权限了。</p>
+<p>文件的权限是如何组织的呢？首先我们需要了解文件和目录具有有读、写、执行的权限。可以分别对文件所有者，文件所有者所属组，其他用户划分不同的文件权限。</p>
+<p>这里的组是用户组的意思，用户组中包含了一些用户，可对这些用户设置权限。</p>
+<p>其他用户是指既不是文件所有者，也不在文件所属组中的用户。</p>
+<pre class="mermaid">graph TB
+A(文件权限) -.-> B(读, r, read)
+A(文件权限) -.-> C(写, w, write)
+A(文件权限) -.-> D(执行, x, excute)
 
-<h2 id="cp：拷贝，软硬链接"><a href="#cp：拷贝，软硬链接" class="headerlink" title="cp：拷贝，软硬链接"></a>cp：拷贝，软硬链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拷贝文件</span></span><br><span class="line"><span class="built_in">cp</span> 1.txt 1-copy.txt</span><br><span class="line"><span class="comment"># 拷贝目录</span></span><br><span class="line"><span class="built_in">cp</span> -r xiyou-1 xiyou-1-copy</span><br><span class="line"><span class="comment"># 软链接, 只能在当前目录对文件建立软链接，不能对目录建立软链接</span></span><br><span class="line"><span class="built_in">cp</span> -s 1.txt 1-symbollink.txt </span><br><span class="line"><span class="comment"># 硬链接，只能在当前目录建立硬链接</span></span><br><span class="line"><span class="built_in">cp</span> -l 1.txt 1-hardlink.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于区分软硬链接的不同</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello&quot;</span> &gt; 1.txt</span><br><span class="line"> <span class="comment">## 可以通过软硬链接查看文件内容</span></span><br><span class="line"><span class="built_in">cat</span> 1-symbollink.txt </span><br><span class="line"><span class="built_in">cat</span> 1-hardlink.txt</span><br><span class="line"> <span class="comment">## 删除文件后，不能通过软链接查看文件内容</span></span><br><span class="line"><span class="built_in">rm</span> 1.txt</span><br><span class="line"><span class="built_in">cat</span> 1-symbollink.txt </span><br><span class="line"> <span class="comment">## 可以通过硬链接查看文件内容</span></span><br><span class="line"><span class="built_in">cat</span> 1-hardlink.txt</span><br></pre></td></tr></table></figure>
+E(权限划分) ==>F(文件所有者)
+E(权限划分) ==>G("文件所属组（不包括文件所有者）")
+E(权限划分) ==>H(其他用户)</pre>
 
-<h2 id="mv：移动文件"><a href="#mv：移动文件" class="headerlink" title="mv：移动文件"></a>mv：移动文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将 1.txt 文件移动到 xiyou-1 目录中</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt xiyou-1</span><br><span class="line"><span class="comment"># 移动文件时，可以在指定路径时指定移动后的文件名，这里移动后文件名变为 22.txt</span></span><br><span class="line"><span class="built_in">mv</span> 2.txt xiyou-2/22.txt</span><br><span class="line"><span class="comment"># 将 xiyou-1/1.txt 移动到当前目录</span></span><br><span class="line"><span class="built_in">mv</span> xiyou-1/1.txt .</span><br><span class="line"><span class="comment"># 移动目录</span></span><br><span class="line"><span class="built_in">mv</span> xiyou-1 xiyou-2</span><br><span class="line"><span class="comment"># 使用 mv 对单个文件重命名</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt 11.txt</span><br></pre></td></tr></table></figure>
+<h2 id="使用-ls-l-查看文件的权限："><a href="#使用-ls-l-查看文件的权限：" class="headerlink" title="使用 ls -l 查看文件的权限："></a><strong>使用 ls -l 查看文件的权限：</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xiyou@xiyou:~$ <span class="built_in">ls</span> -l</span><br><span class="line">total 8</span><br><span class="line">drwxr-xr-x 2 xiyou xiyougroup 4096 Nov 16 21:36 xiyou</span><br><span class="line">-rw-r--r-- 1 xiyou xiyougroup   21 Nov 16 21:36 xiyou.txt</span><br><span class="line"><span class="comment"># 这里的第 1 个字符是表示文件类型 d,l,-</span></span><br><span class="line"><span class="comment"># 2-10 的字符以每3个一组，分别是文件所有者、文件所属组（不包括文件所有者）、其他用户的权限</span></span><br><span class="line"><span class="comment"># ”-“表示无该处的权限，r 表示读权限，w 表示写权限，x 表示执行权限。</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="ln：软硬链接"><a href="#ln：软硬链接" class="headerlink" title="ln：软硬链接"></a>ln：软硬链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 软链接，建立的软链接可不保存在当前目录</span></span><br><span class="line"><span class="built_in">ln</span> -s 3.txt xiyou-2/3-simbollink.txt</span><br><span class="line"><span class="comment"># 硬链接，建立的硬链接可不保存在当前目录</span></span><br><span class="line"><span class="built_in">ln</span> 3.txt xiyou-2/3-hardlink.txt</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>文件类型+文件权限</th>
+<th>文件引用数</th>
+<th>文件所有者</th>
+<th>文件所属组</th>
+<th>文件大小（bit）</th>
+<th>文件修改日期</th>
+<th>文件名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drwxr-xr-x</td>
+<td>2</td>
+<td>xiyou</td>
+<td>xiyougroup</td>
+<td>4096</td>
+<td>Nov 16 21:36</td>
+<td>xiyou</td>
+</tr>
+<tr>
+<td>-rw-r–r–</td>
+<td>1</td>
+<td>xiyou</td>
+<td>xiyougroup</td>
+<td>21</td>
+<td>Nov 16 21:36</td>
+<td>xiyou.txt</td>
+</tr>
+</tbody></table>
+<h2 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a><strong>环境准备：</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br><span class="line"><span class="comment"># 创建目录和文件用于命令演示</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">mkdir</span> xiyou</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;echo hello, xiyouyun&quot;</span> &gt; xiyou.txt</span><br></pre></td></tr></table></figure>
 
-<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="如何判断一个文件是软链接"><a href="#如何判断一个文件是软链接" class="headerlink" title="如何判断一个文件是软链接?"></a>如何判断一个文件是软链接?</h2><p>（看箭头，看 ls -l 的输出）判断文件是否是软链接</p>
-<img src="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/0ac50948480041c7919f97cd87c9469b.png" class="" title="请添加图片描述">
+<h2 id="chmod-修改文件权限"><a href="#chmod-修改文件权限" class="headerlink" title="chmod 修改文件权限"></a>chmod 修改文件权限</h2><p>只能文件所有者或root用户才能更改文件的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># u:user, g:group, o:others, w:write, r:read, x:excute</span></span><br><span class="line"><span class="built_in">chmod</span> u-x xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> u+w xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> ug+r xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> g+x,u-x xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> o+x xiyou.txt</span><br><span class="line"><span class="comment"># 使用 R 参数，对目录以及目录下的所有文件进行权限变更</span></span><br><span class="line"><span class="built_in">chmod</span> -R u+x xiyou</span><br><span class="line">bash xiyou.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="如何判断一个文件是否存在硬链接？"><a href="#如何判断一个文件是否存在硬链接？" class="headerlink" title="如何判断一个文件是否存在硬链接？"></a>如何判断一个文件是否存在硬链接？</h2><p>(看引用数，看 ls -l 的信息) 判断文件是否存在硬链接</p>
-   <img src="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/6eb734f8e28e4d4aaf1ec0aacd8d5a2d.png" class="" title="请添加图片描述">
+<h2 id="chown：变更文件所有者或文件所属组"><a href="#chown：变更文件所有者或文件所属组" class="headerlink" title="chown：变更文件所有者或文件所属组"></a>chown：变更文件所有者或文件所属组</h2><p>只有 root 用户才能变更文件所有者，非root用户只能变更文件所属组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将文件的所有者设置为 root 用户</span></span><br><span class="line"><span class="built_in">chown</span> root xiyou.txt</span><br><span class="line"><span class="comment"># 将文件的所有者设置为 root 用户，将文件所属组设置为 xiyougroup</span></span><br><span class="line"><span class="built_in">chown</span> root:xiyougroup xiyou.txt</span><br><span class="line"><span class="comment"># 为目录和目录下的所有文件设置所有者和所属组</span></span><br><span class="line"><span class="built_in">chown</span> -R root:xiyougroup xiyou</span><br></pre></td></tr></table></figure>
 
-<h2 id="修改时备份"><a href="#修改时备份" class="headerlink" title="修改时备份"></a>修改时备份</h2><p>修改一个重要配置文件时，一定要做拷贝备份！这样出错时可以恢复文件到未修改的状态。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;xiyou#……&amp;*￥#（&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="comment"># 做拷贝备份</span></span><br><span class="line"><span class="built_in">cp</span> xiyou.txt xiyou.txt.bak</span><br><span class="line"><span class="comment"># 清空 1 个文件</span></span><br><span class="line"><span class="built_in">cat</span> /dev/null &gt; xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br><span class="line"><span class="comment"># 恢复被删除的文件</span></span><br><span class="line"><span class="built_in">mv</span> xiyou.txt.bak xiyou.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="mv可能会导致文件丢失"><a href="#mv可能会导致文件丢失" class="headerlink" title="mv可能会导致文件丢失"></a>mv可能会导致文件丢失</h2><p>mv 默认会覆盖目标路径下的同名文件, 这可能会导致文件信息丢失，因此使用 mv 移动文件时，要确保目标路径下没有同名文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;xiyou#……&amp;*￥#（&quot;</span> &gt; xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br><span class="line"><span class="built_in">mv</span> 3.txt xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="使用数字来表示文件权限"><a href="#使用数字来表示文件权限" class="headerlink" title="使用数字来表示文件权限"></a>使用数字来表示文件权限</h2><pre class="mermaid">graph LR;
+G(文件权限) -->H(文件所有者)
+G(文件权限) -->I(除文件所有者的文件所属组用户)
+G(文件权限) -->J(其他用户)
+
+H(文件所有者) ==>K(读,read)
+H(文件所有者) ==>L(写,write)
+H(文件所有者) ==>M(执行,excute)
+
+I(除文件所有者的文件所属组用户) -.->N(读,read)
+I(除文件所有者的文件所属组用户) -.->O(写,write)
+I(除文件所有者的文件所属组用户) -.->P(执行,excute)
+
+J(其他用户) -->A(读,read)
+J(其他用户) -->B(写,write)
+J(其他用户) -->C(执行,excute)
+
+A(读,read) -->D(4)
+B(写,write) -->E(2)
+C(执行,excute)-->F(1)
+
+K(读,read) -->Q(4)
+L(写,write) -->R(2)
+M(执行,excute)-->S(1)
+
+N(读,read) -->T(4)
+O(写,write) -->U(2)
+P(执行,excute)-->V(1)</pre>
+
+<h2 id="这可以应用在-chmod-命令中"><a href="#这可以应用在-chmod-命令中" class="headerlink" title="这可以应用在 chmod 命令中:"></a>这可以应用在 chmod 命令中:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> 755 xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> 666 xiyou.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="对于目录来说读、写、执行权限的意义。"><a href="#对于目录来说读、写、执行权限的意义。" class="headerlink" title="对于目录来说读、写、执行权限的意义。"></a>对于目录来说读、写、执行权限的意义。</h2><ul>
+<li>读：能用 ls 看到目录中包含有哪些文件</li>
+<li>写：能在目录下创建文件</li>
+<li>执行：能用 cd 将工作目录切换到目录下，能够在目录中创建和删除文件</li>
+</ul>
+<h2 id="对于文件来说读、写、执行权限的意义。"><a href="#对于文件来说读、写、执行权限的意义。" class="headerlink" title="对于文件来说读、写、执行权限的意义。"></a>对于文件来说读、写、执行权限的意义。</h2><ul>
+<li><p>读：能读取文件内容</p>
+</li>
+<li><p>写：能向文件中写入内容</p>
+</li>
+<li><p>执行：能用 ./xx 的方式执行文件</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> bash</span><br><span class="line"><span class="comment"># 查看文件的权限</span></span><br><span class="line"><span class="built_in">ls</span> -l /usr/bin/bash</span><br><span class="line"><span class="comment"># 借助 bash 来执行不具有可执行权限的文件</span></span><br><span class="line">bash xx.txt</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -222,7 +302,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -235,19 +315,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            文件的权限和属性(chmod,chown)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" class="article-nav-link">
+      <a href="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">压缩文件(tar,zip,7z,rar,gzip,bzip2)</div>
+        <div class="article-nav-title">移动和拷贝文件(mv,cp,ln)</div>
       </a>
     
   </nav>
