@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T14:05:29.582Z</updated>
+  <updated>2022-12-30T14:14:05.938Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bash教程</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/</id>
+    <published>2022-12-30T14:09:28.000Z</published>
+    <updated>2022-12-30T14:14:05.938Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=775634812&amp;bvid=BV1114y1n7Ei&amp;cid=906225871&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程，bash" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B%EF%BC%8Cbash/"/>
+    
+  </entry>
   
   <entry>
     <title>ping和github代理</title>
@@ -334,25 +351,6 @@
     
     
     
-    
-    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在rstudio-server中使用R包的不同版本</title>
-    <link href="https://xiyoucloud.github.io/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/"/>
-    <id>https://xiyoucloud.github.io/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/</id>
-    <published>2022-12-29T13:08:39.000Z</published>
-    <updated>2022-12-29T13:18:55.015Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=986974785&amp;bvid=BV1xt4y1T7Gd&amp;cid=881793170&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="rstudio-server" scheme="https://xiyoucloud.github.io/tags/rstudio-server/"/>
     
     <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
     

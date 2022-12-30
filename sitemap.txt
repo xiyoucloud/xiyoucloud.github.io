@@ -1,3 +1,5 @@
+https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/
+https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/
 https://xiyoucloud.github.io/2022/12/30/ping%E5%92%8Cgithub%E4%BB%A3%E7%90%86/
 https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bawk/
 https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/
@@ -20,7 +22,6 @@ https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5
 https://xiyoucloud.github.io/2022/12/29/Linux%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/
 https://xiyoucloud.github.io/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/
 https://xiyoucloud.github.io/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
-https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/
 https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/
 https://xiyoucloud.github.io/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/
 https://xiyoucloud.github.io/linux/index.html
@@ -30,9 +31,10 @@ https://xiyoucloud.github.io/tags/index.html
 https://xiyoucloud.github.io/friends/index.html
 https://xiyoucloud.github.io/
 https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86%E4%B8%8B%E8%BD%BD/
-https://xiyoucloud.github.io/tags/bash%E7%BB%83%E4%B9%A0/
 https://xiyoucloud.github.io/tags/conda/
 https://xiyoucloud.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/
 https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/tags/rstudio-server/
 https://xiyoucloud.github.io/tags/R%E5%8C%85/
+https://xiyoucloud.github.io/tags/bash/
+https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B%EF%BC%8Cbash/
