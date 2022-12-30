@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>文件的权限和属性(chmod,chown) |  xiyoucloud</title>
+      <title>进程介绍(ps) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-文件的权限和属性-chmod-chown"
+  id="post-进程介绍-ps"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  文件的权限和属性(chmod,chown)
+  进程介绍(ps)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" class="article-date">
-  <time datetime="2022-12-30T12:48:49.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/" class="article-date">
+  <time datetime="2022-12-30T12:58:19.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">776</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -122,116 +122,70 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=262822119&bvid=BV1aY411o75b&cid=895360256&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=647818915&bvid=BV1Ee4y1p77d&cid=896823750&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 <span id="more"></span>
 
-
-
 <blockquote>
-<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+<p>针对 ubuntu20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统  <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<p>linux 是个多用户系统，那么如何保证多个用户使用同一个系统不会导致混乱、互相干扰呢？这就需要说到 linux 系统中的 文件权限了。</p>
-<p>文件的权限是如何组织的呢？首先我们需要了解文件和目录具有有读、写、执行的权限。可以分别对文件所有者，文件所有者所属组，其他用户划分不同的文件权限。</p>
-<p>这里的组是用户组的意思，用户组中包含了一些用户，可对这些用户设置权限。</p>
-<p>其他用户是指既不是文件所有者，也不在文件所属组中的用户。</p>
-<pre class="mermaid">graph TB
-A(文件权限) -.-> B(读, r, read)
-A(文件权限) -.-> C(写, w, write)
-A(文件权限) -.-> D(执行, x, excute)
+<p>什么是进程？进程就是运行的程序。</p>
+<p>我们可以（运行程序，终止程序，查看程序的运行状态）</p>
+<p>那么我们如何产生1个进程呢？我们通常使用命令，命令对应程序，程序执行后就会产生进程。</p>
+<p>如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入 python3 进入python3 的交互模式中，期间你可以执行 python 代码，输入 exit（）退出该模式</span></span><br><span class="line">python3</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello, xiyouyun&quot;</span>)</span><br><span class="line"><span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出一串字符串</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, xiyouyun&quot;</span></span><br></pre></td></tr></table></figure>
 
-E(权限划分) ==>F(文件所有者)
-E(权限划分) ==>G("文件所属组（不包括文件所有者）")
-E(权限划分) ==>H(其他用户)</pre>
+<p>运行在前台的进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 个 sleep 进程，占用终端 1000s 不做操作</span></span><br><span class="line"><span class="built_in">sleep</span> 1000</span><br><span class="line"><span class="comment"># 这些都是运行在前台的进程</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="built_in">cd</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="使用-ls-l-查看文件的权限："><a href="#使用-ls-l-查看文件的权限：" class="headerlink" title="使用 ls -l 查看文件的权限："></a><strong>使用 ls -l 查看文件的权限：</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xiyou@xiyou:~$ <span class="built_in">ls</span> -l</span><br><span class="line">total 8</span><br><span class="line">drwxr-xr-x 2 xiyou xiyougroup 4096 Nov 16 21:36 xiyou</span><br><span class="line">-rw-r--r-- 1 xiyou xiyougroup   21 Nov 16 21:36 xiyou.txt</span><br><span class="line"><span class="comment"># 这里的第 1 个字符是表示文件类型 d,l,-</span></span><br><span class="line"><span class="comment"># 2-10 的字符以每3个一组，分别是文件所有者、文件所属组（不包括文件所有者）、其他用户的权限</span></span><br><span class="line"><span class="comment"># ”-“表示无该处的权限，r 表示读权限，w 表示写权限，x 表示执行权限。</span></span><br></pre></td></tr></table></figure>
+<p>这种运行后就占用了终端，让我们不能做其他操作的进程，我们称它运行在前台，可以使用 ctrl + c 结束运行。</p>
+<p>运行在后台的程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 让进程在后台运行</span></span><br><span class="line"><span class="built_in">sleep</span> 1001 &amp;</span><br><span class="line"><span class="built_in">sleep</span> 10086 &amp;</span><br><span class="line"><span class="built_in">sleep</span> 10010 &amp;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, xiyouyun&quot;</span> &gt; xiyou.txt</span><br></pre></td></tr></table></figure>
 
-<table>
+<p>运行在后台的进程，需要借助进程的 pid 来终止进程。如何查找到进程的 pid 呢？这就涉及到进程信息的查看。</p>
+<h2 id="进程查看（ps）"><a href="#进程查看（ps）" class="headerlink" title="进程查看（ps）"></a>进程查看（ps）</h2><table>
 <thead>
 <tr>
-<th>文件类型+文件权限</th>
-<th>文件引用数</th>
-<th>文件所有者</th>
-<th>文件所属组</th>
-<th>文件大小（bit）</th>
-<th>文件修改日期</th>
-<th>文件名</th>
+<th>参数</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>drwxr-xr-x</td>
-<td>2</td>
-<td>xiyou</td>
-<td>xiyougroup</td>
-<td>4096</td>
-<td>Nov 16 21:36</td>
-<td>xiyou</td>
+<td>e</td>
+<td>显示所有进程</td>
 </tr>
 <tr>
-<td>-rw-r–r–</td>
-<td>1</td>
-<td>xiyou</td>
-<td>xiyougroup</td>
-<td>21</td>
-<td>Nov 16 21:36</td>
-<td>xiyou.txt</td>
+<td>f</td>
+<td>搭配 e 使用，显示更全面的信息</td>
+</tr>
+<tr>
+<td>a</td>
+<td>显示终端的所有进程，包括其他用户的进程</td>
+</tr>
+<tr>
+<td>u</td>
+<td>默认显示当前用户的进程，也可指定用户，和 a 组合在一起会显示所有进程的用户名</td>
+</tr>
+<tr>
+<td>x</td>
+<td>显示不在某个终端运行的进程，如 init 进程，TTY 为 ？</td>
 </tr>
 </tbody></table>
-<h2 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a><strong>环境准备：</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br><span class="line"><span class="comment"># 创建目录和文件用于命令演示</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">mkdir</span> xiyou</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;echo hello, xiyouyun&quot;</span> &gt; xiyou.txt</span><br></pre></td></tr></table></figure>
+<p>常用查看进程的方式:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 利用运行进程使用的命令中的关键字查询出进程的 pid</span></span><br><span class="line">ps -ef | grep &lt;keyword&gt;</span><br><span class="line"></span><br><span class="line">ps -aux | grep &lt;keyword&gt;</span><br><span class="line"><span class="comment"># 查看当前用户运行的全部进程</span></span><br><span class="line">ps -ux </span><br></pre></td></tr></table></figure>
 
-<h2 id="chmod-修改文件权限"><a href="#chmod-修改文件权限" class="headerlink" title="chmod 修改文件权限"></a>chmod 修改文件权限</h2><p>只能文件所有者或root用户才能更改文件的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># u:user, g:group, o:others, w:write, r:read, x:excute</span></span><br><span class="line"><span class="built_in">chmod</span> u-x xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> u+w xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> ug+r xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> g+x,u-x xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> o+x xiyou.txt</span><br><span class="line"><span class="comment"># 使用 R 参数，对目录以及目录下的所有文件进行权限变更</span></span><br><span class="line"><span class="built_in">chmod</span> -R u+x xiyou</span><br><span class="line">bash xiyou.txt</span><br></pre></td></tr></table></figure>
+<h2 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 kill 命令来杀死进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 &lt;pid&gt;</span><br><span class="line"><span class="built_in">kill</span> -15 &lt;pid&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="chown：变更文件所有者或文件所属组"><a href="#chown：变更文件所有者或文件所属组" class="headerlink" title="chown：变更文件所有者或文件所属组"></a>chown：变更文件所有者或文件所属组</h2><p>只有 root 用户才能变更文件所有者，非root用户只能变更文件所属组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将文件的所有者设置为 root 用户</span></span><br><span class="line"><span class="built_in">chown</span> root xiyou.txt</span><br><span class="line"><span class="comment"># 将文件的所有者设置为 root 用户，将文件所属组设置为 xiyougroup</span></span><br><span class="line"><span class="built_in">chown</span> root:xiyougroup xiyou.txt</span><br><span class="line"><span class="comment"># 为目录和目录下的所有文件设置所有者和所属组</span></span><br><span class="line"><span class="built_in">chown</span> -R root:xiyougroup xiyou</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="使用数字来表示文件权限"><a href="#使用数字来表示文件权限" class="headerlink" title="使用数字来表示文件权限"></a>使用数字来表示文件权限</h2><pre class="mermaid">graph LR;
-G(文件权限) -->H(文件所有者)
-G(文件权限) -->I(除文件所有者的文件所属组用户)
-G(文件权限) -->J(其他用户)
-
-H(文件所有者) ==>K(读,read)
-H(文件所有者) ==>L(写,write)
-H(文件所有者) ==>M(执行,excute)
-
-I(除文件所有者的文件所属组用户) -.->N(读,read)
-I(除文件所有者的文件所属组用户) -.->O(写,write)
-I(除文件所有者的文件所属组用户) -.->P(执行,excute)
-
-J(其他用户) -->A(读,read)
-J(其他用户) -->B(写,write)
-J(其他用户) -->C(执行,excute)
-
-A(读,read) -->D(4)
-B(写,write) -->E(2)
-C(执行,excute)-->F(1)
-
-K(读,read) -->Q(4)
-L(写,write) -->R(2)
-M(执行,excute)-->S(1)
-
-N(读,read) -->T(4)
-O(写,write) -->U(2)
-P(执行,excute)-->V(1)</pre>
-
-<h2 id="这可以应用在-chmod-命令中"><a href="#这可以应用在-chmod-命令中" class="headerlink" title="这可以应用在 chmod 命令中:"></a>这可以应用在 chmod 命令中:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> 755 xiyou.txt</span><br><span class="line"><span class="built_in">chmod</span> 666 xiyou.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="对于目录来说读、写、执行权限的意义。"><a href="#对于目录来说读、写、执行权限的意义。" class="headerlink" title="对于目录来说读、写、执行权限的意义。"></a>对于目录来说读、写、执行权限的意义。</h2><ul>
-<li>读：能用 ls 看到目录中包含有哪些文件</li>
-<li>写：能在目录下创建文件</li>
-<li>执行：能用 cd 将工作目录切换到目录下，能够在目录中创建和删除文件</li>
+<p>9 和 15 这两个数字的含义可以在终端输入 htop，然后按 F9 查看，每个数字对应了一种发送给进程的信号。</p>
+<ul>
+<li>15 对应的是 SIGTERM，通知进程结束，不加参数时，如：kill pid 默认使用该信号终止进程。</li>
+<li>9 对应的是 SIGKILL，强制终止进程。</li>
 </ul>
-<h2 id="对于文件来说读、写、执行权限的意义。"><a href="#对于文件来说读、写、执行权限的意义。" class="headerlink" title="对于文件来说读、写、执行权限的意义。"></a>对于文件来说读、写、执行权限的意义。</h2><ul>
-<li><p>读：能读取文件内容</p>
-</li>
-<li><p>写：能向文件中写入内容</p>
-</li>
-<li><p>执行：能用 ./xx 的方式执行文件</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> bash</span><br><span class="line"><span class="comment"># 查看文件的权限</span></span><br><span class="line"><span class="built_in">ls</span> -l /usr/bin/bash</span><br><span class="line"><span class="comment"># 借助 bash 来执行不具有可执行权限的文件</span></span><br><span class="line">bash xx.txt</span><br></pre></td></tr></table></figure>
+<p>所以我们也可以在 htop 界面中发送相应的信号来结束进程。</p>
+<img src="/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/image-20221230210911614.png" class="" title="image-20221230210911614">
 
-</li>
-</ul>
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="杀掉包含关键字的所有程序（切记杀死进程前需要确认，防止误杀）"><a href="#杀掉包含关键字的所有程序（切记杀死进程前需要确认，防止误杀）" class="headerlink" title="杀掉包含关键字的所有程序（切记杀死进程前需要确认，防止误杀）"></a>杀掉包含关键字的所有程序（<strong>切记杀死进程前需要确认，防止误杀</strong>）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以进程信息中包含 jupyter 关键字为例</span></span><br><span class="line"><span class="comment"># 杀死进程前，需确认列出的进程不包含不想杀死的进程，如果包含不想杀死的进程，可以使用 grep 增加筛选条件，直至输出的进程信息全部为你想要杀死的进程为止</span></span><br><span class="line">ps -ux</span><br><span class="line">ps -ux | grep jupyter</span><br><span class="line">ps -ux | grep jupyter | grep -v grep </span><br><span class="line">ps -ux | grep jupyter | gerp -v grep | grep &lt;keyword&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这条命令会杀死进程信息中包含 jupyter 关键字的进程</span></span><br><span class="line">ps -ux | grep jupyter | grep -v grep | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
@@ -302,7 +256,7 @@ P(执行,excute)-->V(1)</pre>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,19 +269,19 @@ P(执行,excute)-->V(1)</pre>
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/" class="article-nav-link">
+      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            进程介绍(ps)
+            进程的后台运行(bg,fg,jobs,nohup,&amp;)
           
         </div>
       </a>
     
     
-      <a href="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" class="article-nav-link">
+      <a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">移动和拷贝文件(mv,cp,ln)</div>
+        <div class="article-nav-title">文件的权限和属性(chmod,chown)</div>
       </a>
     
   </nav>
