@@ -146,8 +146,10 @@
 
 <h3 id="如何查看隐藏字符？"><a href="#如何查看隐藏字符？" class="headerlink" title="如何查看隐藏字符？"></a><strong>如何查看隐藏字符？</strong></h3><p>你想要编写一个 bash 脚本（一种能在 linux 系统上执行的程序），但你不会使用 linux 上的编辑器（nano 和 vim），所以你在你自己的 windows 电脑上编辑好后，将文件上传到 linux 上。却发现脚本并不能执行，这是因为在 windows 中使用的换行符和 linux 中使用的换行符是不同的，但是使用 <code>cat &lt;filename&gt;</code> 是看不出隐藏的换行符的。此时需要使用 <code>cat -A &lt;filename&gt;</code> 查看。如果你想让 windows 上编写的 bash 脚本能够在 linux 上执行怎么办呢？有两种办法:</p>
 <ol>
-<li>不要将在 win 上编写的脚本文件上传到 linux，而是复制文件的内容到 linux 的文件中。通常可以用Ctrl + Shift + v 在 linux 中粘贴内容。</li>
-<li>将文件上传到 linux 后，借助工具 dos2unix 将文件的格式转化为 linux 使用的格式</li>
+<li><p>不要将在 win 上编写的脚本文件上传到 linux，而是复制文件的内容到 linux 的文件中。通常可以用Ctrl + Shift + v 在 linux 中粘贴内容。</p>
+</li>
+<li><p>将文件上传到 linux 后，借助工具 dos2unix 将文件的格式转化为 linux 使用的格式</p>
+</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个工具需要使用 apt install dos2unix 安装</span></span><br><span class="line"><span class="comment"># 假设有个 windows 换行格式的文件名为 xiyou.txt，你可以用以下命令将其转化为 linux 换行格式</span></span><br><span class="line"><span class="built_in">cat</span> -A xiyou.txt</span><br><span class="line">dos2unix xiyou.txt</span><br><span class="line"><span class="comment"># 通过查看文件中的隐藏字符对比两个文件有何变化</span></span><br><span class="line"><span class="built_in">cat</span> -A xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->

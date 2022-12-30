@@ -240,7 +240,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<p>用户和用户组是用来划分权限的抽象，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。</p>
+<p>用户和用户组是用来划分权限的抽象概念，用户除了作为权限的抽象之外。我们通常还需要借助用户名和密码来登陆系统。</p>
 <p>用户和用户组是多对多的关系，即1个用户可以对应多个用户组，1个用户组也可以包含多个用户。</p>
 <img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221225211630067.png" class="" title="image-20221225211630067">
 
@@ -248,7 +248,7 @@
 
 <h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>useradd：通常用于在脚本中创建用户</p>
 <p>adduser：交互式地创建用户，手动设置密码，自动创建家目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br><span class="line"><span class="comment"># 交互式地创建用户</span></span><br><span class="line">sudo adduser xiyou2</span><br></pre></td></tr></table></figure>
 
 <h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><p>usermod：修改用户信息</p>
 <p>userdel：删除用户</p>
@@ -279,7 +279,7 @@
 
 
 
-]]></content>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>西柚云Linux教程</tag>
       </tags>
@@ -667,8 +667,10 @@ tmp --> xiyou.txt</pre>
 
 <h3 id="如何查看隐藏字符？"><a href="#如何查看隐藏字符？" class="headerlink" title="如何查看隐藏字符？"></a><strong>如何查看隐藏字符？</strong></h3><p>你想要编写一个 bash 脚本（一种能在 linux 系统上执行的程序），但你不会使用 linux 上的编辑器（nano 和 vim），所以你在你自己的 windows 电脑上编辑好后，将文件上传到 linux 上。却发现脚本并不能执行，这是因为在 windows 中使用的换行符和 linux 中使用的换行符是不同的，但是使用 <code>cat &lt;filename&gt;</code> 是看不出隐藏的换行符的。此时需要使用 <code>cat -A &lt;filename&gt;</code> 查看。如果你想让 windows 上编写的 bash 脚本能够在 linux 上执行怎么办呢？有两种办法:</p>
 <ol>
-<li>不要将在 win 上编写的脚本文件上传到 linux，而是复制文件的内容到 linux 的文件中。通常可以用Ctrl + Shift + v 在 linux 中粘贴内容。</li>
-<li>将文件上传到 linux 后，借助工具 dos2unix 将文件的格式转化为 linux 使用的格式</li>
+<li><p>不要将在 win 上编写的脚本文件上传到 linux，而是复制文件的内容到 linux 的文件中。通常可以用Ctrl + Shift + v 在 linux 中粘贴内容。</p>
+</li>
+<li><p>将文件上传到 linux 后，借助工具 dos2unix 将文件的格式转化为 linux 使用的格式</p>
+</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这个工具需要使用 apt install dos2unix 安装</span></span><br><span class="line"><span class="comment"># 假设有个 windows 换行格式的文件名为 xiyou.txt，你可以用以下命令将其转化为 linux 换行格式</span></span><br><span class="line"><span class="built_in">cat</span> -A xiyou.txt</span><br><span class="line">dos2unix xiyou.txt</span><br><span class="line"><span class="comment"># 通过查看文件中的隐藏字符对比两个文件有何变化</span></span><br><span class="line"><span class="built_in">cat</span> -A xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
