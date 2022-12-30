@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>文本处理之grep |  xiyoucloud</title>
+      <title>文本处理(sed,xargs,wc) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-文本处理之grep"
+  id="post-文本处理-sed-xargs-wc"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  文本处理之grep
+  文本处理(sed,xargs,wc)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/" class="article-date">
-  <time datetime="2022-12-30T13:35:18.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/" class="article-date">
+  <time datetime="2022-12-30T13:44:59.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">817</span>
+            <span class="post-count">843</span>
         </span>
     </span>
 
@@ -122,120 +122,39 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=945376710&bvid=BV1HW4y1W7je&cid=899825524&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=220445497&bvid=BV1X841177rm&cid=900840633&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><p>文本通常保存在文件中，使用 linux 命令可以将文件读取文件内容到标准输出中，然后使用管道符（|）将文本”流“向另一个命令的输入。管道符（|）的作用可以顾名思义，输出到标准输出的文本可以通过管道“流”向其他命令，这些命令可以对这些输入的文本进行处理。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向 xiyou.txt 文件写入多行内容</span></span><br><span class="line"><span class="built_in">cat</span> &gt; xiyou.txt &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">x</span></span><br><span class="line"><span class="string">y</span></span><br><span class="line"><span class="string">XIYOU.</span></span><br><span class="line"><span class="string">xiyou.</span></span><br><span class="line"><span class="string">952</span></span><br><span class="line"><span class="string">9527</span></span><br><span class="line"><span class="string">9527777</span></span><br><span class="line"><span class="string">95277777777777777777777</span></span><br><span class="line"><span class="string">9527xiyou.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> xiyoucloud. xiyou.</span></span><br><span class="line"><span class="string">xiyouyun or xiyoucloud</span></span><br><span class="line"><span class="string">xiyouyun to be xiyouyun</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="comment"># 查看 xiyou.txt 文件的内容，并过滤出包含 xiyou 的行</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt | grep xiyou</span><br><span class="line">grep xiyou xiyou.txt</span><br></pre></td></tr></table></figure>
+<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>sed 可以对文件中的文本内容进行过滤和修改，它的原理是逐行读入文本内容，根据模式匹配符合条件的文本，然后做操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向 xiyou.txt 文件写入多行内容</span></span><br><span class="line"><span class="built_in">cat</span> &gt; xiyou.txt &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">x</span></span><br><span class="line"><span class="string">y</span></span><br><span class="line"><span class="string">XIYOU.</span></span><br><span class="line"><span class="string">xiyou.</span></span><br><span class="line"><span class="string">952</span></span><br><span class="line"><span class="string">9527</span></span><br><span class="line"><span class="string">9527777</span></span><br><span class="line"><span class="string">95277777777777777777777</span></span><br><span class="line"><span class="string">9527xiyou.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> xiyoucloud. xiyou.</span></span><br><span class="line"><span class="string">xiyouyun or xiyoucloud</span></span><br><span class="line"><span class="string">xiyouyun to be xiyouyun</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="grep使用方法"><a href="#grep使用方法" class="headerlink" title="grep使用方法"></a>grep使用方法</h2><p>grep 不支持（\+字母 表示一类字符的正则表达式），如：\s,\S,\d,\D,\w,\W 但这无伤大雅,我们可以用另一种模式来代替它们。</p>
-<table>
-<thead>
-<tr>
-<th>模式 1</th>
-<th>模式 2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>\s</td>
-<td>“ “+</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>[0-9]+</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>[a-zA-Z0-9]+</td>
-</tr>
-</tbody></table>
-<p>grep [参数] [模式] 文件</p>
+<p>sed [参数] [内置命令] 文件路径</p>
+<p>参数：</p>
 <ul>
-<li>i 忽略字符的大小写</li>
-<li>v 显示不能被模式匹配的行</li>
-<li>n 输出匹配行的行号</li>
-<li>o 只输出匹配内容，默认是输出包含有匹配内容的行</li>
-<li>E 对正则表达式提供更好的支持,支持这些符号（+,?,|,”()”,”{}”），建议每次使用正则表达式时都加上，这样就不用记住加上 E 参数后会提供哪些特殊符号的支持了。</li>
-<li>A 显示匹配项和匹配项的后 n 行</li>
-<li>B 显示匹配项和匹配项的前 n 行</li>
-<li>C 显示匹配项和匹配项的前后 n 行</li>
+<li>n 取消默认的 sed 输出，sed 默认会输出处理后的文本信息</li>
+<li>i 将做的修改写入文件，默认在终端展示修改效果而不写入文件，设计到修改文件的操作都要使用这个参数</li>
+<li>e 一次性做多次编辑</li>
+<li>r 对正则表达式提供更好的支持</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以数字开头的行</span></span><br><span class="line">grep -nE <span class="string">&#x27;^[0-9]&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 以 u. 结尾的行</span></span><br><span class="line">grep -nE <span class="string">&#x27;u\.$&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 以 x 或 X 开头的行</span></span><br><span class="line">grep -nE <span class="string">&#x27;^(x|X)&#x27;</span> xiyou.txt</span><br><span class="line">grep -niE <span class="string">&#x27;^x&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 全是数字的行</span></span><br><span class="line">grep -nE <span class="string">&#x27;^[0-9]+$&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 输出文件的空行和行号</span></span><br><span class="line">grep -nE <span class="string">&#x27;^$&#x27;</span> xiyou.txt </span><br><span class="line"><span class="comment"># 包含大写字母的行</span></span><br><span class="line">grep -E <span class="string">&#x27;[A-Z]&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 输出包含 xiyou 的行，并只输出匹配内容</span></span><br><span class="line">grep -onE <span class="string">&#x27;xiyou.*&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 输出不包含 xiyou 的行</span></span><br><span class="line">grep -vnE <span class="string">&#x27;xiyou&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 输出不包含大写字母的行</span></span><br><span class="line">grep -nE <span class="string">&#x27;[^A-Z]&#x27;</span> xiyou.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用分组匹配,可以使用 \1 引用前面匹配的分组内容</span></span><br><span class="line">grep -nE <span class="string">&#x27;(xi..u).* \1&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 匹配以 952 开头，后面跟着的 7 的数量最少 2 个，最多 5 个的行</span></span><br><span class="line">grep -nE <span class="string">&#x27;^9527&#123;2,5&#125;$&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 匹配以 952 开头，后面跟着 0 个 或 1 个 7 的行</span></span><br><span class="line">grep -nE <span class="string">&#x27;^9527?$&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 显示匹配项的前后 1 行</span></span><br><span class="line">grep -C 5 -nE <span class="string">&#x27;^9527?$&#x27;</span> xiyou.txt</span><br></pre></td></tr></table></figure>
+<p>内置命令：</p>
+<ul>
+<li>a append 在某行的后面追加内容</li>
+<li>i insert 在某行的前面插入内容</li>
+<li>d delete 删除符合条件的行</li>
+<li>p print 打印符合条件的行</li>
+<li>s/模式/替换文本：将模式匹配到的字符替换为其他字符</li>
+</ul>
+<p>范围：默认全文，指定某行，指定范围行，匹配行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出文件的从第2行到第5行的内容</span></span><br><span class="line">sed -n <span class="string">&#x27;1 p&#x27;</span> xiyou.txt</span><br><span class="line">sed -n <span class="string">&#x27;2,5 p&#x27;</span> xiyou.txt</span><br><span class="line">sed -n <span class="string">&#x27;1~2 p&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 输出包含有 xiyou 的行（过滤）</span></span><br><span class="line">sed -n <span class="string">&#x27;/xiyou/ p&#x27;</span> xiyou.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加文件内容（2种方式）</span></span><br><span class="line">sed -i <span class="string">&#x27;1 a 在第 1 行的后面增加的文本内容&#x27;</span> xiyou.txt</span><br><span class="line">sed -i <span class="string">&#x27;1 i 在第 1 行的前面增加的文本内容&#x27;</span> xiyou.txt</span><br><span class="line">sed -i <span class="string">&#x27;a ---------------&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 删除文件内容,删除第 1 行到第 3 行的内容</span></span><br><span class="line">sed -i <span class="string">&#x27;1,3 d&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 替换匹配模式, g表示全部替换，默认只替换匹配到的第 1 个</span></span><br><span class="line">sed -i <span class="string">&#x27;s/xiyou/西柚/g&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 一次性做两次替换</span></span><br><span class="line">sed -i -e <span class="string">&#x27;s/9/九/g&#x27;</span> -e <span class="string">&#x27;s/5/五/g&#x27;</span> xiyou.txt</span><br></pre></td></tr></table></figure>
 
-<p>​    </p>
-<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><table>
-<thead>
-<tr>
-<th>模式</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>abc</td>
-<td>abc</td>
-</tr>
-<tr>
-<td>123</td>
-<td>123</td>
-</tr>
-<tr>
-<td>[a-z]</td>
-<td>匹配小写英文字母</td>
-</tr>
-<tr>
-<td>[0-9]</td>
-<td>匹配数字</td>
-</tr>
-<tr>
-<td>[a-zA-Z0-9]</td>
-<td>匹配字母和数字</td>
-</tr>
-<tr>
-<td>[^a-z]</td>
-<td>不匹配字母</td>
-</tr>
-<tr>
-<td>.</td>
-<td>匹配任意单个字符</td>
-</tr>
-<tr>
-<td>^</td>
-<td>匹配开头</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配结尾</td>
-</tr>
-<tr>
-<td>(a|b)</td>
-<td>匹配字母 a 或 b</td>
-</tr>
-<tr>
-<td>+</td>
-<td>匹配前一个匹配项1次或多次</td>
-</tr>
-<tr>
-<td>？</td>
-<td>匹配前一个匹配项0次或1次</td>
-</tr>
-<tr>
-<td>*</td>
-<td>匹配前一个匹配项任意次</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>匹配前一个匹配项至少 n 次</td>
-</tr>
-<tr>
-<td>{m,n}</td>
-<td>匹配前一个匹配项最少 m 次，最多 n 次</td>
-</tr>
-</tbody></table>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="xargs：一个用于传递参数的命令"><a href="#xargs：一个用于传递参数的命令" class="headerlink" title="xargs：一个用于传递参数的命令"></a>xargs：一个用于传递参数的命令</h2><p>xargs 会将标准输入的文本内容聚合后通过 echo 输出。多行内容会被输出为 1 行内容。因此通常用来构造单行命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &lt;&lt;&lt; 可以给 xargs 提供标准输入</span></span><br><span class="line">xargs &lt;&lt;&lt; <span class="string">&quot;1 2 3 4&quot;</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt | xargs</span><br><span class="line"></span><br><span class="line"><span class="comment"># n 指定每行最多输出指定个数的参数</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt | xargs -n 3</span><br><span class="line"><span class="comment"># I 可以指定一个符号用于参数的替换</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt | xargs -I &#123;&#125; <span class="built_in">echo</span> <span class="string">&quot;hello, &#123;&#125;&quot;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除目录下所有的 txt 文件，-0 表示以 \0 做分隔符</span></span><br><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.txt&quot;</span> -print0 | xargs -0 <span class="built_in">rm</span> -f</span><br><span class="line"><span class="comment"># 将当前目录下的以 py 结尾的文件移到 xiyou 目录中</span></span><br><span class="line"><span class="built_in">mkdir</span> xiyou &amp;&amp; <span class="built_in">touch</span> &#123;1..9&#125;.py &amp;&amp; <span class="built_in">ls</span></span><br><span class="line"><span class="built_in">ls</span> *.py | xargs -I &#123;&#125; <span class="built_in">mv</span> &#123;&#125; xiyou</span><br><span class="line"><span class="comment"># 打包当前目录下所有的 png 文件</span></span><br><span class="line"><span class="built_in">touch</span> &#123;1..100&#125;.png</span><br><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.png&quot;</span> -<span class="built_in">print</span> | xargs tar -czvf images.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="wc：统计文本内容"><a href="#wc：统计文本内容" class="headerlink" title="wc：统计文本内容"></a>wc：统计文本内容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 统计文件中的文本信息(行数，单词数，字节数，文件名)</span></span><br><span class="line"><span class="built_in">wc</span> xiyou.txt</span><br><span class="line"><span class="comment"># 统计文件中文本的行数</span></span><br><span class="line"><span class="built_in">wc</span> -l xiyou.txt</span><br><span class="line"><span class="comment"># 统计文件名以 txt 结尾的文本的行数</span></span><br><span class="line"><span class="built_in">wc</span> -l *.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计目录下的文件大小小于10M 的文件的文本内容信息（）</span></span><br><span class="line">find . -<span class="built_in">type</span> f -size -10M | xargs <span class="built_in">wc</span> ;</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -305,7 +224,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,19 +237,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            文本处理(sed,xargs,wc)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-nav-link">
+      <a href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">正则表达式</div>
+        <div class="article-nav-title">文本处理之grep</div>
       </a>
     
   </nav>

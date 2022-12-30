@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T13:37:30.604Z</updated>
+  <updated>2022-12-30T13:49:10.937Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,20 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>文本处理(sed,xargs,wc)</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/</id>
+    <published>2022-12-30T13:44:59.000Z</published>
+    <updated>2022-12-30T13:49:10.937Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=220445497&amp;bvid=BV1X841177rm&amp;cid=900840633&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>文本处理之grep</title>
     <link href="https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/"/>
     <id>https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/</id>
     <published>2022-12-30T13:35:18.000Z</published>
-    <updated>2022-12-30T13:37:30.604Z</updated>
+    <updated>2022-12-30T13:46:05.698Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=945376710&amp;bvid=BV1HW4y1W7je&amp;cid=899825524&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     
@@ -344,25 +355,6 @@
     
     
     <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GEO和TCGA数据下载慢和下载中断的解决办法</title>
-    <link href="https://xiyoucloud.github.io/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
-    <id>https://xiyoucloud.github.io/2022/12/29/GEO%E5%92%8CTCGA%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%85%A2%E5%92%8C%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%AD%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
-    <published>2022-12-29T11:11:41.000Z</published>
-    <updated>2022-12-29T11:49:23.029Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;很多同学下载GEO数据库的数据和TCGA的数据网速特别的慢，或者总是中断，生信之路的第一个跟头就摔在了数据下载&lt;/p&gt;
-&lt;p&gt;下面给大家分享一个下载神器——西柚云代理下载！&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://links.jianshu.com/go?to=https://fileproxy.xiyoucloud.net/%23/&quot;&gt;https://fileproxy.xiyoucloud.net/#/&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="代理下载" scheme="https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   

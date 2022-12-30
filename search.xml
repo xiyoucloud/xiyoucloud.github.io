@@ -34,9 +34,53 @@
       </tags>
   </entry>
   <entry>
+    <title>文本处理(sed,xargs,wc)</title>
+    <url>/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=220445497&bvid=BV1X841177rm&cid=900840633&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+
+<blockquote>
+<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>sed 可以对文件中的文本内容进行过滤和修改，它的原理是逐行读入文本内容，根据模式匹配符合条件的文本，然后做操作。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 向 xiyou.txt 文件写入多行内容</span></span><br><span class="line"><span class="built_in">cat</span> &gt; xiyou.txt &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">x</span></span><br><span class="line"><span class="string">y</span></span><br><span class="line"><span class="string">XIYOU.</span></span><br><span class="line"><span class="string">xiyou.</span></span><br><span class="line"><span class="string">952</span></span><br><span class="line"><span class="string">9527</span></span><br><span class="line"><span class="string">9527777</span></span><br><span class="line"><span class="string">95277777777777777777777</span></span><br><span class="line"><span class="string">9527xiyou.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> xiyoucloud. xiyou.</span></span><br><span class="line"><span class="string">xiyouyun or xiyoucloud</span></span><br><span class="line"><span class="string">xiyouyun to be xiyouyun</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<p>sed [参数] [内置命令] 文件路径</p>
+<p>参数：</p>
+<ul>
+<li>n 取消默认的 sed 输出，sed 默认会输出处理后的文本信息</li>
+<li>i 将做的修改写入文件，默认在终端展示修改效果而不写入文件，设计到修改文件的操作都要使用这个参数</li>
+<li>e 一次性做多次编辑</li>
+<li>r 对正则表达式提供更好的支持</li>
+</ul>
+<p>内置命令：</p>
+<ul>
+<li>a append 在某行的后面追加内容</li>
+<li>i insert 在某行的前面插入内容</li>
+<li>d delete 删除符合条件的行</li>
+<li>p print 打印符合条件的行</li>
+<li>s/模式/替换文本：将模式匹配到的字符替换为其他字符</li>
+</ul>
+<p>范围：默认全文，指定某行，指定范围行，匹配行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输出文件的从第2行到第5行的内容</span></span><br><span class="line">sed -n <span class="string">&#x27;1 p&#x27;</span> xiyou.txt</span><br><span class="line">sed -n <span class="string">&#x27;2,5 p&#x27;</span> xiyou.txt</span><br><span class="line">sed -n <span class="string">&#x27;1~2 p&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 输出包含有 xiyou 的行（过滤）</span></span><br><span class="line">sed -n <span class="string">&#x27;/xiyou/ p&#x27;</span> xiyou.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加文件内容（2种方式）</span></span><br><span class="line">sed -i <span class="string">&#x27;1 a 在第 1 行的后面增加的文本内容&#x27;</span> xiyou.txt</span><br><span class="line">sed -i <span class="string">&#x27;1 i 在第 1 行的前面增加的文本内容&#x27;</span> xiyou.txt</span><br><span class="line">sed -i <span class="string">&#x27;a ---------------&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 删除文件内容,删除第 1 行到第 3 行的内容</span></span><br><span class="line">sed -i <span class="string">&#x27;1,3 d&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 替换匹配模式, g表示全部替换，默认只替换匹配到的第 1 个</span></span><br><span class="line">sed -i <span class="string">&#x27;s/xiyou/西柚/g&#x27;</span> xiyou.txt</span><br><span class="line"><span class="comment"># 一次性做两次替换</span></span><br><span class="line">sed -i -e <span class="string">&#x27;s/9/九/g&#x27;</span> -e <span class="string">&#x27;s/5/五/g&#x27;</span> xiyou.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="xargs：一个用于传递参数的命令"><a href="#xargs：一个用于传递参数的命令" class="headerlink" title="xargs：一个用于传递参数的命令"></a>xargs：一个用于传递参数的命令</h2><p>xargs 会将标准输入的文本内容聚合后通过 echo 输出。多行内容会被输出为 1 行内容。因此通常用来构造单行命令。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># &lt;&lt;&lt; 可以给 xargs 提供标准输入</span></span><br><span class="line">xargs &lt;&lt;&lt; <span class="string">&quot;1 2 3 4&quot;</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt | xargs</span><br><span class="line"></span><br><span class="line"><span class="comment"># n 指定每行最多输出指定个数的参数</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt | xargs -n 3</span><br><span class="line"><span class="comment"># I 可以指定一个符号用于参数的替换</span></span><br><span class="line"><span class="built_in">cat</span> xiyou.txt | xargs -I &#123;&#125; <span class="built_in">echo</span> <span class="string">&quot;hello, &#123;&#125;&quot;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除目录下所有的 txt 文件，-0 表示以 \0 做分隔符</span></span><br><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.txt&quot;</span> -print0 | xargs -0 <span class="built_in">rm</span> -f</span><br><span class="line"><span class="comment"># 将当前目录下的以 py 结尾的文件移到 xiyou 目录中</span></span><br><span class="line"><span class="built_in">mkdir</span> xiyou &amp;&amp; <span class="built_in">touch</span> &#123;1..9&#125;.py &amp;&amp; <span class="built_in">ls</span></span><br><span class="line"><span class="built_in">ls</span> *.py | xargs -I &#123;&#125; <span class="built_in">mv</span> &#123;&#125; xiyou</span><br><span class="line"><span class="comment"># 打包当前目录下所有的 png 文件</span></span><br><span class="line"><span class="built_in">touch</span> &#123;1..100&#125;.png</span><br><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.png&quot;</span> -<span class="built_in">print</span> | xargs tar -czvf images.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="wc：统计文本内容"><a href="#wc：统计文本内容" class="headerlink" title="wc：统计文本内容"></a>wc：统计文本内容</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 统计文件中的文本信息(行数，单词数，字节数，文件名)</span></span><br><span class="line"><span class="built_in">wc</span> xiyou.txt</span><br><span class="line"><span class="comment"># 统计文件中文本的行数</span></span><br><span class="line"><span class="built_in">wc</span> -l xiyou.txt</span><br><span class="line"><span class="comment"># 统计文件名以 txt 结尾的文本的行数</span></span><br><span class="line"><span class="built_in">wc</span> -l *.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计目录下的文件大小小于10M 的文件的文本内容信息（）</span></span><br><span class="line">find . -<span class="built_in">type</span> f -size -10M | xargs <span class="built_in">wc</span> ;</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>西柚云Linux教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文本处理之grep</title>
     <url>/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=945376710&bvid=BV1HW4y1W7je&cid=899825524&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+
+<blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
 <h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><p>文本通常保存在文件中，使用 linux 命令可以将文件读取文件内容到标准输出中，然后使用管道符（|）将文本”流“向另一个命令的输入。管道符（|）的作用可以顾名思义，输出到标准输出的文本可以通过管道“流”向其他命令，这些命令可以对这些输入的文本进行处理。</p>
