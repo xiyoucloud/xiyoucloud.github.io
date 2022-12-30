@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>传输文件(scp,ftp,wget,curl) |  xiyoucloud</title>
+      <title>压缩文件(tar,zip,7z,rar,gzip,bzip2) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-传输文件-scp-ftp-wget-curl"
+  id="post-压缩文件-tar-zip-7z-rar-gzip-bzip2"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  传输文件(scp,ftp,wget,curl)
+  压缩文件(tar,zip,7z,rar,gzip,bzip2)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/" class="article-date">
-  <time datetime="2022-12-30T12:18:40.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" class="article-date">
+  <time datetime="2022-12-30T12:26:51.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">823</span>
+            <span class="post-count">999</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -122,38 +122,36 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=517525445&bvid=BV1Ug411i72Z&cid=890693727&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=520131164&bvid=BV11M411k7mA&cid=891610656&page=1"style="width:100%;height:500px;min-width:375px;min-height:200px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
-
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h2 id="scp用于在能够联通的不同的主机下传输文件"><a href="#scp用于在能够联通的不同的主机下传输文件" class="headerlink" title="scp用于在能够联通的不同的主机下传输文件"></a>scp用于在能够联通的不同的主机下传输文件</h2><p>scp 与 cp 的区别是，cp 用于在 linux 本机下拷贝文件到其他路径。</p>
-<p>scp 的原理其实是使用 ssh 协议登陆到 linux 服务器，然后传输文件</p>
-<p>ssh 协议可以使用用户名和密码登陆Linux，也可以使用用户名和密钥来登陆。</p>
-<p><strong>以下的 user，host，port，xx.pem都需要代入具体的值</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host -p port (需要输入密码)</span><br><span class="line">ssh user@host -p port -i xx.pem （使用密钥进行认证）</span><br><span class="line"><span class="comment"># 使用 scp 拷贝文件时使用的命令与 ssh 是类似的。</span></span><br><span class="line">scp -P port user@host:/tmp/xiyou.txt . (将远程主机的 /tmp/xiyou.txt 文件拷贝到本机的当前工作目录，这里<span class="string">&quot;.&quot;</span>表示当前目录，需要输入密码)</span><br><span class="line">scp -r -P port user@host:/tmp/ . (复制远程主机上的目录到本机的当前工作目录) </span><br><span class="line">	    </span><br><span class="line">scp -i xx.pem -P port user@host:/tmp/xiyou.txt . (使用秘钥 xx.pem 的方式认证，不需要输入密码，秘钥需要提前生成)</span><br><span class="line"><span class="comment"># 将本地的文件拷贝到远程主机上：</span></span><br><span class="line">scp -P port user@host:/tmp xiyou.txt</span><br></pre></td></tr></table></figure>
+<p><strong>打包</strong>是将一个或多个文件的数据信息收集到1个文件中<br><strong>压缩</strong>是使用另一种数据格式存储文件，使得压缩后的文件占用存储空间更小。<br><strong>解压缩</strong>是从压缩后的文件中还原被压缩的文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建文件和目录用于练习压缩与解压缩</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="built_in">touch</span> &#123;1..9&#125;.txt</span><br><span class="line"><span class="built_in">mkdir</span> &#123;1..9&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="tar用于压缩文件和目录，保留压缩前的文件"><a href="#tar用于压缩文件和目录，保留压缩前的文件" class="headerlink" title="tar用于压缩文件和目录，保留压缩前的文件"></a>tar用于压缩文件和目录，保留压缩前的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 仅打包文件，但并不压缩 create an archive</span></span><br><span class="line">tar -cf xiyou.tar 1 1.txt</span><br><span class="line"><span class="comment"># 从打包文件中提取出文件, extract from an archive</span></span><br><span class="line">tar -xf xiyou.tar</span><br><span class="line"><span class="comment"># 打包文件，并通过 gzip 对文件进行压缩，v 参数用于在压缩时显示详情，z 指定压缩工具为 gzip</span></span><br><span class="line">tar -czvf xiyou.tar.gz 1 1.txt</span><br><span class="line"><span class="comment"># 解压文件到 xiyou 目录，该目录需要提前创建</span></span><br><span class="line"><span class="built_in">mkdir</span> xiyou</span><br><span class="line">tar -xzvf xiyou.tar.gz -C xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 bzip2 的方式进行压缩与解压缩</span></span><br><span class="line">tar -cjvf xiyou.tar.bz2 1 1.txt</span><br><span class="line">tar -xjvf xiyou.tar.bz2 -C xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不解压文件，只查看压缩包中的内容</span></span><br><span class="line">tar -tf xiyou.tar.gz</span><br></pre></td></tr></table></figure>
 
-<p>​        </p>
-<h2 id="ftp用于从文件服务器上下载文件"><a href="#ftp用于从文件服务器上下载文件" class="headerlink" title="ftp用于从文件服务器上下载文件"></a>ftp用于从文件服务器上下载文件</h2><p>首先要有一台 ftp 服务器，然后你要有这台 ftp 服务器的账号和密码。登陆后你可以使用 cd，ls，pwd 三个基础命令查看系统中文件的位置，使用 get 从 ftp 服务器获取文件，使用 put 将文件上传到 ftp 服务器。使用 quit 退出登陆。出现“500 Illegal PORT command”的报错可以通过输入 passive 来解决报错。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ftp x.x.x.x</span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">get </span><br><span class="line">put</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+<h2 id="zip-unzip：可用于压缩文件和目录，保留压缩前的文件"><a href="#zip-unzip：可用于压缩文件和目录，保留压缩前的文件" class="headerlink" title="zip/unzip：可用于压缩文件和目录，保留压缩前的文件"></a>zip/unzip：可用于压缩文件和目录，保留压缩前的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩目录时要添加 -r 参数，这样才能将目录下的所有文件添加到压缩包中</span></span><br><span class="line">zip -r xiyou2.zip 2 2.txt</span><br><span class="line"><span class="comment"># 将文件解压缩到目录中, 目录会自动被创建</span></span><br><span class="line">unzip -d xiyou2 xiyou2.zip</span><br><span class="line"><span class="comment"># 不解压文件，仅查看压缩文件中的文件信息</span></span><br><span class="line">unzip -l xiyou2.zip</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ftp.html">https://wangchujiang.com/linux-command/c/ftp.html</a> </p>
-<h2 id="wget用于从网络中下载文件"><a href="#wget用于从网络中下载文件" class="headerlink" title="wget用于从网络中下载文件"></a>wget用于从网络中下载文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载链接中的图片 https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png 并存储为 tuna.png</span></span><br><span class="line">wget -O tuna.png <span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png&quot;</span></span><br><span class="line"><span class="built_in">ls</span> -la | grep tuna.png</span><br><span class="line"><span class="comment"># 下载一个文件，不指定文件名</span></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg</span><br><span class="line"><span class="built_in">ls</span> -la | grep gpg</span><br><span class="line"><span class="comment"># 查看 wget 其他参数的使用方法</span></span><br><span class="line">wget --<span class="built_in">help</span></span><br><span class="line"><span class="comment"># -c 参数支持断点续传，这在传输大文件时十分有用</span></span><br><span class="line">wget -c -O tuna2.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png</span><br></pre></td></tr></table></figure>
+<h2 id="7z：开源免费，支持压缩文件和目录"><a href="#7z：开源免费，支持压缩文件和目录" class="headerlink" title="7z：开源免费，支持压缩文件和目录"></a>7z：开源免费，支持压缩文件和目录</h2><p><strong>sudo apt install p7zip-full</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩，r 表示递归操作目录下的所有子文件</span></span><br><span class="line">7za a -r xiyouyun.7z /tmp/xiyouyun/*</span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">7za x -r xiyouyun.7z</span><br></pre></td></tr></table></figure>
 
+<h2 id="rar：winrar在Linux中的替代品"><a href="#rar：winrar在Linux中的替代品" class="headerlink" title="rar：winrar在Linux中的替代品"></a>rar：winrar在Linux中的替代品</h2><p>使用 <strong>sudo apt install rar unrar</strong> 安装软件，rar 默认收费，且不支持 linux，这里使用的是第三方开发的 linux 包，使用第3方软件可能会有未知的错误（可能性极小），详情可查看 <a target="_blank" rel="noopener" href="https://www.rarlab.com/rar_add.htm">rar官网</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将当前目录下的所有文件名以 txt 结尾的文件压缩到 all.rar 中</span></span><br><span class="line">rar a all *.txt</span><br><span class="line"><span class="comment"># 解压 rar 文件</span></span><br><span class="line">unrar e all.rar</span><br></pre></td></tr></table></figure>
 
+<h2 id="bzip2只能压缩文件，不能压缩目录"><a href="#bzip2只能压缩文件，不能压缩目录" class="headerlink" title="bzip2只能压缩文件，不能压缩目录"></a>bzip2只能压缩文件，不能压缩目录</h2><p>bzip2不保留压缩前的文件，文件压缩后被保存为xx.bz2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将文件压缩为 2.txt.bz2，原文件将会消失</span></span><br><span class="line">bzip2 2.txt</span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line">bzip2 -d 2.txt.bz2</span><br></pre></td></tr></table></figure>
 
-<h2 id="curl通常用来在终端中模拟浏览器访问网站"><a href="#curl通常用来在终端中模拟浏览器访问网站" class="headerlink" title="curl通常用来在终端中模拟浏览器访问网站"></a>curl通常用来在终端中模拟浏览器访问网站</h2><p>curl 也可以用来下载文件，不过使用体验不如 wget。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 curl 下载链接中的文件，并保存为 tuna3.png</span></span><br><span class="line">curl -o tuna3.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png</span><br><span class="line"><span class="comment"># 查看 curl 的其他用法</span></span><br><span class="line">curl --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<h2 id="gzip只能压缩文件，不能压缩目录"><a href="#gzip只能压缩文件，不能压缩目录" class="headerlink" title="gzip只能压缩文件，不能压缩目录,"></a>gzip只能压缩文件，不能压缩目录,</h2><p>gzip不保留压缩前的文件，文件压缩后被保存为 xx.gz</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩文件</span></span><br><span class="line">gzip 3.txt</span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">gzip -d 3.txt.gz</span><br></pre></td></tr></table></figure>
 
-<h2 id="补充内容："><a href="#补充内容：" class="headerlink" title="补充内容："></a>补充内容：</h2><h3 id="mwget"><a href="#mwget" class="headerlink" title="mwget"></a>mwget</h3><p>mwget 是 wget 的升级版，支持多线程，下载速度更快。安装方式如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装编译依赖</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install build-essential -y</span><br><span class="line">sudo apt upgrade intltool -y</span><br><span class="line">sudo apt install  libssl-dev -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/rayylee/mwget.git</span><br><span class="line"><span class="built_in">cd</span> mwget</span><br><span class="line">./configure</span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看使用方法</span></span><br><span class="line">mwget --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg</span><br></pre></td></tr></table></figure>
-
-<p>上文中提到的 ftp 和 scp 在远程传输，我们可以借助工具来实现，如 finalshell，xshell,putty,secretCRT……等工具来实现文件的上传和下载。</p>
-<p>这里推荐finalshell，因为它支持 win、mac、linux。官网：<a target="_blank" rel="noopener" href="https://www.hostbuf.com/">https://www.hostbuf.com/</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="解压缩注意事项："><a href="#解压缩注意事项：" class="headerlink" title="解压缩注意事项："></a><strong>解压缩注意事项：</strong></h2><p>在使用 tar 解压文件时，本地如果存在和压缩包中同名的文件，会直接被覆盖不会有任何提示，因此建议使用 tar 解压时指定一个空目录，将文件解压缩到空目录中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> xiyou</span><br><span class="line">tar -xzvf xiyou.tar.gz -C xiyou</span><br></pre></td></tr></table></figure>
+<h2 id="分卷压缩："><a href="#分卷压缩：" class="headerlink" title="分卷压缩："></a><strong>分卷压缩：</strong></h2><p>在很多应用场景中都存在数据大小的限制，如：“单次上传文件大小不能超过1GB”。这个时候就可以用到分卷压缩了。它可以将 1 个大文件压缩并按照规定大小划分成多卷，如将10GB的文件压缩后划分为10卷，每卷1GB，之后也能通过命令将10个卷重新组合成1个大文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个命令会向 xiyou.txt 文件写入 1000000 行数据, 大约 22MB</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..1000000&#125;; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$i</span> hello xiyouyun &quot;</span> &gt;&gt; xiyou.txt; <span class="keyword">done</span>;</span><br><span class="line"><span class="built_in">du</span> -sh xiyou.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分卷压缩，每卷为1MB</span></span><br><span class="line">tar zcf - xiyou.txt |<span class="built_in">split</span> -d -b 1m - xiyou.tar.gz</span><br><span class="line"><span class="comment"># 分卷解压缩，因为压缩是使用的是 gzip，所以解压时也用 gzip</span></span><br><span class="line"><span class="comment"># 这里先删除xiyou.txt 文件，测试解压缩后是否能够还原 xiyou.txt</span></span><br><span class="line"><span class="built_in">rm</span> xiyou.txt</span><br><span class="line"><span class="built_in">cat</span> xiyou.tar.gz0* | tar zx</span><br><span class="line"><span class="built_in">tail</span> xiyou.txt</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -223,7 +221,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -236,19 +234,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            压缩文件(tar,zip,7z,rar,gzip,bzip2)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6-find-ls-locate-whereis-which/" class="article-nav-link">
+      <a href="/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">查找文件(find,ls,locate,whereis,which)</div>
+        <div class="article-nav-title">传输文件(scp,ftp,wget,curl)</div>
       </a>
     
   </nav>
