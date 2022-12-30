@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T08:37:47.423Z</updated>
+  <updated>2022-12-30T08:48:28.000Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>查看文件(cat,head,tail,less,more)</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6-cat-head-tail-less-more/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6-cat-head-tail-less-more/</id>
+    <published>2022-12-30T08:47:00.000Z</published>
+    <updated>2022-12-30T08:48:28.000Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=690104074&amp;bvid=BV1k24y127zf&amp;cid=888455696&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>编辑文件(vim,nano)</title>
