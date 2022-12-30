@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>终端-工作目录-文件-路径-命令-参数(pwd,cd,ls) |  xiyoucloud</title>
+      <title>编辑文件(vim,nano) |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-终端-工作目录-文件-路径-命令-参数-pwd-cd-ls"
+  id="post-编辑文件-vim-nano"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  终端-工作目录-文件-路径-命令-参数(pwd,cd,ls)
+  编辑文件(vim,nano)
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/" class="article-date">
-  <time datetime="2022-12-29T17:57:46.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/" class="article-date">
+  <time datetime="2022-12-30T08:27:14.000Z" itemprop="datePublished">2022-12-30</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.6k</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -122,70 +122,64 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=902282431&bvid=BV1tP4y1U7zP&cid=883084717&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=474968672&bvid=BV1AK411U73x&cid=887434972&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
 <blockquote>
-<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+<p>针对 ubuntu20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统  <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h2 id="1-终端（terminal）"><a href="#1-终端（terminal）" class="headerlink" title="1.终端（terminal）"></a>1.终端（terminal）</h2><p>终端是一种输入输出设备，用于人与计算机交互，早期是一种计算机硬件。（电传打字机）电传打字机将用户输入的文字翻译成纸带上的孔，然后将纸带输入到计算机中获得用户输入的文字。终端是人与计算机交互的桥梁。</p>
-<img src="/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/f818a5fd2ddc4ea1a021ba2fa7a027ed.jpeg" class="" title="请添加图片描述">
+<p>使用 nano 或 vim 编辑一个文件时，都是使用命令加文件的绝对路径或相对路径。如果该路径对应的文件不存在，写入内容后，文件会自动创建。<br>为了方便演示，这里我在 /tmp 目录下创建 xiyouyun 目录作为工作目录, 之后的命令在 <code>/tmp/xiyouyun</code>工作目录下执行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="built_in">cd</span> /tmp/xiyouyun</span><br></pre></td></tr></table></figure>
 
+<h2 id="简单编辑"><a href="#简单编辑" class="headerlink" title="简单编辑"></a>简单编辑</h2><h3 id="nano：nano-filepath"><a href="#nano：nano-filepath" class="headerlink" title="nano：nano [filepath]"></a>nano：nano [filepath]</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 nano 编辑一个文件</span></span><br><span class="line">nano /tmp/xiyouyun/nano.txt</span><br></pre></td></tr></table></figure>
+<p>如果你只想用 nano 做简单的编辑，在编辑完文件后按 Ctrl + s 保存文件，然后按 Ctrl + x 退出编辑，编辑内容就被写入文件了。</p>
+<img src="/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/afa24840d5cd4fc4b2996c2fc8b9f9a9.gif" class="" title="请添加图片描述">
 
-<p>现在使用的终端是使用软件模拟出来的虚拟终端，用于人与计算机交互，输出系统是屏幕，输入系统是键盘。如：<a target="_blank" rel="noopener" href="https://bash.aliyun.com/%EF%BC%88%E4%BD%BF%E7%94%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E7%A0%81%E7%99%BB%E9%99%86%EF%BC%89">https://bash.aliyun.com/（使用支付宝扫码登陆）</a></p>
-<img src="/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/0b2c8f22ae844f4182e8f5ba780661fa.png" class="" title="请添加图片描述">
+<h3 id="vim：vim-filepath"><a href="#vim：vim-filepath" class="headerlink" title="vim：vim [filepath]"></a>vim：vim [filepath]</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 vim 编辑一个文件</span></span><br><span class="line">vim /tmp/xiyouyun/vim.txt</span><br></pre></td></tr></table></figure>
+<p>如果你只想用 vim 做简单编辑，你需要掌握它的<strong>3</strong>种工作模式。当使用命令进入 vim vim.txt 进入 vim 时，此时是<strong>命令模式</strong>，输入<kbd>i</kbd>进入 vim 的<strong>输入模式</strong>，此时可以编辑文件内容，编辑好内容后，按<kbd>Esc</kbd>回到命令模式，输入”:”进入到 vim 的<strong>编辑模式</strong>，此时可以对文件进行保存，如输入”:wq”后回车是对文件进行保存并退出。</p>
+<pre class="mermaid">    graph TB
+    A(命令模式) -->|a,i,o| B(输入模式)
+    B(输入模式) -->|Esc| A(命令模式)
+    A(命令模式) -->|输入:| C(编辑模式)
+    C(编辑模式) -->|Esc或完成一次编辑| A(命令模式)</pre>
+<img src="/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/a49e4934abac460a86cbef6611f54ebc.gif" class="" title="请添加图片描述">
 
+<h2 id="复杂编辑"><a href="#复杂编辑" class="headerlink" title="复杂编辑"></a>复杂编辑</h2><h3 id="nano"><a href="#nano" class="headerlink" title="nano"></a>nano</h3><p>如果你想使用 nano 做一下复杂编辑，你需要掌握一些快捷键。<br>进入 nano 的编辑窗口后，使用 <kbd>Ctrl</kbd> + <kbd>G</kbd> 查看使用说明，在使用说明中首字母 “^” 表示<kbd>Ctrl</kbd>，首字母”M”可以用<kbd>Alt</kbd>、<kbd>Esc</kbd>、<kbd>Cmd</kbd>中的任意一个来实现，这里我使用<kbd>Alt</kbd>。<br><strong>常用的快捷键：</strong></p>
+<blockquote>
+<p>Ctrl + G 可以查看 nano 使用说明，使用<kbd>↓</kbd> 和 <kbd>↑</kbd>滚动查看使用说明，再按一次 Ctrl + G 退出使用说明。</p>
+<p>Alt + # 显示行号，这里的 “#” 需要借助<kbd>Shift</kbd> 才能打出来。</p>
+<p>Ctrl + _ 跳转到指定行，这里的“_”需要借助<kbd>Shift</kbd>才能打出来。</p>
+<p>Ctrl + s 保存写入文件的内容</p>
+<p>Ctrl + x 退出编辑模式，一般来说退出之前需要保存文件内容，也可不保存退出，这样文件更改就不会生效。</p>
+<p>Alt + u 撤销上一次的更改</p>
+<p>Alt + e 重做上一次撤销的更改</p>
+<p>Ctrl + \ 替换文件中的内容</p>
+<p>Ctrl + q 搜索文件中的内容</p>
+<p>Ctrl + r 读取另一个文件中的内容，加载到当前编辑的文件中</p>
+<p>Ctrl + a 将光标跳转到行首</p>
+<p>Ctrl + e 将光标跳转到行尾</p>
+<p>Ctrl + p 将光标跳转到上一行，也可以用<kbd>↑</kbd>代替</p>
+<p>Ctrl + n 将光标跳转到下一行，也可用<kbd>↓</kbd>代替</p>
+<p>Alt + \ 跳转到文件的第一行</p>
+<p>Alt + / 跳转到文件的最后一行</p>
+<p>Ctrl + y 跳转到上一页</p>
+<p>Ctrl + v 跳转到下一页</p>
+<p>Ctrl + t 剪切从当前位置到文件末尾的全部内容</p>
+<p>Ctrl + 6 选择文本，此时移动光标就会选中部分文本</p>
+<p>Alt + 6 复制选中的文本</p>
+<p>Ctrl + k 剪切当前行</p>
+<p>Ctrl + u 粘贴</p>
+</blockquote>
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><p>如果你想用 vim 做一些复杂编辑，你需要掌握它在<strong>命令模式</strong>下的一些快捷键，还需要掌握一些在编辑模式下的命令。</p>
+<p><strong>vim 常用快捷键和命令：</strong></p>
+<blockquote>
+<p>命令模式：<br>    dd 删除当前行<br>    yy 复制当前行<br>    p / P 粘贴缓冲区中的内容（可以是复制或者剪切的内<br>    容）<br>    u 撤销更改<br>    Ctrl + r 重做撤销的更改<br>    gg 跳转到文件的第一行<br>    Shift + g 跳转到文件的最后一行<br>    d + Shift + g 删除从当前行到文件末尾的所有内容<br>    d + g + g 删除从当前行到文件开头的所有内容<br>    v 移动光标选中文本<br>    y 复制选中的文本<br>    “&gt;” 右移选中的文本<br>    “&lt;” 左移选中的文本<br>    d 剪切选中的文本<br>    i 进入到输入模式<br>    <number> + d + d 删除当前行后的 number 行，<br>    这里的 <number> 替换为想要删除的行数<br>    Shift + z + z 退出 vim，保存改动的内容<br>    Shift + z + q 退出 vim，不保存改动的内容<br>    ：进入到编辑模式<br>编辑模式：<br>    :set number 显示行号<br>    :wq 保存并退出<br>    :q 退出vim，只有当文件未做改动时才能成功退出<br>    :q! 退出 vim，并放弃所有的更改<br>    :r <filename> 在光标后读入另一个文件的内容，<br>    这里的<filename>替换为想要读入的文件名<br>    :w <filename> 文件内容另存为 filename，这里<br>    的<filename>替换为想要保存的文件名<br>    /<search_text> 从当前行往后搜索字符串，支持正<br>    则表达式，这里的<search_test>替换为想要搜索的字符<br>    串模式<br>    ?<search_test> 从当前行往前搜索字符串，支持正<br>    则表达式，这里的<search_test>替换为想要搜索的字<br>    符串模式<br>    以上两种搜索方式都可以用 n 移动到后一个匹配项，N<br>    移动到前一个匹配项<br>    %s/<match>/<replace> 检索第一个匹配的字符<br>    串，并将其替换为另一个字符串。这里的<match>替换为<br>    要搜索的字符串模式，<replace>替换为要替换的字符串<br>    %s/<match>/<replace>/g 检索所有匹配的字符<br>    串，并将所有匹配的字符串替换为另一个字符串。这里的<br>    <match>替换为要搜索的字符串模式，<replace> 替换<br>    为要替换的字符串<br>    %s/<match>/<replace>/g 检索所有匹配的字符串，<br>    并将所有匹配的字符串替换为另一个字符串，不过在替换每一个<br>    匹配的字符串时都会询问用户是否替换。这里的<match>替<br>    换为要搜索的字符串模式，<replace>替换为要替换的字符<br>    串<br>输入模式：<br>    输入模式无快捷键</p>
+</blockquote>
+<p>将以下内容写入到 ~/.vimrc 中，可以对 vim 进行设置，设置立即生效<br> vim ~/.vimrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示行号</span></span><br><span class="line"><span class="built_in">set</span> nu</span><br><span class="line"><span class="comment"># 复制粘贴时保持文件缩进格式</span></span><br><span class="line"><span class="built_in">set</span> <span class="built_in">paste</span></span><br></pre></td></tr></table></figure>
 
-
-
-<p>我们可以在终端输入命令来与计算机进行交互。</p>
-<h2 id="2-工作目录（work-directory）"><a href="#2-工作目录（work-directory）" class="headerlink" title="2.工作目录（work directory）"></a>2.工作目录（work directory）</h2><p>工作目录是在终端中使用<code>pwd</code>（print work directory）命令输出的目录，通常也被称为“当前所在的目录”。</p>
-<p>它的意义是执行命令时如果涉及到目录，可以以它为参考来指定其他目录。当命令涉及到目录却并未指定时，则默认使用工作目录。如使用<code>ls</code>(list information about the files)列出某个目录下的文件和目录信息时，如果不指定目录，则默认列出工作目录下的文件和目录信息。使用<code>cd</code>（change directory）可以切换工作目录，将当前的工作目录切换为 /tmp 的命令为<code>cd /tmp</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出当前的工作目录</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment"># 不指定目录，列出当前工作目录下的文件信息</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 指定目录，输入 tmp 目录下的文件信息</span></span><br><span class="line"><span class="built_in">ls</span> /tmp</span><br><span class="line"><span class="comment"># 将当前的工作目录切换为 /tmp</span></span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line"><span class="comment"># 不指定目录，列出当前工作目录(tmp)下的文件</span></span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-文件和目录"><a href="#3-文件和目录" class="headerlink" title="3.文件和目录"></a>3.文件和目录</h2><p>文件是一种数据的组织形式，通常人们以<strong>文件名</strong>来称呼一个文件，如：“新建文本文档.txt”。</p>
-<p>目录是一种组织文件的方式，不同目录下可能存在着拥有相同名称的文件或目录，为了消除歧义，人们称呼某个文件或目录时，会称呼为 “xx目录下的xx文件”、“xx目录下的xx目录”。但这还不够，因为一个系统中可能存在多个 a 目录。当说到 “a 目录下的 xx 文件” 时还是可能存在歧义。</p>
-<pre class="mermaid">flowchart TB
-A("/") --> B(bin)
-A("/") --> C(usr)
-B(bin) --> D(xiyou.txt)
-C(usr) --> E(bin)
-E(bin) --> F(xiyou.txt)</pre>
-
-<p>为了彻底消除歧义，可以用<strong>路径</strong>来指代文件，在 linux 系统中，不同的文件或目录拥有不同的路径，也就是说每个文件或目录对应的路径是唯一的，使用路径来指代文件就没有歧义了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将工作目录切换为 /</span></span><br><span class="line"><span class="built_in">cd</span> /</span><br><span class="line"><span class="comment"># 输出工作目录下的文件和目录信息</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 将各做目录切换为 /usr 目录</span></span><br><span class="line"><span class="built_in">cd</span> /usr</span><br><span class="line"><span class="comment"># 输出工作目录下的文件和目录信息</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 根据上图可以看到 / 目录下和 /usr 目录下都有 bin 目录 两个 bin 目录下都有 xiyou.txt文件，此时可以通过路径来区分它们</span></span><br><span class="line">/bin</span><br><span class="line">/usr/bin</span><br><span class="line">/bin/xiyou.txt</span><br><span class="line">/usr/bin/xiyou.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-路径"><a href="#4-路径" class="headerlink" title="4.路径"></a>4.路径</h2><p>在 linux 系统中，目录和文件都有其对应的路径，路径是区分不同文件或不同目录的唯一标识，目录和文件的区别是目录名可以作为文件路径的前缀，但文件名不能作为目录路径的前缀。假设在 /tmp 目录下有一个文件 xiyou.txt ，则目录 tmp 的路径为 /tmp， xiyou.txt 的路径是 /tmp/xiyou.txt。</p>
-<pre class="mermaid">graph LR
-A("/") --> B(tmp)
-B(tmp) --> C(xiyou.txt)</pre>
-
-
-
-<p>下图中 lib 的路径为<code>/usr/lib</code>，xiyou.txt 的路径为 <code>/tmp/xiyou.txt</code></p>
-<pre class="mermaid">graph TB
-/("/")--> tmp
-/("/") --> bin
-/("/") --> usr
-/("/") --> home
-home --> bash
-usr --> lib
-tmp --> xiyou.txt</pre>
-
-<p>根目录：”/“ 代表根目录，是系统中<strong>所有</strong>目录的前缀。</p>
-<p>绝对路径：绝对路径是以 “/“（根目录）为标准，相对于根目录的文件路径，前文中所说的路径都是绝对路径。</p>
-<p>相对路径：当路径不以”/“开头时，则路径相对于当前的工作目录。使用 “.” 指代当前工作目录，使用”..”指代当前工作目录的父目录。使用 “../../“ 来指代当前文件的父目录的父目录，以此类推……</p>
-<p>家目录：”~”代表家目录，它的格式是 “/home/<username>“，如果用户名为 bash 的话，则家目录为 /home/bash<br>上一个工作目录：”-“代表最近一次 cd 切换前的工作目录，使用 cd 切换工作目录后如果想要切换回上一次的工作目录，可以使用<code>cd -</code>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tips：当前的工作目录可以用命令 pwd 查看</span></span><br><span class="line"><span class="comment"># 切换工作目录为根目录</span></span><br><span class="line"><span class="built_in">cd</span> /</span><br><span class="line"><span class="comment"># 切换到 tmp 工作目录，注意这里的路径是相对路径，是相对于当前工作目录的路径，不以 &quot;/&quot; 开头，不过当前的工作目录是 /， 相对于 / 的 tmp 目录对应的路径是 /tmp 。</span></span><br><span class="line"><span class="built_in">cd</span> tmp</span><br><span class="line"><span class="comment"># 此时工作目录是 /tmp， 可是使用 &quot;..&quot;指代它的上一层目录， 它的上一层目录就是根目录 /</span></span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="comment"># 切换工作目录为家目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment"># 使用 pwd 查看家目录的路径</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment"># 切换工作目录为根目录 /</span></span><br><span class="line"><span class="built_in">cd</span> -</span><br><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-命令和参数"><a href="#5-命令和参数" class="headerlink" title="5.命令和参数"></a>5.命令和参数</h2><p>上文中使用到的<code>pwd</code>，<code>ls</code>，<code>cd</code>是 linux 中的命令。</p>
-<p>命令是 linux 中的可执行程序，执行后会让计算机做某种操作。</p>
-<p>参数是跟在命令后的描述信息，它们就像电路中的开关一样，控制着命令的执行过程和结果。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 前文中的 cd /tmp ，cd 是命令，/tmp 是参数，这个参数描述的是切换的目录的路径</span></span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># -l 是 ls 的参数，它描述的是将目录下的文件以 list 的形式列出</span></span><br><span class="line"><span class="built_in">ls</span> -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以多个参数搭配使用，下面这个命令表示以 list 的形式列出路径为 /etc 的目录下的文件</span></span><br><span class="line"><span class="built_in">ls</span>  -l /etc </span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数的形式多种多样，这里的 --color=never 会让 ls 的输出内容不以颜色来区分文件类型</span></span><br><span class="line"><span class="built_in">ls</span> -l /tmp --color=never</span><br></pre></td></tr></table></figure>
-
-<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><p>在 linux 中，大多数命令可以通过 命令  –help 的方式查看命令的使用方法。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例:</span></span><br><span class="line"><span class="built_in">ls</span> --<span class="built_in">help</span></span><br><span class="line"><span class="built_in">pwd</span> --<span class="built_in">help</span></span><br><span class="line"><span class="built_in">cd</span> --<span class="built_in">help</span></span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -255,7 +249,7 @@ tmp --> xiyou.txt</pre>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,19 +262,10 @@ tmp --> xiyou.txt</pre>
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6-touch-mkdir-vim-%E9%87%8D%E5%AE%9A%E5%90%91/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            创建文件(touch,mkdir,vim,重定向)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/29/Linux%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/" class="article-nav-link">
+      <a href="/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Linux课程大纲</div>
+        <div class="article-nav-title">删除文件(rm,rmdir)</div>
       </a>
     
   </nav>
