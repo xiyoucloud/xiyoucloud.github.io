@@ -34,6 +34,147 @@
       </tags>
   </entry>
   <entry>
+    <title>软件包管理工具-apt</title>
+    <url>/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=903804972&bvid=BV1yP4y1D787&cid=926416540&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<span id="more"></span>
+
+<blockquote>
+<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>apt 是 ubuntu 系统默认的软件包管理工具，就好像 centos 的 yum，不过 yum 只能在 centos 中使用，在 ubuntu 中应该使用 apt 来管理包。</p>
+<h2 id="软件源"><a href="#软件源" class="headerlink" title="软件源"></a>软件源</h2><p>软件包是从哪里下载到的呢？答案是软件源，顾名思义软件的来源称为软件源。</p>
+<p>软件源实际上是一个链接，链接中包含了很多的软件资源。</p>
+<p>系统默认是配置好软件源的，它保存在 /etc/apt/sources.list 和 /etc/apt/sources.list.d/xiyou.list 的文件中</p>
+<p><strong>值得一提的是不同的操作系统版本使用的软件源是不一样的，因此配置源时需要配置操作系统版本对应的源</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt edit-sources</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看操作系统版本</span></span><br><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
+
+<p>好习惯是如果你手动修改 /etc/apt/sources.list 文件，你最好对它建立一个备份，然后再编辑它，这样能够防止自己改错文件后可以从备份中恢复文件。 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line">vi /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让配置的源生效</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-增加-修改软件源（以修改文件的方式）"><a href="#1-增加-修改软件源（以修改文件的方式）" class="headerlink" title="1.增加/修改软件源（以修改文件的方式）"></a>1.增加/修改软件源（以修改文件的方式）</h3><p>清华软件源：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a> （可以手动选择到合适的系统版本）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu 20.04 修改官方软件源为清华源</span></span><br><span class="line">sudo sed -i <span class="string">&quot;s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot;</span> /etc/apt/sources.list</span><br><span class="line">sudo sed -i <span class="string">&quot;s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/23aa7b97d6264c48bf19768c1f3e9585.png" class="" title="在这里插入图片描述">
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释， 这是 ubuntu 20.04 的软件源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-增加软件源-以命令的方式"><a href="#2-增加软件源-以命令的方式" class="headerlink" title="2.增加软件源 (以命令的方式)"></a>2.增加软件源 (以命令的方式)</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-add-repository <span class="string">&#x27;deb http://myserver/path/to/repo stable myrepo&#x27;</span></span><br><span class="line">apt-add-repository <span class="string">&#x27;http://myserver/path/to/repo myrepo&#x27;</span></span><br><span class="line">apt-add-repository <span class="string">&#x27;https://packages.medibuntu.org free non-free&#x27;</span></span><br><span class="line">apt-add-repository http://extras.ubuntu.com/ubuntu</span><br><span class="line">apt-add-repository ppa:user/repository</span><br><span class="line">apt-add-repository ppa:user/distro/repository</span><br><span class="line">apt-add-repository multiverse</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-删除软件源"><a href="#3-删除软件源" class="headerlink" title="3.删除软件源"></a>3.删除软件源</h3><p>以修改文件的方式：使用“#”注释掉不想要的软件源 vi /etc/apt/sources.list</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在文件的每一行的前面加 #，即注释掉该文件中所有的源</span></span><br><span class="line">sed -i <span class="string">&quot;s/^/#/&quot;</span> /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 删除刚刚添加的 #，撤销上一步操作</span></span><br><span class="line">sed -i <span class="string">&#x27;s/.//&#x27;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>使用命令的方式删除源：<code>apt-add-repository -r &#39;https://packages.medibuntu.org free non-free&#39;</code></p>
+<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p>dpkg 用于安装本地的 .deb 包，处理依赖的能力较差。</p>
+<p>apt 是基于 dpkg 封装好的软件包管理工具，它从软件源安装软件，并能较好地处理软件依赖，使用起来更加方便。</p>
+<p><strong>以下命令以 wget 软件为例</strong></p>
+<ul>
+<li>更新存储库</li>
+</ul>
+<p>apt 从软件源安装软件，它需要在本地维护一个软件源的存储库，这样就能在存储库中搜索软件包了。但软件源中的软件包信息是频繁更新的，如果你想使用更新版本的软件，你就需要先更新本地的存储库，再进行软件安装。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>搜索软件包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt search ^wget</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装软件包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install wget</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 dpkg 安装软件包</span></span><br><span class="line">dpkg -i xx.deb</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看软件包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看本地是否安装 wget</span></span><br><span class="line">apt list | grep ^wget</span><br><span class="line"><span class="comment"># 查看软件包的具体信息</span></span><br><span class="line">apt show wget</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看软件包对应的文件信息</span></span><br><span class="line">dpkg -L rstudio-server</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>卸载软件包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载软件，保留相关文件</span></span><br><span class="line">apt remove rstudio-server</span><br><span class="line"><span class="comment"># 卸载软件并删除相关文件</span></span><br><span class="line">apt autoremove rstudio-server</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新软件包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先更新存储库，确保获取到更新的版本包信息</span></span><br><span class="line">apt update</span><br><span class="line"><span class="comment"># 更新系统中所有的软件包，使用 installing/upgrading packages 的方式来处理依赖</span></span><br><span class="line">apt upgrade</span><br><span class="line"><span class="comment"># 更新系统中所有的软件包，使用 removing/installing/upgrading packages 的方式来处理依赖</span></span><br><span class="line">apt full-upgrade</span><br></pre></td></tr></table></figure>
+
+<h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="apt-和-apt-get-的关系："><a href="#apt-和-apt-get-的关系：" class="headerlink" title="apt 和 apt-get 的关系："></a>apt 和 apt-get 的关系：</h2><p>在 shell 中通常使用 apt，因为可以少打 4 个字符。在脚本中安装软件通常使用 apt-get，兼容性更好，通常在脚本中使用。</p>
+<p><strong>WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</strong></p>
+<table>
+<thead>
+<tr>
+<th>apt</th>
+<th>apt-get</th>
+<th>命令含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>apt install 包名</td>
+<td>apt-get install 包名</td>
+<td>安装软件包</td>
+</tr>
+<tr>
+<td>apt remove 包名</td>
+<td>apt-get remove 包名</td>
+<td>移除软件包</td>
+</tr>
+<tr>
+<td>apt purge 包名</td>
+<td>apt-get purge 包名</td>
+<td>移除软件包及配置文件</td>
+</tr>
+<tr>
+<td>apt update</td>
+<td>apt-get update</td>
+<td>刷新存储库索引</td>
+</tr>
+<tr>
+<td>apt upgrade</td>
+<td>apt-get upgrade</td>
+<td>升级所有可升级的软件包</td>
+</tr>
+<tr>
+<td>apt autoremove 包名</td>
+<td>apt-get autoremove 包名</td>
+<td>自动删除所有不需要的软件包</td>
+</tr>
+<tr>
+<td>apt full-upgrade</td>
+<td>apt-get dist-upgrade</td>
+<td>在升级软件包时自动处理依赖关系</td>
+</tr>
+<tr>
+<td>apt search 正则表达式</td>
+<td>apt-cache search 正则表达式</td>
+<td>搜索应用程序</td>
+</tr>
+<tr>
+<td>apt show 包名</td>
+<td>apt-cache show 包名</td>
+<td>显示安装细节</td>
+</tr>
+<tr>
+<td>apt clean</td>
+<td>apt-get clean</td>
+<td>清理已下载的软件包，不会影响软件的正常使用</td>
+</tr>
+<tr>
+<td>apt autoclean</td>
+<td>apt-get autoclean</td>
+<td>删除已经卸载的软件的软件包备份</td>
+</tr>
+</tbody></table>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>西柚云Linux教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>切换rstudio-server中的R</title>
     <url>/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="在Linux系统中安装多个R"><a href="#在Linux系统中安装多个R" class="headerlink" title="在Linux系统中安装多个R"></a>在Linux系统中安装多个R</h2><p>在系统中使用 apt 安装的 R 是全局安装的，无法使用 apt 安装多个版本的 R。</p>

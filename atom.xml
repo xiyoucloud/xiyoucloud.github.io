@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-31T05:44:15.133Z</updated>
+  <updated>2022-12-31T09:28:08.244Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件包管理工具-apt</title>
+    <link href="https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/"/>
+    <id>https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</id>
+    <published>2022-12-31T09:22:35.000Z</published>
+    <updated>2022-12-31T09:28:08.244Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=903804972&amp;bvid=BV1yP4y1D787&amp;cid=926416540&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>切换rstudio-server中的R</title>
@@ -333,23 +350,6 @@
     <id>https://xiyoucloud.github.io/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/</id>
     <published>2022-12-29T17:57:46.000Z</published>
     <updated>2022-12-30T08:44:05.694Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=902282431&amp;bvid=BV1tP4y1U7zP&amp;cid=883084717&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux课程大纲</title>
-    <link href="https://xiyoucloud.github.io/2022/12/29/Linux%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/"/>
-    <id>https://xiyoucloud.github.io/2022/12/29/Linux%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/</id>
-    <published>2022-12-29T13:38:47.000Z</published>
-    <updated>2022-12-29T15:48:29.905Z</updated>
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=902282431&amp;bvid=BV1tP4y1U7zP&amp;cid=883084717&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
