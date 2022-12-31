@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-31T09:28:08.244Z</updated>
+  <updated>2022-12-31T10:06:42.514Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github访问出错的解决办法</title>
+    <link href="https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
+    <published>2022-12-31T09:57:24.000Z</published>
+    <updated>2022-12-31T10:06:42.514Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=390903031&amp;bvid=BV1Hd4y1s7XC&amp;cid=915054365&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="代理" scheme="https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86/"/>
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
   
   <entry>
     <title>软件包管理工具-apt</title>
@@ -336,23 +355,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=689969785&amp;bvid=BV1c24y127Nq&amp;cid=886497148&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>终端-工作目录-文件-路径-命令-参数(pwd,cd,ls)</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E7%BB%88%E7%AB%AF-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6-%E8%B7%AF%E5%BE%84-%E5%91%BD%E4%BB%A4-%E5%8F%82%E6%95%B0-pwd-cd-ls/</id>
-    <published>2022-12-29T17:57:46.000Z</published>
-    <updated>2022-12-30T08:44:05.694Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=902282431&amp;bvid=BV1tP4y1U7zP&amp;cid=883084717&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     

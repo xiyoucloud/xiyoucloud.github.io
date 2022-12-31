@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
+    
+    <lastmod>2022-12-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</loc>
+    
+    <lastmod>2022-12-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</loc>
     
     <lastmod>2022-12-31</lastmod>
@@ -129,15 +147,6 @@
   
   <url>
     <loc>https://xiyoucloud.github.io/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/</loc>
-    
-    <lastmod>2022-12-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</loc>
     
     <lastmod>2022-12-30</lastmod>
     
@@ -365,6 +374,20 @@
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/R/</loc>
+    <lastmod>2022-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2022-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/</loc>
     <lastmod>2022-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
