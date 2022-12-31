@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-30T14:14:05.938Z</updated>
+  <updated>2022-12-31T05:40:51.615Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>切换rstudio-server中的R</title>
+    <link href="https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/"/>
+    <id>https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/</id>
+    <published>2022-12-31T02:41:35.000Z</published>
+    <updated>2022-12-31T05:40:51.615Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;在Linux系统中安装多个R&quot;&gt;&lt;a href=&quot;#在Linux系统中安装多个R&quot; class=&quot;headerlink&quot; title=&quot;在Linux系统中安装多个R&quot;&gt;&lt;/a&gt;在Linux系统中安装多个R&lt;/h2&gt;&lt;p&gt;在系统中使用 apt 安装的 R 是全局安装的，无法使用 apt 安装多个版本的 R。&lt;/p&gt;
+&lt;p&gt;使用apt安装好R后会在 /usr/bin 目录下回生成一个 R 的可执行文件。&lt;/p&gt;
+&lt;p&gt;如果想要在系统中安装多个版本的 R，推荐使用 conda 在不同的虚拟环境中安装不同的 R。在终端中可以通过激活虚拟环境来使用不同的虚拟环境中的R。在 rstudio-server 中可以通过修改 /etc/rstudio/rserver.conf 文件来指定使用的R。&lt;/p&gt;
+&lt;img src=&quot;/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231104655339.png&quot; class=&quot;&quot; title=&quot;image-20221231104655339&quot;&gt;</summary>
+    
+    
+    
+    
+    <category term="rstudio-server" scheme="https://xiyoucloud.github.io/tags/rstudio-server/"/>
+    
+    <category term="R" scheme="https://xiyoucloud.github.io/tags/R/"/>
+    
+  </entry>
   
   <entry>
     <title>bash教程</title>
@@ -336,23 +358,6 @@
     
     
     <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何安装R包</title>
-    <link href="https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/"/>
-    <id>https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/</id>
-    <published>2022-12-29T13:23:39.000Z</published>
-    <updated>2022-12-30T08:16:36.208Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=774448127&amp;bvid=BV1k14y1577d&amp;cid=881813168&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
     
   </entry>
   
