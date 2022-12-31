@@ -68,7 +68,7 @@ A(File)-->B(New Project) --> C(New Directory) --> D(New Project) --> E(Create Pr
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/rproject-2.png" class="" title="rproject-2">
 
 <h2 id="在指定的libpath中安装R包"><a href="#在指定的libpath中安装R包" class="headerlink" title="在指定的libpath中安装R包"></a>在指定的libpath中安装R包</h2><p>参考教程：<a href="https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/">如何安装R包</a></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过指定 lib 参数来设置 R 包的安装位置，使用 remotes,devtools,BiocManager 安装R包同理</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/home/txb/miniconda3/envs/r-4.2/lib/R/library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过指定 lib 参数来设置 R 包的安装位置，使用 remotes,devtools,BiocManager 安装 R 包同理</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/home/txb/miniconda3/envs/r-4.2/lib/R/library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="不能混用不同版本的R安装的R包"><a href="#不能混用不同版本的R安装的R包" class="headerlink" title="不能混用不同版本的R安装的R包"></a>不能混用不同版本的R安装的R包</h2><p>如果R版本相同，可以将另一个 R 的 libpath 加入到当前 R 的 libpath 中。</p>
 <p>参考教程：<a href="https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/">如何安装R包</a></p>
@@ -77,7 +77,7 @@ A(File)-->B(New Project) --> C(New Directory) --> D(New Project) --> E(Create Pr
 <p>使用新版本的 R 后，如果还使用原来旧版本R编译的R包<strong>可能</strong>会导致报错。同理，如果使用旧版本的 R 在 libpath 中包含新版本的 R 安装的 R 包的 libpath 也<strong>可能</strong>会导致报错。</p>
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231124911323.png" class="" title="image-20221231124911323">
 
-<p>此时需要在当前的 R 环境中剔除其他 R 版本的包使用的 libpath，然后重新在当前R的 libpath 中安装 R 包后才能使用该R包。如果 libpath 是在 ~/.Rprofile 中配置的，需要删除相关语句。</p>
+<p>此时需要在当前的 R 环境中剔除其他 R 版本的包使用的 libpath，然后重新在当前R的 libpath 中安装 R 包后才能使用该R包。如果 libpath 是在 ~/.Rprofile 中配置的，需要删除相关语句。<a href="#%E5%9C%A8%E6%8C%87%E5%AE%9A%E7%9A%84libpath%E4%B8%AD%E5%AE%89%E8%A3%85R%E5%8C%85">在指定的libpath中安装R包</a></p>
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231133952608.png" class="" title="image-20221231133952608">
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>

@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2022-12-31T05:40:51.615Z</updated>
+  <updated>2022-12-31T05:44:15.133Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/"/>
     <id>https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/</id>
     <published>2022-12-31T02:41:35.000Z</published>
-    <updated>2022-12-31T05:40:51.615Z</updated>
+    <updated>2022-12-31T05:44:15.133Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;在Linux系统中安装多个R&quot;&gt;&lt;a href=&quot;#在Linux系统中安装多个R&quot; class=&quot;headerlink&quot; title=&quot;在Linux系统中安装多个R&quot;&gt;&lt;/a&gt;在Linux系统中安装多个R&lt;/h2&gt;&lt;p&gt;在系统中使用 apt 安装的 R 是全局安装的，无法使用 apt 安装多个版本的 R。&lt;/p&gt;
