@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-01T08:26:28.613Z</updated>
+  <updated>2023-01-01T09:49:34.667Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/"/>
     <id>https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/</id>
     <published>2023-01-01T07:49:44.000Z</published>
-    <updated>2023-01-01T08:26:28.613Z</updated>
+    <updated>2023-01-01T09:49:34.667Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h2&gt;&lt;h3 id=&quot;1-安装conda&quot;&gt;&lt;a href=&quot;#1-安装conda&quot; class=&quot;headerlink&quot; title=&quot;1.安装conda&quot;&gt;&lt;/a&gt;1.安装conda&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/&quot;&gt;conda的安装和卸载&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-使用conda安装monocle2-18&quot;&gt;&lt;a href=&quot;#2-使用conda安装monocle2-18&quot; class=&quot;headerlink&quot; title=&quot;2.使用conda安装monocle2.18&quot;&gt;&lt;/a&gt;2.使用conda安装monocle2.18&lt;/h3&gt;&lt;p&gt;耗时较长，耐心等待，以小时计。命令运行后就去喝咖啡吧，1小时后再打开看。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建虚拟环境 rpackage 的同时安装 monocle 2.18.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda create -n rpackage bioconductor-monocle==2.18.0 -y -vv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;1-安装conda&quot;&gt;&lt;a href=&quot;#1-安装conda&quot; class=&quot;headerlink&quot; title=&quot;1.安装conda&quot;&gt;&lt;/a&gt;1.安装conda&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/&quot;&gt;conda的安装和卸载&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-使用conda安装monocle2-18&quot;&gt;&lt;a href=&quot;#2-使用conda安装monocle2-18&quot; class=&quot;headerlink&quot; title=&quot;2.使用conda安装monocle2.18&quot;&gt;&lt;/a&gt;2.使用conda安装monocle2.18&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;小技巧，在安装monocle2.18之前需要先安装 r-base 4.0.5&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建虚拟环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda create -n rpackage r-base==4.0.5 -y -vv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda activate rpackage&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda install bioconductor-monocle==2.18.0 -y -vv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -342,10 +342,10 @@
     <link href="https://xiyoucloud.github.io/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/"/>
     <id>https://xiyoucloud.github.io/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/</id>
     <published>2022-12-30T08:27:14.000Z</published>
-    <updated>2022-12-30T08:37:47.423Z</updated>
+    <updated>2023-01-01T09:01:16.107Z</updated>
     
     
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=474968672&amp;bvid=BV1AK411U73x&amp;cid=887434972&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=474968672&amp;bvid=BV1AK411U73x&amp;cid=887434972&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     

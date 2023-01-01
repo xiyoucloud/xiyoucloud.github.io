@@ -288,7 +288,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">189</span>
+            <span class="post-count">177</span>
         </span>
     </span>
 
@@ -306,9 +306,9 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-安装conda"><a href="#1-安装conda" class="headerlink" title="1.安装conda"></a>1.安装conda</h3><p><a href="https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/">conda的安装和卸载</a></p>
-<h3 id="2-使用conda安装monocle2-18"><a href="#2-使用conda安装monocle2-18" class="headerlink" title="2.使用conda安装monocle2.18"></a>2.使用conda安装monocle2.18</h3><p>耗时较长，耐心等待，以小时计。命令运行后就去喝咖啡吧，1小时后再打开看。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境 rpackage 的同时安装 monocle 2.18.0</span></span><br><span class="line">conda create -n rpackage bioconductor-monocle==2.18.0 -y -vv</span><br></pre></td></tr></table></figure> 
+  <h3 id="1-安装conda"><a href="#1-安装conda" class="headerlink" title="1.安装conda"></a>1.安装conda</h3><p><a href="https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/">conda的安装和卸载</a></p>
+<h3 id="2-使用conda安装monocle2-18"><a href="#2-使用conda安装monocle2-18" class="headerlink" title="2.使用conda安装monocle2.18"></a>2.使用conda安装monocle2.18</h3><p><strong>小技巧，在安装monocle2.18之前需要先安装 r-base 4.0.5</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境</span></span><br><span class="line">conda create -n rpackage r-base==4.0.5 -y -vv</span><br><span class="line">conda activate rpackage</span><br><span class="line">conda install bioconductor-monocle==2.18.0 -y -vv</span><br></pre></td></tr></table></figure> 
       <a class="article-more-link" href="/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/"
         >阅读更多...</a
       >
