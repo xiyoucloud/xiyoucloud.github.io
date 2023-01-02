@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-01T09:49:34.667Z</updated>
+  <updated>2023-01-02T07:44:13.514Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>command not found</title>
+    <link href="https://xiyoucloud.github.io/2023/01/02/command-not-found/"/>
+    <id>https://xiyoucloud.github.io/2023/01/02/command-not-found/</id>
+    <published>2023-01-02T07:42:49.000Z</published>
+    <updated>2023-01-02T07:44:13.514Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;PATH&quot;&gt;&lt;a href=&quot;#PATH&quot; class=&quot;headerlink&quot; title=&quot;PATH&quot;&gt;&lt;/a&gt;PATH&lt;/h2&gt;&lt;p&gt;我们运行 1 个命令，shell解释程序（以下用bash代替）首先需要知道命令对应的程序的位置，也就是程序文件对应的路径。&lt;/p&gt;
+&lt;p&gt;计算机如何找到命令对应的程序的位置呢？这是通过 PATH 这个系统变量来实现的。&lt;/p&gt;
+&lt;p&gt;使用 echo $PATH 可以查看 PATH 这个系统变量的值&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/home/txb/.local/bin:/home/txb/miniconda3/bin:/home/txb/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;PATH 变量中使用使用 “:” 来分割路径，执行命令时，bash 会去每个路径对应的目录中去找可执行程序，如果找到1个名称匹配的可执行程序，就执行这个程序，不再继续往下找了。而如果找遍PATH中配置的所有目录也找不到名称匹配的可执行程序，就会报错 “command not found xxx” &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+    <category term=".bashrc和.profile" scheme="https://xiyoucloud.github.io/tags/bashrc%E5%92%8C-profile/"/>
+    
+  </entry>
   
   <entry>
     <title>安装monocle 2.18</title>
@@ -346,23 +370,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=474968672&amp;bvid=BV1AK411U73x&amp;cid=887434972&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>删除文件(rm,rmdir)</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6-rm-rmdir/</id>
-    <published>2022-12-30T08:18:00.000Z</published>
-    <updated>2022-12-30T08:38:42.082Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=559933357&amp;bvid=BV1Se4y117LF&amp;cid=886499421&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     
