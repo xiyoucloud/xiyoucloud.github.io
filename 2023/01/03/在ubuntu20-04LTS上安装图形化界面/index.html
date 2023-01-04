@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>安装monocle 2.18 |  xiyoucloud</title>
+      <title>在ubuntu20.04LTS上安装图形化界面 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-安装monocle-2-18"
+  id="post-在ubuntu20-04LTS上安装图形化界面"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  安装monocle 2.18
+  在ubuntu20.04LTS上安装图形化界面
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/" class="article-date">
-  <time datetime="2023-01-01T07:49:44.000Z" itemprop="datePublished">2023-01-01</time>
+      <a href="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/" class="article-date">
+  <time datetime="2023-01-03T14:31:57.000Z" itemprop="datePublished">2023-01-03</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">177</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -122,20 +122,88 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="1-安装conda"><a href="#1-安装conda" class="headerlink" title="1.安装conda"></a>1.安装conda</h3><a href="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/" title="conda的安装和卸载">conda的安装和卸载</a>
-
-<h3 id="2-使用conda安装monocle2-18"><a href="#2-使用conda安装monocle2-18" class="headerlink" title="2.使用conda安装monocle2.18"></a>2.使用conda安装monocle2.18</h3><p><strong>小技巧，在安装monocle2.18之前需要先安装 r-base 4.0.5</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境</span></span><br><span class="line">conda create -n rpackage r-base==4.0.5 -y -vv</span><br><span class="line">conda activate rpackage</span><br><span class="line">conda install bioconductor-monocle==2.18.0 -y -vv</span><br></pre></td></tr></table></figure>
-
+  <p>ubuntu 有两种常用的系统 ubuntu desktop 和 ubuntu server。</p>
+<p>ubuntu desktop 常用于个人电脑，是有图形化界面的，用户可以通过图形化界面与计算机交互。</p>
+<p>ubuntu server 常用于服务器，是没有图形化界面的，用户通过终端与计算机交互。</p>
 <span id="more"></span>
 
-<h3 id="3-在rstudio-server中使用monocle2-18"><a href="#3-在rstudio-server中使用monocle2-18" class="headerlink" title="3.在rstudio-server中使用monocle2.18"></a>3.在rstudio-server中使用monocle2.18</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 R 语言的执行环境中执行</span></span><br><span class="line">.libPaths(c(<span class="string">&quot;/home/txb/miniconda3/envs/rpackage/lib/R/library&quot;</span>, .libPaths()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 R 中 load monocle</span></span><br><span class="line">library(monocle,lib.loc=<span class="string">&quot;/home/txb/miniconda3/envs/rpackage/lib/R/library&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>ubuntu server 常用于服务器的一个重要原因是ubuntu server 占用更低的硬件资源。</p>
+<p>ubuntu desktop 虽然更易于使用，但占用更多的服务器资源，因为服务器的硬件资源宝贵，所以服务器大多安装 ubuntu server。</p>
+<p>然而使用 ubuntu server 的用户可能也有使用图形化界面的需求，下面介绍一下在 ubuntu server 20.04LTS 中安装图形化界面的方式。</p>
+<pre class="mermaid">graph LR
+A(ubuntu) --> B(ubuntu desktop)
+A(ubuntu) --> C(ubuntu server)</pre>
 
-<h3 id="4-配置libpath永久生效"><a href="#4-配置libpath永久生效" class="headerlink" title="4.配置libpath永久生效"></a>4.配置libpath永久生效</h3><p>将以下内容写入 ~/.Rprofile，然后 Start New Session，其中 /home/txb/miniconda3/envs/rpackage/lib/R/library 就是R包的安装路径，也就是所谓的 libpath。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.libPaths(c(<span class="string">&quot;/home/txb/miniconda3/envs/rpackage/lib/R/library&quot;</span>, .libPaths()))</span><br></pre></td></tr></table></figure>
+<h1 id="VNC"><a href="#VNC" class="headerlink" title="VNC"></a>VNC</h1><p>VNC (Virtual Network Computer)是<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/747782.htm">虚拟网络</a>计算机的缩写。它是基于 unix 和 linux 操作系统的免费的<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/444964.htm">开源软件</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.tightvnc.com/">tightvnc</a> 是 VNC 的一个实现。在服务端运行 tightvncserver 后你可以使用它去运行一个桌面系统，然后使用软件连接并显示这个桌面系统，这样就能<strong>看到远程计算机的桌面并</strong>使用本地鼠标和键盘控制它，就像您坐在那台计算机的前面一样。</p>
+<h2 id="1-安装vncserver"><a href="#1-安装vncserver" class="headerlink" title="1.安装vncserver"></a>1.安装vncserver</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tightvncserver</span><br></pre></td></tr></table></figure>
 
-<img src="/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/image-20230101162318775.png" class="" title="image-20230101162318775">
+<h2 id="2-1安装桌面-xfce（两个桌面系统2选1）"><a href="#2-1安装桌面-xfce（两个桌面系统2选1）" class="headerlink" title="2.1安装桌面-xfce（两个桌面系统2选1）"></a>2.1安装桌面-xfce（两个桌面系统2选1）</h2><p>xfce 是一个轻量级的类UNIX桌面系统：<a target="_blank" rel="noopener" href="https://www.xfce.org/?lang=zh_CN">https://www.xfce.org/?lang=zh_CN</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.xfce.org/">xfce使用指南</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xfce4 xfce4-goodies</span><br></pre></td></tr></table></figure>
 
+<h2 id="2-2安装桌面gnome（两个桌面系统2选1）"><a href="#2-2安装桌面gnome（两个桌面系统2选1）" class="headerlink" title="2.2安装桌面gnome（两个桌面系统2选1）"></a>2.2安装桌面gnome（两个桌面系统2选1）</h2><p>gnome 是一个简单且容易使用的桌面系统：<a target="_blank" rel="noopener" href="https://www.gnome.org/getting-gnome/">https://www.gnome.org/getting-gnome/</a></p>
+<p><a target="_blank" rel="noopener" href="https://help.gnome.org/users/">gnome使用指南</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gnome -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装autocutsel"><a href="#3-安装autocutsel" class="headerlink" title="3.安装autocutsel"></a>3.安装autocutsel</h2><p>autocutsel 让用户可以在vncview内外之前复制粘贴。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install autocutsel</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-1为vncserver配置桌面环境xfce4（两个桌面系统2选1）"><a href="#4-1为vncserver配置桌面环境xfce4（两个桌面系统2选1）" class="headerlink" title="4.1为vncserver配置桌面环境xfce4（两个桌面系统2选1）"></a>4.1为vncserver配置桌面环境xfce4（两个桌面系统2选1）</h2><p>编辑 ~/.vnc/xstartup 文件，在文件末尾增加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> SESSION_MANAGER</span><br><span class="line"><span class="built_in">unset</span> DBUS_SESSION_BUS_ADDRESS</span><br><span class="line">startxfce4 &amp;</span><br><span class="line"><span class="comment"># 让桌面系统支持vncview内外之间的复制粘贴</span></span><br><span class="line">autocutsel -f &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2为vncserver配置桌面环境gnome（两个桌面系统2选1）"><a href="#4-2为vncserver配置桌面环境gnome（两个桌面系统2选1）" class="headerlink" title="4.2为vncserver配置桌面环境gnome（两个桌面系统2选1）"></a>4.2为vncserver配置桌面环境gnome（两个桌面系统2选1）</h2><p>编辑 ~/.vnc/xstartup 文件，在文件末尾增加内容：</p>
+<p>如果之前添加了 xfce4 的相关行，需要删除后再添加下面内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> XKL_XMODMAP_DISABLE=1</span><br><span class="line"><span class="built_in">export</span> XDG_CURRENT_DESKTOP=<span class="string">&quot;GNOME-Flashback:GNOME&quot;</span></span><br><span class="line"><span class="built_in">export</span> XDG_MENU_PREFIX=<span class="string">&quot;gnome-flashback-&quot;</span></span><br><span class="line">gnome-session --session=gnome-flashback-metacity --disable-acceleration-check &amp;</span><br><span class="line"><span class="comment"># 让桌面系统支持vncview内外之间的复制粘贴</span></span><br><span class="line">autocutsel -f &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-启动vncserver"><a href="#5-启动vncserver" class="headerlink" title="5.启动vncserver"></a>5.启动vncserver</h2><p>vncserver默认运行在 5900 端口，不过 5900 并不是 vncserver 的连接端口。连接 vncserver 的端口根据vncserver运行桌面时的命令决定。如果使用<code>vncserver :9527</code> 运行桌面，那么使用软件<a target="_blank" rel="noopener" href="https://www.realvnc.com/en/">vncview</a>连接桌面系统使用的端口就是$5900+9527=15427$。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为当前用户设置 vncserver 连接密码，初次运行时会让用户设置一个 8 位的密码</span></span><br><span class="line">vncpasswd</span><br><span class="line"><span class="comment"># 停止运行在 5901 端口的桌面系统</span></span><br><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br><span class="line"><span class="comment"># 让桌面系统运行在 5901 端口</span></span><br><span class="line">vncserver :1</span><br><span class="line"><span class="comment"># 运行桌面系统时指定屏幕分辨率</span></span><br><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br><span class="line">vncserver -geometry 1920x1080 :1</span><br></pre></td></tr></table></figure>
+
+<p>5900配置在文件/usr/bin/vncserver中，你也可以手动修改它。</p>
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104185944866.png" class="" title="image-20230104185944866">
+
+<h2 id="6-使用vncview连接vncserver运行的桌面系统"><a href="#6-使用vncview连接vncserver运行的桌面系统" class="headerlink" title="6.使用vncview连接vncserver运行的桌面系统"></a>6.使用vncview连接vncserver运行的桌面系统</h2><p><a target="_blank" rel="noopener" href="https://www.realvnc.com/en/connect/download/viewer/">vncview下载链接</a></p>
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230103231325307.png" class="" title="image-20230103231325307">
+
+<p>使用vncview连接vncserver的链接为 ip:port，如：xiyoucloud.net:9527，编辑好连接信息后双击OK后生成的连接信息，再输入之前设置的 VNC 连接密码就能连接上 vncserver 了。</p>
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104150353620.png" class="" title="image-20230104150353620">
+
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104150529264.png" class="" title="image-20230104150529264">
+
+<p>从下面这张截图可以看到我们使用的第三方 vncserver（tightvncserver）使用 vncview 连接是没有完整的端到端会话加密的，而使用vncview 官方的 vncserver 可以提供这些功能，不过这是<strong>付费</strong>的。<strong>总的来说，如果你对数据的安全性要求较高，就不要使用vnc这一套工具。</strong></p>
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104123633129.png" class="" title="image-20230104123633129">
+
+<h2 id="7-使用远程桌面系统"><a href="#7-使用远程桌面系统" class="headerlink" title="7.使用远程桌面系统"></a>7.使用远程桌面系统</h2><p>具体细节请参考桌面系统的使用指南：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.xfce.org/">xfce使用指南</a></p>
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/desktop.png" class="" title="desktop">
+
+<p><a target="_blank" rel="noopener" href="https://help.gnome.org/users/">gnome使用指南</a></p>
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/gnome.png" class="" title="gnome">
+
+<p><strong>常用快捷键：</strong></p>
+<ul>
+<li>CTRL + ALT + T：打开一个终端</li>
+</ul>
+<p>你也可以使用其他软件连接 tightvncserver。</p>
+<h2 id="其他连接tightvncserver的软件"><a href="#其他连接tightvncserver的软件" class="headerlink" title="其他连接tightvncserver的软件"></a>其他连接tightvncserver的软件</h2><p><a target="_blank" rel="noopener" href="https://remoteripple.com/download/">Remote Ripple</a></p>
+<a target="_blank" rel="noopener" href="https://remoteripple.com/download/">
+
+<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/rrpanel.png" class="" title="远程纹波">
+
+</a>
+
+<p><a target="_blank" rel="noopener" href="https://mightyviewer.com/">MightyViewer</a></p>
+<p><a target="_blank" rel="noopener" href="https://mightyviewer.com/"><img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/mvpanel.png" class="" title="强大的浏览器"></a></p>
+<p><a target="_blank" rel="noopener" href="https://unidostup.com/">Unidostup</a></p>
+<p><a target="_blank" rel="noopener" href="https://unidostup.com/"><img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/udpe.png" class="" title="独角兽"></a></p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="忘记密码怎么办？"><a href="#忘记密码怎么办？" class="headerlink" title="忘记密码怎么办？"></a>忘记密码怎么办？</h3><p>使用 vncpasswd 重置密码，设置的密码最多 8 位，如果输入超过 8 位密码会自动被截取为 8 位。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure>
+
+<p>其他问题和解决方式欢迎在评论区补充，如果比较常见的话我会补充到文章中，感谢支持~</p>
+<blockquote>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/59330.html">https://help.aliyun.com/document_detail/59330.html</a></p>
+</blockquote>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
@@ -206,12 +274,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E5%8C%85/" rel="tag">R包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rstudio-server/" rel="tag">rstudio-server</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vncserver/" rel="tag">vncserver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/" rel="tag">图形化界面</a></li></ul>
 
     </footer>
   </div>
@@ -219,19 +287,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2023/01/02/command-not-found/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            command not found
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">github访问出错的解决办法</div>
+        <div class="article-nav-title">command not found</div>
       </a>
     
   </nav>

@@ -1,6 +1,7 @@
-https://xiyoucloud.github.io/2023/01/02/command-not-found/
-https://xiyoucloud.github.io/linux/index.html
+https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/
 https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/
+https://xiyoucloud.github.io/linux/index.html
+https://xiyoucloud.github.io/2023/01/02/command-not-found/
 https://xiyoucloud.github.io/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/
 https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/
@@ -46,3 +47,5 @@ https://xiyoucloud.github.io/tags/R/
 https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86/
 https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/
 https://xiyoucloud.github.io/tags/bashrc%E5%92%8C-profile/
+https://xiyoucloud.github.io/tags/vncserver/
+https://xiyoucloud.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/

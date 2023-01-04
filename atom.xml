@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-02T07:44:13.514Z</updated>
+  <updated>2023-01-04T11:56:26.795Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>在ubuntu20.04LTS上安装图形化界面</title>
+    <link href="https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/"/>
+    <id>https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/</id>
+    <published>2023-01-03T14:31:57.000Z</published>
+    <updated>2023-01-04T11:56:26.795Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ubuntu 有两种常用的系统 ubuntu desktop 和 ubuntu server。&lt;/p&gt;
+&lt;p&gt;ubuntu desktop 常用于个人电脑，是有图形化界面的，用户可以通过图形化界面与计算机交互。&lt;/p&gt;
+&lt;p&gt;ubuntu server 常用于服务器，是没有图形化界面的，用户通过终端与计算机交互。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="vncserver" scheme="https://xiyoucloud.github.io/tags/vncserver/"/>
+    
+    <category term="图形化界面" scheme="https://xiyoucloud.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>command not found</title>
     <link href="https://xiyoucloud.github.io/2023/01/02/command-not-found/"/>
     <id>https://xiyoucloud.github.io/2023/01/02/command-not-found/</id>
     <published>2023-01-02T07:42:49.000Z</published>
-    <updated>2023-01-02T07:44:13.514Z</updated>
+    <updated>2023-01-02T08:02:35.429Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;PATH&quot;&gt;&lt;a href=&quot;#PATH&quot; class=&quot;headerlink&quot; title=&quot;PATH&quot;&gt;&lt;/a&gt;PATH&lt;/h2&gt;&lt;p&gt;我们运行 1 个命令，shell解释程序（以下用bash代替）首先需要知道命令对应的程序的位置，也就是程序文件对应的路径。&lt;/p&gt;
@@ -45,10 +66,11 @@
     <link href="https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/"/>
     <id>https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/</id>
     <published>2023-01-01T07:49:44.000Z</published>
-    <updated>2023-01-01T09:49:34.667Z</updated>
+    <updated>2023-01-04T10:51:52.716Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;1-安装conda&quot;&gt;&lt;a href=&quot;#1-安装conda&quot; class=&quot;headerlink&quot; title=&quot;1.安装conda&quot;&gt;&lt;/a&gt;1.安装conda&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/&quot;&gt;conda的安装和卸载&lt;/a&gt;&lt;/p&gt;
+    <summary type="html">&lt;h3 id=&quot;1-安装conda&quot;&gt;&lt;a href=&quot;#1-安装conda&quot; class=&quot;headerlink&quot; title=&quot;1.安装conda&quot;&gt;&lt;/a&gt;1.安装conda&lt;/h3&gt;&lt;a href=&quot;/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/&quot; title=&quot;conda的安装和卸载&quot;&gt;conda的安装和卸载&lt;/a&gt;
+
 &lt;h3 id=&quot;2-使用conda安装monocle2-18&quot;&gt;&lt;a href=&quot;#2-使用conda安装monocle2-18&quot; class=&quot;headerlink&quot; title=&quot;2.使用conda安装monocle2.18&quot;&gt;&lt;/a&gt;2.使用conda安装monocle2.18&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;小技巧，在安装monocle2.18之前需要先安装 r-base 4.0.5&lt;/strong&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建虚拟环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda create -n rpackage r-base==4.0.5 -y -vv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda activate rpackage&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda install bioconductor-monocle==2.18.0 -y -vv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
@@ -353,23 +375,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=690104074&amp;bvid=BV1k24y127zf&amp;cid=888455696&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编辑文件(vim,nano)</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/</id>
-    <published>2022-12-30T08:27:14.000Z</published>
-    <updated>2023-01-01T09:01:16.107Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=474968672&amp;bvid=BV1AK411U73x&amp;cid=887434972&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     
