@@ -136,7 +136,7 @@ A(ubuntu) --> C(ubuntu server)</pre>
 <span id="more"></span>
 
 <h2 id="导致“command-not-found-xxx”的原因"><a href="#导致“command-not-found-xxx”的原因" class="headerlink" title="导致“command not found xxx”的原因"></a>导致“command not found xxx”的原因</h2><p>导致 command not found xxx 的原因大致有 2 种：</p>
-<h3 id="1-软件未安装"><a href="#1-软件未安装" class="headerlink" title="1.软件未安装"></a>1.软件未安装</h3><h3 id="2-软件已安装，但软件对应的可执行程序所在的目录未配置在-PATH-中"><a href="#2-软件已安装，但软件对应的可执行程序所在的目录未配置在-PATH-中" class="headerlink" title="2.软件已安装，但软件对应的可执行程序所在的目录未配置在 PATH 中"></a>2.软件已安装，但软件对应的可执行程序所在的目录未配置在 PATH 中</h3><p>第 1 种情况的解决办法就是在系统中安装对应的软件。</p>
+<h3 id="1-软件未安装"><a href="#1-软件未安装" class="headerlink" title="1.软件未安装"></a>1.软件未安装</h3><h3 id="2-软件已安装，但软件对应的可执行程序所在的目录未配置在-PATH-中"><a href="#2-软件已安装，但软件对应的可执行程序所在的目录未配置在-PATH-中" class="headerlink" title="2.软件已安装，但软件对应的可执行程序所在的目录未配置在 PATH 中"></a>2.软件已安装，但软件对应的可执行程序所在的目录未配置在 PATH 中</h3><p>第 1 种情况的解决办法就是在系统中安装对应的软件。<a href="/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/" title="软件包管理工具-apt">软件包管理工具-apt</a></p>
 <img src="/2023/01/02/command-not-found/image-20230102105936051.png" class="" title="image-20230102105936051">
 
 <p>第 2 种情况的解决办法就是将可执行程序所在的目录加入到 PATH 中，具体可以参考一下步骤。</p>
@@ -387,7 +387,7 @@ A(ubuntu) --> C(ubuntu server)</pre>
 
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231112003765.png" class="" title="image-20221231112003765">
 
-<p>安装多个版本的R，推荐使用conda创建 1 个虚拟环境并在其中安装R</p>
+<p>安装多个版本的R，推荐使用conda创建 1 个虚拟环境并在其中安装R。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境 r-4.2 的同时安装 R4.2.2 版本</span></span><br><span class="line">conda create -n r-4.2 r-base=4.2.2 -y -vv</span><br></pre></td></tr></table></figure>
 
 <h2 id="指定rstudio-server中的R"><a href="#指定rstudio-server中的R" class="headerlink" title="指定rstudio-server中的R"></a>指定rstudio-server中的R</h2><p>编辑 /etc/rstudio/rserver.conf 文件来指定 rstudio-server 中使用的 R</p>
