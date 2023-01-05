@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>在ubuntu20.04LTS上安装图形化界面 |  xiyoucloud</title>
+      <title>无root权限如何安装软件 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-在ubuntu20-04LTS上安装图形化界面"
+  id="post-无root权限如何安装软件"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  在ubuntu20.04LTS上安装图形化界面
+  无root权限如何安装软件
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/" class="article-date">
-  <time datetime="2023-01-03T14:31:57.000Z" itemprop="datePublished">2023-01-03</time>
+      <a href="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" class="article-date">
+  <time datetime="2023-01-05T02:29:15.000Z" itemprop="datePublished">2023-01-05</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -122,88 +122,55 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>ubuntu 有两种常用的系统 ubuntu desktop 和 ubuntu server。</p>
-<p>ubuntu desktop 常用于个人电脑，是有图形化界面的，用户可以通过图形化界面与计算机交互。</p>
-<p>ubuntu server 常用于服务器，是没有图形化界面的，用户通过终端与计算机交互。</p>
+  <h2 id="无-root-权限安装软件的好处"><a href="#无-root-权限安装软件的好处" class="headerlink" title="无 root 权限安装软件的好处"></a>无 root 权限安装软件的好处</h2><ul>
+<li><p>不同用户可以使用不同的软件版本</p>
+</li>
+<li><p>软件可以随意安装和卸载，不会影响到其他用户</p>
+</li>
+<li><p>不需要 root 权限</p>
+</li>
+</ul>
 <span id="more"></span>
 
-<p>ubuntu server 常用于服务器的一个重要原因是ubuntu server 占用更低的硬件资源。</p>
-<p>ubuntu desktop 虽然更易于使用，但占用更多的服务器资源，因为服务器的硬件资源宝贵，所以服务器大多安装 ubuntu server。</p>
-<p>然而使用 ubuntu server 的用户可能也有使用图形化界面的需求，下面介绍一下在 ubuntu server 20.04LTS 中安装图形化界面的方式。</p>
-<pre class="mermaid">graph LR
-A(ubuntu) --> B(ubuntu desktop)
-A(ubuntu) --> C(ubuntu server)</pre>
-
-<h1 id="VNC"><a href="#VNC" class="headerlink" title="VNC"></a>VNC</h1><p>VNC (Virtual Network Computer)是<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/747782.htm">虚拟网络</a>计算机的缩写。它是基于 unix 和 linux 操作系统的免费的<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/444964.htm">开源软件</a>。</p>
-<p><a target="_blank" rel="noopener" href="https://www.tightvnc.com/">tightvnc</a> 是 VNC 的一个实现。在服务端运行 tightvncserver 后你可以使用它去运行一个桌面系统，然后使用软件连接并显示这个桌面系统，这样就能<strong>看到远程计算机的桌面并</strong>使用本地鼠标和键盘控制它，就像您坐在那台计算机的前面一样。</p>
-<h2 id="1-安装vncserver"><a href="#1-安装vncserver" class="headerlink" title="1.安装vncserver"></a>1.安装vncserver</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tightvncserver</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-1安装桌面-xfce（两个桌面系统2选1）"><a href="#2-1安装桌面-xfce（两个桌面系统2选1）" class="headerlink" title="2.1安装桌面-xfce（两个桌面系统2选1）"></a>2.1安装桌面-xfce（两个桌面系统2选1）</h2><p>xfce 是一个轻量级的类UNIX桌面系统：<a target="_blank" rel="noopener" href="https://www.xfce.org/?lang=zh_CN">https://www.xfce.org/?lang=zh_CN</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.xfce.org/">xfce使用指南</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xfce4 xfce4-goodies</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2安装桌面gnome（两个桌面系统2选1）"><a href="#2-2安装桌面gnome（两个桌面系统2选1）" class="headerlink" title="2.2安装桌面gnome（两个桌面系统2选1）"></a>2.2安装桌面gnome（两个桌面系统2选1）</h2><p>gnome 是一个简单且容易使用的桌面系统：<a target="_blank" rel="noopener" href="https://www.gnome.org/getting-gnome/">https://www.gnome.org/getting-gnome/</a></p>
-<p><a target="_blank" rel="noopener" href="https://help.gnome.org/users/">gnome使用指南</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gnome -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装autocutsel"><a href="#3-安装autocutsel" class="headerlink" title="3.安装autocutsel"></a>3.安装autocutsel</h2><p>autocutsel 让用户可以在vncview内外之前复制粘贴。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install autocutsel</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-1为vncserver配置桌面环境xfce4（两个桌面系统2选1）"><a href="#4-1为vncserver配置桌面环境xfce4（两个桌面系统2选1）" class="headerlink" title="4.1为vncserver配置桌面环境xfce4（两个桌面系统2选1）"></a>4.1为vncserver配置桌面环境xfce4（两个桌面系统2选1）</h2><p>编辑 ~/.vnc/xstartup 文件，在文件末尾增加内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> SESSION_MANAGER</span><br><span class="line"><span class="built_in">unset</span> DBUS_SESSION_BUS_ADDRESS</span><br><span class="line">startxfce4 &amp;</span><br><span class="line"><span class="comment"># 让桌面系统支持vncview内外之间的复制粘贴</span></span><br><span class="line">autocutsel -f &amp;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-2为vncserver配置桌面环境gnome（两个桌面系统2选1）"><a href="#4-2为vncserver配置桌面环境gnome（两个桌面系统2选1）" class="headerlink" title="4.2为vncserver配置桌面环境gnome（两个桌面系统2选1）"></a>4.2为vncserver配置桌面环境gnome（两个桌面系统2选1）</h2><p>编辑 ~/.vnc/xstartup 文件，在文件末尾增加内容：</p>
-<p>如果之前添加了 xfce4 的相关行，需要删除后再添加下面内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> XKL_XMODMAP_DISABLE=1</span><br><span class="line"><span class="built_in">export</span> XDG_CURRENT_DESKTOP=<span class="string">&quot;GNOME-Flashback:GNOME&quot;</span></span><br><span class="line"><span class="built_in">export</span> XDG_MENU_PREFIX=<span class="string">&quot;gnome-flashback-&quot;</span></span><br><span class="line">gnome-session --session=gnome-flashback-metacity --disable-acceleration-check &amp;</span><br><span class="line"><span class="comment"># 让桌面系统支持vncview内外之间的复制粘贴</span></span><br><span class="line">autocutsel -f &amp;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-启动vncserver"><a href="#5-启动vncserver" class="headerlink" title="5.启动vncserver"></a>5.启动vncserver</h2><p>vncserver默认运行在 5900 端口，不过 5900 并不是 vncserver 的连接端口。连接 vncserver 的端口根据vncserver运行桌面时的命令决定。如果使用<code>vncserver :9527</code> 运行桌面，那么使用软件<a target="_blank" rel="noopener" href="https://www.realvnc.com/en/">vncview</a>连接桌面系统使用的端口就是$5900+9527=15427$。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为当前用户设置 vncserver 连接密码，初次运行时会让用户设置一个 8 位的密码</span></span><br><span class="line">vncpasswd</span><br><span class="line"><span class="comment"># 停止运行在 5901 端口的桌面系统</span></span><br><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br><span class="line"><span class="comment"># 让桌面系统运行在 5901 端口</span></span><br><span class="line">vncserver :1</span><br><span class="line"><span class="comment"># 运行桌面系统时指定屏幕分辨率</span></span><br><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br><span class="line">vncserver -geometry 1920x1080 :1</span><br></pre></td></tr></table></figure>
-
-<p>5900配置在文件/usr/bin/vncserver中，你也可以手动修改它。</p>
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104185944866.png" class="" title="image-20230104185944866">
-
-<h2 id="6-使用vncview连接vncserver运行的桌面系统"><a href="#6-使用vncview连接vncserver运行的桌面系统" class="headerlink" title="6.使用vncview连接vncserver运行的桌面系统"></a>6.使用vncview连接vncserver运行的桌面系统</h2><p><a target="_blank" rel="noopener" href="https://www.realvnc.com/en/connect/download/viewer/">vncview下载链接</a></p>
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230103231325307.png" class="" title="image-20230103231325307">
-
-<p>使用vncview连接vncserver的链接为 ip:port，如：xiyoucloud.net:9527，编辑好连接信息后双击OK后生成的连接信息，再输入之前设置的 VNC 连接密码就能连接上 vncserver 了。</p>
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104150353620.png" class="" title="image-20230104150353620">
-
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104150529264.png" class="" title="image-20230104150529264">
-
-<p>从下面这张截图可以看到我们使用的第三方 vncserver（tightvncserver）使用 vncview 连接是没有完整的端到端会话加密的，而使用vncview 官方的 vncserver 可以提供这些功能，不过这是<strong>付费</strong>的。<strong>总的来说，如果你对数据的安全性要求较高，就不要使用vnc这一套工具。</strong></p>
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/image-20230104123633129.png" class="" title="image-20230104123633129">
-
-<h2 id="7-使用远程桌面系统"><a href="#7-使用远程桌面系统" class="headerlink" title="7.使用远程桌面系统"></a>7.使用远程桌面系统</h2><p>具体细节请参考桌面系统的使用指南：</p>
-<p><a target="_blank" rel="noopener" href="https://docs.xfce.org/">xfce使用指南</a></p>
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/desktop.png" class="" title="desktop">
-
-<p><a target="_blank" rel="noopener" href="https://help.gnome.org/users/">gnome使用指南</a></p>
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/gnome.png" class="" title="gnome">
-
-<p><strong>常用快捷键：</strong></p>
+<h2 id="1-使用conda安装"><a href="#1-使用conda安装" class="headerlink" title="1.使用conda安装"></a>1.使用conda安装</h2><p>能够用conda安装的软件都能在该链接中搜索到：<a target="_blank" rel="noopener" href="https://anaconda.org/search?q=">https://anaconda.org/search?q=</a></p>
 <ul>
-<li>CTRL + ALT + T：打开一个终端</li>
+<li><a href="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/" title="conda的安装和卸载">conda的安装和卸载</a></li>
+<li><a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="conda使用教程">conda使用教程</a></li>
 </ul>
-<p>你也可以使用其他软件连接 tightvncserver。</p>
-<h2 id="其他连接tightvncserver的软件"><a href="#其他连接tightvncserver的软件" class="headerlink" title="其他连接tightvncserver的软件"></a>其他连接tightvncserver的软件</h2><p><a target="_blank" rel="noopener" href="https://remoteripple.com/download/">Remote Ripple</a></p>
-<a target="_blank" rel="noopener" href="https://remoteripple.com/download/">
+<p>推荐使用conda安装软件的几大原因：</p>
+<ol>
+<li>conda 在安装软件时会自动解决软件的依赖问题；</li>
+<li>可以在系统安装同一软件的多个版本（如R3.6，R4.1，R4.2），需要安装在不同的虚拟环境中；</li>
+<li>不需要 root 权限；</li>
+</ol>
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105163701739.png" class="" title="image-20230105163701739">
 
-<img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/rrpanel.png" class="" title="远程纹波">
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装命令示例</span></span><br><span class="line">conda create -n py39 -y -vv</span><br><span class="line">conda activate py39</span><br><span class="line">conda install python=3.9 -y -vv</span><br><span class="line"></span><br><span class="line">conda create -n r422 -y -vv</span><br><span class="line">conda activate r422</span><br><span class="line">conda install r-base=4.2.2 -y -vv</span><br></pre></td></tr></table></figure>
 
-</a>
+<h2 id="2-使用编译好的软件"><a href="#2-使用编译好的软件" class="headerlink" title="2.使用编译好的软件"></a>2.使用编译好的软件</h2><p>有些软件作者会提供不同平台的编译好的软件，使用者可以下载对应平台的编译好的软件版本使用。</p>
+<p>这种程序的特点是不用编译就可以直接使用，下面以安装 vina 为例。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前使用系统的 operating-system 和 hardware-platform</span></span><br><span class="line"><span class="built_in">uname</span> -io</span><br><span class="line"><span class="comment"># 如 x86_64 GNU/Linux</span></span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://mightyviewer.com/">MightyViewer</a></p>
-<p><a target="_blank" rel="noopener" href="https://mightyviewer.com/"><img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/mvpanel.png" class="" title="强大的浏览器"></a></p>
-<p><a target="_blank" rel="noopener" href="https://unidostup.com/">Unidostup</a></p>
-<p><a target="_blank" rel="noopener" href="https://unidostup.com/"><img src="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/udpe.png" class="" title="独角兽"></a></p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="忘记密码怎么办？"><a href="#忘记密码怎么办？" class="headerlink" title="忘记密码怎么办？"></a>忘记密码怎么办？</h3><p>使用 vncpasswd 重置密码，设置的密码最多 8 位，如果输入超过 8 位密码会自动被截取为 8 位。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure>
+<p>这个链接中有 vina 根据不同平台编译好的软件版本 <a target="_blank" rel="noopener" href="https://github.com/ccsb-scripps/AutoDock-Vina/releases/">https://github.com/ccsb-scripps/AutoDock-Vina/releases/</a>，我们可以根据自己使用的操作系统平台下载使用。</p>
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105221254297.png" class="" title="image-20230105221254297">
 
-<p>其他问题和解决方式欢迎在评论区补充，如果比较常见的话我会补充到文章中，感谢支持~</p>
-<blockquote>
-<p>参考链接：</p>
-<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/59330.html">https://help.aliyun.com/document_detail/59330.html</a></p>
-</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将软件下载到家目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">wget https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.3/vina_1.2.3_linux_x86_64</span><br><span class="line"><span class="comment"># 创建 bin 目录用于存放可执行程序</span></span><br><span class="line"><span class="built_in">mkdir</span> bin</span><br><span class="line"><span class="comment"># 将程序移动到 bin 目录中，并给它赋上可执行权限，为了方便使用，这里还将 vina_1.2.3_linux_x86_64 重命名为 vina</span></span><br><span class="line"><span class="built_in">mv</span> vina_1.2.3_linux_x86_64 ~/bin/vina</span><br><span class="line"><span class="built_in">chmod</span> u+x ~/bin/vina</span><br><span class="line"><span class="comment"># 执行 .profile 文件</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用软件</span></span><br><span class="line">vina --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105230828774.png" class="" title="image-20230105230828774">
+
+<p>执行 .profile 文件的原因是因为 .profile 脚本内部将家目录下的 bin 目录加入到 PATH 中，如果你的家目录下没有 .profile 文件可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 中的误删 .profile 创建它。如果你讲可执行程序下载到其他路径，你也可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 将对应的路径添加到 PATH 中。</p>
+<p>上文中如果使用 wget 下载 github 中的文件太慢，可以考虑使用 github 代理。参考：<a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="github访问出错的解决办法">github访问出错的解决办法</a></p>
+<h2 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3.编译安装"></a>3.编译安装</h2><p>如果某些软件需要进行编译安装的，也不一定必须使用 root 权限安装到<code>/usr/local/bin</code>等需要 root 权限才能操作的目录，可以将其安装到自己的家目录下，这样更安全（因为使用root权限安装的软件拥有root权限，可以在系统里面为所欲为，如果安装了一个来路不明的病毒软件，那么系统就很危险了）。</p>
+<p>下面以安装 mwget 为例，mwget 是多线程版本的 wget。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入到家目录，下载软件源码</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/rayylee/mwget.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入源码所在的目录</span></span><br><span class="line"><span class="built_in">cd</span> mwget</span><br><span class="line"></span><br><span class="line"><span class="comment"># 免root的关键是在configure的时候指定prefix参数，指定软件的安装目录</span></span><br><span class="line"><span class="comment"># 可能报错 configure: error: Your intltool is too old.  You need intltool 0.35.0 or later，这是由于缺乏软件依赖导致的</span></span><br><span class="line"><span class="comment"># 联系管理员执行：sudo apt-get install intltool，然后重新执行 configure 命令</span></span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/bin</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行 .profile 文件</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用软件</span></span><br><span class="line">mwget --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105233736634.png" class="" title="image-20230105233736634">
+
+<p>截图信息略去了 make 和 make install 产生的编译信息（太长了……）</p>
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105234007559.png" class="" title="image-20230105234007559">
+
+<p>执行 .profile 文件的原因是因为 .profile 脚本内部将家目录下的 bin 目录加入到 PATH 中，如果你的家目录下没有 .profile 文件可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 中的误删 .profile 创建它。如果你讲可执行程序下载到其他路径，你也可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 将对应的路径添加到 PATH 中。</p>
+<p>上文中如果使用 wget 下载 github 中的文件太慢，可以考虑使用 github 代理。参考：<a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="github访问出错的解决办法">github访问出错的解决办法</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
@@ -274,12 +241,12 @@ A(ubuntu) --> C(ubuntu server)</pre>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vncserver/" rel="tag">vncserver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/" rel="tag">图形化界面</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag">Linux小技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a></li></ul>
 
     </footer>
   </div>
@@ -287,19 +254,10 @@ A(ubuntu) --> C(ubuntu server)</pre>
    
   <nav class="article-nav">
     
-      <a href="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            无root权限如何安装软件
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/01/02/command-not-found/" class="article-nav-link">
+      <a href="/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">command not found</div>
+        <div class="article-nav-title">在ubuntu20.04LTS上安装图形化界面</div>
       </a>
     
   </nav>

@@ -34,6 +34,64 @@
       </tags>
   </entry>
   <entry>
+    <title>无root权限如何安装软件</title>
+    <url>/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="无-root-权限安装软件的好处"><a href="#无-root-权限安装软件的好处" class="headerlink" title="无 root 权限安装软件的好处"></a>无 root 权限安装软件的好处</h2><ul>
+<li><p>不同用户可以使用不同的软件版本</p>
+</li>
+<li><p>软件可以随意安装和卸载，不会影响到其他用户</p>
+</li>
+<li><p>不需要 root 权限</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="1-使用conda安装"><a href="#1-使用conda安装" class="headerlink" title="1.使用conda安装"></a>1.使用conda安装</h2><p>能够用conda安装的软件都能在该链接中搜索到：<a href="https://anaconda.org/search?q=">https://anaconda.org/search?q=</a></p>
+<ul>
+<li><a href="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/" title="conda的安装和卸载">conda的安装和卸载</a></li>
+<li><a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="conda使用教程">conda使用教程</a></li>
+</ul>
+<p>推荐使用conda安装软件的几大原因：</p>
+<ol>
+<li>conda 在安装软件时会自动解决软件的依赖问题；</li>
+<li>可以在系统安装同一软件的多个版本（如R3.6，R4.1，R4.2），需要安装在不同的虚拟环境中；</li>
+<li>不需要 root 权限；</li>
+</ol>
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105163701739.png" class="" title="image-20230105163701739">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装命令示例</span></span><br><span class="line">conda create -n py39 -y -vv</span><br><span class="line">conda activate py39</span><br><span class="line">conda install python=3.9 -y -vv</span><br><span class="line"></span><br><span class="line">conda create -n r422 -y -vv</span><br><span class="line">conda activate r422</span><br><span class="line">conda install r-base=4.2.2 -y -vv</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用编译好的软件"><a href="#2-使用编译好的软件" class="headerlink" title="2.使用编译好的软件"></a>2.使用编译好的软件</h2><p>有些软件作者会提供不同平台的编译好的软件，使用者可以下载对应平台的编译好的软件版本使用。</p>
+<p>这种程序的特点是不用编译就可以直接使用，下面以安装 vina 为例。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前使用系统的 operating-system 和 hardware-platform</span></span><br><span class="line"><span class="built_in">uname</span> -io</span><br><span class="line"><span class="comment"># 如 x86_64 GNU/Linux</span></span><br></pre></td></tr></table></figure>
+
+<p>这个链接中有 vina 根据不同平台编译好的软件版本 <a href="https://github.com/ccsb-scripps/AutoDock-Vina/releases/">https://github.com/ccsb-scripps/AutoDock-Vina/releases/</a>，我们可以根据自己使用的操作系统平台下载使用。</p>
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105221254297.png" class="" title="image-20230105221254297">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将软件下载到家目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">wget https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.3/vina_1.2.3_linux_x86_64</span><br><span class="line"><span class="comment"># 创建 bin 目录用于存放可执行程序</span></span><br><span class="line"><span class="built_in">mkdir</span> bin</span><br><span class="line"><span class="comment"># 将程序移动到 bin 目录中，并给它赋上可执行权限，为了方便使用，这里还将 vina_1.2.3_linux_x86_64 重命名为 vina</span></span><br><span class="line"><span class="built_in">mv</span> vina_1.2.3_linux_x86_64 ~/bin/vina</span><br><span class="line"><span class="built_in">chmod</span> u+x ~/bin/vina</span><br><span class="line"><span class="comment"># 执行 .profile 文件</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用软件</span></span><br><span class="line">vina --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105230828774.png" class="" title="image-20230105230828774">
+
+<p>执行 .profile 文件的原因是因为 .profile 脚本内部将家目录下的 bin 目录加入到 PATH 中，如果你的家目录下没有 .profile 文件可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 中的误删 .profile 创建它。如果你讲可执行程序下载到其他路径，你也可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 将对应的路径添加到 PATH 中。</p>
+<p>上文中如果使用 wget 下载 github 中的文件太慢，可以考虑使用 github 代理。参考：<a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="github访问出错的解决办法">github访问出错的解决办法</a></p>
+<h2 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3.编译安装"></a>3.编译安装</h2><p>如果某些软件需要进行编译安装的，也不一定必须使用 root 权限安装到<code>/usr/local/bin</code>等需要 root 权限才能操作的目录，可以将其安装到自己的家目录下，这样更安全（因为使用root权限安装的软件拥有root权限，可以在系统里面为所欲为，如果安装了一个来路不明的病毒软件，那么系统就很危险了）。</p>
+<p>下面以安装 mwget 为例，mwget 是多线程版本的 wget。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入到家目录，下载软件源码</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/rayylee/mwget.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入源码所在的目录</span></span><br><span class="line"><span class="built_in">cd</span> mwget</span><br><span class="line"></span><br><span class="line"><span class="comment"># 免root的关键是在configure的时候指定prefix参数，指定软件的安装目录</span></span><br><span class="line"><span class="comment"># 可能报错 configure: error: Your intltool is too old.  You need intltool 0.35.0 or later，这是由于缺乏软件依赖导致的</span></span><br><span class="line"><span class="comment"># 联系管理员执行：sudo apt-get install intltool，然后重新执行 configure 命令</span></span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/bin</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行 .profile 文件</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用软件</span></span><br><span class="line">mwget --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105233736634.png" class="" title="image-20230105233736634">
+
+<p>截图信息略去了 make 和 make install 产生的编译信息（太长了……）</p>
+<img src="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/image-20230105234007559.png" class="" title="image-20230105234007559">
+
+<p>执行 .profile 文件的原因是因为 .profile 脚本内部将家目录下的 bin 目录加入到 PATH 中，如果你的家目录下没有 .profile 文件可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 中的误删 .profile 创建它。如果你讲可执行程序下载到其他路径，你也可以参考 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a> 将对应的路径添加到 PATH 中。</p>
+<p>上文中如果使用 wget 下载 github 中的文件太慢，可以考虑使用 github 代理。参考：<a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="github访问出错的解决办法">github访问出错的解决办法</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>软件安装</tag>
+        <tag>Linux小技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在ubuntu20.04LTS上安装图形化界面</title>
     <url>/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>ubuntu 有两种常用的系统 ubuntu desktop 和 ubuntu server。</p>
@@ -367,6 +425,7 @@ A(ubuntu) --> C(ubuntu server)</pre>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>西柚云Linux教程</tag>
+        <tag>软件安装</tag>
       </tags>
   </entry>
   <entry>
@@ -381,6 +440,8 @@ A(ubuntu) --> C(ubuntu server)</pre>
 
 <p>关于 conda 的安装和使用可以参考我写的conda教程：</p>
 <a href="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/" title="conda的安装和卸载">conda的安装和卸载</a>
+
+
 
 <a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="conda使用教程">conda使用教程</a>
 

@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-04T11:56:26.795Z</updated>
+  <updated>2023-01-05T15:43:34.874Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>无root权限如何安装软件</title>
+    <link href="https://xiyoucloud.github.io/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/"/>
+    <id>https://xiyoucloud.github.io/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</id>
+    <published>2023-01-05T02:29:15.000Z</published>
+    <updated>2023-01-05T15:43:34.874Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;无-root-权限安装软件的好处&quot;&gt;&lt;a href=&quot;#无-root-权限安装软件的好处&quot; class=&quot;headerlink&quot; title=&quot;无 root 权限安装软件的好处&quot;&gt;&lt;/a&gt;无 root 权限安装软件的好处&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;不同用户可以使用不同的软件版本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;软件可以随意安装和卸载，不会影响到其他用户&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不需要 root 权限&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="软件安装" scheme="https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+    <category term="Linux小技巧" scheme="https://xiyoucloud.github.io/tags/Linux%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>在ubuntu20.04LTS上安装图形化界面</title>
@@ -109,7 +135,7 @@
     <link href="https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/"/>
     <id>https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</id>
     <published>2022-12-31T09:22:35.000Z</published>
-    <updated>2022-12-31T09:28:08.244Z</updated>
+    <updated>2023-01-05T02:30:41.132Z</updated>
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=903804972&amp;bvid=BV1yP4y1D787&amp;cid=926416540&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
@@ -119,6 +145,8 @@
     
     <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
     
+    <category term="软件安装" scheme="https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
   </entry>
   
   <entry>
@@ -126,7 +154,7 @@
     <link href="https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/"/>
     <id>https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/</id>
     <published>2022-12-31T02:41:35.000Z</published>
-    <updated>2023-01-05T02:08:43.888Z</updated>
+    <updated>2023-01-05T02:12:40.620Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;在Linux系统中安装多个R&quot;&gt;&lt;a href=&quot;#在Linux系统中安装多个R&quot; class=&quot;headerlink&quot; title=&quot;在Linux系统中安装多个R&quot;&gt;&lt;/a&gt;在Linux系统中安装多个R&lt;/h2&gt;&lt;p&gt;在系统中使用 apt 安装的 R 是全局安装的，无法使用 apt 安装多个版本的 R。&lt;/p&gt;
@@ -358,23 +386,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=220016762&amp;bvid=BV1M841187rx&amp;cid=889543162&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>查看文件(cat,head,tail,less,more)</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6-cat-head-tail-less-more/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6-cat-head-tail-less-more/</id>
-    <published>2022-12-30T08:47:00.000Z</published>
-    <updated>2022-12-30T09:10:21.303Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=690104074&amp;bvid=BV1k24y127zf&amp;cid=888455696&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     
