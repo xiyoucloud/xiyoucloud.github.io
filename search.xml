@@ -380,21 +380,23 @@ A(ubuntu) --> C(ubuntu server)</pre>
 <span id="more"></span>
 
 <p>关于 conda 的安装和使用可以参考我写的conda教程：</p>
-<p><a href="https://xiyoucloud.github.io/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/">conda的安装和卸载</a></p>
-<p><a href="https://xiyoucloud.github.io/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">conda使用教程</a></p>
+<a href="/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/" title="conda的安装和卸载">conda的安装和卸载</a>
+
+<a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="conda使用教程">conda使用教程</a>
+
 <h2 id="使用conda安装R"><a href="#使用conda安装R" class="headerlink" title="使用conda安装R"></a>使用conda安装R</h2><p>搜索可以使用的R版本:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索 conda 软件源中的 r-base 版本</span></span><br><span class="line">conda search r-base</span><br></pre></td></tr></table></figure>
 
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231112003765.png" class="" title="image-20221231112003765">
 
-<p>安装多个版本的R，推荐使用conda创建 1 个虚拟环境并在其中安装R。</p>
+<p>使用 conda 安装 R，推荐每安装1个R就使用conda创建一个虚拟环境并在其中安装，R版本直接在虚拟环境的名称中体现。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境 r-4.2 的同时安装 R4.2.2 版本</span></span><br><span class="line">conda create -n r-4.2 r-base=4.2.2 -y -vv</span><br></pre></td></tr></table></figure>
 
 <h2 id="指定rstudio-server中的R"><a href="#指定rstudio-server中的R" class="headerlink" title="指定rstudio-server中的R"></a>指定rstudio-server中的R</h2><p>编辑 /etc/rstudio/rserver.conf 文件来指定 rstudio-server 中使用的 R</p>
 <p><strong>rserver.conf文件示例：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Server Configuration File</span></span><br><span class="line"><span class="comment"># 设置rstudio-server 运行端口</span></span><br><span class="line">www-port=8877</span><br><span class="line"><span class="comment"># 设置 rstudio-server 中使用的 R</span></span><br><span class="line">rsession-which-r=/home/txb/miniconda3/envs/r-4.2/bin/R</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Server Configuration File</span></span><br><span class="line"><span class="comment"># 设置rstudio-server 运行端口</span></span><br><span class="line">www-port=8787</span><br><span class="line"><span class="comment"># 设置 rstudio-server 中使用的 R</span></span><br><span class="line">rsession-which-r=/home/txb/miniconda3/envs/r-4.2/bin/R</span><br></pre></td></tr></table></figure>
 
-<p><strong>还没完</strong>，如果你想在 rstudio-server 中使用该版本的需要重启一下 rstudio-server，然后再 rstudio-server 中开启一个新的 R project 使用，在新的 R project 中使用 rserver.conf 中指定的 R。</p>
+<p><strong>还没完</strong>，如果你想在 rstudio-server 中使用该版本的需要重启一下 rstudio-server，然后在 rstudio-server 中开启一个新的 R project 使用，在新的 R project 中使用 rserver.conf 中指定的 R。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 停止 rstudio-server 服务</span></span><br><span class="line">sudo rstudio-server stop</span><br><span class="line"><span class="comment"># 运行 rstudio-server 服务</span></span><br><span class="line">sudo rstudio-server start</span><br></pre></td></tr></table></figure>
 
 <p>需要新创建 1 个 R project 的原因是之前的 R project 中<strong>可能</strong>会保留之前的 libpath 信息，这样在安装 R 包时会导致混乱。</p>
@@ -403,11 +405,11 @@ A(File)-->B(New Project) --> C(New Directory) --> D(New Project) --> E(Create Pr
 
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/rproject-2.png" class="" title="rproject-2">
 
-<h2 id="在指定的libpath中安装R包"><a href="#在指定的libpath中安装R包" class="headerlink" title="在指定的libpath中安装R包"></a>在指定的libpath中安装R包</h2><p>参考教程：<a href="https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/">如何安装R包</a></p>
+<h2 id="在指定的libpath中安装R包"><a href="#在指定的libpath中安装R包" class="headerlink" title="在指定的libpath中安装R包"></a>在指定的libpath中安装R包</h2><p>参考教程：<a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a></p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过指定 lib 参数来设置 R 包的安装位置，使用 remotes,devtools,BiocManager 安装 R 包同理</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/home/txb/miniconda3/envs/r-4.2/lib/R/library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="不能混用不同版本的R安装的R包"><a href="#不能混用不同版本的R安装的R包" class="headerlink" title="不能混用不同版本的R安装的R包"></a>不能混用不同版本的R安装的R包</h2><p>如果R版本相同，可以将另一个 R 的 libpath 加入到当前 R 的 libpath 中。</p>
-<p>参考教程：<a href="https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/">如何安装R包</a></p>
+<p>参考教程：<a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a></p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># xxx 为加入的 libpath</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> .libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <p>使用新版本的 R 后，如果还使用原来旧版本R编译的R包<strong>可能</strong>会导致报错。同理，如果使用旧版本的 R 在 libpath 中包含新版本的 R 安装的 R 包的 libpath 也<strong>可能</strong>会导致报错。</p>
