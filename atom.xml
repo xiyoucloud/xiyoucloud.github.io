@@ -42,7 +42,7 @@
     <link href="https://xiyoucloud.github.io/2023/01/02/command-not-found/"/>
     <id>https://xiyoucloud.github.io/2023/01/02/command-not-found/</id>
     <published>2023-01-02T07:42:49.000Z</published>
-    <updated>2023-01-04T12:46:30.943Z</updated>
+    <updated>2023-01-05T01:26:57.966Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;PATH&quot;&gt;&lt;a href=&quot;#PATH&quot; class=&quot;headerlink&quot; title=&quot;PATH&quot;&gt;&lt;/a&gt;PATH&lt;/h2&gt;&lt;p&gt;我们运行 1 个命令，shell解释程序（以下用bash代替）首先需要知道命令对应的程序的位置，也就是程序文件对应的路径。&lt;/p&gt;
