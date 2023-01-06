@@ -99,9 +99,8 @@
 
 <h2 id="7-访问jupyter"><a href="#7-访问jupyter" class="headerlink" title="7.访问jupyter"></a>7.访问jupyter</h2><p>访问链接为 http://域名:端口，如:</p>
 <ul>
-<li><a href="http://xiyoucloud.cc:9527/">http://xiyoucloud.cc:9527</a></li>
-<li><a href="http://xiyoucloud.vip:9527/">http://xiyoucloud.vip:9527</a></li>
-<li><a href="http://xiyoucloud.top:9527/">http://xiyoucloud.top:9527</a></li>
+<li><a href="http://localhost:8888/">http://localhost:8888</a></li>
+<li><a href="http://xiyoucloud.net:8888/">http://xiyoucloud.net:8888</a></li>
 </ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
