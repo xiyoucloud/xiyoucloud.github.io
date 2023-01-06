@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-06T04:45:50.265Z</updated>
+  <updated>2023-01-06T06:04:34.071Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -21,16 +21,11 @@
     <link href="https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</id>
     <published>2023-01-06T01:54:51.000Z</published>
-    <updated>2023-01-06T04:45:50.265Z</updated>
+    <updated>2023-01-06T06:04:34.071Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;jupyter 分为 jupyter notebook 和 jupyter lab，两者选其一配置即可。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;jupyter 官网：&lt;a href=&quot;https://jupyter.org/&quot;&gt;https://jupyter.org/&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
