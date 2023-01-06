@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-06T06:04:34.071Z</updated>
+  <updated>2023-01-06T12:35:17.351Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -21,36 +21,11 @@
     <link href="https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</id>
     <published>2023-01-06T01:54:51.000Z</published>
-    <updated>2023-01-06T06:04:34.071Z</updated>
+    <updated>2023-01-06T12:35:17.351Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;jupyter 分为 jupyter notebook 和 jupyter lab，两者选其一配置即可。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;jupyter 官网：&lt;a href=&quot;https://jupyter.org/&quot;&gt;https://jupyter.org/&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="软件安装" scheme="https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-    <category term="jupyter" scheme="https://xiyoucloud.github.io/tags/jupyter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jupyter安装教程</title>
-    <link href="https://xiyoucloud.github.io/2023/01/06/jupyter%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
-    <id>https://xiyoucloud.github.io/2023/01/06/jupyter%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
-    <published>2023-01-06T01:51:35.000Z</published>
-    <updated>2023-01-06T01:53:51.183Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
     
     
     
@@ -397,6 +372,23 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=520131164&amp;bvid=BV11M411k7mA&amp;cid=891610656&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    
+    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>传输文件(scp,ftp,wget,curl)</title>
+    <link href="https://xiyoucloud.github.io/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/"/>
+    <id>https://xiyoucloud.github.io/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/</id>
+    <published>2022-12-30T12:18:40.000Z</published>
+    <updated>2022-12-30T12:23:28.140Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=517525445&amp;bvid=BV1Ug411i72Z&amp;cid=890693727&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     

@@ -46,13 +46,13 @@
 <h2 id="jupyter-lab-样例："><a href="#jupyter-lab-样例：" class="headerlink" title="jupyter lab 样例："></a>jupyter lab 样例：</h2><p><a href="https://jupyter.org/try-jupyter/lab/">https://jupyter.org/try-jupyter/lab/</a></p>
 <img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230106135742564.png" class="" title="image-20230106135742564">
 
-<h2 id="1-1-pip安装"><a href="#1-1-pip安装" class="headerlink" title="1-1.pip安装"></a>1-1.pip安装</h2><p>安装 jupyter notebook：</p>
+<h2 id="1-1-使用pip安装"><a href="#1-1-使用pip安装" class="headerlink" title="1-1.使用pip安装"></a>1-1.使用pip安装</h2><p>安装 jupyter notebook：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
 
 <p>安装 jupyter lab：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab 的方式</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-2-conda安装"><a href="#1-2-conda安装" class="headerlink" title="1-2.conda安装"></a>1-2.conda安装</h2><p>如果你需要使用多个虚拟环境，推荐使用 conda 安装 jupyter notebook。</p>
+<h2 id="1-2-使用conda安装"><a href="#1-2-使用conda安装" class="headerlink" title="1-2.使用conda安装"></a>1-2.使用conda安装</h2><p>如果你需要使用多个虚拟环境，推荐使用 conda 安装 jupyter notebook。</p>
 <p>安装 jupyter notebook：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">conda create -n jupyter -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line">conda install jupyter -y -vv</span><br></pre></td></tr></table></figure>
 
@@ -62,7 +62,7 @@
 <p>你可能会想到在 conda 的虚拟环境中使用 pip 安装，因为它的安装速度更快。如下:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n jupyter -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br><span class="line"><span class="comment"># 安装 jupyter lab</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
 
-<p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda 安装符合 conda 的使用规范，使用pip 安装更快。</p>
+<p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。</p>
 <h2 id="2-生成jupyter配置文件"><a href="#2-生成jupyter配置文件" class="headerlink" title="2.生成jupyter配置文件"></a>2.生成jupyter配置文件</h2><p>为 jupyter notebook 生成配置文件：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
 
@@ -80,13 +80,13 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter notebook 运行端口，以下 5 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_notebook_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.NotebookApp.ip=&#x27;*&#x27;  # 允许远程连接</span></span><br><span class="line"><span class="string">c.NotebookApp.open_browser = False </span></span><br><span class="line"><span class="string">c.NotebookApp.port = 9527  # jupyter notebook 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
 
 <p>jupyter lab 设置运行端口：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter lab 运行端口，以下 5 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_lab_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.ServerApp.allow_remote_access = True  # </span></span><br><span class="line"><span class="string">c.LabServerApp.open_browser = False</span></span><br><span class="line"><span class="string">c.ServerApp.ip = &#x27;*&#x27;</span></span><br><span class="line"><span class="string">c.ServerApp.port = 9527 # jupyter lab 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter lab 运行端口，以下 6 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_lab_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.ServerApp.allow_remote_access = True  # </span></span><br><span class="line"><span class="string">c.LabServerApp.open_browser = False</span></span><br><span class="line"><span class="string">c.ServerApp.ip = &#x27;*&#x27;</span></span><br><span class="line"><span class="string">c.ServerApp.port = 9527 # jupyter lab 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5.运行"></a>5.运行</h2><p>如果你之前有运行 jupyter 的话，为了防止干扰后面的运行，可以使用这个命令杀死之前运行的 jupyter 进程</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ux | grep jupyter | grep -v grep | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
 
 <p>jupyter notebook 运行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nohup jupyter notebook &gt;~/jupyter.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> jupyter notebook &gt;~/jupyter.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <p>jupyter lab 运行命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> jupyter lab &gt;~/jupyterlab.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
@@ -98,15 +98,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/jupyterlab.log</span><br></pre></td></tr></table></figure>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>软件安装</tag>
-        <tag>jupyter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jupyter安装教程</title>
-    <url>/2023/01/06/jupyter%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-pip安装"><a href="#1-pip安装" class="headerlink" title="1.pip安装"></a>1.pip安装</h2><h2 id="2-conda安装（推荐）"><a href="#2-conda安装（推荐）" class="headerlink" title="2.conda安装（推荐）"></a>2.conda安装（推荐）</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>软件安装</tag>
         <tag>jupyter</tag>

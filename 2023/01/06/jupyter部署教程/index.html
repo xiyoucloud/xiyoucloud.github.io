@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">689</span>
+            <span class="post-count">694</span>
         </span>
     </span>
 
@@ -132,13 +132,13 @@
 <h2 id="jupyter-lab-样例："><a href="#jupyter-lab-样例：" class="headerlink" title="jupyter lab 样例："></a>jupyter lab 样例：</h2><p><a target="_blank" rel="noopener" href="https://jupyter.org/try-jupyter/lab/">https://jupyter.org/try-jupyter/lab/</a></p>
 <img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230106135742564.png" class="" title="image-20230106135742564">
 
-<h2 id="1-1-pip安装"><a href="#1-1-pip安装" class="headerlink" title="1-1.pip安装"></a>1-1.pip安装</h2><p>安装 jupyter notebook：</p>
+<h2 id="1-1-使用pip安装"><a href="#1-1-使用pip安装" class="headerlink" title="1-1.使用pip安装"></a>1-1.使用pip安装</h2><p>安装 jupyter notebook：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
 
 <p>安装 jupyter lab：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab 的方式</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-2-conda安装"><a href="#1-2-conda安装" class="headerlink" title="1-2.conda安装"></a>1-2.conda安装</h2><p>如果你需要使用多个虚拟环境，推荐使用 conda 安装 jupyter notebook。</p>
+<h2 id="1-2-使用conda安装"><a href="#1-2-使用conda安装" class="headerlink" title="1-2.使用conda安装"></a>1-2.使用conda安装</h2><p>如果你需要使用多个虚拟环境，推荐使用 conda 安装 jupyter notebook。</p>
 <p>安装 jupyter notebook：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">conda create -n jupyter -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line">conda install jupyter -y -vv</span><br></pre></td></tr></table></figure>
 
@@ -148,7 +148,7 @@
 <p>你可能会想到在 conda 的虚拟环境中使用 pip 安装，因为它的安装速度更快。如下:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conda create -n jupyter -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br><span class="line"><span class="comment"># 安装 jupyter lab</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
 
-<p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda 安装符合 conda 的使用规范，使用pip 安装更快。</p>
+<p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。</p>
 <h2 id="2-生成jupyter配置文件"><a href="#2-生成jupyter配置文件" class="headerlink" title="2.生成jupyter配置文件"></a>2.生成jupyter配置文件</h2><p>为 jupyter notebook 生成配置文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
 
@@ -166,13 +166,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter notebook 运行端口，以下 5 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_notebook_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.NotebookApp.ip=&#x27;*&#x27;  # 允许远程连接</span></span><br><span class="line"><span class="string">c.NotebookApp.open_browser = False </span></span><br><span class="line"><span class="string">c.NotebookApp.port = 9527  # jupyter notebook 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
 
 <p>jupyter lab 设置运行端口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter lab 运行端口，以下 5 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_lab_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.ServerApp.allow_remote_access = True  # </span></span><br><span class="line"><span class="string">c.LabServerApp.open_browser = False</span></span><br><span class="line"><span class="string">c.ServerApp.ip = &#x27;*&#x27;</span></span><br><span class="line"><span class="string">c.ServerApp.port = 9527 # jupyter lab 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter lab 运行端口，以下 6 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_lab_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.ServerApp.allow_remote_access = True  # </span></span><br><span class="line"><span class="string">c.LabServerApp.open_browser = False</span></span><br><span class="line"><span class="string">c.ServerApp.ip = &#x27;*&#x27;</span></span><br><span class="line"><span class="string">c.ServerApp.port = 9527 # jupyter lab 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5.运行"></a>5.运行</h2><p>如果你之前有运行 jupyter 的话，为了防止干扰后面的运行，可以使用这个命令杀死之前运行的 jupyter 进程</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ux | grep jupyter | grep -v grep | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
 
 <p>jupyter notebook 运行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup jupyter notebook &gt;~/jupyter.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> jupyter notebook &gt;~/jupyter.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <p>jupyter lab 运行命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> jupyter lab &gt;~/jupyterlab.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
@@ -267,9 +267,9 @@
   <nav class="article-nav">
     
     
-      <a href="/2023/01/06/jupyter%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="article-nav-link">
+      <a href="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">jupyter安装教程</div>
+        <div class="article-nav-title">无root权限如何安装软件</div>
       </a>
     
   </nav>
