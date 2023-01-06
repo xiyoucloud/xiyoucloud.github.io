@@ -34,6 +34,45 @@
       </tags>
   </entry>
   <entry>
+    <title>jupyter部署教程</title>
+    <url>/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-1-pip安装"><a href="#1-1-pip安装" class="headerlink" title="1-1.pip安装"></a>1-1.pip安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter notebook 的方式</span></span><br><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
+
+<p>如果你想要使用 jupyter lab，你可以使用以下方式安装 jupyter lab</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab 的方式</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-conda安装"><a href="#1-2-conda安装" class="headerlink" title="1-2.conda安装"></a>1-2.conda安装</h2><p>如果你需要使用多个虚拟环境，推荐使用 conda 安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">conda install jupyter -y -vv</span><br></pre></td></tr></table></figure>
+
+<p>如果你想要使用 jupyter lab，你可以使用以下方式安装 jupyter lab</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab</span></span><br><span class="line">conda install jupyterlab -y -vv</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-生成jupyter配置文件"><a href="#2-生成jupyter配置文件" class="headerlink" title="2.生成jupyter配置文件"></a>2.生成jupyter配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为 jupyter notebook 生成配置文件</span></span><br><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为 jupyter lab 生成配置文件</span></span><br><span class="line">jupyter lab --generate-config</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-设置jupyter访问密码（推荐12位）"><a href="#3-设置jupyter访问密码（推荐12位）" class="headerlink" title="3.设置jupyter访问密码（推荐12位）"></a>3.设置jupyter访问密码（推荐12位）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为 jupyter notebook 设置访问密码</span></span><br><span class="line">jupyter notebook password</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为 jupyter lab 设置访问密码</span></span><br><span class="line">jupyter lab password</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-设置jupyter运行端口"><a href="#4-设置jupyter运行端口" class="headerlink" title="4.设置jupyter运行端口"></a>4.设置jupyter运行端口</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5.运行"></a>5.运行</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>软件安装</tag>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jupyter安装教程</title>
+    <url>/2023/01/06/jupyter%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-pip安装"><a href="#1-pip安装" class="headerlink" title="1.pip安装"></a>1.pip安装</h2><h2 id="2-conda安装（推荐）"><a href="#2-conda安装（推荐）" class="headerlink" title="2.conda安装（推荐）"></a>2.conda安装（推荐）</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>软件安装</tag>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>无root权限如何安装软件</title>
     <url>/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="无-root-权限安装软件的好处"><a href="#无-root-权限安装软件的好处" class="headerlink" title="无 root 权限安装软件的好处"></a>无 root 权限安装软件的好处</h2><ul>
