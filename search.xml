@@ -47,55 +47,78 @@
 <img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230106135742564.png" class="" title="image-20230106135742564">
 
 <h2 id="1-1-使用pip安装"><a href="#1-1-使用pip安装" class="headerlink" title="1-1.使用pip安装"></a>1-1.使用pip安装</h2><p>安装 jupyter notebook：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> jupyter -i https://pypi.douban.com/simple<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>安装 jupyter lab：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab 的方式</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 jupyter lab 的方式</span>
+pip <span class="token function">install</span> jupyterlab -i https://pypi.douban.com/simple<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="1-2-使用conda安装"><a href="#1-2-使用conda安装" class="headerlink" title="1-2.使用conda安装"></a>1-2.使用conda安装</h2><p>如果你需要使用多个虚拟环境，推荐使用 conda 安装 jupyter notebook。</p>
 <p>安装 jupyter notebook：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter notebook, python版本可以自行指定</span></span><br><span class="line">conda create -n jupyter python=3.9 -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line">conda install jupyter -y -vv</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 jupyter notebook, python版本可以自行指定</span>
+conda create -n jupyter <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y -vv
+conda activate jupyter
+conda <span class="token function">install</span> jupyter -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>安装 jupyter lab：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab, python版本可以自行指定</span></span><br><span class="line">conda create -n jupyterlab python=3.9 -y -vv</span><br><span class="line">conda activate jupyterlab</span><br><span class="line">conda install jupyterlab -y -vv</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 jupyter lab, python版本可以自行指定</span>
+conda create -n jupyterlab <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y -vv
+conda activate jupyterlab
+conda <span class="token function">install</span> jupyterlab -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>你可能会想到在 conda 的虚拟环境中使用 pip 安装，因为它的安装速度更快。如下:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n jupyter python=3.9 -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br><span class="line"><span class="comment"># 安装 jupyter lab</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create -n jupyter <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y -vv
+conda activate jupyter
+<span class="token comment"># 安装 jupyter notebook</span>
+pip <span class="token function">install</span> jupyter -i https://pypi.douban.com/simple
+<span class="token comment"># 安装 jupyter lab</span>
+pip <span class="token function">install</span> jupyterlab -i https://pypi.douban.com/simple<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。</p>
 <h2 id="2-生成jupyter配置文件"><a href="#2-生成jupyter配置文件" class="headerlink" title="2.生成jupyter配置文件"></a>2.生成jupyter配置文件</h2><p>为 jupyter notebook 生成配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jupyter notebook --generate-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>为 jupyter lab 生成配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jupyter lab --generate-config</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jupyter lab --generate-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="3-设置jupyter访问密码（推荐12位）"><a href="#3-设置jupyter访问密码（推荐12位）" class="headerlink" title="3.设置jupyter访问密码（推荐12位）"></a>3.设置jupyter访问密码（推荐12位）</h2><p>为了安全，密码需要设置得复杂点，包含数字，英文字母大小写和特殊字符。</p>
 <p>为 jupyter notebook 设置访问密码，需要两次输入密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jupyter notebook password</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jupyter notebook password<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>为 jupyter lab 设置访问密码，需要两次输入密码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jupyter lab password</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jupyter lab password<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="4-设置jupyter运行端口"><a href="#4-设置jupyter运行端口" class="headerlink" title="4.设置jupyter运行端口"></a>4.设置jupyter运行端口</h2><p>jupyter notebook 设置运行端口：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter notebook 运行端口，以下 5 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_notebook_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.NotebookApp.ip=&#x27;*&#x27;  # 允许远程连接</span></span><br><span class="line"><span class="string">c.NotebookApp.open_browser = False </span></span><br><span class="line"><span class="string">c.NotebookApp.port = 9527  # jupyter notebook 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置 jupyter notebook 运行端口，以下 5 行是一条完整的命令，执行一次就行</span>
+<span class="token function">cat</span> <span class="token operator">>></span> ~/.jupyter/jupyter_notebook_config.py <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+c.NotebookApp.ip='*'  # 允许远程连接
+c.NotebookApp.open_browser = False 
+c.NotebookApp.port = 9527  # jupyter notebook 运行端口，根据实际情况设置
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>jupyter lab 设置运行端口：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置 jupyter lab 运行端口，以下 6 行是一条完整的命令，执行一次就行</span></span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; ~/.jupyter/jupyter_lab_config.py &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">c.ServerApp.allow_remote_access = True  # </span></span><br><span class="line"><span class="string">c.LabServerApp.open_browser = False</span></span><br><span class="line"><span class="string">c.ServerApp.ip = &#x27;*&#x27;</span></span><br><span class="line"><span class="string">c.ServerApp.port = 9527 # jupyter lab 运行端口，根据实际情况设置</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置 jupyter lab 运行端口，以下 6 行是一条完整的命令，执行一次就行</span>
+<span class="token function">cat</span> <span class="token operator">>></span> ~/.jupyter/jupyter_lab_config.py <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+c.ServerApp.allow_remote_access = True  # 
+c.LabServerApp.open_browser = False
+c.ServerApp.ip = '*'
+c.ServerApp.port = 9527 # jupyter lab 运行端口，根据实际情况设置
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5.运行"></a>5.运行</h2><p>如果你之前有运行 jupyter 的话，为了防止干扰后面的运行，可以使用这个命令杀死之前运行的 jupyter 进程</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ux | grep jupyter | grep -v grep | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>jupyter notebook 运行命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> jupyter notebook &gt;~/jupyter.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>jupyter lab 运行命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> jupyter lab &gt;~/jupyterlab.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">nohup</span> jupyter lab <span class="token operator">></span>~/jupyterlab.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="6-查看jupyter运行状态"><a href="#6-查看jupyter运行状态" class="headerlink" title="6.查看jupyter运行状态"></a>6.查看jupyter运行状态</h2><p>查看 jupyter notebook 运行状态：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/jupyter.log</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/jupyter.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>查看 jupyter notebook 运行状态：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/jupyterlab.log</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/jupyterlab.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="7-访问jupyter"><a href="#7-访问jupyter" class="headerlink" title="7.访问jupyter"></a>7.访问jupyter</h2><p>访问链接为 http://域名:端口，如:</p>
 <ul>
@@ -104,7 +127,8 @@
 </ul>
 <p><strong>开启 jupyter 的远程访问是不安全的，密码或token并不能保证安全，因此建议使用完毕后关闭jupyter服务</strong></p>
 <p>这里的不安全是指双方通信的数据可能会被第三方窃取。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 关闭开启的 jupyter 进程</span></span><br><span class="line">ps -ux | grep jupyter | grep -v grep | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 关闭开启的 jupyter 进程</span>
+<span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
