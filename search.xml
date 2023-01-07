@@ -54,13 +54,13 @@
 
 <h2 id="1-2-使用conda安装"><a href="#1-2-使用conda安装" class="headerlink" title="1-2.使用conda安装"></a>1-2.使用conda安装</h2><p>如果你需要使用多个虚拟环境，推荐使用 conda 安装 jupyter notebook。</p>
 <p>安装 jupyter notebook：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">conda create -n jupyter -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line">conda install jupyter -y -vv</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter notebook, python版本可以自行指定</span></span><br><span class="line">conda create -n jupyter python=3.9 -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line">conda install jupyter -y -vv</span><br></pre></td></tr></table></figure>
 
 <p>安装 jupyter lab：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab</span></span><br><span class="line">conda create -n jupyterlab -y -vv</span><br><span class="line">conda activate jupyterlab</span><br><span class="line">conda install jupyterlab -y -vv</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 jupyter lab, python版本可以自行指定</span></span><br><span class="line">conda create -n jupyterlab python=3.9 -y -vv</span><br><span class="line">conda activate jupyterlab</span><br><span class="line">conda install jupyterlab -y -vv</span><br></pre></td></tr></table></figure>
 
 <p>你可能会想到在 conda 的虚拟环境中使用 pip 安装，因为它的安装速度更快。如下:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n jupyter -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br><span class="line"><span class="comment"># 安装 jupyter lab</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create -n jupyter python=3.9 -y -vv</span><br><span class="line">conda activate jupyter</span><br><span class="line"><span class="comment"># 安装 jupyter notebook</span></span><br><span class="line">pip install jupyter -i https://pypi.douban.com/simple</span><br><span class="line"><span class="comment"># 安装 jupyter lab</span></span><br><span class="line">pip install jupyterlab -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
 
 <p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。</p>
 <h2 id="2-生成jupyter配置文件"><a href="#2-生成jupyter配置文件" class="headerlink" title="2.生成jupyter配置文件"></a>2.生成jupyter配置文件</h2><p>为 jupyter notebook 生成配置文件：</p>
@@ -102,6 +102,10 @@
 <li><a href="http://localhost:8888/">http://localhost:8888</a></li>
 <li><a href="http://xiyoucloud.net:8888/">http://xiyoucloud.net:8888</a></li>
 </ul>
+<p><strong>开启 jupyter 的远程访问是不安全的，密码或token并不能保证安全，因此建议使用完毕后关闭jupyter服务</strong></p>
+<p>这里的不安全是指双方通信的数据可能会被第三方窃取。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 关闭开启的 jupyter 进程</span></span><br><span class="line">ps -ux | grep jupyter | grep -v grep | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>软件安装</tag>
