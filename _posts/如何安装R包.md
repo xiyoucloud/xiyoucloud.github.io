@@ -21,6 +21,15 @@ CRAN 在国内下载速度很快，因为它在国内有很多镜像。
     ```R
     # 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
     install.packages("devtools", repos = "https://mirrors.ustc.edu.cn/CRAN/")
+    
+    # 配置镜像源
+    local({r <- getOption("repos")
+    r["CRAN"] <- "http://mirrors.aliyun.com/CRAN/"
+    r["CRANextra"] <- "http://mirrors.aliyun.com/CRAN/"
+    options(repos=r)})
+    
+    # 向 ~/.Rprofile 文件中写入配置镜像的代码可以永久配置镜像
+    file.edit("~/.Rprofile")
     ```
 
 - 使用 BiocManager 下载 https://www.bioconductor.org/about/mirrors/（镜像源列表）
