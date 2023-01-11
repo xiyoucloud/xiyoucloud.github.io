@@ -58,6 +58,8 @@ conda install jupyter -y -vv
 conda create -n jupyterlab python=3.9 -y -vv
 conda activate jupyterlab
 conda install jupyterlab -y -vv
+# jupyter lab 中有些很好用的插件，编译插件需要安装 nodejs，版本可以根据情况自行设置
+conda install nodejs -y -vv
 ```
 
 你可能会想到在 conda 的虚拟环境中使用 pip 安装，因为它的安装速度更快。如下:
@@ -71,7 +73,7 @@ pip install jupyter -i https://pypi.douban.com/simple
 pip install jupyterlab -i https://pypi.douban.com/simple
 ```
 
-conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。
+conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。如果使用 pip 安装后部署报错，可以新建一个虚拟环境，然后用 conda 安装。
 
 ## 2.生成jupyter配置文件
 

@@ -34,7 +34,7 @@ CRAN 在国内下载速度很快，因为它在国内有很多镜像。
 
 - 使用 BiocManager 下载 https://www.bioconductor.org/about/mirrors/（镜像源列表）
 
-    ```shell
+    ```bash
     # 从 BiocManager 镜像安装 XVector
     options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
     BiocManager::install("XVector")

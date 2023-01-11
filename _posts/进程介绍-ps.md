@@ -107,3 +107,9 @@ ps -ux | grep jupyter | gerp -v grep | grep <keyword>
 ps -ux | grep jupyter | grep -v grep | awk '{print $2}' | xargs kill -9
 ```
 
+## 查看进程时用户名显示不全
+
+```bash
+ps -o ruser=userForLongName -e -o pid,ppid,c,%cpu,%mem,stime,tty,time,cmd
+```
+
