@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">821</span>
+            <span class="post-count">886</span>
         </span>
     </span>
 
@@ -150,7 +150,9 @@ conda <span class="token function">install</span> jupyter -y -vv<span aria-hidde
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 jupyter lab, python版本可以自行指定</span>
 conda create -n jupyterlab <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y -vv
 conda activate jupyterlab
-conda <span class="token function">install</span> jupyterlab -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+conda <span class="token function">install</span> jupyterlab -y -vv
+<span class="token comment"># jupyter lab 中有些很好用的插件，编译插件需要安装 nodejs，版本可以根据情况自行设置</span>
+conda <span class="token function">install</span> nodejs -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>你可能会想到在 conda 的虚拟环境中使用 pip 安装，因为它的安装速度更快。如下:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create -n jupyter <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y -vv
@@ -160,7 +162,7 @@ pip <span class="token function">install</span> jupyter -i https://pypi.douban.c
 <span class="token comment"># 安装 jupyter lab</span>
 pip <span class="token function">install</span> jupyterlab -i https://pypi.douban.com/simple<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。</p>
+<p>conda 官方建议在 conda 中尽可能使用 conda install 的方式来安装包，jupyter 官方提供的安装方式是使用 pip 安装的，见仁见智吧，我认为两种方式都可以，使用 conda install 安装符合 conda 的使用规范，使用 pip 安装更快。如果使用 pip 安装后部署报错，可以新建一个虚拟环境，然后用 conda 安装。</p>
 <h2 id="2-生成jupyter配置文件"><a href="#2-生成jupyter配置文件" class="headerlink" title="2.生成jupyter配置文件"></a>2.生成jupyter配置文件</h2><p>为 jupyter notebook 生成配置文件：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jupyter notebook --generate-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -298,6 +300,15 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            jupyter使用技巧
+          
+        </div>
+      </a>
     
     
       <a href="/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" class="article-nav-link">
