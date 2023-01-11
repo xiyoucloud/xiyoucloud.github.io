@@ -47,7 +47,7 @@ nohup jupyter lab >~/jupyterlab.log 2>&1 &
 
 # jupyter使用其他conda环境中的kernel
 
-### 方法1
+## 方法1
 
 如果想要在 jupyter 中使用其他 conda 环境中的kernel（如：ipykernel，r-irkernel），需要在安装 jupyter 对应的虚拟环境下安装 nb_conda 插件，然后在其他的虚拟环境中安装对应的 kernel。nb_conda 可以识别到其他 conda 虚拟环境中的 kernel。
 
@@ -95,7 +95,7 @@ conda install -n B r-base=4.2.2 r-irkernel -y -vv
 
 ![image-20230111195612310](jupyter使用技巧/image-20230111195612310.png)
 
-### 方法2
+## 方法2
 
 对于 ipykernel, 还有另一种方式让 jupyter 识别到它。想要使用哪个 conda 虚拟环境中的 python，就在哪个环境安装ipykernel（**不需要重启**），不过如果同时想要在 jupyter 使用 R 和 python，推荐使用 nb_conda。
 
