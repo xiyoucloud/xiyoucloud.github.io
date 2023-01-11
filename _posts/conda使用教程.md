@@ -104,6 +104,14 @@ tags: conda
 	conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge
 	conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda
 	conda config --set show_channel_urls yes
+	
+	# 添加北京外国语大学源
+	conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
+	conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/ 
+	conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge 
+	conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
+	conda config --set show_channel_urls yes 
+	conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
 	```
 4. 删除 channels 
 	- 方法 1 （通过命令删除）：
@@ -122,9 +130,25 @@ tags: conda
 5. 安装包时暂时添加 channels，此 channels 处于最高优先级
 	```shell
 	conda install -c bioconda presto
+	# 如果配置了国内镜像源，就不用指定 channels 了，这样会使用国内镜像源下载，速度更快
+	conda install presto
 	```
 
+5. 换源：上面几个国内镜像源没有一个是绝对稳定的，都有可能抽风，连接不上，这时可以切换为其他国内镜像源。下图是中科大镜像源不能访问时的报错，而且同一天阿里的镜像源也抽风了……这时可以切换为其他国内镜像源。
 
+![image-20230111191522768](conda使用教程/image-20230111191522768.png)
+
+```bash
+# 移除当前配置的所有镜像源
+conda config --remove-key channels
+# 重新添加镜像源，以北外的镜像源为例
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
+conda config --set show_channel_urls yes 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
+```
 
 ## 包管理
 
@@ -140,6 +164,7 @@ tags: conda
 	# -y: yes
 	conda install requests -y
 	# -c: 临时增加一个 channel ，并且增加的 channels 会处于最高优先级
+	## 如果配置了国内镜像源，就不要指定镜像源了，直接使用 conda install presto 安装
 	conda install -c bioconda presto
 	# -vv: 显示下载过程中的详细日志，方便定位问题
 	conda install numpy -y -vv
@@ -148,14 +173,13 @@ tags: conda
 	```
 3. conda 官方建议，使用 conda 安装的 python包和使用 pip 安装的 python 包是有略微不同的，如果可能，尽量使用 conda 来安装包。[参考链接](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html?highlight=pip#id5)
 	- 在 conda 4.6 以后，conda 可以识别 pip 安装的 python包，不过目前这一功能还处于实验阶段。
-	- 在 conda 中应该优先使用 conda 安装包，不要混用 conda 和 pip，可以设置一个虚拟环境专门用户 pip 管理 python 包
+	- 在 conda 中应该优先使用 conda 安装包，不要混用 conda 和 pip，可以创建一个虚拟环境专门用于 pip 管理 python 包
 	- conda 和 pip 都可以根据文件批量安装 python 包
 		```shell
 		pip list --format=freeze > requirements.txt
 		pip install -r requirements.txt
 		conda install -n env_name --file requirements.txt
 		```
-## 
 
 ## 配置管理
 
@@ -165,6 +189,7 @@ tags: conda
 	conda config --help
 	conda config --get channels
 	conda config --remove <key> <value>
-	```
+	conda config --remove-key <key>
+```
 我们很难记住那么多配置项的作用，如果需要可以查阅 conda 官方教程对各配置项的详解
-[conda 配置项的作用](https://conda.io/projects/conda/en/latest/configuration.html#)
+	[conda 配置项的作用](https://conda.io/projects/conda/en/latest/configuration.html#)

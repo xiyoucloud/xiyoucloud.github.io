@@ -11,6 +11,8 @@ jupyter 官网：[https://jupyter.org/](https://jupyter.org/)
 
 <!--more-->
 
+<iframe src="//player.bilibili.com/player.html?aid=820076722&bvid=BV1PG4y1A7rD&cid=960113408&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ## jupyter notebook 样例：
 
 https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb
@@ -179,4 +181,28 @@ cat ~/jupyterlab.log
 # 关闭开启的 jupyter 进程
 ps -ux | grep jupyter | grep -v grep | awk '{print $2}' | xargs kill -9
 ```
+
+**如果运行后端口并未改变，说明之前配置文件时操作方式不对，导致配置未生效，此时应该重新从[2.生成jupyter配置文件](#2.生成jupyter配置文件)开始配置**
+
+运行报错截图：
+
+![image-20230111193255920](jupyter部署教程/image-20230111193255920.png)
+
+正确的配置文件后5行:
+
+jupyter notebook:
+
+```bash
+tail -n 5 ~/.jupyter/jupyter_lab_config.py
+```
+
+![image-20230111193622294](jupyter部署教程/image-20230111193622294.png)
+
+jupyter lab:
+
+```bash
+tail -n 5 ~/.jupyter/jupyter_notebook_config.py
+```
+
+![image-20230111193745282](jupyter部署教程/image-20230111193745282.png)
 
