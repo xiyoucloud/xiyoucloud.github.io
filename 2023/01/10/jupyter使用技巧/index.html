@@ -151,7 +151,7 @@ conda activate jupyter
 <span class="token comment"># 后台运行 jupyter lab 的方式</span>
 <span class="token function">nohup</span> jupyter lab <span class="token operator">></span>~/jupyterlab.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="jupyter使用其他conda环境中的kernel"><a href="#jupyter使用其他conda环境中的kernel" class="headerlink" title="jupyter使用其他conda环境中的kernel"></a>jupyter使用其他conda环境中的kernel</h1><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>如果想要在 jupyter 中使用其他 conda 环境中的kernel（如：ipykernel，r-irkernel），需要在安装 jupyter 对应的虚拟环境下安装 nb_conda 插件，然后在其他的虚拟环境中安装对应的 kernel。nb_conda 可以识别到其他 conda 虚拟环境中的 kernel。</p>
+<h1 id="jupyter使用其他conda环境中的kernel"><a href="#jupyter使用其他conda环境中的kernel" class="headerlink" title="jupyter使用其他conda环境中的kernel"></a>jupyter使用其他conda环境中的kernel</h1><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><p>如果想要在 jupyter 中使用其他 conda 环境中的kernel（如：ipykernel，r-irkernel），需要在安装 jupyter 对应的虚拟环境下安装 nb_conda 插件，然后在其他的虚拟环境中安装对应的 kernel。nb_conda 可以识别到其他 conda 虚拟环境中的 kernel。</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">conda activate jupyter
 conda install nb_conda -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -185,7 +185,7 @@ conda <span class="token function">install</span> -n B r-base<span class="token 
 <p>查看虚拟环境 B 中对应的 R 版本信息：</p>
 <img src="/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230111195612310.png" class="" title="image-20230111195612310">
 
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>对于 ipykernel, 还有另一种方式让 jupyter 识别到它。想要使用哪个 conda 虚拟环境中的 python，就在哪个环境安装ipykernel（<strong>不需要重启</strong>），不过如果同时想要在 jupyter 使用 R 和 python，推荐使用 nb_conda。</p>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>对于 ipykernel, 还有另一种方式让 jupyter 识别到它。想要使用哪个 conda 虚拟环境中的 python，就在哪个环境安装ipykernel（<strong>不需要重启</strong>），不过如果同时想要在 jupyter 使用 R 和 python，推荐使用 nb_conda。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 如我想要在jupyter中使用sradownload的环境，其中安装了numpy作为演示</span>
 conda activate sradownload
 

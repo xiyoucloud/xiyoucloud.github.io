@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.7k</span>
+            <span class="post-count">1.6k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">7 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -131,42 +131,42 @@
 <p>针对 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
 <p>参考教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_64316191/article/details/127435729">conda 的安装和卸载</a></p>
-<h2 id="虚拟环境管理"><a href="#虚拟环境管理" class="headerlink" title="虚拟环境管理"></a>虚拟环境管理</h2><ol>
-<li>conda env list （列出虚拟环境信息）</li>
-<li>conda create -n <env_name> (创建虚拟环境) <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+<h2 id="虚拟环境管理"><a href="#虚拟环境管理" class="headerlink" title="虚拟环境管理"></a>虚拟环境管理</h2><h3 id="conda-env-list-（列出虚拟环境信息）"><a href="#conda-env-list-（列出虚拟环境信息）" class="headerlink" title="conda env list （列出虚拟环境信息）"></a>conda env list （列出虚拟环境信息）</h3><h3 id="conda-create-n-创建虚拟环境"><a href="#conda-create-n-创建虚拟环境" class="headerlink" title="conda create -n  (创建虚拟环境)"></a>conda create -n <env_name> (创建虚拟环境)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
 conda create -n py38 -y
 conda create -n py39 <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y  <span class="token comment"># 官方推荐使用这种方式</span>
 conda create -n py39_2 -y <span class="token operator">&amp;&amp;</span> conda <span class="token function">install</span> -n py39_2 <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y
 
 <span class="token comment"># 比较两种创建方式有何不同，并无任何不同</span>
 <span class="token function">diff</span> miniconda3/envs/py39 miniconda3/envs/py39_2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
- <img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d12c93ef45d64d26959ebb08f504be54.png" class="" title="在这里插入图片描述">
- 可以看到，在创建环境时指定 python 版本，和创建完环境后安装 python 的指定版本两者导致的结果并无不同，那为什么官方推荐在创建环境时使用 python=3.9 的方式指定 python<br>  版本呢？ 这是因为如果您要在该虚拟环境中使用 python，就应该在创建环境之初下载 python3.9 ，之后在这个虚拟环境中下载的其他包都会匹配 python3.9的依赖与约束。如果安装了很多其他包之后再安装 python3.9，处理环境依赖就会变得较为复杂，甚至导致一些不易察觉的 bug。</li>
-<li>conda activate <env_name> (进入虚拟环境) <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
-conda activate py39<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>conda deactivate <env_name> (退出虚拟环境)  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
-conda deactivate <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>conda remove -n <env_name> –all 删除虚拟环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+<img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d12c93ef45d64d26959ebb08f504be54.png" class="" title="在这里插入图片描述">
+<p>可以看到，在创建环境时指定 python 版本，和创建完环境后安装 python 的指定版本两者导致的结果并无不同，那为什么官方推荐在创建环境时使用 python=3.9 的方式指定 python<br> 版本呢？ 这是因为如果您要在该虚拟环境中使用 python，就应该在创建环境之初下载 python3.9 ，之后在这个虚拟环境中下载的其他包都会匹配 python3.9的依赖与约束。如果安装了很多其他包之后再安装 python3.9，处理环境依赖就会变得较为复杂，甚至导致一些不易察觉的 bug。</p>
+<h3 id="conda-activate-进入虚拟环境"><a href="#conda-activate-进入虚拟环境" class="headerlink" title="conda activate  (进入虚拟环境)"></a>conda activate <env_name> (进入虚拟环境)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+conda activate py39<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="conda-deactivate-退出虚拟环境"><a href="#conda-deactivate-退出虚拟环境" class="headerlink" title="conda deactivate  (退出虚拟环境)"></a>conda deactivate <env_name> (退出虚拟环境)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+conda deactivate <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="conda-remove-n-–all-删除虚拟环境"><a href="#conda-remove-n-–all-删除虚拟环境" class="headerlink" title="conda remove -n  –all 删除虚拟环境"></a>conda remove -n <env_name> –all 删除虚拟环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
 conda create -n <span class="token builtin class-name">test</span> -y
 conda <span class="token function">env</span> list
 <span class="token comment"># 删除 test 虚拟环境</span>
 conda remove -n <span class="token builtin class-name">test</span> --all
-conda <span class="token function">env</span> list<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>导出虚拟环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 适用于在相同操作系统版本下 clone 虚拟环境</span>
+conda <span class="token function">env</span> list<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="导出虚拟环境"><a href="#导出虚拟环境" class="headerlink" title="导出虚拟环境"></a>导出虚拟环境</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 适用于在相同操作系统版本下 clone 虚拟环境</span>
 conda list --explicit <span class="token operator">></span> spec-list.txt
 <span class="token comment"># 适用于所有平台之间 clone 虚拟环境，这里的平台指的是操作系统，如win、centos、ubuntu</span>
-conda <span class="token function">env</span> <span class="token builtin class-name">export</span> <span class="token operator">></span> environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>根据导出的文件创建虚拟环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 代码示例</span>
+conda <span class="token function">env</span> <span class="token builtin class-name">export</span> <span class="token operator">></span> environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>根据导出的文件创建虚拟环境</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 代码示例</span>
 <span class="token comment"># 根据导出包创建 env_name1 的虚拟环境</span>
 conda create -n env_name1 --file spec-list.txt
-conda <span class="token function">env</span> create --file environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><p><strong>conda 处理 channels 的优先级的步骤:</strong><br>    1. 按通道优先级从高到低对包进行排序。<br>    2. 将捆绑的软件包（具有相同通道优先级的软件包）从最高版本号到最低版本号排序。例如，如果 channel A 包含 NumPy 1.12.0 和 1.13.1，则 NumPy 1.13.1 将被排序更高。<br>    3. 将仍然绑定的软件包（具有相同通道优先级和相同版本的软件包）从最高到最低内部版本号排序。例如，如果 channelA 同时包含 NumPy 1.12.0 build 1 和 build 2，则 build 2 首先排序。通道B 中的任何包都将排在通道A 之下。<br>    4. 安装排序列表中满足安装规范的第一个包</p>
-<ol>
-<li><p>列出 conda 中配置的 channels，根据从低到高的优先级排列</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --get channels <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>添加 channels，添加国内的 channels 也就是我们常说的添加国内源</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加中科大源</span>
+conda <span class="token function">env</span> create --file environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><h3 id="列出-conda-中配置的-channels，根据从低到高的优先级排列"><a href="#列出-conda-中配置的-channels，根据从低到高的优先级排列" class="headerlink" title="列出 conda 中配置的 channels，根据从低到高的优先级排列"></a>列出 conda 中配置的 channels，根据从低到高的优先级排列</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --get channels <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="添加-channels，添加国内的-channels-也就是我们常说的添加国内源"><a href="#添加-channels，添加国内的-channels-也就是我们常说的添加国内源" class="headerlink" title="添加 channels，添加国内的 channels 也就是我们常说的添加国内源"></a>添加 channels，添加国内的 channels 也就是我们常说的添加国内源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加中科大源</span>
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
@@ -192,9 +192,9 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge 
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
 conda config --set show_channel_urls <span class="token function">yes</span> 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>删除 channels </p>
-<ul>
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="删除-channels"><a href="#删除-channels" class="headerlink" title="删除 channels"></a>删除 channels</h3><ul>
 <li>方法 1 （通过命令删除）：  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先查看 channels</span>
 conda config --get channels
 <span class="token comment"># 删除指定的 channels</span>
@@ -203,14 +203,11 @@ conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/clo
 conda config --remove-key channels<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>方法 2 （编辑 .condarc 文件删除想要删除 channels 对应的行）  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> ~/.condarc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-</li>
-<li><p>安装包时暂时添加 channels，此 channels 处于最高优先级</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> -c bioconda presto
+<h4 id="安装包时暂时添加-channels，此-channels-处于最高优先级"><a href="#安装包时暂时添加-channels，此-channels-处于最高优先级" class="headerlink" title="安装包时暂时添加 channels，此 channels 处于最高优先级"></a>安装包时暂时添加 channels，此 channels 处于最高优先级</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> -c bioconda presto
 <span class="token comment"># 如果配置了国内镜像源，就不用指定 channels 了，这样会使用国内镜像源下载，速度更快</span>
-conda <span class="token function">install</span> presto<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>换源：上面几个国内镜像源没有一个是绝对稳定的，都有可能抽风，连接不上，这时可以切换为其他国内镜像源。下图是中科大镜像源不能访问时的报错，而且同一天阿里的镜像源也抽风了……这时可以切换为其他国内镜像源。</p>
-</li>
-</ol>
+conda <span class="token function">install</span> presto<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="换源"><a href="#换源" class="headerlink" title="换源:"></a>换源:</h4><p>上面几个国内镜像源没有一个是绝对稳定的，都有可能抽风，连接不上，这时可以切换为其他国内镜像源。下图是中科大镜像源不能访问时的报错，而且同一天阿里的镜像源也抽风了……这时可以切换为其他国内镜像源。</p>
 <img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20230111191522768.png" class="" title="image-20230111191522768">
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 移除当前配置的所有镜像源</span>
@@ -226,9 +223,7 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<
 <h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>使用 conda 安装包之前，需要在以下链接中搜索 conda 包，找到安装对应包的命令后再进行安装，如果不能在下面的链接中找到安装方法，即表明该包不能通过 conda 安装。<br><a target="_blank" rel="noopener" href="https://anaconda.org/search">搜 conda 包</a></p>
 <img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d801ccb2ddcb4be0b856700d701fee5e.png" class="" title="在这里插入图片描述">
 
-<ol>
-<li>conda list （查看当前虚拟环境已经安装的包）</li>
-<li>conda install <package_name>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+<h3 id="conda-list-（查看当前虚拟环境已经安装的包）"><a href="#conda-list-（查看当前虚拟环境已经安装的包）" class="headerlink" title="conda list （查看当前虚拟环境已经安装的包）"></a>conda list （查看当前虚拟环境已经安装的包）</h3><h3 id="conda-install-安装包"><a href="#conda-install-安装包" class="headerlink" title="conda install  (安装包)"></a>conda install <package_name> (安装包)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
 conda <span class="token function">install</span> --help
 <span class="token comment"># -y: yes</span>
 conda <span class="token function">install</span> requests -y
@@ -238,24 +233,23 @@ conda <span class="token function">install</span> -c bioconda presto
 <span class="token comment"># -vv: 显示下载过程中的详细日志，方便定位问题</span>
 conda <span class="token function">install</span> numpy -y -vv
 <span class="token comment"># 后台下载</span>
-<span class="token function">nohup</span> conda <span class="token function">install</span> pandas -y <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>conda 官方建议，使用 conda 安装的 python包和使用 pip 安装的 python 包是有略微不同的，如果可能，尽量使用 conda 来安装包。<a target="_blank" rel="noopener" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html?highlight=pip#id5">参考链接</a><ul>
+<span class="token function">nohup</span> conda <span class="token function">install</span> pandas -y <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="使用conda还是pip"><a href="#使用conda还是pip" class="headerlink" title="使用conda还是pip?"></a>使用conda还是pip?</h3><p>conda 官方建议，使用 conda 安装的 python包和使用 pip 安装的 python 包是有略微不同的，如果可能，尽量使用 conda 来安装包。<a target="_blank" rel="noopener" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html?highlight=pip#id5">参考链接</a></p>
+<ul>
 <li>在 conda 4.6 以后，conda 可以识别 pip 安装的 python包，不过目前这一功能还处于实验阶段。</li>
 <li>在 conda 中应该优先使用 conda 安装包，不要混用 conda 和 pip，可以创建一个虚拟环境专门用于 pip 管理 python 包</li>
 <li>conda 和 pip 都可以根据文件批量安装 python 包  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip list --format<span class="token operator">=</span>freeze <span class="token operator">></span> requirements.txt
 pip <span class="token function">install</span> -r requirements.txt
 conda <span class="token function">install</span> -n env_name --file requirements.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-</li>
-</ol>
-<h2 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h2><ol>
-<li>conda config –show <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看 channels</span>
+<h2 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h2><h3 id="conda-config-–show"><a href="#conda-config-–show" class="headerlink" title="conda config –show"></a>conda config –show</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看 channels</span>
 conda config --help
 conda config --get channels
 conda config --remove <span class="token operator">&lt;</span>key<span class="token operator">></span> <span class="token operator">&lt;</span>value<span class="token operator">></span>
 conda config --remove-key <span class="token operator">&lt;</span>key<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-我们很难记住那么多配置项的作用，如果需要可以查阅 conda 官方教程对各配置项的详解<br> <a target="_blank" rel="noopener" href="https://conda.io/projects/conda/en/latest/configuration.html#">conda 配置项的作用</a></li>
-</ol>
+
+<p>我们很难记住那么多配置项的作用，如果需要可以查阅 conda 官方教程对各配置项的详解。<a target="_blank" rel="noopener" href="https://conda.io/projects/conda/en/latest/configuration.html#">conda 配置项的作用</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
