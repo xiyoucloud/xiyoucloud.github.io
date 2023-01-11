@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">886</span>
+            <span class="post-count">970</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -125,6 +125,8 @@
   <p><strong>jupyter 分为 jupyter notebook 和 jupyter lab，两者选其一配置即可。</strong></p>
 <p>jupyter 官网：<a target="_blank" rel="noopener" href="https://jupyter.org/">https://jupyter.org/</a></p>
 <span id="more"></span>
+
+<iframe src="//player.bilibili.com/player.html?aid=820076722&bvid=BV1PG4y1A7rD&cid=960113408&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <h2 id="jupyter-notebook-样例："><a href="#jupyter-notebook-样例：" class="headerlink" title="jupyter notebook 样例："></a>jupyter notebook 样例：</h2><p><a target="_blank" rel="noopener" href="https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb">https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb</a></p>
 <img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230106135908462.png" class="" title="image-20230106135908462">
@@ -217,6 +219,21 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <p>这里的不安全是指双方通信的数据可能会被第三方窃取。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 关闭开启的 jupyter 进程</span>
 <span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>如果运行后端口并未改变，说明之前配置文件时操作方式不对，导致配置未生效，此时应该重新从<a href="#2.%E7%94%9F%E6%88%90jupyter%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">2.生成jupyter配置文件</a>开始配置</strong></p>
+<p>运行报错截图：</p>
+<img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230111193255920.png" class="" title="image-20230111193255920">
+
+<p>正确的配置文件后5行:</p>
+<p>jupyter notebook:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -n <span class="token number">5</span> ~/.jupyter/jupyter_lab_config.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230111193622294.png" class="" title="image-20230111193622294">
+
+<p>jupyter lab:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -n <span class="token number">5</span> ~/.jupyter/jupyter_notebook_config.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230111193745282.png" class="" title="image-20230111193745282">
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->

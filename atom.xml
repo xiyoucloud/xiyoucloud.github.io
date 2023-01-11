@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-11T03:19:48.983Z</updated>
+  <updated>2023-01-11T11:58:52.554Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -21,16 +21,11 @@
     <link href="https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2023-01-10T14:36:57.000Z</published>
-    <updated>2023-01-11T03:19:48.983Z</updated>
+    <updated>2023-01-11T11:58:52.554Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;jupyter识别kernel&quot;&gt;&lt;a href=&quot;#jupyter识别kernel&quot; class=&quot;headerlink&quot; title=&quot;jupyter识别kernel&quot;&gt;&lt;/a&gt;jupyter识别kernel&lt;/h1&gt;&lt;p&gt;jupyter 是借助 kernel 来运行程序的，在创建文件的时候，我们可以选择已经安装的kernel来运行文件。&lt;/p&gt;
+&lt;p&gt;如：&lt;a href=&quot;https://anaconda.org/conda-forge/r-irkernel&quot;&gt;r-irkernel 1.3.1&lt;/a&gt;、&lt;a href=&quot;https://anaconda.org/conda-forge/ipykernel&quot;&gt;ipykernel 6.20.1&lt;/a&gt;。&lt;/p&gt;</summary>
     
     
     
@@ -44,7 +39,7 @@
     <link href="https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</id>
     <published>2023-01-06T01:54:51.000Z</published>
-    <updated>2023-01-11T03:04:34.011Z</updated>
+    <updated>2023-01-11T12:00:19.602Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;jupyter 分为 jupyter notebook 和 jupyter lab，两者选其一配置即可。&lt;/strong&gt;&lt;/p&gt;

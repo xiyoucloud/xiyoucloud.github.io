@@ -36,51 +36,78 @@
   <entry>
     <title>jupyter使用技巧</title>
     <url>/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="jupyter识别kernel"><a href="#jupyter识别kernel" class="headerlink" title="jupyter识别kernel"></a>jupyter识别kernel</h2><p>jupyter 是借助 kernel 来运行程序的，在创建文件的时候，我们可以选择已经安装的kernel来运行文件。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="jupyter识别kernel"><a href="#jupyter识别kernel" class="headerlink" title="jupyter识别kernel"></a>jupyter识别kernel</h1><p>jupyter 是借助 kernel 来运行程序的，在创建文件的时候，我们可以选择已经安装的kernel来运行文件。</p>
 <p>如：<a href="https://anaconda.org/conda-forge/r-irkernel">r-irkernel 1.3.1</a>、<a href="https://anaconda.org/conda-forge/ipykernel">ipykernel 6.20.1</a>。</p>
-<p>kernel 可以调用当前环境中安装的解释器（R，python）来执行程序。</p>
+<span id="more"></span>
+
+<p>kernel 可以调用当前环境中安装的解释器（R，python）来执行程序，以下的命令在 jupyter 所在的虚拟环境中执行，jupyter可以自动识别到本环境下的 kernel 。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> r-base<span class="token operator">=</span><span class="token number">4.0</span>.1 -y -vv
-conda <span class="token function">install</span>  r-irkernel -y -vv
+conda <span class="token function">install</span> r-irkernel -y -vv
 <span class="token comment"># 如果使用 jupyter lab 的话还需要安装 nodejs 和 text-shortcuts 插件</span>
 conda <span class="token function">install</span> nodejs -y -vv
-jupyter labextension <span class="token function">install</span> @techrah/text-shortcuts
+jupyter labextension <span class="token function">install</span> @techrah/text-shortcuts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-conda <span class="token function">install</span> <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.11</span> -y -vv
-conda <span class="token function">install</span> ipykernel -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="重启Jupyter"><a href="#重启Jupyter" class="headerlink" title="重启Jupyter"></a>重启Jupyter</h2><ol>
+<h1 id="重启Jupyter的方法"><a href="#重启Jupyter的方法" class="headerlink" title="重启Jupyter的方法"></a>重启Jupyter的方法</h1><p>所谓重启，其实包含两步，杀死之前的 jupyter 进程，再次运行 jupyter 进程</p>
+<ol>
 <li>杀死之前运行的 jupyter 进程</li>
 </ol>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol start="2">
-<li>启动 jupyter：在Linux命令行里执行命令（如果 jupyter 安装在某个虚拟环境中，需要先激活虚拟环境）</li>
+<li>启动 jupyter：在终端执行命令</li>
 </ol>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 如果 jupyter 安装在 conda 的 jupyter 环境中，需要使用下面这条命令激活虚拟环境，然后再运行 jupyter</span>
+<span class="token comment"># 如果 jupyter 安装在 xxx 环境，则运行 conda activate xxx</span>
 conda activate jupyter
 <span class="token comment"># 后台运行 jupyter notebook 的方式</span>
 <span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
 
 <span class="token comment"># 后台运行 jupyter lab 的方式</span>
+<span class="token function">nohup</span> jupyter lab <span class="token operator">></span>~/jupyterlab.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="jupyter使用其他conda环境中的kernel"><a href="#jupyter使用其他conda环境中的kernel" class="headerlink" title="jupyter使用其他conda环境中的kernel"></a>jupyter使用其他conda环境中的kernel</h1><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>如果想要在 jupyter 中使用其他 conda 环境中的kernel（如：ipykernel，r-irkernel），需要在安装 jupyter 对应的虚拟环境下安装 nb_conda 插件，然后在其他的虚拟环境中安装对应的 kernel。nb_conda 可以识别到其他 conda 虚拟环境中的 kernel。</p>
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">conda activate jupyter
+conda install nb_conda -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>安装 nb_conda 后需要重启 jupyter，否则点击 Conda 栏会报错。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 杀死当前的 jupyter 进程</span>
+<span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9
+<span class="token comment"># 运行 jupyter notebook（以下两个命令根据实际情况选择）</span>
+<span class="token comment">## 运行 jupyter notebook</span>
+<span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span> 
+<span class="token comment">## 运行 jupyter lab</span>
 <span class="token function">nohup</span> jupyter lab <span class="token operator">></span>~/jupyterlab.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="jupyter使用conda的多环境"><a href="#jupyter使用conda的多环境" class="headerlink" title="jupyter使用conda的多环境"></a>jupyter使用conda的多环境</h3><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>如果需要在jupyter中使用conda多环境，需要安装nb_conda插件，在jupyter环境下安装即可。</p>
-<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">conda activate jupyter
+<img src="/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230111184314824.png" class="" title="image-20230111184314824">
 
-conda install nb_conda -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>上图中显示的效果是在 jupyter 所在的虚拟环境中安装 nb_conda 后，jupyter 识别到了各虚拟环境中的 kernel。选择不同的 kernel 即可实现切换软件版本的效果。如在虚拟环境 A 中安装 r4.0.1，在虚拟环境 B 中安装 r4.2.2，切换到 A 环境中的 r-irkernel 就使用 r4.0.1来运行代码，切换到 B 环境中的 r-irkernel 就使用 r4.2.2来运行代码。当然，能够识别的前提是你应该在 A 和 B 中 分别安装了 r-base 和 r-irkernel。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建两个虚拟环境，分别名为 A 和 B</span>
+conda create -n A -y -vv
+conda create -n B -y -vv
+<span class="token comment"># 安装 r-base 和 r-irkernel</span>
+conda <span class="token function">install</span> -n A r-base<span class="token operator">=</span><span class="token number">4.0</span>.1 r-irkernel -y -vv
+conda <span class="token function">install</span> -n B r-base<span class="token operator">=</span><span class="token number">4.2</span>.2 r-irkernel -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>然后重启jupyter，必须重启，否则点击 Conda 栏会报错。</p>
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>想要使用哪个环境，就在哪个环境安装ipykernel（不需要重启）</p>
-<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># 如我想要在jupyter中使用sradownload的环境，其中安装了numpy作为演示
+<p>查看虚拟环境 A 中对应的 R 版本信息：</p>
+<img src="/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230111195258514.png" class="" title="image-20230111195258514">
+
+
+
+<p>切换 kernel 为虚拟环境 B 的 r-irkernel：</p>
+<img src="/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230111195459384.png" class="" title="image-20230111195459384">
+
+<p>查看虚拟环境 B 中对应的 R 版本信息：</p>
+<img src="/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230111195612310.png" class="" title="image-20230111195612310">
+
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>对于 ipykernel, 还有另一种方式让 jupyter 识别到它。想要使用哪个 conda 虚拟环境中的 python，就在哪个环境安装ipykernel（<strong>不需要重启</strong>），不过如果同时想要在 jupyter 使用 R 和 python，推荐使用 nb_conda。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 如我想要在jupyter中使用sradownload的环境，其中安装了numpy作为演示</span>
 conda activate sradownload
 
-conda install ipykernel -y -vv
+conda <span class="token function">install</span> ipykernel -y -vv
 
-# 如果安装 ipykernel 后 jupyter 没有识别到，可以在安装 jupyter 的 conda 环境中执行类似下面的命令
-# 这个命令会让 jupyter 识别到虚拟环境 sradownload, 并在jupyter 中显示为 Python [conda env:sradownload]
-python -m ipykernel install --user --name sradownload --display-name &quot;Python [conda env:sradownload]&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<span class="token comment"># 如果安装 ipykernel 后 jupyter 没有识别到，可以在安装 jupyter 的 conda 环境中执行类似下面的命令</span>
+<span class="token comment"># 这个命令会让 jupyter 识别到虚拟环境 sradownload, 并在jupyter 中显示为 Python [conda env:sradownload]</span>
+python -m ipykernel <span class="token function">install</span> --user --name sradownload --display-name <span class="token string">"Python [conda env:sradownload]"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
@@ -93,6 +120,8 @@ python -m ipykernel install --user --name sradownload --display-name &quot;Pytho
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>jupyter 分为 jupyter notebook 和 jupyter lab，两者选其一配置即可。</strong></p>
 <p>jupyter 官网：<a href="https://jupyter.org/">https://jupyter.org/</a></p>
 <span id="more"></span>
+
+<iframe src="//player.bilibili.com/player.html?aid=820076722&bvid=BV1PG4y1A7rD&cid=960113408&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <h2 id="jupyter-notebook-样例："><a href="#jupyter-notebook-样例：" class="headerlink" title="jupyter notebook 样例："></a>jupyter notebook 样例：</h2><p><a href="https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb">https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb</a></p>
 <img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230106135908462.png" class="" title="image-20230106135908462">
@@ -185,6 +214,21 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <p>这里的不安全是指双方通信的数据可能会被第三方窃取。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 关闭开启的 jupyter 进程</span>
 <span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>如果运行后端口并未改变，说明之前配置文件时操作方式不对，导致配置未生效，此时应该重新从<a href="#2.%E7%94%9F%E6%88%90jupyter%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">2.生成jupyter配置文件</a>开始配置</strong></p>
+<p>运行报错截图：</p>
+<img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230111193255920.png" class="" title="image-20230111193255920">
+
+<p>正确的配置文件后5行:</p>
+<p>jupyter notebook:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -n <span class="token number">5</span> ~/.jupyter/jupyter_lab_config.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230111193622294.png" class="" title="image-20230111193622294">
+
+<p>jupyter lab:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -n <span class="token number">5</span> ~/.jupyter/jupyter_notebook_config.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230111193745282.png" class="" title="image-20230111193745282">
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
@@ -2285,45 +2329,130 @@ remove.packages(&quot;stringr&quot;, lib &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;
 <p>参考教程：<a href="https://blog.csdn.net/weixin_64316191/article/details/127435729">conda 的安装和卸载</a></p>
 <h2 id="虚拟环境管理"><a href="#虚拟环境管理" class="headerlink" title="虚拟环境管理"></a>虚拟环境管理</h2><ol>
 <li>conda env list （列出虚拟环境信息）</li>
-<li>conda create -n <env_name> (创建虚拟环境) <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda create -n py38 -y</span><br><span class="line">conda create -n py39 python=3.9 -y  # 官方推荐使用这种方式</span><br><span class="line">conda create -n py39_2 -y &amp;&amp; conda install -n py39_2 python=3.9 -y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">比较两种创建方式有何不同，并无任何不同</span></span><br><span class="line">diff miniconda3/envs/py39 miniconda3/envs/py39_2</span><br></pre></td></tr></table></figure>
+<li>conda create -n <env_name> (创建虚拟环境) <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+conda create -n py38 -y
+conda create -n py39 <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y  <span class="token comment"># 官方推荐使用这种方式</span>
+conda create -n py39_2 -y <span class="token operator">&amp;&amp;</span> conda <span class="token function">install</span> -n py39_2 <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span> -y
+
+<span class="token comment"># 比较两种创建方式有何不同，并无任何不同</span>
+<span class="token function">diff</span> miniconda3/envs/py39 miniconda3/envs/py39_2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
  <img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d12c93ef45d64d26959ebb08f504be54.png" class="" title="在这里插入图片描述">
  可以看到，在创建环境时指定 python 版本，和创建完环境后安装 python 的指定版本两者导致的结果并无不同，那为什么官方推荐在创建环境时使用 python=3.9 的方式指定 python<br>  版本呢？ 这是因为如果您要在该虚拟环境中使用 python，就应该在创建环境之初下载 python3.9 ，之后在这个虚拟环境中下载的其他包都会匹配 python3.9的依赖与约束。如果安装了很多其他包之后再安装 python3.9，处理环境依赖就会变得较为复杂，甚至导致一些不易察觉的 bug。</li>
-<li>conda activate <env_name> (进入虚拟环境) <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda activate py39</span><br></pre></td></tr></table></figure></li>
-<li>conda deactivate <env_name> (退出虚拟环境)  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda deactivate </span><br></pre></td></tr></table></figure></li>
-<li>conda remove -n <env_name> –all 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda create -n test -y</span><br><span class="line">conda env list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除 <span class="built_in">test</span> 虚拟环境</span></span><br><span class="line">conda remove -n test --all</span><br><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
-<li>导出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">适用于在相同操作系统版本下 <span class="built_in">clone</span> 虚拟环境</span></span><br><span class="line">conda list --explicit &gt; spec-list.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">适用于所有平台之间 <span class="built_in">clone</span> 虚拟环境，这里的平台指的是操作系统，如win、centos、ubuntu</span></span><br><span class="line">conda env export &gt; environment.yml</span><br></pre></td></tr></table></figure></li>
-<li>根据导出的文件创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">代码示例</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据导出包创建 env_name1 的虚拟环境</span></span><br><span class="line">conda create -n env_name1 --file spec-list.txt</span><br><span class="line">conda env create --file environment.yml</span><br></pre></td></tr></table></figure></li>
+<li>conda activate <env_name> (进入虚拟环境) <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+conda activate py39<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>conda deactivate <env_name> (退出虚拟环境)  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+conda deactivate <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>conda remove -n <env_name> –all 删除虚拟环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+conda create -n <span class="token builtin class-name">test</span> -y
+conda <span class="token function">env</span> list
+<span class="token comment"># 删除 test 虚拟环境</span>
+conda remove -n <span class="token builtin class-name">test</span> --all
+conda <span class="token function">env</span> list<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>导出虚拟环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 适用于在相同操作系统版本下 clone 虚拟环境</span>
+conda list --explicit <span class="token operator">></span> spec-list.txt
+<span class="token comment"># 适用于所有平台之间 clone 虚拟环境，这里的平台指的是操作系统，如win、centos、ubuntu</span>
+conda <span class="token function">env</span> <span class="token builtin class-name">export</span> <span class="token operator">></span> environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>根据导出的文件创建虚拟环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 代码示例</span>
+<span class="token comment"># 根据导出包创建 env_name1 的虚拟环境</span>
+conda create -n env_name1 --file spec-list.txt
+conda <span class="token function">env</span> create --file environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><p><strong>conda 处理 channels 的优先级的步骤:</strong><br>    1. 按通道优先级从高到低对包进行排序。<br>    2. 将捆绑的软件包（具有相同通道优先级的软件包）从最高版本号到最低版本号排序。例如，如果 channel A 包含 NumPy 1.12.0 和 1.13.1，则 NumPy 1.13.1 将被排序更高。<br>    3. 将仍然绑定的软件包（具有相同通道优先级和相同版本的软件包）从最高到最低内部版本号排序。例如，如果 channelA 同时包含 NumPy 1.12.0 build 1 和 build 2，则 build 2 首先排序。通道B 中的任何包都将排在通道A 之下。<br>    4. 安装排序列表中满足安装规范的第一个包</p>
 <ol>
-<li>列出 conda 中配置的 channels，根据从低到高的优先级排列 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda config --get channels </span><br></pre></td></tr></table></figure></li>
-<li>添加 channels，添加国内的 channels 也就是我们常说的添加国内源 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加中科大源</span></span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加清华大学源（偶尔抽风，此时需要更换为其他国内镜像源，更换国内镜像源的教程可以查看《conda安装教程》）</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加阿里云源</span></span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/free</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/main</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge</span><br><span class="line">conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></li>
-<li>删除 channels <ul>
-<li>方法 1 （通过命令删除）：  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">首先查看 channels</span></span><br><span class="line">conda config --get channels</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除指定的 channels</span></span><br><span class="line">conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除配置的所有镜像源</span></span><br><span class="line">conda config --remove-key channels</span><br></pre></td></tr></table></figure></li>
-<li>方法 2 （编辑 .condarc 文件删除想要删除 channels 对应的行）  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi ~/.condarc</span><br></pre></td></tr></table></figure></li>
+<li><p>列出 conda 中配置的 channels，根据从低到高的优先级排列</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --get channels <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>添加 channels，添加国内的 channels 也就是我们常说的添加国内源</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加中科大源</span>
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls <span class="token function">yes</span>
+
+<span class="token comment"># 添加清华大学源（偶尔抽风，此时需要更换为其他国内镜像源，更换国内镜像源的教程可以查看《conda安装教程》）</span>
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+conda config --set show_channel_urls <span class="token function">yes</span>
+
+<span class="token comment"># 添加阿里云源</span>
+conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/free
+conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/main
+conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge
+conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda
+conda config --set show_channel_urls <span class="token function">yes</span>
+
+<span class="token comment"># 添加北京外国语大学源</span>
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
+conda config --set show_channel_urls <span class="token function">yes</span> 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>删除 channels </p>
+<ul>
+<li>方法 1 （通过命令删除）：  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先查看 channels</span>
+conda config --get channels
+<span class="token comment"># 删除指定的 channels</span>
+conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+<span class="token comment"># 删除配置的所有镜像源</span>
+conda config --remove-key channels<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>方法 2 （编辑 .condarc 文件删除想要删除 channels 对应的行）  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> ~/.condarc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
-<li>安装包时暂时添加 channels，此 channels 处于最高优先级 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install -c bioconda presto</span><br></pre></td></tr></table></figure></li>
+<li><p>安装包时暂时添加 channels，此 channels 处于最高优先级</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> -c bioconda presto
+<span class="token comment"># 如果配置了国内镜像源，就不用指定 channels 了，这样会使用国内镜像源下载，速度更快</span>
+conda <span class="token function">install</span> presto<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>换源：上面几个国内镜像源没有一个是绝对稳定的，都有可能抽风，连接不上，这时可以切换为其他国内镜像源。下图是中科大镜像源不能访问时的报错，而且同一天阿里的镜像源也抽风了……这时可以切换为其他国内镜像源。</p>
+</li>
 </ol>
+<img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20230111191522768.png" class="" title="image-20230111191522768">
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 移除当前配置的所有镜像源</span>
+conda config --remove-key channels
+<span class="token comment"># 重新添加镜像源，以北外的镜像源为例</span>
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
+conda config --set show_channel_urls <span class="token function">yes</span> 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>使用 conda 安装包之前，需要在以下链接中搜索 conda 包，找到安装对应包的命令后再进行安装，如果不能在下面的链接中找到安装方法，即表明该包不能通过 conda 安装。<br><a href="https://anaconda.org/search">搜 conda 包</a></p>
 <img src="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/d801ccb2ddcb4be0b856700d701fee5e.png" class="" title="在这里插入图片描述">
 
 <ol>
 <li>conda list （查看当前虚拟环境已经安装的包）</li>
-<li>conda install <package_name>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例</span></span><br><span class="line">conda install --help</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-y: <span class="built_in">yes</span></span></span><br><span class="line">conda install requests -y</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-c: 临时增加一个 channel ，并且增加的 channels 会处于最高优先级</span></span><br><span class="line">conda install -c bioconda presto</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-vv: 显示下载过程中的详细日志，方便定位问题</span></span><br><span class="line">conda install numpy -y -vv</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后台下载</span></span><br><span class="line">nohup conda install pandas -y &amp;</span><br></pre></td></tr></table></figure></li>
+<li>conda install <package_name>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 命令示例</span>
+conda <span class="token function">install</span> --help
+<span class="token comment"># -y: yes</span>
+conda <span class="token function">install</span> requests -y
+<span class="token comment"># -c: 临时增加一个 channel ，并且增加的 channels 会处于最高优先级</span>
+<span class="token comment">## 如果配置了国内镜像源，就不要指定镜像源了，直接使用 conda install presto 安装</span>
+conda <span class="token function">install</span> -c bioconda presto
+<span class="token comment"># -vv: 显示下载过程中的详细日志，方便定位问题</span>
+conda <span class="token function">install</span> numpy -y -vv
+<span class="token comment"># 后台下载</span>
+<span class="token function">nohup</span> conda <span class="token function">install</span> pandas -y <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>conda 官方建议，使用 conda 安装的 python包和使用 pip 安装的 python 包是有略微不同的，如果可能，尽量使用 conda 来安装包。<a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html?highlight=pip#id5">参考链接</a><ul>
 <li>在 conda 4.6 以后，conda 可以识别 pip 安装的 python包，不过目前这一功能还处于实验阶段。</li>
-<li>在 conda 中应该优先使用 conda 安装包，不要混用 conda 和 pip，可以设置一个虚拟环境专门用户 pip 管理 python 包</li>
-<li>conda 和 pip 都可以根据文件批量安装 python 包  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip list --format=freeze &gt; requirements.txt</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">conda install -n env_name --file requirements.txt</span><br></pre></td></tr></table></figure>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+<li>在 conda 中应该优先使用 conda 安装包，不要混用 conda 和 pip，可以创建一个虚拟环境专门用于 pip 管理 python 包</li>
+<li>conda 和 pip 都可以根据文件批量安装 python 包  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip list --format<span class="token operator">=</span>freeze <span class="token operator">></span> requirements.txt
+pip <span class="token function">install</span> -r requirements.txt
+conda <span class="token function">install</span> -n env_name --file requirements.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ol>
 <h2 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h2><ol>
-<li>conda config –show <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 channels</span></span><br><span class="line">conda config --help</span><br><span class="line">conda config --get channels</span><br><span class="line">conda config --remove &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
-我们很难记住那么多配置项的作用，如果需要可以查阅 conda 官方教程对各配置项的详解<br><a href="https://conda.io/projects/conda/en/latest/configuration.html#">conda 配置项的作用</a></li>
+<li>conda config –show <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看 channels</span>
+conda config --help
+conda config --get channels
+conda config --remove <span class="token operator">&lt;</span>key<span class="token operator">></span> <span class="token operator">&lt;</span>value<span class="token operator">></span>
+conda config --remove-key <span class="token operator">&lt;</span>key<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+我们很难记住那么多配置项的作用，如果需要可以查阅 conda 官方教程对各配置项的详解<br> <a href="https://conda.io/projects/conda/en/latest/configuration.html#">conda 配置项的作用</a></li>
 </ol>
-]]></content>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>conda</tag>
       </tags>
