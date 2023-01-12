@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-11T12:08:40.513Z</updated>
+  <updated>2023-01-12T03:49:22.267Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>conda镜像源汇总</title>
+    <link href="https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/"/>
+    <id>https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/</id>
+    <published>2023-01-12T03:35:38.000Z</published>
+    <updated>2023-01-12T03:49:22.267Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;conda换源教程&quot;&gt;&lt;a href=&quot;#conda换源教程&quot; class=&quot;headerlink&quot; title=&quot;conda换源教程&quot;&gt;&lt;/a&gt;conda换源教程&lt;/h1&gt;&lt;p&gt;conda 为什么要换源？有两个原因，一是因为官方源对应的服务器位于国外，下载速度慢，或者根本访问不了，需要添加国内镜像源。二是因为就算添加了国内镜像源，已知的国内镜像源没有一个是绝对稳定的，都有崩溃不能访问的记录，此时需要切换为其他的国内镜像源。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
+    
+    <category term="镜像源" scheme="https://xiyoucloud.github.io/tags/%E9%95%9C%E5%83%8F%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>jupyter使用技巧</title>
@@ -373,23 +392,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=987650109&amp;bvid=BV1nt4y1N7aZ&amp;cid=892727922&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>压缩文件(tar,zip,7z,rar,gzip,bzip2)</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/</id>
-    <published>2022-12-30T12:26:51.000Z</published>
-    <updated>2022-12-30T12:33:27.599Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=520131164&amp;bvid=BV11M411k7mA&amp;cid=891610656&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     

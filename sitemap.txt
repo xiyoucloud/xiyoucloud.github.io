@@ -1,3 +1,4 @@
+https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/
 https://xiyoucloud.github.io/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/
 https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/
@@ -55,3 +56,4 @@ https://xiyoucloud.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/
 https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/
 https://xiyoucloud.github.io/tags/Linux%E5%B0%8F%E6%8A%80%E5%B7%A7/
 https://xiyoucloud.github.io/tags/jupyter/
+https://xiyoucloud.github.io/tags/%E9%95%9C%E5%83%8F%E6%BA%90/
