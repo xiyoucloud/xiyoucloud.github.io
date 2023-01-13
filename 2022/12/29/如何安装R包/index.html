@@ -131,7 +131,7 @@
 </blockquote>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像。</p>
 <h3 id="1-设置国内镜像源（可选）"><a href="#1-设置国内镜像源（可选）" class="headerlink" title="1.设置国内镜像源（可选）"></a>1.设置国内镜像源（<strong>可选</strong>）</h3><ul>
-<li><p>使用 install 下载：<a target="_blank" rel="noopener" href="https://cran.r-project.org/mirrors.html%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://cran.r-project.org/mirrors.html（镜像源列表）</a></p>
+<li><p>使用 install 下载：<a target="_blank" rel="noopener" href="https://cran.r-project.org/mirrors.html">https://cran.r-project.org/mirrors.html</a>（镜像源列表）</p>
   <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
 install.packages(&quot;devtools&quot;, repos &#x3D; &quot;https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;CRAN&#x2F;&quot;)
 
@@ -143,7 +143,7 @@ options(repos&#x3D;r)&#125;)
 
 # 向 ~&#x2F;.Rprofile 文件中写入配置镜像的代码可以永久配置镜像
 file.edit(&quot;~&#x2F;.Rprofile&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>使用 BiocManager 下载 <a target="_blank" rel="noopener" href="https://www.bioconductor.org/about/mirrors/%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://www.bioconductor.org/about/mirrors/（镜像源列表）</a></p>
+<li><p>使用 BiocManager 下载 <a target="_blank" rel="noopener" href="https://www.bioconductor.org/about/mirrors/">https://www.bioconductor.org/about/mirrors/</a>（镜像源列表）</p>
   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 从 BiocManager 镜像安装 XVector</span>
 options<span class="token punctuation">(</span>BioC_mirror<span class="token operator">=</span><span class="token string">"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"</span><span class="token punctuation">)</span>
 BiocManager::install<span class="token punctuation">(</span><span class="token string">"XVector"</span><span class="token punctuation">)</span>

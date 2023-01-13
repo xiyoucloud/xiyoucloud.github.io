@@ -34,6 +34,11 @@
       </tags>
   </entry>
   <entry>
+    <title>permission denied</title>
+    <url>/2023/01/12/permission-denied/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+  </entry>
+  <entry>
     <title>conda镜像源汇总</title>
     <url>/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="conda换源教程"><a href="#conda换源教程" class="headerlink" title="conda换源教程"></a>conda换源教程</h1><p>conda 为什么要换源？有两个原因，一是因为官方源对应的服务器位于国外，下载速度慢，或者根本访问不了，需要添加国内镜像源。二是因为就算添加了国内镜像源，已知的国内镜像源没有一个是绝对稳定的，都有崩溃不能访问的记录，此时需要切换为其他的国内镜像源。</p>
@@ -2261,7 +2266,7 @@ tmp --> xiyou.txt</pre>
 </blockquote>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像。</p>
 <h3 id="1-设置国内镜像源（可选）"><a href="#1-设置国内镜像源（可选）" class="headerlink" title="1.设置国内镜像源（可选）"></a>1.设置国内镜像源（<strong>可选</strong>）</h3><ul>
-<li><p>使用 install 下载：<a href="https://cran.r-project.org/mirrors.html%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://cran.r-project.org/mirrors.html（镜像源列表）</a></p>
+<li><p>使用 install 下载：<a href="https://cran.r-project.org/mirrors.html">https://cran.r-project.org/mirrors.html</a>（镜像源列表）</p>
   <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
 install.packages(&quot;devtools&quot;, repos &#x3D; &quot;https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;CRAN&#x2F;&quot;)
 
@@ -2273,7 +2278,7 @@ options(repos&#x3D;r)&#125;)
 
 # 向 ~&#x2F;.Rprofile 文件中写入配置镜像的代码可以永久配置镜像
 file.edit(&quot;~&#x2F;.Rprofile&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>使用 BiocManager 下载 <a href="https://www.bioconductor.org/about/mirrors/%EF%BC%88%E9%95%9C%E5%83%8F%E6%BA%90%E5%88%97%E8%A1%A8%EF%BC%89">https://www.bioconductor.org/about/mirrors/（镜像源列表）</a></p>
+<li><p>使用 BiocManager 下载 <a href="https://www.bioconductor.org/about/mirrors/">https://www.bioconductor.org/about/mirrors/</a>（镜像源列表）</p>
   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 从 BiocManager 镜像安装 XVector</span>
 options<span class="token punctuation">(</span>BioC_mirror<span class="token operator">=</span><span class="token string">"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"</span><span class="token punctuation">)</span>
 BiocManager::install<span class="token punctuation">(</span><span class="token string">"XVector"</span><span class="token punctuation">)</span>

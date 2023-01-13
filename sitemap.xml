@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/</loc>
+    
+    <lastmod>2023-01-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiyoucloud.github.io/2023/01/12/permission-denied/</loc>
+    
+    <lastmod>2023-01-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2023-01-12</lastmod>
@@ -41,15 +59,6 @@
     <loc>https://xiyoucloud.github.io/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/</loc>
     
     <lastmod>2023-01-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/</loc>
-    
-    <lastmod>2023-01-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -373,7 +382,7 @@
 
   <url>
     <loc>https://xiyoucloud.github.io/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -381,119 +390,119 @@
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86%E4%B8%8B%E8%BD%BD/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/conda/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/rstudio-server/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/R%E5%8C%85/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/bash/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/R/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/bashrc%E5%92%8C-profile/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/vncserver/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/Linux%E5%B0%8F%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/jupyter/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xiyoucloud.github.io/tags/%E9%95%9C%E5%83%8F%E6%BA%90/</loc>
-    <lastmod>2023-01-12</lastmod>
+    <lastmod>2023-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
