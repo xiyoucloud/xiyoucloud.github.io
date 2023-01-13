@@ -16,7 +16,7 @@ CRAN 在国内下载速度很快，因为它在国内有很多镜像。
 
 ### 1.设置国内镜像源（**可选**）
 
-- 使用 install 下载：https://cran.r-project.org/mirrors.html（镜像源列表）
+- 使用 install 下载：[https://cran.r-project.org/mirrors.html](https://cran.r-project.org/mirrors.html)（镜像源列表）
 
     ```R
     # 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
@@ -32,7 +32,7 @@ CRAN 在国内下载速度很快，因为它在国内有很多镜像。
     file.edit("~/.Rprofile")
     ```
 
-- 使用 BiocManager 下载 https://www.bioconductor.org/about/mirrors/（镜像源列表）
+- 使用 BiocManager 下载 [https://www.bioconductor.org/about/mirrors/](https://www.bioconductor.org/about/mirrors/)（镜像源列表）
 
     ```bash
     # 从 BiocManager 镜像安装 XVector
