@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">893</span>
         </span>
     </span>
 
@@ -107,20 +107,95 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+  <p>造成 permission denied 的原因有很多，这个报错的意识其实就是操作不被许可，我们也可以通俗的理解为权限不足。</p>
+<p>而在 Linux 你主要操作的对象就是文件了，因此<strong>通常此类报错与文件的权限有关</strong>。说到文件的权限，你可以去看看我的另一篇文章，其中是搭配有视频演示的。<a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" title="文件的权限和属性(chmod,chown)">文件的权限和属性(chmod,chown)</a></p>
+<p>这里我就不系统地说了，系统的论述你可以查看上面的链接。</p>
+<span id="more"></span>
+
+<h2 id="目录的权限："><a href="#目录的权限：" class="headerlink" title="目录的权限："></a>目录的权限：</h2><p>对于目录来说，如果你不能 cd（change work directory）到这个目录，说明你没有对这个目录的可执行权限。</p>
+<p>如果你不能使用 ls 查看目录下的内容，说明你对这个目录没有可读权限。</p>
+<p>如果你不能使用 vim/nano，重定向的方式在该目录下创建文件，说明你对这个目录没有可写权限。</p>
+<p>以上 3 种情况，都会报错 <strong>Permission Denied</strong>。</p>
+<img src="/2023/01/12/permission-denied/image-20230113230214256.png" class="" title="image-20230113230214256">
+
+<p>如果目录的所有者是你，以上 3 种情况下产生的报错都可以通过给自己加上对应的权限来解决。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 给目录的所有者加上可读权限</span>
+<span class="token function">chmod</span> u+r directory
+<span class="token comment"># 给目录的所有者加上可写权限</span>
+<span class="token function">chmod</span> u+w directory
+<span class="token comment"># 给目录的所有者加上可执行权限</span>
+<span class="token function">chmod</span> u+x directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/01/12/permission-denied/image-20230113230819793.png" class="" title="image-20230113230819793">
+
+<img src="/2023/01/12/permission-denied/image-20230113231058436.png" class="" title="image-20230113231058436">
+
+<img src="/2023/01/12/permission-denied/image-20230113231256491.png" class="" title="image-20230113231256491">
+
+<p>使用 ls -l 可以查看文件的权限信息，对于 ls -l 的输出结果的说明可以查看这篇文章 <a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" title="文件的权限和属性(chmod,chown)">文件的权限和属性(chmod,chown)</a></p>
+<h2 id="文件的权限："><a href="#文件的权限：" class="headerlink" title="文件的权限："></a>文件的权限：</h2><p>对于文件来说，如果你不能读取到一个文件的内容，说明你对该文件没有可读的权限。</p>
+<p>如果你不能向一个文件写入内容，说明你对该文件没有可写的权限。</p>
+<p>如果你不能执行 1 个文件，说明你对该文件没有可执行的权限。</p>
+<img src="/2023/01/12/permission-denied/image-20230113231941275.png" class="" title="image-20230113231941275">
+
+<p>同理如果你是该文件的所有者的话，你也可以通过给自己加上权限来解决 <strong>Permission denied</strong> 的报错。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 给文件的所有者加上可读权限</span>
+<span class="token function">chmod</span> u+r <span class="token function">file</span>
+<span class="token comment"># 给文件的所有者加上可写权限</span>
+<span class="token function">chmod</span> u+w <span class="token function">file</span>
+<span class="token comment"># 给文件的所有者加上可执行权限</span>
+<span class="token function">chmod</span> u+x <span class="token function">file</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="关于文件的可执行"><a href="#关于文件的可执行" class="headerlink" title="关于文件的可执行"></a>关于文件的可执行</h2><p>值得一提的是，这里的文件的可执行描述的是将文件的路径的以命令的方式输入在终端中执行，如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./xiyou.txt
+/tmp/xiyouyun/xiyou/xiyou.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>如果你将文件所在的目录加入到 PATH 环境变量后，你也可以直接输入文件名来执行文件，如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/tmp/xiyouyun/xiyou
+<span class="token comment"># 注意它于 ./xiyou.txt 的区别</span>
+xiyou.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/01/12/permission-denied/image-20230113232954719.png" class="" title="image-20230113232954719">
+
+<p>关于 PATH 的原理你可以查看这篇文章 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a></p>
+<p>而如果你使用另一个可执行程序来解释 1 个文件，此时只需要对该文件具有可读权限，就能对该文件进行解释了，此时你需要对该解释程序就有可执行权限，如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python xiyou.py
+perl xiyou.pl
+Rscript xiyou.R
+<span class="token function">bash</span> xiyou.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用 python 来解释一个 xiyou.py 文件，只要你对 python 这个解释器具有可执行权限，又对 xiyou.py 具有可执行权限，就不会抛出 “Permission denied” 的报错，反之就会抛出 “Permission denied” 的错误。</p>
+<h2 id="如何查看一个解释程序的权限"><a href="#如何查看一个解释程序的权限" class="headerlink" title="如何查看一个解释程序的权限"></a>如何查看一个解释程序的权限</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 可以查看一个解释程序文件的位置</span>
+<span class="token function">which</span> python
+<span class="token comment"># 查看解释程序对应文件的权限</span>
+<span class="token function">ls</span> -l <span class="token variable"><span class="token variable">`</span><span class="token function">which</span> python<span class="token variable">`</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -195,6 +270,8 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%83%E9%99%90/" rel="tag">权限</a></li></ul>
+
     </footer>
   </div>
 

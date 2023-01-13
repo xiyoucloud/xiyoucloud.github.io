@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-12T12:37:29.489Z</updated>
+  <updated>2023-01-13T15:37:38.436Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -21,19 +21,19 @@
     <link href="https://xiyoucloud.github.io/2023/01/12/permission-denied/"/>
     <id>https://xiyoucloud.github.io/2023/01/12/permission-denied/</id>
     <published>2023-01-12T12:37:29.000Z</published>
-    <updated>2023-01-12T12:37:29.489Z</updated>
+    <updated>2023-01-13T15:37:38.436Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;造成 permission denied 的原因有很多，这个报错的意识其实就是操作不被许可，我们也可以通俗的理解为权限不足。&lt;/p&gt;
+&lt;p&gt;而在 Linux 你主要操作的对象就是文件了，因此&lt;strong&gt;通常此类报错与文件的权限有关&lt;/strong&gt;。说到文件的权限，你可以去看看我的另一篇文章，其中是搭配有视频演示的。&lt;a href=&quot;/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/&quot; title=&quot;文件的权限和属性(chmod,chown)&quot;&gt;文件的权限和属性(chmod,chown)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里我就不系统地说了，系统的论述你可以查看上面的链接。&lt;/p&gt;</summary>
     
     
     
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+    <category term="权限" scheme="https://xiyoucloud.github.io/tags/%E6%9D%83%E9%99%90/"/>
     
   </entry>
   
