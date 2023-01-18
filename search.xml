@@ -34,6 +34,96 @@
       </tags>
   </entry>
   <entry>
+    <title>报错-python</title>
+    <url>/2023/01/17/%E6%8A%A5%E9%94%99-python/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="没有import命令？"><a href="#没有import命令？" class="headerlink" title="没有import命令？"></a>没有import命令？</h2><span id="more"></span>
+
+<h3 id="报错原因："><a href="#报错原因：" class="headerlink" title="报错原因："></a>报错原因：</h3><p>import xxx 是 python 导入包的语法，并不能被 bash 解释执行。</p>
+<h3 id="报错截图："><a href="#报错截图：" class="headerlink" title="报错截图："></a>报错截图：</h3><img src="/2023/01/17/%E6%8A%A5%E9%94%99-python/image-20230117194238450.png" class="" title="image-20230117194238450">
+
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>在 python 脚本或 python 交互环境中运行。</p>
+<img src="/2023/01/17/%E6%8A%A5%E9%94%99-python/image-20230117194511329.png" class="" title="image-20230117194511329"><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>报错</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装LESYMAP</title>
+    <url>/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="环境信息说明"><a href="#环境信息说明" class="headerlink" title="环境信息说明"></a>环境信息说明</h1><table>
+<thead>
+<tr>
+<th>R版本</th>
+<th>4.1.2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>libpath</td>
+<td>/home/txb/lesymap (可自行修改)</td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+
+<p>如何使用指定 libpath 下的 R 包可以参考 <a href="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" title="在rstudio-server中使用R包的不同版本">在rstudio-server中使用R包的不同版本</a></p>
+<p>这个教程会将 R 包安装在 /home/txb/lesymap 中，因此需要添加这个 libpath，代码如下：</p>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 添加 libpath: &#x2F;home&#x2F;txb&#x2F;lesymap
+.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;lesymap&quot;, .libPaths()))
+
+# 添加后该 libpath 只在当前 session 暂时被添加
+# 如果需要每次启动 R 时自动添加，需要将以上代码写入 ~&#x2F;.Rprofile 中，然后关闭当前 session，再 Start New Session 即可生效
+file.edit(&quot;~&#x2F;.Rprofile&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以下步骤如果下载 github 相关文件太慢，可以参考我这篇文章使用 github 代理：<a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="github访问出错的解决办法">github访问出错的解决办法</a></p>
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118121422537.png" class="" title="image-20230118121422537">
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-安装依赖包"><a href="#1-安装依赖包" class="headerlink" title="1.安装依赖包"></a>1.安装依赖包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 Rcpp 等依赖包</span>
+mylist <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"Rcpp"</span>, <span class="token string">"RcppArmadillo"</span>, <span class="token string">"graphics"</span>, <span class="token string">"grDevices"</span>, 
+           <span class="token string">"magic"</span>, <span class="token string">"magrittr"</span>, <span class="token string">"misc3d"</span>, <span class="token string">"pixmap"</span>,
+           <span class="token string">"psych"</span>, <span class="token string">"rsvd"</span>, <span class="token string">"stats"</span>, <span class="token string">"utils"</span>, 
+           <span class="token string">"lmPerm"</span>, <span class="token string">"nparcomp"</span> <span class="token punctuation">)</span>
+needindx <span class="token operator">=</span>  <span class="token operator">!</span> mylist %in% installed.packages<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>any<span class="token punctuation">(</span>needindx<span class="token punctuation">))</span> install.packages<span class="token punctuation">(</span>mylist<span class="token punctuation">[</span>needindx<span class="token punctuation">]</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 安装 remotes</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"remotes"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-安装ITKR"><a href="#2-安装ITKR" class="headerlink" title="2.安装ITKR"></a>2.安装ITKR</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 ITKR</span>
+library<span class="token punctuation">(</span><span class="token string">"remotes"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span>
+install_github<span class="token punctuation">(</span><span class="token string">"stnava/ITKR"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-安装ANTsRCore"><a href="#3-安装ANTsRCore" class="headerlink" title="3.安装ANTsRCore"></a>3.安装ANTsRCore</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 RcppEigen</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"RcppEigen"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/testmap"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># ANTsRCore，可根据实际情况指定软件版本 https://github.com/ANTsX/ANTsRCore/releases/</span>
+<span class="token function">wget</span> -O ANTsRCore.tar.gz https://github.com/ANTsX/ANTsRCore/releases/download/v0.7.4.9/ANTsRCore_0.7.4.9_R_x86_64-pc-linux-gnu_R4.1.tar.gz
+R CMD INSTALL ANTsRCore.tar.gz --library<span class="token operator">=</span><span class="token string">"/home/txb/lesymap"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-安装ANTsR"><a href="#4-安装ANTsR" class="headerlink" title="4.安装ANTsR"></a>4.安装ANTsR</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 ANTsR</span>
+<span class="token function">wget</span> -O ANTsR.tar.gz https://github.com/ANTsX/ANTsR/releases/download/v0.5.7.4/ANTsR_0.5.7.4_R_x86_64-pc-linux-gnu_R4.1.tar.gz
+R CMD INSTALL ANTsR.tar.gz --library<span class="token operator">=</span><span class="token string">"/home/txb/lesymap"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-安装LESYMAP"><a href="#5-安装LESYMAP" class="headerlink" title="5.安装LESYMAP"></a>5.安装LESYMAP</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 lesymap</span>
+library<span class="token punctuation">(</span><span class="token string">"RcppEigen"</span><span class="token punctuation">)</span>
+remotes::install_git<span class="token punctuation">(</span><span class="token string">"https://github.com/dorianps/LESYMAP"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 如果安装 lesymap 报错 “RcppEigen 包 not found”，再次安装 RcppEigen 并 library 它</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"RcppEigen"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="安装成功截图"><a href="#安装成功截图" class="headerlink" title="安装成功截图"></a>安装成功截图</h2><img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118101417295.png" class="" title="image-20230118101417295">
+
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118101338295.png" class="" title="image-20230118101338295">
+
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118102125916.png" class="" title="image-20230118102125916">
+
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118104134386.png" class="" title="image-20230118104134386">
+
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118105615953.png" class="" title="image-20230118105615953"><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>R包</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>permission denied</title>
     <url>/2023/01/12/permission-denied/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>造成 permission denied 的原因有很多，这个报错的意识其实就是操作不被许可，我们也可以通俗的理解为权限不足。</p>
@@ -2428,7 +2518,13 @@ remove.packages(&quot;stringr&quot;, lib &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><strong>R 不支持在一个目录下安装同一个包的多个版本</strong>，在加载 R 包时，它按照系统中配置的 libpaths 的优先级从高到低查找，在某个 libpath 下找到这个包后，将这个包加载到环境中，即使后面找到这个包的其他版本，也不会再次加载了。（R包加载机制）</p>
 <p>如：在执行 library(“uwot”) 时，R 就会依次搜索 libpath 找到 uwot 的位置，即使 libpaths 中有多个 uwot，它找到第一个 uwot 后，就将 uwot 加载到环境中，而不会再加载后续找到的 uwot 包到环境中了。</p>
 <p>不过我们可以将当前加载到环境中的 uwot 这个包 unload，然后加载其他 libpath 中的 uwot 包。后面我会演示这个步骤。（切换 uwot 版本的原理）</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看系统中配置好的 libpath 输出，按照优先级从高到低的方式输出</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 示例输出：</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;/home/txb/R/x86_64-pc-linux-gnu-library/4.2&quot;</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span>              </span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span> <span class="string">&quot;/usr/lib/R/site-library&quot;</span>                    </span><br><span class="line"><span class="punctuation">[</span><span class="number">4</span><span class="punctuation">]</span> <span class="string">&quot;/usr/lib/R/library&quot;</span> </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 查看系统中配置好的 libpath 输出，按照优先级从高到低的方式输出
+.libPaths()
+# 示例输出：
+[1] &quot;&#x2F;home&#x2F;txb&#x2F;R&#x2F;x86_64-pc-linux-gnu-library&#x2F;4.2&quot;
+[2] &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;R&#x2F;site-library&quot;              
+[3] &quot;&#x2F;usr&#x2F;lib&#x2F;R&#x2F;site-library&quot;                    
+[4] &quot;&#x2F;usr&#x2F;lib&#x2F;R&#x2F;library&quot; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如图：/home/txb/rpackage 目录下的初始 uwot 版本是 0.1.14，我在这个目录下重新安装了 uwot 的 0.1.13 版本。两个版本没有共存，而是将原来的 uwot 0.1.14 版本卸载掉了，安装上了 uwot 的 0.1.13 版本。这就是我们为什么要构造新的 libpath 的原因 —— 同一个 libpath 下的包只有1个版本。</p>
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/5464ff7939c74430acfb02a24a88e690.png" class="" title="在这里插入图片描述">
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/5ede430fd04f42f29a09540c89da992b.png" class="" title="在这里插入图片描述">
@@ -2437,18 +2533,62 @@ remove.packages(&quot;stringr&quot;, lib &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;
 <p>通过在 Console 中执行 .libPaths() 函数配置好的 libpath 仅在当前 rsession 中生效，“Start New Session” 之后，配置的 libpath 就会失效。</p>
 <p>为了让 .libPaths() 配置的 libpath 永久生效，可以将相关的配置命令写入的 ~/.Rprofile 中，这样在“Start New Session” 之后，配置的 libpath 依然有效。</p>
 <p>实现方式 1: 将 R 包安装在 rpackage 目录并配置</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将包安装在指定的 libpath 示例：</span></span><br><span class="line"><span class="comment"># 注意：libpath 必须在系统中存在，如果不存在，需要新建对应的目录：mkdir -p /home/txb/rpackage</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 R 包下载在指定目录命令示例：</span></span><br><span class="line">remotes<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;jlmelville/uwot&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">devtools<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;xxx/xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看未添加 libpath 之前 uwot 的版本</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 向 R 包的 libpaths 中新增一个 libpath，并将它放在第 1 个元素 （最高优先级）</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">,</span>.libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 查看添加 libpath 之后 uwot 的版本</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 将包安装在指定的 libpath 示例：
+# 注意：libpath 必须在系统中存在，如果不存在，需要新建对应的目录：mkdir -p &#x2F;home&#x2F;txb&#x2F;rpackage
+
+# 将 R 包下载在指定目录命令示例：
+remotes::install_github(&quot;jlmelville&#x2F;uwot&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+install.packages(&quot;xxx&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+devtools::install_github(&quot;xxx&#x2F;xxx&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+BiocManager::install(&quot;xxx&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+
+# 查看未添加 libpath 之前 uwot 的版本
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)
+# 向 R 包的 libpaths 中新增一个 libpath，并将它放在第 1 个元素 （最高优先级）
+.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;,.libPaths()))
+# 查看添加 libpath 之后 uwot 的版本
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>实现方式 2：使用 conda 安装 R 包并配置 libpath</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 conda 安装指定版本的 R 包</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 创建 conda 环境</span></span></span><br><span class="line">conda create -n r-reticulate r-uwot==0.1.11 -y</span><br><span class="line">conda activate r-reticulate </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置 libpath</span></span><br><span class="line">.libPaths(c(&quot;/home/txb/miniconda3/envs/r-reticulate/lib/R/library&quot;, .libPaths()))</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看此时 R 找到的第 1 个 R 包的版本。</span></span><br><span class="line">library(&quot;uwot&quot;)</span><br><span class="line">packageVersion(&quot;uwot&quot;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 conda 安装指定版本的 R 包</span>
+<span class="token comment">## 创建 conda 环境</span>
+conda create -n r-reticulate r-uwot<span class="token operator">==</span><span class="token number">0.1</span>.11 -y
+conda activate r-reticulate 
+
+<span class="token comment"># 配置 libpath</span>
+.libPaths<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"/home/txb/miniconda3/envs/r-reticulate/lib/R/library"</span>, .libPaths<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查看此时 R 找到的第 1 个 R 包的版本。</span>
+library<span class="token punctuation">(</span><span class="token string">"uwot"</span><span class="token punctuation">)</span>
+packageVersion<span class="token punctuation">(</span><span class="token string">"uwot"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h3><p>结合 rstudio-server 查看 R 包的版本。在这个步骤我先 “Start New Session” 将原先配置的 libpath 取消掉（后面会说明原因）。</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">,</span>.libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/miniconda3/envs/r-reticulate/lib/R/library&quot;</span><span class="punctuation">,</span> .libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Seurat 中会 import uwot，此时 uwot 无法 unload，想要切换 uwot 版本，有两种方式。</span></span><br><span class="line"><span class="comment"># 1. 将 Seurat unload</span></span><br><span class="line"><span class="comment"># 2. “Start New Session”，然后再选中想要使用的 uwot 版本 (推荐)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;Seurat&quot;</span><span class="punctuation">)</span></span><br><span class="line">detach<span class="punctuation">(</span><span class="string">&quot;package:Seurat&quot;</span><span class="punctuation">,</span> unload <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;,.libPaths()))
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)
+
+.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;miniconda3&#x2F;envs&#x2F;r-reticulate&#x2F;lib&#x2F;R&#x2F;library&quot;, .libPaths()))
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)
+
+# Seurat 中会 import uwot，此时 uwot 无法 unload，想要切换 uwot 版本，有两种方式。
+# 1. 将 Seurat unload
+# 2. “Start New Session”，然后再选中想要使用的 uwot 版本 (推荐)
+library(&quot;Seurat&quot;)
+detach(&quot;package:Seurat&quot;, unload &#x3D; TRUE)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/e69c3a3181f7466bafb4e6f27f02fd80.png" class="" title="请添加图片描述">
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/24267bfcfa654dd2bb5ab21f0f909982.png" class="" title="请添加图片描述">
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 让 libpath 永久生效，将相关命令写入到文件</span><br><span class="line">file.edit(&quot;~/.Rprofile&quot;)</span><br></pre></td></tr></table></figure>]]></content>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 让 libpath 永久生效，将相关命令写入到文件</span>
+file.edit<span class="token punctuation">(</span><span class="token string">"~/.Rprofile"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="加载指定libpath下的R包"><a href="#加载指定libpath下的R包" class="headerlink" title="加载指定libpath下的R包"></a>加载指定libpath下的R包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># lib 参数指定 libpath，即从那个目录下加载 R 包</span>
+library<span class="token punctuation">(</span><span class="token string">"remotes"</span>, lib <span class="token operator">=</span> <span class="token string">"xxx"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>rstudio-server</tag>
         <tag>R包</tag>

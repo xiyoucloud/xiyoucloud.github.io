@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">996</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -131,7 +131,13 @@
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><strong>R 不支持在一个目录下安装同一个包的多个版本</strong>，在加载 R 包时，它按照系统中配置的 libpaths 的优先级从高到低查找，在某个 libpath 下找到这个包后，将这个包加载到环境中，即使后面找到这个包的其他版本，也不会再次加载了。（R包加载机制）</p>
 <p>如：在执行 library(“uwot”) 时，R 就会依次搜索 libpath 找到 uwot 的位置，即使 libpaths 中有多个 uwot，它找到第一个 uwot 后，就将 uwot 加载到环境中，而不会再加载后续找到的 uwot 包到环境中了。</p>
 <p>不过我们可以将当前加载到环境中的 uwot 这个包 unload，然后加载其他 libpath 中的 uwot 包。后面我会演示这个步骤。（切换 uwot 版本的原理）</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统中配置好的 libpath 输出，按照优先级从高到低的方式输出</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 示例输出：</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;/home/txb/R/x86_64-pc-linux-gnu-library/4.2&quot;</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span> <span class="string">&quot;/usr/local/lib/R/site-library&quot;</span>              </span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span> <span class="string">&quot;/usr/lib/R/site-library&quot;</span>                    </span><br><span class="line"><span class="punctuation">[</span><span class="number">4</span><span class="punctuation">]</span> <span class="string">&quot;/usr/lib/R/library&quot;</span> </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 查看系统中配置好的 libpath 输出，按照优先级从高到低的方式输出
+.libPaths()
+# 示例输出：
+[1] &quot;&#x2F;home&#x2F;txb&#x2F;R&#x2F;x86_64-pc-linux-gnu-library&#x2F;4.2&quot;
+[2] &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;R&#x2F;site-library&quot;              
+[3] &quot;&#x2F;usr&#x2F;lib&#x2F;R&#x2F;site-library&quot;                    
+[4] &quot;&#x2F;usr&#x2F;lib&#x2F;R&#x2F;library&quot; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如图：/home/txb/rpackage 目录下的初始 uwot 版本是 0.1.14，我在这个目录下重新安装了 uwot 的 0.1.13 版本。两个版本没有共存，而是将原来的 uwot 0.1.14 版本卸载掉了，安装上了 uwot 的 0.1.13 版本。这就是我们为什么要构造新的 libpath 的原因 —— 同一个 libpath 下的包只有1个版本。</p>
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/5464ff7939c74430acfb02a24a88e690.png" class="" title="在这里插入图片描述">
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/5ede430fd04f42f29a09540c89da992b.png" class="" title="在这里插入图片描述">
@@ -140,18 +146,62 @@
 <p>通过在 Console 中执行 .libPaths() 函数配置好的 libpath 仅在当前 rsession 中生效，“Start New Session” 之后，配置的 libpath 就会失效。</p>
 <p>为了让 .libPaths() 配置的 libpath 永久生效，可以将相关的配置命令写入的 ~/.Rprofile 中，这样在“Start New Session” 之后，配置的 libpath 依然有效。</p>
 <p>实现方式 1: 将 R 包安装在 rpackage 目录并配置</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将包安装在指定的 libpath 示例：</span></span><br><span class="line"><span class="comment"># 注意：libpath 必须在系统中存在，如果不存在，需要新建对应的目录：mkdir -p /home/txb/rpackage</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 R 包下载在指定目录命令示例：</span></span><br><span class="line">remotes<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;jlmelville/uwot&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">devtools<span class="operator">::</span>install_github<span class="punctuation">(</span><span class="string">&quot;xxx/xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> lib<span class="operator">=</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看未添加 libpath 之前 uwot 的版本</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 向 R 包的 libpaths 中新增一个 libpath，并将它放在第 1 个元素 （最高优先级）</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">,</span>.libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 查看添加 libpath 之后 uwot 的版本</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 将包安装在指定的 libpath 示例：
+# 注意：libpath 必须在系统中存在，如果不存在，需要新建对应的目录：mkdir -p &#x2F;home&#x2F;txb&#x2F;rpackage
+
+# 将 R 包下载在指定目录命令示例：
+remotes::install_github(&quot;jlmelville&#x2F;uwot&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+install.packages(&quot;xxx&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+devtools::install_github(&quot;xxx&#x2F;xxx&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+BiocManager::install(&quot;xxx&quot;, lib&#x3D;&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;)
+
+# 查看未添加 libpath 之前 uwot 的版本
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)
+# 向 R 包的 libpaths 中新增一个 libpath，并将它放在第 1 个元素 （最高优先级）
+.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;,.libPaths()))
+# 查看添加 libpath 之后 uwot 的版本
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>实现方式 2：使用 conda 安装 R 包并配置 libpath</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 conda 安装指定版本的 R 包</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 创建 conda 环境</span></span></span><br><span class="line">conda create -n r-reticulate r-uwot==0.1.11 -y</span><br><span class="line">conda activate r-reticulate </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置 libpath</span></span><br><span class="line">.libPaths(c(&quot;/home/txb/miniconda3/envs/r-reticulate/lib/R/library&quot;, .libPaths()))</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看此时 R 找到的第 1 个 R 包的版本。</span></span><br><span class="line">library(&quot;uwot&quot;)</span><br><span class="line">packageVersion(&quot;uwot&quot;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 conda 安装指定版本的 R 包</span>
+<span class="token comment">## 创建 conda 环境</span>
+conda create -n r-reticulate r-uwot<span class="token operator">==</span><span class="token number">0.1</span>.11 -y
+conda activate r-reticulate 
+
+<span class="token comment"># 配置 libpath</span>
+.libPaths<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"/home/txb/miniconda3/envs/r-reticulate/lib/R/library"</span>, .libPaths<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查看此时 R 找到的第 1 个 R 包的版本。</span>
+library<span class="token punctuation">(</span><span class="token string">"uwot"</span><span class="token punctuation">)</span>
+packageVersion<span class="token punctuation">(</span><span class="token string">"uwot"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h3><p>结合 rstudio-server 查看 R 包的版本。在这个步骤我先 “Start New Session” 将原先配置的 libpath 取消掉（后面会说明原因）。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/rpackage&quot;</span><span class="punctuation">,</span>.libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;/home/txb/miniconda3/envs/r-reticulate/lib/R/library&quot;</span><span class="punctuation">,</span> .libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line">packageVersion<span class="punctuation">(</span><span class="string">&quot;uwot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Seurat 中会 import uwot，此时 uwot 无法 unload，想要切换 uwot 版本，有两种方式。</span></span><br><span class="line"><span class="comment"># 1. 将 Seurat unload</span></span><br><span class="line"><span class="comment"># 2. “Start New Session”，然后再选中想要使用的 uwot 版本 (推荐)</span></span><br><span class="line">library<span class="punctuation">(</span><span class="string">&quot;Seurat&quot;</span><span class="punctuation">)</span></span><br><span class="line">detach<span class="punctuation">(</span><span class="string">&quot;package:Seurat&quot;</span><span class="punctuation">,</span> unload <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;rpackage&quot;,.libPaths()))
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)
+
+.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;miniconda3&#x2F;envs&#x2F;r-reticulate&#x2F;lib&#x2F;R&#x2F;library&quot;, .libPaths()))
+library(&quot;uwot&quot;)
+packageVersion(&quot;uwot&quot;)
+
+# Seurat 中会 import uwot，此时 uwot 无法 unload，想要切换 uwot 版本，有两种方式。
+# 1. 将 Seurat unload
+# 2. “Start New Session”，然后再选中想要使用的 uwot 版本 (推荐)
+library(&quot;Seurat&quot;)
+detach(&quot;package:Seurat&quot;, unload &#x3D; TRUE)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/e69c3a3181f7466bafb4e6f27f02fd80.png" class="" title="请添加图片描述">
 <img src="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/24267bfcfa654dd2bb5ab21f0f909982.png" class="" title="请添加图片描述">
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 让 libpath 永久生效，将相关命令写入到文件</span><br><span class="line">file.edit(&quot;~/.Rprofile&quot;)</span><br></pre></td></tr></table></figure> 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 让 libpath 永久生效，将相关命令写入到文件</span>
+file.edit<span class="token punctuation">(</span><span class="token string">"~/.Rprofile"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="加载指定libpath下的R包"><a href="#加载指定libpath下的R包" class="headerlink" title="加载指定libpath下的R包"></a>加载指定libpath下的R包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># lib 参数指定 libpath，即从那个目录下加载 R 包</span>
+library<span class="token punctuation">(</span><span class="token string">"remotes"</span>, lib <span class="token operator">=</span> <span class="token string">"xxx"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">

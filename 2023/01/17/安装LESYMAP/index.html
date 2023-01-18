@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>permission denied |  xiyoucloud</title>
+      <title>安装LESYMAP |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-permission-denied"
+  id="post-安装LESYMAP"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  permission denied
+  安装LESYMAP
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/12/permission-denied/" class="article-date">
-  <time datetime="2023-01-12T12:37:29.000Z" itemprop="datePublished">2023-01-12</time>
+      <a href="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/" class="article-date">
+  <time datetime="2023-01-17T09:04:56.000Z" itemprop="datePublished">2023-01-17</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">893</span>
+            <span class="post-count">441</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -122,80 +122,74 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>造成 permission denied 的原因有很多，这个报错的意识其实就是操作不被许可，我们也可以通俗的理解为权限不足。</p>
-<p>而在 Linux 你主要操作的对象就是文件了，因此<strong>通常此类报错与文件的权限有关</strong>。说到文件的权限，你可以去看看我的另一篇文章，其中是搭配有视频演示的。<a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" title="文件的权限和属性(chmod,chown)">文件的权限和属性(chmod,chown)</a></p>
-<p>这里我就不系统地说了，系统的论述你可以查看上面的链接。</p>
+  <h1 id="环境信息说明"><a href="#环境信息说明" class="headerlink" title="环境信息说明"></a>环境信息说明</h1><table>
+<thead>
+<tr>
+<th>R版本</th>
+<th>4.1.2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>libpath</td>
+<td>/home/txb/lesymap (可自行修改)</td>
+</tr>
+</tbody></table>
 <span id="more"></span>
 
-<h2 id="目录的权限："><a href="#目录的权限：" class="headerlink" title="目录的权限："></a>目录的权限：</h2><p>对于目录来说，如果你不能 cd（change work directory）到这个目录，说明你没有对这个目录的可执行权限。</p>
-<p>如果你不能使用 ls 查看目录下的内容，说明你对这个目录没有可读权限。</p>
-<p>如果你不能使用 vim/nano，重定向的方式在该目录下创建文件，说明你对这个目录没有可写权限。</p>
-<p>以上 3 种情况，都会报错 <strong>Permission Denied</strong>。</p>
-<img src="/2023/01/12/permission-denied/image-20230113230214256.png" class="" title="image-20230113230214256">
+<p>如何使用指定 libpath 下的 R 包可以参考 <a href="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" title="在rstudio-server中使用R包的不同版本">在rstudio-server中使用R包的不同版本</a></p>
+<p>这个教程会将 R 包安装在 /home/txb/lesymap 中，因此需要添加这个 libpath，代码如下：</p>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 添加 libpath: &#x2F;home&#x2F;txb&#x2F;lesymap
+.libPaths(c(&quot;&#x2F;home&#x2F;txb&#x2F;lesymap&quot;, .libPaths()))
 
-<p>如果目录的所有者是你，以上 3 种情况下产生的报错都可以通过给自己加上对应的权限来解决。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 给目录的所有者加上可读权限</span>
-<span class="token function">chmod</span> u+r directory
-<span class="token comment"># 给目录的所有者加上可写权限</span>
-<span class="token function">chmod</span> u+w directory
-<span class="token comment"># 给目录的所有者加上可执行权限</span>
-<span class="token function">chmod</span> u+x directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# 添加后该 libpath 只在当前 session 暂时被添加
+# 如果需要每次启动 R 时自动添加，需要将以上代码写入 ~&#x2F;.Rprofile 中，然后关闭当前 session，再 Start New Session 即可生效
+file.edit(&quot;~&#x2F;.Rprofile&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2023/01/12/permission-denied/image-20230113230819793.png" class="" title="image-20230113230819793">
+<p>以下步骤如果下载 github 相关文件太慢，可以参考我这篇文章使用 github 代理：<a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="github访问出错的解决办法">github访问出错的解决办法</a></p>
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118121422537.png" class="" title="image-20230118121422537">
 
-<img src="/2023/01/12/permission-denied/image-20230113231058436.png" class="" title="image-20230113231058436">
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-安装依赖包"><a href="#1-安装依赖包" class="headerlink" title="1.安装依赖包"></a>1.安装依赖包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 Rcpp 等依赖包</span>
+mylist <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"Rcpp"</span>, <span class="token string">"RcppArmadillo"</span>, <span class="token string">"graphics"</span>, <span class="token string">"grDevices"</span>, 
+           <span class="token string">"magic"</span>, <span class="token string">"magrittr"</span>, <span class="token string">"misc3d"</span>, <span class="token string">"pixmap"</span>,
+           <span class="token string">"psych"</span>, <span class="token string">"rsvd"</span>, <span class="token string">"stats"</span>, <span class="token string">"utils"</span>, 
+           <span class="token string">"lmPerm"</span>, <span class="token string">"nparcomp"</span> <span class="token punctuation">)</span>
+needindx <span class="token operator">=</span>  <span class="token operator">!</span> mylist %in% installed.packages<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>any<span class="token punctuation">(</span>needindx<span class="token punctuation">))</span> install.packages<span class="token punctuation">(</span>mylist<span class="token punctuation">[</span>needindx<span class="token punctuation">]</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span>
 
-<img src="/2023/01/12/permission-denied/image-20230113231256491.png" class="" title="image-20230113231256491">
+<span class="token comment"># 安装 remotes</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"remotes"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>使用 ls -l 可以查看文件的权限信息，对于 ls -l 的输出结果的说明可以查看这篇文章 <a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" title="文件的权限和属性(chmod,chown)">文件的权限和属性(chmod,chown)</a></p>
-<h2 id="文件的权限："><a href="#文件的权限：" class="headerlink" title="文件的权限："></a>文件的权限：</h2><p>对于文件来说，如果你不能读取到一个文件的内容，说明你对该文件没有可读的权限。</p>
-<p>如果你不能向一个文件写入内容，说明你对该文件没有可写的权限。</p>
-<p>如果你不能执行 1 个文件，说明你对该文件没有可执行的权限。</p>
-<img src="/2023/01/12/permission-denied/image-20230113231941275.png" class="" title="image-20230113231941275">
+<h2 id="2-安装ITKR"><a href="#2-安装ITKR" class="headerlink" title="2.安装ITKR"></a>2.安装ITKR</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 ITKR</span>
+library<span class="token punctuation">(</span><span class="token string">"remotes"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span>
+install_github<span class="token punctuation">(</span><span class="token string">"stnava/ITKR"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>同理如果你是该文件的所有者的话，你也可以通过给自己加上权限来解决 <strong>Permission denied</strong> 的报错。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 给文件的所有者加上可读权限</span>
-<span class="token function">chmod</span> u+r <span class="token function">file</span>
-<span class="token comment"># 给文件的所有者加上可写权限</span>
-<span class="token function">chmod</span> u+w <span class="token function">file</span>
-<span class="token comment"># 给文件的所有者加上可执行权限</span>
-<span class="token function">chmod</span> u+x <span class="token function">file</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-安装ANTsRCore"><a href="#3-安装ANTsRCore" class="headerlink" title="3.安装ANTsRCore"></a>3.安装ANTsRCore</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 RcppEigen</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"RcppEigen"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/testmap"</span><span class="token punctuation">)</span>
 
-<h2 id="关于文件的可执行"><a href="#关于文件的可执行" class="headerlink" title="关于文件的可执行"></a>关于文件的可执行</h2><p>值得一提的是，这里的文件的可执行描述的是将文件的路径的以命令的方式输入在终端中执行，如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./xiyou.txt
-/tmp/xiyouyun/xiyou/xiyou.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token comment"># ANTsRCore，可根据实际情况指定软件版本 https://github.com/ANTsX/ANTsRCore/releases/</span>
+<span class="token function">wget</span> -O ANTsRCore.tar.gz https://github.com/ANTsX/ANTsRCore/releases/download/v0.7.4.9/ANTsRCore_0.7.4.9_R_x86_64-pc-linux-gnu_R4.1.tar.gz
+R CMD INSTALL ANTsRCore.tar.gz --library<span class="token operator">=</span><span class="token string">"/home/txb/lesymap"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>如果你将文件所在的目录加入到 PATH 环境变量后，你也可以直接输入文件名来执行文件，如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/tmp/xiyouyun/xiyou
-<span class="token comment"># 注意它于 ./xiyou.txt 的区别</span>
-xiyou.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-安装ANTsR"><a href="#4-安装ANTsR" class="headerlink" title="4.安装ANTsR"></a>4.安装ANTsR</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 ANTsR</span>
+<span class="token function">wget</span> -O ANTsR.tar.gz https://github.com/ANTsX/ANTsR/releases/download/v0.5.7.4/ANTsR_0.5.7.4_R_x86_64-pc-linux-gnu_R4.1.tar.gz
+R CMD INSTALL ANTsR.tar.gz --library<span class="token operator">=</span><span class="token string">"/home/txb/lesymap"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2023/01/12/permission-denied/image-20230113232954719.png" class="" title="image-20230113232954719">
+<h2 id="5-安装LESYMAP"><a href="#5-安装LESYMAP" class="headerlink" title="5.安装LESYMAP"></a>5.安装LESYMAP</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 lesymap</span>
+library<span class="token punctuation">(</span><span class="token string">"RcppEigen"</span><span class="token punctuation">)</span>
+remotes::install_git<span class="token punctuation">(</span><span class="token string">"https://github.com/dorianps/LESYMAP"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span>
 
-<p>关于 PATH 的原理你可以查看这篇文章 <a href="/2023/01/02/command-not-found/" title="command not found">command not found</a></p>
-<p>而如果你使用另一个可执行程序来解释 1 个文件，此时只需要对该文件具有可读权限，就能对该文件进行解释了，此时你需要对该解释程序就有可执行权限，如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python xiyou.py
-perl xiyou.pl
-Rscript xiyou.R
-<span class="token function">bash</span> xiyou.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 如果安装 lesymap 报错 “RcppEigen 包 not found”，再次安装 RcppEigen 并 library 它</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"RcppEigen"</span>, lib <span class="token operator">=</span> <span class="token string">"/home/txb/lesymap"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>使用 python 来解释一个 xiyou.py 文件，只要你对 python 这个解释器具有可执行权限，又对 xiyou.py 具有可执行权限，就不会抛出 “Permission denied” 的报错，反之就会抛出 “Permission denied” 的错误。</p>
-<h2 id="如何查看一个解释程序的权限"><a href="#如何查看一个解释程序的权限" class="headerlink" title="如何查看一个解释程序的权限"></a>如何查看一个解释程序的权限</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 可以查看一个解释程序文件的位置</span>
-<span class="token function">which</span> python
-<span class="token comment"># 查看解释程序对应文件的权限</span>
-<span class="token function">ls</span> -l <span class="token variable"><span class="token variable">`</span><span class="token function">which</span> python<span class="token variable">`</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="安装成功截图"><a href="#安装成功截图" class="headerlink" title="安装成功截图"></a>安装成功截图</h2><img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118101417295.png" class="" title="image-20230118101417295">
 
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118101338295.png" class="" title="image-20230118101338295">
 
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118102125916.png" class="" title="image-20230118102125916">
 
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118104134386.png" class="" title="image-20230118104134386">
 
-
-
-
-
-
-
-
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118105615953.png" class="" title="image-20230118105615953"><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -265,12 +259,12 @@ Rscript xiyou.R
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/12/permission-denied/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%83%E9%99%90/" rel="tag">权限</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E5%8C%85/" rel="tag">R包</a></li></ul>
 
     </footer>
   </div>
@@ -278,19 +272,19 @@ Rscript xiyou.R
    
   <nav class="article-nav">
     
-      <a href="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/" class="article-nav-link">
+      <a href="/2023/01/17/%E6%8A%A5%E9%94%99-python/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            安装LESYMAP
+            报错-python
           
         </div>
       </a>
     
     
-      <a href="/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/" class="article-nav-link">
+      <a href="/2023/01/12/permission-denied/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">conda镜像源汇总</div>
+        <div class="article-nav-title">permission denied</div>
       </a>
     
   </nav>
