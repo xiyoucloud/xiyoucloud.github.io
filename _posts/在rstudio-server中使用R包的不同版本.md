@@ -101,7 +101,15 @@ detach("package:Seurat", unload = TRUE)
 ![请添加图片描述](在rstudio-server中使用R包的不同版本/e69c3a3181f7466bafb4e6f27f02fd80.png)
 ![请添加图片描述](在rstudio-server中使用R包的不同版本/24267bfcfa654dd2bb5ab21f0f909982.png)
 
-```
+```bash
 # 让 libpath 永久生效，将相关命令写入到文件
 file.edit("~/.Rprofile")
 ```
+
+## 加载指定libpath下的R包
+
+```bash
+# lib 参数指定 libpath，即从那个目录下加载 R 包
+library("remotes", lib = "xxx")
+```
+
