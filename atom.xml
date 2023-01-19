@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-18T09:23:35.167Z</updated>
+  <updated>2023-01-19T09:42:17.063Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动态链接库的查找</title>
+    <link href="https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
+    <id>https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/</id>
+    <published>2023-01-19T09:32:07.000Z</published>
+    <updated>2023-01-19T09:42:17.063Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;动态链接库是一个共享函数集合。我们编写程序时，可以利用其他人或自己编译好的动态链接库中的函数。当然，动态链接库之间也可以互相依赖，比如：动态链接库A在执行时可能需要使用动态链接库B中的函数。此时需要&lt;strong&gt;动态链接器&lt;/strong&gt;在执行A中调用动态链接库B的代码时链接到B来执行代码。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+    <category term="动态链接库" scheme="https://xiyoucloud.github.io/tags/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>报错-python</title>
@@ -392,23 +411,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=432941989&amp;bvid=BV1C3411f77q&amp;cid=898761486&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>进程的后台运行(bg,fg,jobs,nohup,&amp;)</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/</id>
-    <published>2022-12-30T13:08:40.000Z</published>
-    <updated>2022-12-30T13:13:26.911Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=520271004&amp;bvid=BV1tM411C7ke&amp;cid=897743562&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     

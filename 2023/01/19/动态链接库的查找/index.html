@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Tag: 报错 |  xiyoucloud</title>
+      <title>动态链接库的查找 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -70,177 +70,241 @@
       
     <main class="content on">
       <section class="outer">
-  
-  <ul class="ads">
+  <article
+  id="post-动态链接库的查找"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">
-                <img src="/images/xiyou.png" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">#&nbsp报错</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/" class="archive-article-date">
-  <time datetime="2023-01-19T09:32:07.000Z" itemprop="datePublished">01/19</time>
-</a>
+    <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/"
-    >动态链接库的查找</a> 
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  动态链接库的查找
+</h1>
  
 
-    </header>
-    
-    
       
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/" class="article-date">
+  <time datetime="2023-01-19T09:32:07.000Z" itemprop="datePublished">2023-01-19</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">812</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>动态链接库是一个共享函数集合。我们编写程序时，可以利用其他人或自己编译好的动态链接库中的函数。当然，动态链接库之间也可以互相依赖，比如：动态链接库A在执行时可能需要使用动态链接库B中的函数。此时需要<strong>动态链接器</strong>在执行A中调用动态链接库B的代码时链接到B来执行代码。</p>
+<span id="more"></span>
+
+<p>那么<strong>动态链接器</strong>是怎样找到动态链接库B的呢？它通常是按照这个顺序去找动态链接库的：</p>
+<ol>
+<li>编译代码时通过<code>-Wl -rpath=&quot;&quot;</code>指定的rpath路径</li>
+<li>通过环境变量<code>LD_LIBRARY_PATH</code>指定的动态库搜索路径</li>
+<li>通过<code>xx.so</code>文件中的<code>RUNPATH</code>或<code>RPATH</code>指定的路径</li>
+<li>动态链接器的配置文件中配置的路径<code>/etc/ld.so.conf</code></li>
+<li>默认寻找路径<code>/lib</code>和<code>/usr/lib</code></li>
+</ol>
+<p>如果没找到就报类似下面这样的错误：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">error <span class="token keyword">while</span> loading shared libraries: libxxx.so: cannot <span class="token function">open</span> shared object file: No such <span class="token function">file</span> or directory<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>动态链接库在 Linux 系统中是通常以 .so 结尾。通常，我们可以通过 patchelf 设置 xx.so文件中配置的 rpath 信息来设置查找动态链接库的位置（RPATH的优先级高于系统默认配置的路径）</p>
+<h2 id="查看动态链接器找到的动态链接库位置"><a href="#查看动态链接器找到的动态链接库位置" class="headerlink" title="查看动态链接器找到的动态链接库位置"></a>查看动态链接器找到的动态链接库位置</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看动态链接器找到的动态链接库位置</span>
+ldd xx.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<img src="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/image-20230119143708466.png" class="" title="image-20230119143708466">
+
+<h2 id="查看rpath"><a href="#查看rpath" class="headerlink" title="查看rpath"></a>查看rpath</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看 xx.so 文件中设置的 RPATH</span>
+readelf -d xx.so <span class="token operator">|</span> <span class="token function">grep</span> <span class="token environment constant">PATH</span>
+patchelf --print-rpath xx.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>RPATH 中的 $ORIGIN 表示的是当前 xx.so 文件所在的目录，”..” 表示的是当前目录的父目录。</p>
+<img src="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/image-20230119152119799.png" class="" title="image-20230119152119799">
+
+<p>可以看到 _igraph.abi3.so 中的 RPATH 为 <code>$ORIGIN/../../../</code>，翻译过来为<code>/home/txb/miniconda3/lib</code>，因为 _igraph.abi3.so 所在的目录为 <code>/home/txb/miniconda3/lib/python3.9/site-packages/igraph</code>，因此该动态链接库需要的其他动态链接库都是优先在 <code>/home/txb/miniconda3/lib</code>目录下找到的，当然，根据前文讲到的动态链接器的查找顺序，如果在该目录下没有找到对应的动态链接库，如上文中的 libc.so.6 是在 /lib 目录下找到的。</p>
+<h2 id="设置rpath"><a href="#设置rpath" class="headerlink" title="设置rpath"></a>设置rpath</h2><p>有时动态链接器在非预期的目录去找动态链接库，为了让动态链接器优先在某个目录下寻找动态链接库，可以通过设置 rpath 路径的方式来实现。因为在查找动态链接库时，rpath 的优先级高于 /etc/ld.so.conf 中配置的目录，也高于/lib 和 /usr/lib 目录。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置动态链接库中的 rpath</span>
+patchelf --set-rpath /lib xx.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>上文中的<code>_igraph.abi3.so</code> 的 RPATH 刚开始指向的是 <code>/home/txb/miniconda3/lib</code> 目录，如果将 rpath 修改为<code>/lib</code>目录，再次使用 <code>ldd _igraph.abi3.so</code> 查看各动态链接库的位置，发现动态链接器是优先在 <code>/lib</code>目录下找的。</p>
+<img src="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/image-20230119153945148.png" class="" title="image-20230119153945148">
+
+<h2 id="工具安装"><a href="#工具安装" class="headerlink" title="工具安装"></a>工具安装</h2><p>使用 conda 安装：</p>
+<p><a target="_blank" rel="noopener" href="https://anaconda.org/search?q=patchelf">patchelf安装链接</a></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>如果 xx.so 文件设置了 RUNPATH，RPATH 设置的目录会被忽略。此时需要通过设置 LD_LIBRARY_PATH 这个环境变量来让动态链接器优先查找某个目录。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/" rel="tag">动态链接库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
 
-    
+    </footer>
   </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/01/17/%E6%8A%A5%E9%94%99-python/" class="archive-article-date">
-  <time datetime="2023-01-17T11:41:51.000Z" itemprop="datePublished">01/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/01/17/%E6%8A%A5%E9%94%99-python/"
-    >报错-python</a> 
-</h2>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/01/17/%E6%8A%A5%E9%94%99-python/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">报错-python</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "rcINISqF3JGAkl5qG77MQKmO-gzGzoHsz",
+    app_key: "foHxMZz5W1KZGJbWF4AZrro6",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
  
-
-    </header>
+   
+  
     
-    
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
-
-    
-  </div>
 </article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/01/12/permission-denied/" class="archive-article-date">
-  <time datetime="2023-01-12T12:37:29.000Z" itemprop="datePublished">01/12</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/01/12/permission-denied/"
-    >permission denied</a> 
-</h2>
- 
 
-    </header>
-    
-    
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%83%E9%99%90/" rel="tag">权限</a></li></ul>
-
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/01/02/command-not-found/" class="archive-article-date">
-  <time datetime="2023-01-02T07:42:49.000Z" itemprop="datePublished">01/02</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/01/02/command-not-found/"
-    >command not found</a> 
-</h2>
- 
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bashrc%E5%92%8C-profile/" rel="tag">.bashrc和.profile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
-
-    
-  </div>
-</article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="archive-article-date">
-  <time datetime="2022-12-31T09:57:24.000Z" itemprop="datePublished">12/31</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"
-    >github访问出错的解决办法</a> 
-</h2>
- 
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
-
-    
-  </div>
-</article>
-      
-      
-    </div>
-  </div>
-  
-  
-
-  
 </section>
       <footer class="footer">
   <div class="outer">
@@ -377,6 +441,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
