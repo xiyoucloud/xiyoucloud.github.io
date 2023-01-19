@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-19T09:42:17.063Z</updated>
+  <updated>2023-01-19T14:39:37.637Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker使用教程</title>
+    <link href="https://xiyoucloud.github.io/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://xiyoucloud.github.io/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
+    <published>2023-01-19T13:47:50.000Z</published>
+    <updated>2023-01-19T14:39:37.637Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;docker 安装教程：&lt;a href=&quot;https://docs.docker.com/engine/install/ubuntu/&quot;&gt;https://docs.docker.com/engine/install/ubuntu/&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="docker" scheme="https://xiyoucloud.github.io/tags/docker/"/>
+    
+    <category term="apptainer" scheme="https://xiyoucloud.github.io/tags/apptainer/"/>
+    
+    <category term="singularity" scheme="https://xiyoucloud.github.io/tags/singularity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何安装python包</title>
+    <link href="https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/"/>
+    <id>https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/</id>
+    <published>2023-01-19T10:31:01.000Z</published>
+    <updated>2023-01-19T14:39:17.981Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这篇文章将介绍 4 种安装 python 包的方式。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="python" scheme="https://xiyoucloud.github.io/tags/python/"/>
+    
+    <category term="python包" scheme="https://xiyoucloud.github.io/tags/python%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>动态链接库的查找</title>
@@ -377,40 +417,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=220445497&amp;bvid=BV1X841177rm&amp;cid=900840633&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文本处理之grep</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/</id>
-    <published>2022-12-30T13:35:18.000Z</published>
-    <updated>2022-12-30T13:46:05.698Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=945376710&amp;bvid=BV1HW4y1W7je&amp;cid=899825524&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
-    <published>2022-12-30T13:16:59.000Z</published>
-    <updated>2022-12-30T13:24:56.444Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=432941989&amp;bvid=BV1C3411f77q&amp;cid=898761486&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     
