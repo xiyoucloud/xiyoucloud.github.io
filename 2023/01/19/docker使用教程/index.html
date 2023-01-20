@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">49</span>
+            <span class="post-count">806</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -125,7 +125,98 @@
   <p>docker 安装教程：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
 <span id="more"></span>
 
-<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><h3 id="docker容器与主机之间的映射"><a href="#docker容器与主机之间的映射" class="headerlink" title="docker容器与主机之间的映射"></a>docker容器与主机之间的映射</h3><h2 id="docker服务"><a href="#docker服务" class="headerlink" title="docker服务"></a>docker服务</h2><h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><h3 id="停止-1"><a href="#停止-1" class="headerlink" title="停止"></a>停止</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<p>docker 中有两个很重要的概念，明白它们能帮助明白 docker 的工作原理。</p>
+<p>镜像是一种文件，你可以根据<a target="_blank" rel="noopener" href="http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D">Dockfile</a>进一步了解这种文件，在 Dockerfile 中，每做一步操作就给镜像文件增加了一层内容。镜像文件可以和 tar 格式的文件相互转化。使用 docker 可以把镜像文件运行起来成为一个 <strong>docker 进程</strong>，我们把这个进程称为容器，因此通常也把容器称为“运行的镜像”。</p>
+<p>关于对镜像和容器的操作可以查看以下内容。</p>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="查看镜像信息"><a href="#查看镜像信息" class="headerlink" title="查看镜像信息"></a>查看镜像信息</h3><p>镜像名 = REPOSITORY + : + TAG</p>
+<p>如：redis:latest</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images
+
+<span class="token comment"># 从远程仓库搜索镜像信息</span>
+<span class="token function">docker</span> search 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 docker save 保存的镜像使用 load 的方式加载</span>
+<span class="token function">docker</span> load <span class="token operator">&lt;</span> xx.tar
+<span class="token function">docker</span> load -i xx.tar
+<span class="token comment"># 使用 docker export 保存的容器使用 import 的方式加载</span>
+<span class="token function">docker</span> <span class="token function">import</span> xx.tart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><h4 id="导出镜像"><a href="#导出镜像" class="headerlink" title="导出镜像"></a>导出镜像</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> save -o xx.tar 镜像名称
+<span class="token function">docker</span> save -o xx.tar 镜像id
+<span class="token comment"># 举例</span>
+<span class="token function">docker</span> save -o xx.tar answerdev/answer:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20230120105502988.png" class="" title="image-20230120105502988">
+
+<h4 id="导出容器"><a href="#导出容器" class="headerlink" title="导出容器"></a>导出容器</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">export</span> -o xx.tar 容器名
+<span class="token function">docker</span> <span class="token builtin class-name">export</span> -o xx.tar 容器id
+<span class="token comment"># 容器导出为镜像，镜像名举例：redis:latest</span>
+<span class="token function">docker</span> commit -a <span class="token string">"作者"</span> -m <span class="token string">"comment"</span> 容器id 镜像名
+<span class="token comment"># 举例</span>
+<span class="token function">docker</span> <span class="token builtin class-name">export</span> -o xx.tar 5e49f33018e4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20230120111129235.png" class="" title="image-20230120111129235">
+
+<h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><p>拉取镜像是如果不指定标签，则默认拉取最新的的镜像，大部分情况下，最新的镜像标签为 latest</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull 镜像名
+<span class="token comment"># 举例</span>
+<span class="token function">docker</span> pull ubuntu:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>默认根据当前目录下的 Dockerfile 来构建一个镜像，关于 Dockerfile 的语法可以参考这个链接：<a target="_blank" rel="noopener" href="http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D">http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D</a></p>
+<p>构建 docker 镜像是可以通过参数对镜像进行设置，详情可以参考这个链接：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-build-command.html">https://www.runoob.com/docker/docker-build-command.html</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> build -t <span class="token builtin class-name">.</span>
+<span class="token function">docker</span> build -f Dockfile所在的目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> rmi 镜像名
+<span class="token function">docker</span> rmi 镜像id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="查看容器信息"><a href="#查看容器信息" class="headerlink" title="查看容器信息"></a>查看容器信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看运行中的容器</span>
+<span class="token function">docker</span> container <span class="token function">ls</span>
+<span class="token comment"># 查看系统中所有的容器信息</span>
+<span class="token function">docker</span> <span class="token function">ps</span> -a
+<span class="token comment"># 查看容器的元信息</span>
+<span class="token function">docker</span> inspect 容器名
+<span class="token function">docker</span> inspect 容器id
+<span class="token comment"># 查看容器中运行的进程</span>
+<span class="token function">docker</span> <span class="token function">top</span> 容器id
+<span class="token comment"># 查看容器的输出日志</span>
+<span class="token function">docker</span> logs 容器名
+<span class="token comment"># 查看容器的端口映射</span>
+<span class="token function">docker</span> port 容器id
+<span class="token comment"># 查看容器的资源状态</span>
+<span class="token function">docker</span> stats
+<span class="token comment"># 查看容器中的文件结构更改</span>
+<span class="token function">docker</span> <span class="token function">diff</span> 容器id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>更多参数的使用方法请查看这个链接：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-run-command.html">https://www.runoob.com/docker/docker-run-command.html</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 让容器后台运行，退出容器后，容器不会立即停止运行</span>
+<span class="token function">docker</span> run -d --name 容器名 镜像id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> stop 容器id
+<span class="token function">docker</span> stop 容器名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it 容器id /bin/bash
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it 容器名 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="容器与宿主机"><a href="#容器与宿主机" class="headerlink" title="容器与宿主机"></a>容器与宿主机</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 容器与宿主机之间文件拷贝</span>
+<span class="token function">docker</span> <span class="token function">cp</span> 宿主机文件路径 容器id:容器文件路径
+<span class="token comment"># 拷贝文件举例</span>
+<span class="token function">docker</span> <span class="token function">cp</span> /xiyou 96f7f14e99ab:/xiyou/
+<span class="token function">docker</span> <span class="token function">cp</span> 96f7f14e99ab:/xiyou/ /xiyou<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="docker服务管理"><a href="#docker服务管理" class="headerlink" title="docker服务管理"></a>docker服务管理</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 docker 服务</span>
+<span class="token function">service</span> <span class="token function">docker</span> start
+<span class="token comment"># 停止 docker 服务</span>
+<span class="token function">service</span> <span class="token function">docker</span> stop
+<span class="token comment"># 重启 docker 服务</span>
+<span class="token function">service</span> <span class="token function">docker</span> restart
+
+<span class="token comment"># 查看 docker 服务信息</span>
+<span class="token function">docker</span> info
+<span class="token comment"># 查看 docker 版本</span>
+<span class="token function">docker</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
       <div id="reword-out">

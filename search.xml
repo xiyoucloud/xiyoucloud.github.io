@@ -39,7 +39,98 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>docker 安装教程：<a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
 <span id="more"></span>
 
-<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><h3 id="docker容器与主机之间的映射"><a href="#docker容器与主机之间的映射" class="headerlink" title="docker容器与主机之间的映射"></a>docker容器与主机之间的映射</h3><h2 id="docker服务"><a href="#docker服务" class="headerlink" title="docker服务"></a>docker服务</h2><h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><h3 id="停止-1"><a href="#停止-1" class="headerlink" title="停止"></a>停止</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+<p>docker 中有两个很重要的概念，明白它们能帮助明白 docker 的工作原理。</p>
+<p>镜像是一种文件，你可以根据<a href="http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D">Dockfile</a>进一步了解这种文件，在 Dockerfile 中，每做一步操作就给镜像文件增加了一层内容。镜像文件可以和 tar 格式的文件相互转化。使用 docker 可以把镜像文件运行起来成为一个 <strong>docker 进程</strong>，我们把这个进程称为容器，因此通常也把容器称为“运行的镜像”。</p>
+<p>关于对镜像和容器的操作可以查看以下内容。</p>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="查看镜像信息"><a href="#查看镜像信息" class="headerlink" title="查看镜像信息"></a>查看镜像信息</h3><p>镜像名 = REPOSITORY + : + TAG</p>
+<p>如：redis:latest</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images
+
+<span class="token comment"># 从远程仓库搜索镜像信息</span>
+<span class="token function">docker</span> search 镜像名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 docker save 保存的镜像使用 load 的方式加载</span>
+<span class="token function">docker</span> load <span class="token operator">&lt;</span> xx.tar
+<span class="token function">docker</span> load -i xx.tar
+<span class="token comment"># 使用 docker export 保存的容器使用 import 的方式加载</span>
+<span class="token function">docker</span> <span class="token function">import</span> xx.tart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><h4 id="导出镜像"><a href="#导出镜像" class="headerlink" title="导出镜像"></a>导出镜像</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> save -o xx.tar 镜像名称
+<span class="token function">docker</span> save -o xx.tar 镜像id
+<span class="token comment"># 举例</span>
+<span class="token function">docker</span> save -o xx.tar answerdev/answer:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20230120105502988.png" class="" title="image-20230120105502988">
+
+<h4 id="导出容器"><a href="#导出容器" class="headerlink" title="导出容器"></a>导出容器</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">export</span> -o xx.tar 容器名
+<span class="token function">docker</span> <span class="token builtin class-name">export</span> -o xx.tar 容器id
+<span class="token comment"># 容器导出为镜像，镜像名举例：redis:latest</span>
+<span class="token function">docker</span> commit -a <span class="token string">"作者"</span> -m <span class="token string">"comment"</span> 容器id 镜像名
+<span class="token comment"># 举例</span>
+<span class="token function">docker</span> <span class="token builtin class-name">export</span> -o xx.tar 5e49f33018e4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20230120111129235.png" class="" title="image-20230120111129235">
+
+<h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><p>拉取镜像是如果不指定标签，则默认拉取最新的的镜像，大部分情况下，最新的镜像标签为 latest</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull 镜像名
+<span class="token comment"># 举例</span>
+<span class="token function">docker</span> pull ubuntu:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>默认根据当前目录下的 Dockerfile 来构建一个镜像，关于 Dockerfile 的语法可以参考这个链接：<a href="http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D">http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D</a></p>
+<p>构建 docker 镜像是可以通过参数对镜像进行设置，详情可以参考这个链接：<a href="https://www.runoob.com/docker/docker-build-command.html">https://www.runoob.com/docker/docker-build-command.html</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> build -t <span class="token builtin class-name">.</span>
+<span class="token function">docker</span> build -f Dockfile所在的目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> rmi 镜像名
+<span class="token function">docker</span> rmi 镜像id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="查看容器信息"><a href="#查看容器信息" class="headerlink" title="查看容器信息"></a>查看容器信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看运行中的容器</span>
+<span class="token function">docker</span> container <span class="token function">ls</span>
+<span class="token comment"># 查看系统中所有的容器信息</span>
+<span class="token function">docker</span> <span class="token function">ps</span> -a
+<span class="token comment"># 查看容器的元信息</span>
+<span class="token function">docker</span> inspect 容器名
+<span class="token function">docker</span> inspect 容器id
+<span class="token comment"># 查看容器中运行的进程</span>
+<span class="token function">docker</span> <span class="token function">top</span> 容器id
+<span class="token comment"># 查看容器的输出日志</span>
+<span class="token function">docker</span> logs 容器名
+<span class="token comment"># 查看容器的端口映射</span>
+<span class="token function">docker</span> port 容器id
+<span class="token comment"># 查看容器的资源状态</span>
+<span class="token function">docker</span> stats
+<span class="token comment"># 查看容器中的文件结构更改</span>
+<span class="token function">docker</span> <span class="token function">diff</span> 容器id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>更多参数的使用方法请查看这个链接：<a href="https://www.runoob.com/docker/docker-run-command.html">https://www.runoob.com/docker/docker-run-command.html</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 让容器后台运行，退出容器后，容器不会立即停止运行</span>
+<span class="token function">docker</span> run -d --name 容器名 镜像id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> stop 容器id
+<span class="token function">docker</span> stop 容器名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it 容器id /bin/bash
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it 容器名 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="容器与宿主机"><a href="#容器与宿主机" class="headerlink" title="容器与宿主机"></a>容器与宿主机</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 容器与宿主机之间文件拷贝</span>
+<span class="token function">docker</span> <span class="token function">cp</span> 宿主机文件路径 容器id:容器文件路径
+<span class="token comment"># 拷贝文件举例</span>
+<span class="token function">docker</span> <span class="token function">cp</span> /xiyou 96f7f14e99ab:/xiyou/
+<span class="token function">docker</span> <span class="token function">cp</span> 96f7f14e99ab:/xiyou/ /xiyou<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="docker服务管理"><a href="#docker服务管理" class="headerlink" title="docker服务管理"></a>docker服务管理</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 docker 服务</span>
+<span class="token function">service</span> <span class="token function">docker</span> start
+<span class="token comment"># 停止 docker 服务</span>
+<span class="token function">service</span> <span class="token function">docker</span> stop
+<span class="token comment"># 重启 docker 服务</span>
+<span class="token function">service</span> <span class="token function">docker</span> restart
+
+<span class="token comment"># 查看 docker 服务信息</span>
+<span class="token function">docker</span> info
+<span class="token comment"># 查看 docker 版本</span>
+<span class="token function">docker</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>docker</tag>
         <tag>apptainer</tag>
@@ -2569,7 +2660,7 @@ tmp --> xiyou.txt</pre>
 <blockquote>
 <p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像，因此一般不用额外为 R 设置额外的国内镜像了。</p>
 <h3 id="1-设置国内镜像源（可选）"><a href="#1-设置国内镜像源（可选）" class="headerlink" title="1.设置国内镜像源（可选）"></a>1.设置国内镜像源（<strong>可选</strong>）</h3><ul>
 <li><p>使用 install 下载：<a href="https://cran.r-project.org/mirrors.html">https://cran.r-project.org/mirrors.html</a>（镜像源列表）</p>
   <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
@@ -2597,19 +2688,17 @@ file.edit<span class="token punctuation">(</span><span class="token string">"~/.
 <li>Bioconductor <a href="https://www.bioconductor.org/help/search/index.html?/%EF%BC%8C%EF%BC%88%E8%83%BD%E5%A4%9F%E5%9C%A8%E8%BF%99%E9%87%8C%E6%90%9C%E5%88%B0%E7%9A%84">https://www.bioconductor.org/help/search/index.html?/，（能够在这里搜到的</a> R 包都能通过 BiocManager::install(“xxx”) 的方式安装）</li>
 <li>GitHub <a href="https://github.com/">https://github.com/</a> （通常在 github 仓库的 README.md 文件会提供安装方法）</li>
 </ul>
-<h3 id="3-安装-R-包"><a href="#3-安装-R-包" class="headerlink" title="3.安装 R 包"></a>3.安装 R 包</h3><h3 id="安装R包的不同方式"><a href="#安装R包的不同方式" class="headerlink" title="安装R包的不同方式"></a>安装R包的不同方式</h3><pre class="line-numbers language-R" data-language="R"><code class="language-R"># R 包安装工具的下载方式, 养成好习惯，安装包时指定 lib，这样能把R包安装在指定的目录下
+<h3 id="3-安装-R-包"><a href="#3-安装-R-包" class="headerlink" title="3.安装 R 包"></a>3.安装 R 包</h3><h3 id="安装R包的不同工具"><a href="#安装R包的不同工具" class="headerlink" title="安装R包的不同工具"></a>安装R包的不同工具</h3><pre class="line-numbers language-R" data-language="R"><code class="language-R"># R 包安装工具的下载方式, 养成好习惯，安装包时指定 lib，这样能把R包安装在指定的目录下
 install.packages(&quot;devtools&quot;, lib &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;R&#x2F;site-library&quot;)
 install.packages(&quot;remotes&quot;, lib &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;R&#x2F;site-library&quot;)
 install.packages(&quot;BiocManager&quot;, lib &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;R&#x2F;site-library&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li><p>从 CRAN 安装：</p>
-  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">install.packages<span class="token punctuation">(</span><span class="token string">"stringr"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>从 Bioconductor 安装：</p>
-  <pre class="line-numbers language-R" data-language="R"><code class="language-R">BiocManager::install(&quot;XVector&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>从 GitHub 在线安装：</p>
-<p>  推荐一个 GitHub 代理网站 <a href="https://ghproxy.com/">https://ghproxy.com/</a>, 感谢该网站站长为中国开源做出的贡献！</p>
-  <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 这里 R 包对应的 GitHub 链接是 https:&#x2F;&#x2F;github.com&#x2F;tidyverse&#x2F;stringr
+<h4 id="从-CRAN-安装："><a href="#从-CRAN-安装：" class="headerlink" title="从 CRAN 安装："></a>从 CRAN 安装：</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">install.packages<span class="token punctuation">(</span><span class="token string">"stringr"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="从-Bioconductor-安装："><a href="#从-Bioconductor-安装：" class="headerlink" title="从 Bioconductor 安装："></a>从 Bioconductor 安装：</h4><pre class="line-numbers language-R" data-language="R"><code class="language-R">BiocManager::install(&quot;XVector&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="从-GitHub-在线安装："><a href="#从-GitHub-在线安装：" class="headerlink" title="从 GitHub 在线安装："></a>从 GitHub 在线安装：</h4><p>推荐一个 GitHub 代理网站 <a href="https://ghproxy.com/">https://ghproxy.com/</a>, 感谢该网站站长为中国开源做出的贡献！</p>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 这里 R 包对应的 GitHub 链接是 https:&#x2F;&#x2F;github.com&#x2F;tidyverse&#x2F;stringr
 devtools::install_github(&quot;tidyverse&#x2F;stringr&quot;)
 remotes::install_github(&quot;tidyverse&#x2F;stringr&quot;)
 
@@ -2617,27 +2706,25 @@ remotes::install_github(&quot;tidyverse&#x2F;stringr&quot;)
 remotes::install_git(&quot;https:&#x2F;&#x2F;github.com&#x2F;tidyverse&#x2F;stringr&quot;)
 
 # 使用国内代理下载 R 包源码并安装
-remotes::install_git(&quot;https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;github.com&#x2F;tidyverse&#x2F;stringr&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>从 GitHub 离线安装：</p>
-  <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 假设我们将安装好的 zip包命名为 main.zip
+remotes::install_git(&quot;https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;github.com&#x2F;tidyverse&#x2F;stringr&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="从-GitHub-离线安装："><a href="#从-GitHub-离线安装：" class="headerlink" title="从 GitHub 离线安装："></a>从 GitHub 离线安装：</h4><pre class="line-numbers language-R" data-language="R"><code class="language-R"># 假设我们将安装好的 zip包命名为 main.zip
 devtools::install_local(&quot;main.zip&quot;)
 # 可以参考 https:&#x2F;&#x2F;ghproxy.com 使用 github 代理下载文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>  zip 包需要从 GitHub 下载(如图):</p>
-  <img src="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/a8af53aad80d4526923c61101c473a44.png" class="" title="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li><p>从在线源码安装：</p>
-  <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 这里的 &quot;https:&#x2F;&#x2F;cran.r-project.org&#x2F;src&#x2F;contrib&#x2F;stringr_1.4.1.tar.gz&quot; 就是源码的下载路径
-install.packages(&quot;https:&#x2F;&#x2F;cran.r-project.org&#x2F;src&#x2F;contrib&#x2F;stringr_1.4.1.tar.gz&quot;, repos&#x3D;NULL, type&#x3D;&quot;source&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>从离线源码安装：</p>
-  <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 将源码下载到本地，然后使用以下方式编译安装
+<p>zip 包需要从 GitHub 下载(如图):</p>
+<img src="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/a8af53aad80d4526923c61101c473a44.png" class="" title="在这里插入图片描述">
+
+<h4 id="从在线源码安装："><a href="#从在线源码安装：" class="headerlink" title="从在线源码安装："></a>从在线源码安装：</h4><pre class="line-numbers language-R" data-language="R"><code class="language-R"># 这里的 &quot;https:&#x2F;&#x2F;cran.r-project.org&#x2F;src&#x2F;contrib&#x2F;stringr_1.4.1.tar.gz&quot; 就是源码的下载路径
+install.packages(&quot;https:&#x2F;&#x2F;cran.r-project.org&#x2F;src&#x2F;contrib&#x2F;stringr_1.4.1.tar.gz&quot;, repos&#x3D;NULL, type&#x3D;&quot;source&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="从离线源码安装："><a href="#从离线源码安装：" class="headerlink" title="从离线源码安装："></a>从离线源码安装：</h4><pre class="line-numbers language-R" data-language="R"><code class="language-R"># 将源码下载到本地，然后使用以下方式编译安装
 
 install.packages(&#39;&#x2F;tmp&#x2F;stringr_1.4.1.tar.gz&#39;, repos&#x3D;NULL, type&#x3D;&quot;source&quot;)
 # 下载方式示例：
-wget &quot;https:&#x2F;&#x2F;cran.r-project.org&#x2F;src&#x2F;contrib&#x2F;stringr_1.4.1.tar.gz&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-<p><strong>其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样</strong></p>
+wget &quot;https:&#x2F;&#x2F;cran.r-project.org&#x2F;src&#x2F;contrib&#x2F;stringr_1.4.1.tar.gz&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样</strong>。</p>
 <h3 id="卸载-R-包"><a href="#卸载-R-包" class="headerlink" title="卸载 R 包"></a>卸载 R 包</h3><pre class="line-numbers language-R" data-language="R"><code class="language-R"># 命令示例，stringr 是包的名称
 remove.packages(&quot;stringr&quot;, lib &#x3D; &quot;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;R&#x2F;site-library&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
