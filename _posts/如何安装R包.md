@@ -12,7 +12,7 @@ tags: R包
 
 ## 步骤
 
-CRAN 在国内下载速度很快，因为它在国内有很多镜像。
+CRAN 在国内下载速度很快，因为它在国内有很多镜像，因此一般不用额外为 R 设置额外的国内镜像了。
 
 ### 1.设置国内镜像源（**可选**）
 
@@ -52,7 +52,7 @@ CRAN 在国内下载速度很快，因为它在国内有很多镜像。
 
 ### 3.安装 R 包
 
-### 安装R包的不同方式
+### 安装R包的不同工具
 
 ```R
 # R 包安装工具的下载方式, 养成好习惯，安装包时指定 lib，这样能把R包安装在指定的目录下
@@ -61,65 +61,64 @@ install.packages("remotes", lib = "/usr/local/lib/R/site-library")
 install.packages("BiocManager", lib = "/usr/local/lib/R/site-library")
 ```
 
-- 从 CRAN 安装：
+#### 从 CRAN 安装：
 
-    ```bash
-    install.packages("stringr")
-    ```
+```bash
+install.packages("stringr")
+```
 
-- 从 Bioconductor 安装：
+#### 从 Bioconductor 安装：
 
-    ```R
-    BiocManager::install("XVector")
-    ```
+```R
+BiocManager::install("XVector")
+```
 
-- 从 GitHub 在线安装：
+#### 从 GitHub 在线安装：
 
-    推荐一个 GitHub 代理网站 [https://ghproxy.com/](https://ghproxy.com/), 感谢该网站站长为中国开源做出的贡献！
+推荐一个 GitHub 代理网站 [https://ghproxy.com/](https://ghproxy.com/), 感谢该网站站长为中国开源做出的贡献！
 
-    ```R
-    # 这里 R 包对应的 GitHub 链接是 https://github.com/tidyverse/stringr
-    devtools::install_github("tidyverse/stringr")
-    remotes::install_github("tidyverse/stringr")
-    
-    # 使用 remotes 可以在安装时指定完整的 GitHub 链接，方便我们使用 GitHub 代理
-    remotes::install_git("https://github.com/tidyverse/stringr")
-    
-    # 使用国内代理下载 R 包源码并安装
-    remotes::install_git("https://ghproxy.com/https://github.com/tidyverse/stringr")
-    ```
+```R
+# 这里 R 包对应的 GitHub 链接是 https://github.com/tidyverse/stringr
+devtools::install_github("tidyverse/stringr")
+remotes::install_github("tidyverse/stringr")
 
-- 从 GitHub 离线安装：
+# 使用 remotes 可以在安装时指定完整的 GitHub 链接，方便我们使用 GitHub 代理
+remotes::install_git("https://github.com/tidyverse/stringr")
 
-    ```R
-    # 假设我们将安装好的 zip包命名为 main.zip
-    devtools::install_local("main.zip")
-    # 可以参考 https://ghproxy.com 使用 github 代理下载文件
-    ```
+# 使用国内代理下载 R 包源码并安装
+remotes::install_git("https://ghproxy.com/https://github.com/tidyverse/stringr")
+```
 
-    zip 包需要从 GitHub 下载(如图):
+#### 从 GitHub 离线安装：
 
-    ![在这里插入图片描述](如何安装R包/a8af53aad80d4526923c61101c473a44.png)
+```R
+# 假设我们将安装好的 zip包命名为 main.zip
+devtools::install_local("main.zip")
+# 可以参考 https://ghproxy.com 使用 github 代理下载文件
+```
 
+zip 包需要从 GitHub 下载(如图):
 
-- 从在线源码安装：
+![在这里插入图片描述](如何安装R包/a8af53aad80d4526923c61101c473a44.png)
 
-    ```R
-    # 这里的 "https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz" 就是源码的下载路径
-    install.packages("https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz", repos=NULL, type="source")
-    ```
+#### 从在线源码安装：
 
-- 从离线源码安装：
+```R
+# 这里的 "https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz" 就是源码的下载路径
+install.packages("https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz", repos=NULL, type="source")
+```
 
-    ```R
-    # 将源码下载到本地，然后使用以下方式编译安装
-    
-    install.packages('/tmp/stringr_1.4.1.tar.gz', repos=NULL, type="source")
-    # 下载方式示例：
-    wget "https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz"
-    ```
+#### 从离线源码安装：
 
-**其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样**
+```R
+# 将源码下载到本地，然后使用以下方式编译安装
+
+install.packages('/tmp/stringr_1.4.1.tar.gz', repos=NULL, type="source")
+# 下载方式示例：
+wget "https://cran.r-project.org/src/contrib/stringr_1.4.1.tar.gz"
+```
+
+**其实归根结底所有的 R 包都是通过源码安装的，不过是下载源码的渠道不一样**。
 
 ### 卸载 R 包
 
