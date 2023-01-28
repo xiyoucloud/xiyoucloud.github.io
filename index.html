@@ -260,6 +260,235 @@
 
     
     <article
+  id="post-singularity-apptainer使用教程"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"
+    >singularity/apptainer使用教程</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+  <time datetime="2023-01-20T04:25:50.000Z" itemprop="datePublished">2023-01-20</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 singularity</span>
+conda create -n singularity
+conda activate singularity
+conda <span class="token function">install</span> -c conda-forge singularity
+
+<span class="token comment"># 安装 apptainer</span>
+conda create -n apptainer
+conda activate apptainer
+conda <span class="token function">install</span> -c conda-forge apptainer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Apptainer</strong>是一个相对较新的容器软件，相对于 docker 来说，它不需要 root 权限，因此更符合科研应用的场景（因为共享服务器中普通用户通常不会有root权限）。</p>
+<p>Apptainer 的旧版本被称为 Singularity，关于它们之间的兼容性以及从 singularity 迁移到 apptainer 可以参考这个链接：<a target="_blank" rel="noopener" href="https://apptainer.org/docs/user/main/singularity_compatibility.html%E3%80%82">https://apptainer.org/docs/user/main/singularity_compatibility.html。</a></p>
+<p>通常来说，singularity 可以用 apptainer 命令代替（如果你安装了 apptainer）。</p>
+<p>Singularity官方文档：<a target="_blank" rel="noopener" href="https://github.com/apptainer/singularity">https://github.com/apptainer/singularity</a></p>
+<p>Apptainer官方文档：<a target="_blank" rel="noopener" href="https://github.com/apptainer/apptainer">https://github.com/apptainer/apptainer</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Docker</th>
+<th>Apptainer（使用Singularity的话，将命令中的apptainer替换为singularity）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>镜像</td>
+<td>有</td>
+<td>无（Apptainer没有镜像的概念，用户创建和运行的都是一个个容器）</td>
+</tr>
+<tr>
+<td>获取镜像（容器）</td>
+<td><code>docker pull busybox:latest</code></td>
+<td><code>apptainer pull ./busybox.sif docker://busybox:latest</code>或者<code>apptainer build ./busybox.sif docker://busybox:latest</code></td>
+</tr>
+<tr>
+<td>容器</td>
+<td>有</td>
+<td>有（Apptainer容器有两种存在形式：SIF和sandbox。SIF只读，主要用来执行用户程序；sandbox可修改，可用来开发和创建新容器）</td>
+</tr>
+<tr>
+<td>查看运行的容器</td>
+<td><code>docker ps</code></td>
+<td><code>apptainer instance list</code></td>
+</tr>
+<tr>
+<td>运行容器</td>
+<td><code>docker run busybox ping www.baidu.com</code></td>
+<td><code>apptainer exec busybox.sif ping www.baidu.com</code></td>
+</tr>
+<tr>
+<td>挂载目录</td>
+<td><code>-v host_path:container_path</code></td>
+<td><code>-B</code>或者<code>--bind</code></td>
+</tr>
+<tr>
+<td>交互式运行容器</td>
+<td><code>docker run -it busybox</code></td>
+<td><code>apptainer shell busybox.sif</code></td>
+</tr>
+<tr>
+<td>自定义镜像（容器）</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-dockerfile.html">Dockerfile文件</a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.sylabs.io/guides/3.7/user-guide/definition_files.html">Definition Files</a></td>
+</tr>
+</tbody></table>
+<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apptainer pull docker://ubuntu:22.04
+<span class="token comment"># 拉取镜像之后指定镜像在本地保存的文件名称</span>
+apptainer build ubuntu22.sif  docker://ubuntu:22.04<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="转化镜像格式"><a href="#转化镜像格式" class="headerlink" title="转化镜像格式"></a>转化镜像格式</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将tar包格式的docker镜像转化为sif格式</span>
+singularity build hello_world.sif docker-archive://hello_world.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="在容器中执行命令"><a href="#在容器中执行命令" class="headerlink" title="在容器中执行命令"></a>在容器中执行命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方式1：进入到容器，然后再终端中执行命令</span>
+apptainer shell ubuntu22.sif
+<span class="token comment"># 方式2：在容器中执行 pwd 命令</span>
+apptainer <span class="token builtin class-name">exec</span> ubuntu22.sif <span class="token string">"pwd"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><p><a target="_blank" rel="noopener" href="https://apptainer.org/docs/user/main/definition_files.html#runscript">Apptainer</a>容器包含运行脚本。这些是用户定义的脚本，用于定义容器在有人运行时应执行的操作。runscript 可以用 <a target="_blank" rel="noopener" href="https://apptainer.org/docs/user/main/cli/apptainer_run.html">run</a> 命令触发，或者简单地通过调用容器就像它是一个可执行文件一样。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方式 1</span>
+apptainer run ubuntu22.sif 
+<span class="token comment"># 方式 2</span>
+./ubuntu22.sif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h2><p>默认情况下，Apptainer 会在运行时将<code>/home/$USER</code>、 <code>/tmp</code>和绑定<code>$PWD</code>到您的容器中。当然 apptainer 也提供了其他参数可以在宿主机和容器中进行映射。<a target="_blank" rel="noopener" href="https://apptainer.org/docs/user/main/bind_paths_and_mounts.html">https://apptainer.org/docs/user/main/bind_paths_and_mounts.html</a></p>
+<h2 id="构建容器"><a href="#构建容器" class="headerlink" title="构建容器"></a>构建容器</h2><p>构建容器有两种方式，一种是根据原有的镜像进行更改。</p>
+<p>一种是根据镜像定义文件 xx.def 定义镜像的构建流程。构建 xx.def 的语法规则可以参考这个链接：<a target="_blank" rel="noopener" href="https://apptainer.org/docs/user/latest/definition_files.html">https://apptainer.org/docs/user/latest/definition_files.html</a></p>
+<p>apptainer镜像文件默认只可以复制和验证，如果想要自己构建镜像，需要一种可写的镜像格式，此时需要以沙箱的模式运行镜像。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 此命令在当前工作目录中创建一个名为ubuntu/整个 Ubuntu 操作系统和一些 Apptainer 元数据的目录。</span>
+apptainer build --sandbox ubuntu/ docker://ubuntu
+
+<span class="token comment"># 运行容器，并在其中对镜像进行修改（如安装软件）</span>
+apptainer shell --fakeroot -w ./ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>文件内容示例 lolcow.def：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">BootStrap</span><span class="token punctuation">:</span> docker
+<span class="token key atrule">From</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">:</span><span class="token number">20.04</span>
+
+<span class="token directive important">%post</span>
+    apt<span class="token punctuation">-</span>get <span class="token punctuation">-</span>y update
+    apt<span class="token punctuation">-</span>get <span class="token punctuation">-</span>y install cowsay lolcat
+
+<span class="token directive important">%environment</span>
+    export LC_ALL=C
+    export PATH=/usr/games<span class="token punctuation">:</span>$PATH
+
+<span class="token directive important">%runscript</span>
+    date <span class="token punctuation">|</span> cowsay <span class="token punctuation">|</span> lolcat
+
+<span class="token directive important">%labels</span>
+    Author Alice<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>根据文件内容构建镜像：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apptainer build lolcow.sif lolcow.def<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="apptainer容器后台运行"><a href="#apptainer容器后台运行" class="headerlink" title="apptainer容器后台运行"></a>apptainer容器后台运行</h2><h3 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~
+<span class="token function">mkdir</span> pyscenic
+<span class="token builtin class-name">cd</span> pyscenic
+<span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/aertslab/scenic-nf/master/example/expr_mat.tsv
+<span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/aertslab/scenic-nf/master/example/allTFs_hg38.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们先来看看如何使用 apptainer 或 docker 在<strong>前台</strong>运行 pyscenic容器。</p>
+<h3 id="示例1（使用-apptainer-运行-pyscenic）："><a href="#示例1（使用-apptainer-运行-pyscenic）：" class="headerlink" title="示例1（使用 apptainer 运行 pyscenic）："></a>示例1（使用 apptainer 运行 pyscenic）：</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apptainer run -B <span class="token environment constant">$PWD</span>:/data/ pyscenic_0.10.0.sif pyscenic grn --num_workers <span class="token number">5</span> --output /data/expr_mat.adjacencies.apptainer.tsv /data/expr_mat.tsv /data/allTFs_hg38.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="示例2（使用-docker运行-pyscenic-的命令）："><a href="#示例2（使用-docker运行-pyscenic-的命令）：" class="headerlink" title="示例2（使用 docker运行 pyscenic 的命令）："></a>示例2（使用 docker运行 pyscenic 的命令）：</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -it --rm -v <span class="token environment constant">$PWD</span>:/data aertslab/pyscenic:0.10.0 pyscenic grn --num_workers <span class="token number">5</span> -o /data/expr_mat.adjacencies.docker.tsv /data/expr_mat.tsv /data/allTFs_hg38.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>参考以上两个示例，我们可以写出在容器内部后台执行命令的方式。</p>
+<p>首先运行一个容器，然后进入到容器内部，将对应的命令使用 nohup 挂起运行。</p>
+<p>如果你想了解如何让程序后台运行的方式可以参考这个链接：<a href="#">Post not found: 进程的后台运行-bg-fg-nohup</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 进入容器让命令后台运行</span>
+singularity instance start pyscenic_0.10.0.sif pyscenic
+<span class="token comment">## 查看运行中的容器</span>
+singularity instance list
+<span class="token comment">## 进入容器内部</span>
+singularity shell instance://pyscenic
+<span class="token comment">## 后台执行命令</span>
+<span class="token function">nohup</span> pyscenic grn --num_workers <span class="token number">16</span> -o <span class="token environment constant">$PWD</span>/expr_mat.adjacencies.docker.tsv <span class="token environment constant">$PWD</span>/expr_mat.tsv <span class="token environment constant">$PWD</span>/allTFs_hg38.txt <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="在容器中安装和使用软件"><a href="#在容器中安装和使用软件" class="headerlink" title="在容器中安装和使用软件"></a>在容器中安装和使用软件</h2><p>在沙箱容器中安装的软件只能在容器中使用。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 构建沙箱环境的保存目录</span>
+apptainer build --sandbox ubuntu/ ubuntu22.sif
+<span class="token comment"># 进入到容器中</span>
+apptainer shell --fakeroot -w ./ubuntu
+
+<span class="token comment"># 安装软件并使用，容器内用户拥有 root 权限</span>
+<span class="token function">apt</span> update
+<span class="token function">apt</span> <span class="token function">install</span> r-base
+<span class="token comment"># 在容器中运行软件</span>
+R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apptainer/" rel="tag">apptainer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/singularity/" rel="tag">singularity</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-docker使用教程"
   class="article article-type-post"
   itemscope
@@ -288,7 +517,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">806</span>
+            <span class="post-count">857</span>
         </span>
     </span>
 
@@ -320,7 +549,7 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apptainer/" rel="tag">apptainer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/singularity/" rel="tag">singularity</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
 
     </footer>
   </div>
@@ -846,80 +1075,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-jupyter部署教程"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/"
-    >jupyter部署教程</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/" class="article-date">
-  <time datetime="2023-01-06T01:54:51.000Z" itemprop="datePublished">2023-01-06</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">970</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><strong>jupyter 分为 jupyter notebook 和 jupyter lab，两者选其一配置即可。</strong></p>
-<p>jupyter 官网：<a target="_blank" rel="noopener" href="https://jupyter.org/">https://jupyter.org/</a></p> 
-      <a class="article-more-link" href="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a></li></ul>
 
     </footer>
   </div>

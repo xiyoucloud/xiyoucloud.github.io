@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiyoucloud.github.io/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2023-01-28</lastmod>
+  </url>
+  <url>
+    <loc>https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</loc>
+    <lastmod>2023-01-27</lastmod>
+  </url>
+  <url>
     <loc>https://xiyoucloud.github.io/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-01-20</lastmod>
+    <lastmod>2023-01-25</lastmod>
   </url>
   <url>
     <loc>https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/</loc>
@@ -54,10 +62,6 @@
   </url>
   <url>
     <loc>https://xiyoucloud.github.io/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2023-01-05</lastmod>
-  </url>
-  <url>
-    <loc>https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</loc>
     <lastmod>2023-01-05</lastmod>
   </url>
   <url>

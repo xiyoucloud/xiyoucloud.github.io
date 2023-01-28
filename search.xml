@@ -34,6 +34,175 @@
       </tags>
   </entry>
   <entry>
+    <title>singularity/apptainer使用教程</title>
+    <url>/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><span id="more"></span>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 singularity</span>
+conda create -n singularity
+conda activate singularity
+conda <span class="token function">install</span> -c conda-forge singularity
+
+<span class="token comment"># 安装 apptainer</span>
+conda create -n apptainer
+conda activate apptainer
+conda <span class="token function">install</span> -c conda-forge apptainer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Apptainer</strong>是一个相对较新的容器软件，相对于 docker 来说，它不需要 root 权限，因此更符合科研应用的场景（因为共享服务器中普通用户通常不会有root权限）。</p>
+<p>Apptainer 的旧版本被称为 Singularity，关于它们之间的兼容性以及从 singularity 迁移到 apptainer 可以参考这个链接：<a href="https://apptainer.org/docs/user/main/singularity_compatibility.html%E3%80%82">https://apptainer.org/docs/user/main/singularity_compatibility.html。</a></p>
+<p>通常来说，singularity 可以用 apptainer 命令代替（如果你安装了 apptainer）。</p>
+<p>Singularity官方文档：<a href="https://github.com/apptainer/singularity">https://github.com/apptainer/singularity</a></p>
+<p>Apptainer官方文档：<a href="https://github.com/apptainer/apptainer">https://github.com/apptainer/apptainer</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Docker</th>
+<th>Apptainer（使用Singularity的话，将命令中的apptainer替换为singularity）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>镜像</td>
+<td>有</td>
+<td>无（Apptainer没有镜像的概念，用户创建和运行的都是一个个容器）</td>
+</tr>
+<tr>
+<td>获取镜像（容器）</td>
+<td><code>docker pull busybox:latest</code></td>
+<td><code>apptainer pull ./busybox.sif docker://busybox:latest</code>或者<code>apptainer build ./busybox.sif docker://busybox:latest</code></td>
+</tr>
+<tr>
+<td>容器</td>
+<td>有</td>
+<td>有（Apptainer容器有两种存在形式：SIF和sandbox。SIF只读，主要用来执行用户程序；sandbox可修改，可用来开发和创建新容器）</td>
+</tr>
+<tr>
+<td>查看运行的容器</td>
+<td><code>docker ps</code></td>
+<td><code>apptainer instance list</code></td>
+</tr>
+<tr>
+<td>运行容器</td>
+<td><code>docker run busybox ping www.baidu.com</code></td>
+<td><code>apptainer exec busybox.sif ping www.baidu.com</code></td>
+</tr>
+<tr>
+<td>挂载目录</td>
+<td><code>-v host_path:container_path</code></td>
+<td><code>-B</code>或者<code>--bind</code></td>
+</tr>
+<tr>
+<td>交互式运行容器</td>
+<td><code>docker run -it busybox</code></td>
+<td><code>apptainer shell busybox.sif</code></td>
+</tr>
+<tr>
+<td>自定义镜像（容器）</td>
+<td><a href="https://www.runoob.com/docker/docker-dockerfile.html">Dockerfile文件</a></td>
+<td><a href="https://docs.sylabs.io/guides/3.7/user-guide/definition_files.html">Definition Files</a></td>
+</tr>
+</tbody></table>
+<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apptainer pull docker://ubuntu:22.04
+<span class="token comment"># 拉取镜像之后指定镜像在本地保存的文件名称</span>
+apptainer build ubuntu22.sif  docker://ubuntu:22.04<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="转化镜像格式"><a href="#转化镜像格式" class="headerlink" title="转化镜像格式"></a>转化镜像格式</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将tar包格式的docker镜像转化为sif格式</span>
+singularity build hello_world.sif docker-archive://hello_world.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="在容器中执行命令"><a href="#在容器中执行命令" class="headerlink" title="在容器中执行命令"></a>在容器中执行命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方式1：进入到容器，然后再终端中执行命令</span>
+apptainer shell ubuntu22.sif
+<span class="token comment"># 方式2：在容器中执行 pwd 命令</span>
+apptainer <span class="token builtin class-name">exec</span> ubuntu22.sif <span class="token string">"pwd"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><p><a href="https://apptainer.org/docs/user/main/definition_files.html#runscript">Apptainer</a>容器包含运行脚本。这些是用户定义的脚本，用于定义容器在有人运行时应执行的操作。runscript 可以用 <a href="https://apptainer.org/docs/user/main/cli/apptainer_run.html">run</a> 命令触发，或者简单地通过调用容器就像它是一个可执行文件一样。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方式 1</span>
+apptainer run ubuntu22.sif 
+<span class="token comment"># 方式 2</span>
+./ubuntu22.sif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h2><p>默认情况下，Apptainer 会在运行时将<code>/home/$USER</code>、 <code>/tmp</code>和绑定<code>$PWD</code>到您的容器中。当然 apptainer 也提供了其他参数可以在宿主机和容器中进行映射。<a href="https://apptainer.org/docs/user/main/bind_paths_and_mounts.html">https://apptainer.org/docs/user/main/bind_paths_and_mounts.html</a></p>
+<h2 id="构建容器"><a href="#构建容器" class="headerlink" title="构建容器"></a>构建容器</h2><p>构建容器有两种方式，一种是根据原有的镜像进行更改。</p>
+<p>一种是根据镜像定义文件 xx.def 定义镜像的构建流程。构建 xx.def 的语法规则可以参考这个链接：<a href="https://apptainer.org/docs/user/latest/definition_files.html">https://apptainer.org/docs/user/latest/definition_files.html</a></p>
+<p>apptainer镜像文件默认只可以复制和验证，如果想要自己构建镜像，需要一种可写的镜像格式，此时需要以沙箱的模式运行镜像。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 此命令在当前工作目录中创建一个名为ubuntu/整个 Ubuntu 操作系统和一些 Apptainer 元数据的目录。</span>
+apptainer build --sandbox ubuntu/ docker://ubuntu
+
+<span class="token comment"># 运行容器，并在其中对镜像进行修改（如安装软件）</span>
+apptainer shell --fakeroot -w ./ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>文件内容示例 lolcow.def：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">BootStrap</span><span class="token punctuation">:</span> docker
+<span class="token key atrule">From</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">:</span><span class="token number">20.04</span>
+
+<span class="token directive important">%post</span>
+    apt<span class="token punctuation">-</span>get <span class="token punctuation">-</span>y update
+    apt<span class="token punctuation">-</span>get <span class="token punctuation">-</span>y install cowsay lolcat
+
+<span class="token directive important">%environment</span>
+    export LC_ALL=C
+    export PATH=/usr/games<span class="token punctuation">:</span>$PATH
+
+<span class="token directive important">%runscript</span>
+    date <span class="token punctuation">|</span> cowsay <span class="token punctuation">|</span> lolcat
+
+<span class="token directive important">%labels</span>
+    Author Alice<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>根据文件内容构建镜像：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apptainer build lolcow.sif lolcow.def<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="apptainer容器后台运行"><a href="#apptainer容器后台运行" class="headerlink" title="apptainer容器后台运行"></a>apptainer容器后台运行</h2><h3 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~
+<span class="token function">mkdir</span> pyscenic
+<span class="token builtin class-name">cd</span> pyscenic
+<span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/aertslab/scenic-nf/master/example/expr_mat.tsv
+<span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/aertslab/scenic-nf/master/example/allTFs_hg38.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们先来看看如何使用 apptainer 或 docker 在<strong>前台</strong>运行 pyscenic容器。</p>
+<h3 id="示例1（使用-apptainer-运行-pyscenic）："><a href="#示例1（使用-apptainer-运行-pyscenic）：" class="headerlink" title="示例1（使用 apptainer 运行 pyscenic）："></a>示例1（使用 apptainer 运行 pyscenic）：</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apptainer run -B <span class="token environment constant">$PWD</span>:/data/ pyscenic_0.10.0.sif pyscenic grn --num_workers <span class="token number">5</span> --output /data/expr_mat.adjacencies.apptainer.tsv /data/expr_mat.tsv /data/allTFs_hg38.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="示例2（使用-docker运行-pyscenic-的命令）："><a href="#示例2（使用-docker运行-pyscenic-的命令）：" class="headerlink" title="示例2（使用 docker运行 pyscenic 的命令）："></a>示例2（使用 docker运行 pyscenic 的命令）：</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -it --rm -v <span class="token environment constant">$PWD</span>:/data aertslab/pyscenic:0.10.0 pyscenic grn --num_workers <span class="token number">5</span> -o /data/expr_mat.adjacencies.docker.tsv /data/expr_mat.tsv /data/allTFs_hg38.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>参考以上两个示例，我们可以写出在容器内部后台执行命令的方式。</p>
+<p>首先运行一个容器，然后进入到容器内部，将对应的命令使用 nohup 挂起运行。</p>
+<p>如果你想了解如何让程序后台运行的方式可以参考这个链接：<a href="#">Post not found: 进程的后台运行-bg-fg-nohup</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 进入容器让命令后台运行</span>
+singularity instance start pyscenic_0.10.0.sif pyscenic
+<span class="token comment">## 查看运行中的容器</span>
+singularity instance list
+<span class="token comment">## 进入容器内部</span>
+singularity shell instance://pyscenic
+<span class="token comment">## 后台执行命令</span>
+<span class="token function">nohup</span> pyscenic grn --num_workers <span class="token number">16</span> -o <span class="token environment constant">$PWD</span>/expr_mat.adjacencies.docker.tsv <span class="token environment constant">$PWD</span>/expr_mat.tsv <span class="token environment constant">$PWD</span>/allTFs_hg38.txt <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="在容器中安装和使用软件"><a href="#在容器中安装和使用软件" class="headerlink" title="在容器中安装和使用软件"></a>在容器中安装和使用软件</h2><p>在沙箱容器中安装的软件只能在容器中使用。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 构建沙箱环境的保存目录</span>
+apptainer build --sandbox ubuntu/ ubuntu22.sif
+<span class="token comment"># 进入到容器中</span>
+apptainer shell --fakeroot -w ./ubuntu
+
+<span class="token comment"># 安装软件并使用，容器内用户拥有 root 权限</span>
+<span class="token function">apt</span> update
+<span class="token function">apt</span> <span class="token function">install</span> r-base
+<span class="token comment"># 在容器中运行软件</span>
+R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>apptainer</tag>
+        <tag>singularity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker使用教程</title>
     <url>/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>docker 安装教程：<a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
@@ -77,7 +246,7 @@
 <span class="token function">docker</span> pull ubuntu:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><p>默认根据当前目录下的 Dockerfile 来构建一个镜像，关于 Dockerfile 的语法可以参考这个链接：<a href="http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D">http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D</a></p>
-<p>构建 docker 镜像是可以通过参数对镜像进行设置，详情可以参考这个链接：<a href="https://www.runoob.com/docker/docker-build-command.html">https://www.runoob.com/docker/docker-build-command.html</a></p>
+<p>构建 docker 镜像时可以通过参数对镜像进行设置，详情可以参考这个链接：<a href="https://www.runoob.com/docker/docker-build-command.html">https://www.runoob.com/docker/docker-build-command.html</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> build -t <span class="token builtin class-name">.</span>
 <span class="token function">docker</span> build -f Dockfile所在的目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -102,9 +271,13 @@
 <span class="token comment"># 查看容器中的文件结构更改</span>
 <span class="token function">docker</span> <span class="token function">diff</span> 容器id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>更多参数的使用方法请查看这个链接：<a href="https://www.runoob.com/docker/docker-run-command.html">https://www.runoob.com/docker/docker-run-command.html</a></p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>更多参数的使用方法请查看这个链接：<a href="https://www.runoob.com/docker/docker-run-command.html">https://www.runoob.com/docker/docker-run-command.html</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 让容器后台运行，退出容器后，容器不会立即停止运行</span>
 <span class="token function">docker</span> run -d --name 容器名 镜像id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>运行后的容器就处于 running 状态了，但容器可能因为一些情况终止运行，此时需要将容器重新启动。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> start 容器名
+<span class="token function">docker</span> restart 容器 <span class="token function">id</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> stop 容器id
 <span class="token function">docker</span> stop 容器名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -133,8 +306,6 @@
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>docker</tag>
-        <tag>apptainer</tag>
-        <tag>singularity</tag>
       </tags>
   </entry>
   <entry>
@@ -962,60 +1133,85 @@ A(ubuntu) --> C(ubuntu server)</pre>
 <p>软件源实际上是一个链接，链接中包含了很多的软件资源。</p>
 <p>系统默认是配置好软件源的，它保存在 /etc/apt/sources.list 和 /etc/apt/sources.list.d/xiyou.list 的文件中</p>
 <p><strong>值得一提的是不同的操作系统版本使用的软件源是不一样的，因此配置源时需要配置操作系统版本对应的源</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt edit-sources</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看操作系统版本</span></span><br><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> edit-sources
+
+<span class="token comment"># 查看操作系统版本</span>
+lsb_release -a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>好习惯是如果你手动修改 /etc/apt/sources.list 文件，你最好对它建立一个备份，然后再编辑它，这样能够防止自己改错文件后可以从备份中恢复文件。 </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line">vi /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让配置的源生效</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak
+<span class="token function">vi</span> /etc/apt/sources.list
+
+<span class="token comment"># 让配置的源生效</span>
+<span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="1-增加-修改软件源（以修改文件的方式）"><a href="#1-增加-修改软件源（以修改文件的方式）" class="headerlink" title="1.增加/修改软件源（以修改文件的方式）"></a>1.增加/修改软件源（以修改文件的方式）</h3><p>清华软件源：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a> （可以手动选择到合适的系统版本）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ubuntu 20.04 修改官方软件源为清华源</span></span><br><span class="line">sudo sed -i <span class="string">&quot;s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot;</span> /etc/apt/sources.list</span><br><span class="line">sudo sed -i <span class="string">&quot;s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ubuntu 20.04 修改官方软件源为清华源</span>
+<span class="token function">sudo</span> <span class="token function">sed</span> -i <span class="token string">"s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g"</span> /etc/apt/sources.list
+<span class="token function">sudo</span> <span class="token function">sed</span> -i <span class="token string">"s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g"</span> /etc/apt/sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
 <img src="/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/23aa7b97d6264c48bf19768c1f3e9585.png" class="" title="在这里插入图片描述">
 
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释， 这是 ubuntu 20.04 的软件源</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释， 这是 ubuntu 20.04 的软件源</span>
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+<span class="token comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span>
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+<span class="token comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span>
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+<span class="token comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span>
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+<span class="token comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="2-增加软件源-以命令的方式"><a href="#2-增加软件源-以命令的方式" class="headerlink" title="2.增加软件源 (以命令的方式)"></a>2.增加软件源 (以命令的方式)</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-add-repository <span class="string">&#x27;deb http://myserver/path/to/repo stable myrepo&#x27;</span></span><br><span class="line">apt-add-repository <span class="string">&#x27;http://myserver/path/to/repo myrepo&#x27;</span></span><br><span class="line">apt-add-repository <span class="string">&#x27;https://packages.medibuntu.org free non-free&#x27;</span></span><br><span class="line">apt-add-repository http://extras.ubuntu.com/ubuntu</span><br><span class="line">apt-add-repository ppa:user/repository</span><br><span class="line">apt-add-repository ppa:user/distro/repository</span><br><span class="line">apt-add-repository multiverse</span><br></pre></td></tr></table></figure>
+<h3 id="2-增加软件源-以命令的方式"><a href="#2-增加软件源-以命令的方式" class="headerlink" title="2.增加软件源 (以命令的方式)"></a>2.增加软件源 (以命令的方式)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apt-add-repository <span class="token string">'deb http://myserver/path/to/repo stable myrepo'</span>
+apt-add-repository <span class="token string">'http://myserver/path/to/repo myrepo'</span>
+apt-add-repository <span class="token string">'https://packages.medibuntu.org free non-free'</span>
+apt-add-repository http://extras.ubuntu.com/ubuntu
+apt-add-repository ppa:user/repository
+apt-add-repository ppa:user/distro/repository
+apt-add-repository multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="3-删除软件源"><a href="#3-删除软件源" class="headerlink" title="3.删除软件源"></a>3.删除软件源</h3><p>以修改文件的方式：使用“#”注释掉不想要的软件源 vi /etc/apt/sources.list</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在文件的每一行的前面加 #，即注释掉该文件中所有的源</span></span><br><span class="line">sed -i <span class="string">&quot;s/^/#/&quot;</span> /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 删除刚刚添加的 #，撤销上一步操作</span></span><br><span class="line">sed -i <span class="string">&#x27;s/.//&#x27;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在文件的每一行的前面加 #，即注释掉该文件中所有的源</span>
+<span class="token function">sed</span> -i <span class="token string">"s/^/#/"</span> /etc/apt/sources.list
+<span class="token comment"># 删除刚刚添加的 #，撤销上一步操作</span>
+<span class="token function">sed</span> -i <span class="token string">'s/.//'</span> /etc/apt/sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使用命令的方式删除源：<code>apt-add-repository -r &#39;https://packages.medibuntu.org free non-free&#39;</code></p>
 <h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p>dpkg 用于安装本地的 .deb 包，处理依赖的能力较差。</p>
 <p>apt 是基于 dpkg 封装好的软件包管理工具，它从软件源安装软件，并能较好地处理软件依赖，使用起来更加方便。</p>
 <p><strong>以下命令以 wget 软件为例</strong></p>
-<ul>
-<li>更新存储库</li>
-</ul>
-<p>apt 从软件源安装软件，它需要在本地维护一个软件源的存储库，这样就能在存储库中搜索软件包了。但软件源中的软件包信息是频繁更新的，如果你想使用更新版本的软件，你就需要先更新本地的存储库，再进行软件安装。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
+<h3 id="更新存储库"><a href="#更新存储库" class="headerlink" title="更新存储库"></a>更新存储库</h3><p>apt 从软件源安装软件，它需要在本地维护一个软件源的存储库，这样就能在存储库中搜索软件包了。但软件源中的软件包信息是频繁更新的，如果你想使用更新版本的软件，你就需要先更新本地的存储库，再进行软件安装。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<ul>
-<li>搜索软件包</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt search ^wget</span><br></pre></td></tr></table></figure>
+<h3 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> search ^wget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<ul>
-<li>安装软件包</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install wget</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 dpkg 安装软件包</span></span><br><span class="line">dpkg -i xx.deb</span><br></pre></td></tr></table></figure>
+<h3 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> <span class="token function">wget</span>
 
-<ul>
-<li>查看软件包</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看本地是否安装 wget</span></span><br><span class="line">apt list | grep ^wget</span><br><span class="line"><span class="comment"># 查看软件包的具体信息</span></span><br><span class="line">apt show wget</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看软件包对应的文件信息</span></span><br><span class="line">dpkg -L rstudio-server</span><br></pre></td></tr></table></figure>
+<span class="token comment"># 使用 dpkg 安装软件包</span>
+dpkg -i xx.deb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li>卸载软件包</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载软件，保留相关文件</span></span><br><span class="line">apt remove rstudio-server</span><br><span class="line"><span class="comment"># 卸载软件并删除相关文件</span></span><br><span class="line">apt autoremove rstudio-server</span><br></pre></td></tr></table></figure>
+<h3 id="查看软件包"><a href="#查看软件包" class="headerlink" title="查看软件包"></a>查看软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看本地是否安装 wget</span>
+<span class="token function">apt</span> list <span class="token operator">|</span> <span class="token function">grep</span> ^wget
+<span class="token comment"># 查看软件包的具体信息</span>
+<span class="token function">apt</span> show <span class="token function">wget</span>
 
-<ul>
-<li>更新软件包</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先更新存储库，确保获取到更新的版本包信息</span></span><br><span class="line">apt update</span><br><span class="line"><span class="comment"># 更新系统中所有的软件包，使用 installing/upgrading packages 的方式来处理依赖</span></span><br><span class="line">apt upgrade</span><br><span class="line"><span class="comment"># 更新系统中所有的软件包，使用 removing/installing/upgrading packages 的方式来处理依赖</span></span><br><span class="line">apt full-upgrade</span><br></pre></td></tr></table></figure>
+<span class="token comment"># 查看软件包对应的文件信息</span>
+dpkg -L rstudio-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="卸载软件包"><a href="#卸载软件包" class="headerlink" title="卸载软件包"></a>卸载软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 卸载软件，保留相关文件</span>
+<span class="token function">apt</span> remove rstudio-server
+<span class="token comment"># 卸载软件并删除相关文件</span>
+<span class="token function">apt</span> autoremove rstudio-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 先更新存储库，确保获取到更新的版本包信息</span>
+<span class="token function">apt</span> update
+<span class="token comment"># 更新系统中所有的软件包，使用 installing/upgrading packages 的方式来处理依赖</span>
+<span class="token function">apt</span> upgrade
+<span class="token comment"># 更新系统中所有的软件包，使用 removing/installing/upgrading packages 的方式来处理依赖</span>
+<span class="token function">apt</span> full-upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="apt-和-apt-get-的关系："><a href="#apt-和-apt-get-的关系：" class="headerlink" title="apt 和 apt-get 的关系："></a>apt 和 apt-get 的关系：</h2><p>在 shell 中通常使用 apt，因为可以少打 4 个字符。在脚本中安装软件通常使用 apt-get，兼容性更好，通常在脚本中使用。</p>
 <p><strong>WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</strong></p>
