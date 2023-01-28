@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>归档 |  xiyoucloud</title>
+      <title>rstudio使用技巧 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -70,256 +70,244 @@
       
     <main class="content on">
       <section class="outer">
-  
-  <ul class="ads">
+  <article
+  id="post-rstudio使用技巧"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  rstudio使用技巧
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="article-date">
+  <time datetime="2023-01-28T14:02:07.000Z" itemprop="datePublished">2023-01-28</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">478</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>这篇文章的目的是为了让大家关于rstudio有更多的共同语言。</p>
+<p>这篇文章的结构是零散的，大家按需查看对应的段落即可。</p>
+<span id="more"></span>
+
+<h1 id="rstudio布局"><a href="#rstudio布局" class="headerlink" title="rstudio布局"></a>rstudio布局</h1><p>关于rstudio的布局可以通过rstudio界面顶部的 <strong>Worksapce Panes</strong>来设置。如无特殊说明，后文中所有的界面采用下图中红色标注的设置。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1674915255918.png" class="" width="1674915255918">
+
+<h1 id="查看libpath中安装的R包"><a href="#查看libpath中安装的R包" class="headerlink" title="查看libpath中安装的R包"></a>查看libpath中安装的R包</h1><p>在rstudio右下角中选择<strong>Packages</strong>，然后再下方的搜索框中搜索。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128221710500.png" class="" title="image-20230128221710500">
+
+<h1 id="新建一个终端"><a href="#新建一个终端" class="headerlink" title="新建一个终端"></a>新建一个终端</h1><p>布局中左下角的位置可以查看 Console、Terminal、Background Jobs，如果不小心关掉了终端，可以这样新建一个终端。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128222302185.png" class="" title="image-20230128222302185">
+
+<h1 id="关闭当前Session"><a href="#关闭当前Session" class="headerlink" title="关闭当前Session"></a>关闭当前Session</h1><p>布局中右上角可以关闭当前session（会话）</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128222651523.png" class="" title="image-20230128222651523">
+
+<h1 id="Start-New-Session"><a href="#Start-New-Session" class="headerlink" title="Start New Session"></a>Start New Session</h1><p>关闭一个session后可以创建一个新的session（会话）</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128222810092.png" class="" title="image-20230128222810092">
+
+<h1 id="终止代码的执行"><a href="#终止代码的执行" class="headerlink" title="终止代码的执行"></a>终止代码的执行</h1><img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128223347164.png" class="" title="image-20230128223347164">
+
+<h1 id="执行代码"><a href="#执行代码" class="headerlink" title="执行代码"></a>执行代码</h1><img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128223711493.png" class="" title="image-20230128223711493">
+
+<h1 id="保存rstudio中的文件"><a href="#保存rstudio中的文件" class="headerlink" title="保存rstudio中的文件"></a>保存rstudio中的文件</h1><p>rstudio崩溃会导致文件内容丢失，因此为了防止文件内容丢失，需要养成好习惯，经常对文件内容进行保存。使用 ctrl + s 即可保存文件。对于没有创建文件名的文件，需要手动设置一下文件名，对于已经创建文件名的文件则自动将文件内容保存在文件中。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128224329494.png" class="" title="image-20230128224329494">
+
+<p>未保存的文件在文件名的右上角会有一个星号：</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128224511057.png" class="" title="image-20230128224511057">
+
+<h1 id="查看R中的内存使用报告"><a href="#查看R中的内存使用报告" class="headerlink" title="查看R中的内存使用报告"></a>查看R中的内存使用报告</h1><p>在Environment中点击显示内存的下拉框按钮，然后点击 <strong>Memory Usage Report</strong> 就可以查看 R 和系统的内存使用报告了。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1674917407599.png" class="" width="1674917407599">
+
+<h1 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h1><p>大家都知道在R中可以使用setwd()可以设置工作目录，但有时候不知道该怎样描述设置的路径，可以参考下面图片将当前项目的目录设置为工作目录。如果你需要设置其他目录为工作路径，酌情更改即可。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128225546717.png" class="" title="image-20230128225546717">
+
+
+
+
+
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
         <li>
-            <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">
-                <img src="/images/xiyou.png" width="300" alt="云服务器限时秒杀">
-            </a>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
         </li>
-    
-</ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">归档</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
+      </ul>
     </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bawk/" class="archive-article-date">
-  <time datetime="2022-12-30T13:51:33.000Z" itemprop="datePublished">12/30</time>
-</a>
+    
+    <footer class="article-footer">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bawk/"
-    >文本处理之awk</a> 
-</h2>
- 
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/" class="archive-article-date">
-  <time datetime="2022-12-30T13:44:59.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/"
-    >文本处理(sed,xargs,wc)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/" class="archive-article-date">
-  <time datetime="2022-12-30T13:35:18.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bgrep/"
-    >文本处理之grep</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  <time datetime="2022-12-30T13:16:59.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
-    >正则表达式</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/" class="archive-article-date">
-  <time datetime="2022-12-30T13:08:40.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-bg-fg-jobs-nohup/"
-    >进程的后台运行(bg,fg,jobs,nohup,&amp;)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/" class="archive-article-date">
-  <time datetime="2022-12-30T12:58:19.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/"
-    >进程介绍(ps)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" class="archive-article-date">
-  <time datetime="2022-12-30T12:48:49.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/"
-    >文件的权限和属性(chmod,chown)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/" class="archive-article-date">
-  <time datetime="2022-12-30T12:36:11.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6-mv-cp-ln/"
-    >移动和拷贝文件(mv,cp,ln)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" class="archive-article-date">
-  <time datetime="2022-12-30T12:26:51.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/"
-    >压缩文件(tar,zip,7z,rar,gzip,bzip2)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/" class="archive-article-date">
-  <time datetime="2022-12-30T12:18:40.000Z" itemprop="datePublished">12/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/"
-    >传输文件(scp,ftp,wget,curl)</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-      
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" alt="微信分享二维码">
     </div>
-  </div>
-  
-  
+</div>
 
-  
-  <nav class="page-nav">
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rstudio/" rel="tag">rstudio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">使用技巧</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/page/2/">上一页</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/4/">下一页</a>
+    
+      <a href="/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">singularity/apptainer使用教程</div>
+      </a>
+    
   </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "rcINISqF3JGAkl5qG77MQKmO-gzGzoHsz",
+    app_key: "foHxMZz5W1KZGJbWF4AZrro6",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
   
+    
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -456,6 +444,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

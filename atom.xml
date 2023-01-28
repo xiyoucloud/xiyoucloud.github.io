@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-28T13:51:41.640Z</updated>
+  <updated>2023-01-28T15:01:49.790Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,20 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>rstudio使用技巧</title>
+    <link href="https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
+    <published>2023-01-28T14:02:07.000Z</published>
+    <updated>2023-01-28T15:01:49.790Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这篇文章的目的是为了让大家关于rstudio有更多的共同语言。&lt;/p&gt;
+&lt;p&gt;这篇文章的结构是零散的，大家按需查看对应的段落即可。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="rstudio" scheme="https://xiyoucloud.github.io/tags/rstudio/"/>
+    
+    <category term="使用技巧" scheme="https://xiyoucloud.github.io/tags/%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>singularity/apptainer使用教程</title>
     <link href="https://xiyoucloud.github.io/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
     <published>2023-01-20T04:25:50.000Z</published>
-    <updated>2023-01-28T13:51:41.640Z</updated>
+    <updated>2023-01-28T13:55:48.274Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 安装 singularity&lt;/span&gt;
+conda create -n singularity
+conda activate singularity
+conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda-forge singularity
+
+&lt;span class=&quot;token comment&quot;&gt;# 安装 apptainer&lt;/span&gt;
+conda create -n apptainer
+conda activate apptainer
+conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda-forge apptainer&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     
@@ -404,23 +426,6 @@
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=263073831&amp;bvid=BV1JY411d77K&amp;cid=903013242&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文本处理之awk</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bawk/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bawk/</id>
-    <published>2022-12-30T13:51:33.000Z</published>
-    <updated>2022-12-30T13:53:43.072Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=262900730&amp;bvid=BV1KY411Z7nc&amp;cid=901859829&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     

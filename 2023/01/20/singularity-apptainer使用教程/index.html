@@ -122,9 +122,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <span id="more"></span>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 singularity</span>
+  <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 singularity</span>
 conda create -n singularity
 conda activate singularity
 conda <span class="token function">install</span> -c conda-forge singularity
@@ -133,6 +131,8 @@ conda <span class="token function">install</span> -c conda-forge singularity
 conda create -n apptainer
 conda activate apptainer
 conda <span class="token function">install</span> -c conda-forge apptainer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span id="more"></span>
 
 <p><strong>Apptainer</strong>是一个相对较新的容器软件，相对于 docker 来说，它不需要 root 权限，因此更符合科研应用的场景（因为共享服务器中普通用户通常不会有root权限）。</p>
 <p>Apptainer 的旧版本被称为 Singularity，关于它们之间的兼容性以及从 singularity 迁移到 apptainer 可以参考这个链接：<a target="_blank" rel="noopener" href="https://apptainer.org/docs/user/main/singularity_compatibility.html%E3%80%82">https://apptainer.org/docs/user/main/singularity_compatibility.html。</a></p>
@@ -237,7 +237,7 @@ apptainer shell --fakeroot -w ./ubuntu<span aria-hidden="true" class="line-numbe
 <p>根据文件内容构建镜像：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">apptainer build lolcow.sif lolcow.def<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="apptainer容器后台运行"><a href="#apptainer容器后台运行" class="headerlink" title="apptainer容器后台运行"></a>apptainer容器后台运行</h2><h3 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~
+<h2 id="apptainer容器内后台运行程序"><a href="#apptainer容器内后台运行程序" class="headerlink" title="apptainer容器内后台运行程序"></a>apptainer容器内后台运行程序</h2><h3 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~
 <span class="token function">mkdir</span> pyscenic
 <span class="token builtin class-name">cd</span> pyscenic
 <span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/aertslab/scenic-nf/master/example/expr_mat.tsv
@@ -364,6 +364,15 @@ R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            rstudio使用技巧
+          
+        </div>
+      </a>
     
     
       <a href="/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">
