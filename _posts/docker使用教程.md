@@ -1,7 +1,7 @@
 ---
 title: docker使用教程
 date: 2023-01-19 21:47:50
-tags: [docker, apptainer, singularity]
+tags: [docker]
 ---
 
 docker 安装教程：https://docs.docker.com/engine/install/ubuntu/
@@ -79,7 +79,7 @@ docker pull ubuntu:latest
 
 默认根据当前目录下的 Dockerfile 来构建一个镜像，关于 Dockerfile 的语法可以参考这个链接：http://www.dockerinfo.net/dockerfile%E4%BB%8B%E7%BB%8D
 
-构建 docker 镜像是可以通过参数对镜像进行设置，详情可以参考这个链接：https://www.runoob.com/docker/docker-build-command.html
+构建 docker 镜像时可以通过参数对镜像进行设置，详情可以参考这个链接：https://www.runoob.com/docker/docker-build-command.html
 
 ```bash
 docker build -t .
@@ -117,13 +117,22 @@ docker stats
 docker diff 容器id
 ```
 
-### 启动
+### 运行
 
 更多参数的使用方法请查看这个链接：https://www.runoob.com/docker/docker-run-command.html
 
 ```bash
 # 让容器后台运行，退出容器后，容器不会立即停止运行
 docker run -d --name 容器名 镜像id
+```
+
+### 启动
+
+运行后的容器就处于 running 状态了，但容器可能因为一些情况终止运行，此时需要将容器重新启动。
+
+```bash
+docker start 容器名
+docker restart 容器 id
 ```
 
 ### 停止
