@@ -71,10 +71,17 @@ toc: true
 ## {% post_link bash练习 %}
 
 # 生信常用软件介绍
-- rstudio
-- apptainer
-- docker
+## {% post_link rstudio使用技巧 %}
+
+## {% post_link singularity-apptainer使用教程 %}
+
+## {% post_link docker使用教程 %}
+
+
+
 # linux使用小技巧
-- 命令使用方法查询：https://git.io/linux
-- 无root权限安装软件
-- {% post_link command-not-found %}
+## 命令使用方法查询：https://git.io/linux
+
+## {% post_link 无root权限如何安装软件 %}
+
+## {% post_link command-not-found %}

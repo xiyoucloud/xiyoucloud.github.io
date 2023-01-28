@@ -4,8 +4,6 @@ date: 2023-01-20 12:25:50
 tags: [singularity, apptainer]
 ---
 
-<!--more-->
-
 ## 安装
 
 ```bash
@@ -19,6 +17,8 @@ conda create -n apptainer
 conda activate apptainer
 conda install -c conda-forge apptainer
 ```
+
+<!--more-->
 
 **Apptainer**是一个相对较新的容器软件，相对于 docker 来说，它不需要 root 权限，因此更符合科研应用的场景（因为共享服务器中普通用户通常不会有root权限）。
 
@@ -123,7 +123,7 @@ From: ubuntu:20.04
 apptainer build lolcow.sif lolcow.def
 ```
 
-## apptainer容器后台运行
+## apptainer容器内后台运行程序
 
 ### 准备文件
 
