@@ -112,9 +112,14 @@ apt update
 
 ### 搜索软件包
 
+支持正则表达式
+
 ```bash
+# 能搜索到的软件包才能被 apt 安装
 apt search ^wget
 ```
+
+如果搜索不到某软件，就去 google “xx install in ubuntu”
 
 ### 安装软件包
 
@@ -178,3 +183,14 @@ apt full-upgrade
 | apt show 包名         | apt-cache show 包名         | 显示安装细节                               |
 | apt clean             | apt-get clean               | 清理已下载的软件包，不会影响软件的正常使用 |
 | apt autoclean         | apt-get autoclean           | 删除已经卸载的软件的软件包备份             |
+
+## E:Unable to locate package xxx
+
+有两种可能，一种可能是你要搜索的软件在软件源中并不存在。如果你没有添加其他的软件源，说明该软件在官方原中不存在，如果你知道该软件在那个软件源的话可以通过添加第三方软件源来安装该软件。
+
+另一种可能是本地的软件源没有该软件的信息，这种情况下您可以使用以下命令更新一下本地的软件信息，然后再次执行安装。
+
+```bash
+apt update
+```
+

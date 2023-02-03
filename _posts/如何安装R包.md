@@ -18,7 +18,7 @@ CRAN 在国内下载速度很快，因为它在国内有很多镜像，因此一
 
 - 使用 install 下载：[https://cran.r-project.org/mirrors.html](https://cran.r-project.org/mirrors.html)（镜像源列表）
 
-    ```R
+    ```bash
     # 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
     install.packages("devtools", repos = "https://mirrors.ustc.edu.cn/CRAN/")
     

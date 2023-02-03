@@ -113,3 +113,9 @@ file.edit("~/.Rprofile")
 library("remotes", lib = "xxx")
 ```
 
+## 查看已经加载的R包
+
+```bash
+(.packages())
+```
+

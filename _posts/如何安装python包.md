@@ -29,9 +29,9 @@ conda install xxx
 
 ## 通过pip安装
 
-pip 工具可以通过 conda 安装。
+pip 工具可以通过 conda 安装，如果你有 root 权限的话，也可以通过 apt 安装。
 
-如果你有 root 权限的话，也可以通过 apt 安装。
+**所有** python 包都可以在官网搜索到：https://pypi.org/
 
 ```bash
 sudo apt install python3-pip
@@ -84,4 +84,28 @@ python setup.py install
 2. 使用 pip 从官网或官网镜像中安装
 3. 从源码安装
 4. 从 whl 文件安装，有些作者会针对不同平台（mac，linux，win）发布编译好的 whl 文件，这样安装就不用处理软件的依赖了。
+
+## 如何安装指定版本的Python包
+
+1. 使用 pip 安装时指定版本
+
+```bash
+pip install requests==2.28.1
+```
+
+2. 下载对应版本的 whl 文件安装
+3. 下载对应版本的源码进行安装
+
+```bash
+# 更新Python包
+pip install -U jupyter_server
+```
+
+## 如何卸载Python
+
+```bash
+pip uninstall requests
+```
+
+
 

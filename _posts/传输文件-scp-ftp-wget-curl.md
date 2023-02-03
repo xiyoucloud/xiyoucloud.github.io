@@ -79,6 +79,15 @@ curl -o tuna3.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dar
 curl --help
 ```
 
+## rsync
+
+参考链接：https://www.ruanyifeng.com/blog/2020/08/rsync.html
+
+```bash
+# 使用 2234 端口，将本地的 source 目录拷贝到远程机的 /destination 目录
+rsync -av -e 'ssh -p 2234' source/ user@remote_host:/destination
+```
+
 ## 补充内容：
 
 ### mwget
