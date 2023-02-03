@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>传输文件(scp,ftp,wget,curl) |  xiyoucloud</title>
+      <title>conda问题汇总 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-传输文件-scp-ftp-wget-curl"
+  id="post-conda问题汇总"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  传输文件(scp,ftp,wget,curl)
+  conda问题汇总
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/" class="article-date">
-  <time datetime="2022-12-30T12:18:40.000Z" itemprop="datePublished">2022-12-30</time>
+      <a href="/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="article-date">
+  <time datetime="2023-02-03T15:02:50.000Z" itemprop="datePublished">2023-02-03</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">877</span>
+            <span class="post-count">908</span>
         </span>
     </span>
 
@@ -122,82 +122,54 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=517525445&bvid=BV1Ug411i72Z&cid=890693727&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+  <p>这篇文章汇总了使用 conda 过程中一些常见的问题。</p>
 <span id="more"></span>
 
-<blockquote>
-<p>适用于 ubuntu 20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统 <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
-</blockquote>
-<h2 id="scp用于在能够联通的不同的主机下传输文件"><a href="#scp用于在能够联通的不同的主机下传输文件" class="headerlink" title="scp用于在能够联通的不同的主机下传输文件"></a>scp用于在能够联通的不同的主机下传输文件</h2><p>scp 与 cp 的区别是，cp 用于在 linux 本机下拷贝文件到其他路径。</p>
-<p>scp 的原理其实是使用 ssh 协议登陆到 linux 服务器，然后传输文件</p>
-<p>ssh 协议可以使用用户名和密码登陆Linux，也可以使用用户名和密钥来登陆。</p>
-<p><strong>以下的 user，host，port，xx.pem都需要代入具体的值</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> user@host -p port <span class="token punctuation">(</span>需要输入密码<span class="token punctuation">)</span>
-<span class="token function">ssh</span> user@host -p port -i xx.pem （使用密钥进行认证）
-<span class="token comment"># 使用 scp 拷贝文件时使用的命令与 ssh 是类似的。</span>
-<span class="token function">scp</span> -P port user@host:/tmp/xiyou.txt <span class="token builtin class-name">.</span> <span class="token punctuation">(</span>将远程主机的 /tmp/xiyou.txt 文件拷贝到本机的当前工作目录，这里<span class="token string">"."</span>表示当前目录，需要输入密码<span class="token punctuation">)</span>
-<span class="token function">scp</span> -r -P port user@host:/tmp/ <span class="token builtin class-name">.</span> <span class="token punctuation">(</span>复制远程主机上的目录到本机的当前工作目录<span class="token punctuation">)</span> 
-	    
-<span class="token function">scp</span> -i xx.pem -P port user@host:/tmp/xiyou.txt <span class="token builtin class-name">.</span> <span class="token punctuation">(</span>使用秘钥 xx.pem 的方式认证，不需要输入密码，秘钥需要提前生成<span class="token punctuation">)</span>
-<span class="token comment"># 将本地的文件拷贝到远程主机上：</span>
-<span class="token function">scp</span> -P port user@host:/tmp xiyou.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="安装过程慢"><a href="#安装过程慢" class="headerlink" title="安装过程慢"></a>安装过程慢</h2><p>conda 安装过程慢有很多种可能，这里列举一下常用的几种可能：</p>
+<ol>
+<li><p>未配置国内镜像源，或软件所在软件源国内无镜像，如：<code>conda install -c hcc aspera-cli</code></p>
+</li>
+<li><p>安装时指定了官方软件源，如：<code>conda install -c bioconda sra-tools</code>；</p>
+</li>
+<li><p>待安装软件所需依赖与当前环境（这里的环境不仅仅指当前虚拟环境）中的软件包冲突过多，conda 需要大量计算分析来解决软件依赖；</p>
+</li>
+</ol>
+<p>对于第 1 种可能，如果未配置镜像源，可参考 <a href="/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/" title="conda镜像源汇总">conda镜像源汇总</a> 配置国内镜像源。</p>
+<p>conda-forge，bioconda，main，这几个软件源在国内是有镜像的。</p>
+<p>如果软件所在软件源并无国内镜像，可以开启代理后再进行软件安装、或者耐心等待、或者选择其他安装方式。</p>
+<p>对于第 2 种可能，如果所指定的软件源在国内有镜像，可指定为国内镜像源。如若该软件源没有对应的国内镜像源就只能开启代理后再进行软件安装、或者耐心等待、或者选择其他安装方式。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载时指定北外的 bioconda 镜像源为最高优先级</span>
+conda <span class="token function">install</span> -c <span class="token string">'https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda'</span> sra-tools
+<span class="token comment"># 如果你已经配置好国内镜像源，可以在下载时不指定镜像源，默认从配置的镜像源中搜索下载</span>
+conda <span class="token function">install</span> sra-tools<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于第 3 种可能，如果待安装的软件必须安装在当前<strong>虚拟环境</strong>，那就只能耐心等待 conda 处理好环境依赖了，不过出现这种情况时，没有绝对的处理方式，你也可以修改当前环境中的软件版本来减少环境依赖的冲突。最简单的方式是新创建一个虚拟环境，在其中安装最少的依赖，然后再安装待安装的软件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建一个全新的虚拟环境</span>
+conda create -n new_enviroment -y -vv
+conda activate new_enviroment
+<span class="token comment"># 安装待安装软件</span>
+conda <span class="token function">install</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不过有些软件需要在创建一个全新的虚拟环境后，再在这个虚拟环境中安装一个软件依赖，这样才能顺利安装这个软件。这样说起来有点抽象，我们假设需要安装的软件是一个 R 包，那么我们就需要创建一个环境后再安装好指定版本 r-base，然后再安装 R 包。同理，如果我们需要安装的软件是一个 python 包，我们就需要在创建一个环境后在安装好指定版本的 python，然后再安装 python 包。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 示例 1</span>
+conda create -n rpackage r-base<span class="token operator">==</span><span class="token number">4.0</span>.5 -y -vv
+conda activate rpackage
+conda <span class="token function">install</span> bioconductor-monocle<span class="token operator">==</span><span class="token number">2.18</span>.0 -y -vv
+
+<span class="token comment"># 示例 2</span>
+<span class="token comment"># 使用 conda 创建虚拟环境，并指定 python 的版本为 3.7</span>
+conda create -n CellPhoneDB <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.7</span> -y -vv
+conda activate CellPhoneDB 
+<span class="token comment"># 安装 CellPhoneDB，这个包目前使用 conda 安装会有问题，所以用 python 的包管理工具 pip 来安装</span>
+<span class="token comment"># 不过总体的思路与示例 1 是一致的</span>
+pip <span class="token function">install</span> CellPhoneDB -i https://pypi.douban.com/simple/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="换源后不生效"><a href="#换源后不生效" class="headerlink" title="换源后不生效"></a>换源后不生效</h2><p>清除软件搜索使用的本地索引，然后再次执行下载。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda clean -i<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
-<p>​        </p>
-<h2 id="ftp用于从文件服务器上下载文件"><a href="#ftp用于从文件服务器上下载文件" class="headerlink" title="ftp用于从文件服务器上下载文件"></a>ftp用于从文件服务器上下载文件</h2><p>首先要有一台 ftp 服务器，然后你要有这台 ftp 服务器的账号和密码。登陆后你可以使用 cd，ls，pwd 三个基础命令查看系统中文件的位置，使用 get 从 ftp 服务器获取文件，使用 put 将文件上传到 ftp 服务器。使用 quit 退出登陆。出现“500 Illegal PORT command”的报错可以通过输入 passive 来解决报错。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ftp</span> x.x.x.x
-<span class="token builtin class-name">cd</span>
-<span class="token function">ls</span>
-<span class="token builtin class-name">pwd</span>
-get 
-put
-quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ftp.html">https://wangchujiang.com/linux-command/c/ftp.html</a> </p>
-<h2 id="wget用于从网络中下载文件"><a href="#wget用于从网络中下载文件" class="headerlink" title="wget用于从网络中下载文件"></a>wget用于从网络中下载文件</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载链接中的图片 https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png 并存储为 tuna.png</span>
-<span class="token function">wget</span> -O tuna.png <span class="token string">"https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png"</span>
-<span class="token function">ls</span> -la <span class="token operator">|</span> <span class="token function">grep</span> tuna.png
-<span class="token comment"># 下载一个文件，不指定文件名</span>
-<span class="token function">wget</span> https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg
-<span class="token function">ls</span> -la <span class="token operator">|</span> <span class="token function">grep</span> gpg
-<span class="token comment"># 查看 wget 其他参数的使用方法</span>
-<span class="token function">wget</span> --help
-<span class="token comment"># -c 参数支持断点续传，这在传输大文件时十分有用</span>
-<span class="token function">wget</span> -c -O tuna2.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="curl通常用来在终端中模拟浏览器访问网站"><a href="#curl通常用来在终端中模拟浏览器访问网站" class="headerlink" title="curl通常用来在终端中模拟浏览器访问网站"></a>curl通常用来在终端中模拟浏览器访问网站</h2><p>curl 也可以用来下载文件，不过使用体验不如 wget。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 curl 下载链接中的文件，并保存为 tuna3.png</span>
-<span class="token function">curl</span> -o tuna3.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png
-<span class="token comment"># 查看 curl 的其他用法</span>
-<span class="token function">curl</span> --help<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="rsync"><a href="#rsync" class="headerlink" title="rsync"></a>rsync</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2020/08/rsync.html">https://www.ruanyifeng.com/blog/2020/08/rsync.html</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 2234 端口，将本地的 source 目录拷贝到远程机的 /destination 目录</span>
-<span class="token function">rsync</span> -av -e <span class="token string">'ssh -p 2234'</span> source/ user@remote_host:/destination<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="补充内容："><a href="#补充内容：" class="headerlink" title="补充内容："></a>补充内容：</h2><h3 id="mwget"><a href="#mwget" class="headerlink" title="mwget"></a>mwget</h3><p>mwget 是 wget 的升级版，支持多线程，下载速度更快。安装方式如下：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装编译依赖</span>
-<span class="token function">sudo</span> <span class="token function">apt</span> update
-<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> build-essential -y
-<span class="token function">sudo</span> <span class="token function">apt</span> upgrade intltool -y
-<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span>  libssl-dev -y
-
-<span class="token comment"># 编译</span>
-<span class="token function">git</span> clone https://github.com/rayylee/mwget.git
-<span class="token builtin class-name">cd</span> mwget
-./configure
-<span class="token function">sudo</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
-
-<span class="token comment"># 查看使用方法</span>
-mwget --help
-
-mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>上文中提到的 ftp 和 scp 在远程传输，我们可以借助工具来实现，如 finalshell，xshell,putty,secretCRT……等工具来实现文件的上传和下载。</p>
-<p>这里推荐finalshell，因为它支持 win、mac、linux。官网：<a target="_blank" rel="noopener" href="https://www.hostbuf.com/">https://www.hostbuf.com/</a></p>
+<p><em>暂时遇到的问题以及解决方式就这些，有遇到其他常见问题的小伙伴欢迎给我反馈，我会补充到文档中，让它帮助到更多的人，感谢大家的支持！​</em></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
@@ -268,12 +240,12 @@ mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg<span aria-
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/" rel="tag">西柚云Linux教程</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
 
     </footer>
   </div>
@@ -281,19 +253,10 @@ mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg<span aria-
    
   <nav class="article-nav">
     
-      <a href="/2022/12/30/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-tar-zip-7z-rar-gzip-bzip2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            压缩文件(tar,zip,7z,rar,gzip,bzip2)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/30/%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6-find-ls-locate-whereis-which/" class="article-nav-link">
+      <a href="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">查找文件(find,ls,locate,whereis,which)</div>
+        <div class="article-nav-title">rstudio使用技巧</div>
       </a>
     
   </nav>

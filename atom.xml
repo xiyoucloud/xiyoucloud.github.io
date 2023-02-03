@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-01-28T15:01:49.790Z</updated>
+  <updated>2023-02-03T15:45:06.963Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>conda问题汇总</title>
+    <link href="https://xiyoucloud.github.io/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>https://xiyoucloud.github.io/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</id>
+    <published>2023-02-03T15:02:50.000Z</published>
+    <updated>2023-02-03T15:45:06.963Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这篇文章汇总了使用 conda 过程中一些常见的问题。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
+  
+  <entry>
     <title>rstudio使用技巧</title>
     <link href="https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2023-01-28T14:02:07.000Z</published>
-    <updated>2023-01-28T15:01:49.790Z</updated>
+    <updated>2023-02-03T09:45:03.122Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章的目的是为了让大家关于rstudio有更多的共同语言。&lt;/p&gt;
@@ -85,7 +104,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/"/>
     <id>https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/</id>
     <published>2023-01-19T10:31:01.000Z</published>
-    <updated>2023-01-19T14:39:17.981Z</updated>
+    <updated>2023-02-02T03:07:49.765Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章将介绍 4 种安装 python 包的方式。&lt;/p&gt;</summary>
@@ -362,7 +381,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/"/>
     <id>https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</id>
     <published>2022-12-31T09:22:35.000Z</published>
-    <updated>2023-01-27T12:05:13.105Z</updated>
+    <updated>2023-01-31T16:08:37.942Z</updated>
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=903804972&amp;bvid=BV1yP4y1D787&amp;cid=926416540&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
@@ -414,23 +433,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
     
     <category term="bash" scheme="https://xiyoucloud.github.io/tags/bash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ping和github代理</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/ping%E5%92%8Cgithub%E4%BB%A3%E7%90%86/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/ping%E5%92%8Cgithub%E4%BB%A3%E7%90%86/</id>
-    <published>2022-12-30T13:56:50.000Z</published>
-    <updated>2022-12-30T14:05:29.582Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=263073831&amp;bvid=BV1JY411d77K&amp;cid=903013242&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   

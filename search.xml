@@ -34,6 +34,63 @@
       </tags>
   </entry>
   <entry>
+    <title>conda问题汇总</title>
+    <url>/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这篇文章汇总了使用 conda 过程中一些常见的问题。</p>
+<span id="more"></span>
+
+<h2 id="安装过程慢"><a href="#安装过程慢" class="headerlink" title="安装过程慢"></a>安装过程慢</h2><p>conda 安装过程慢有很多种可能，这里列举一下常用的几种可能：</p>
+<ol>
+<li><p>未配置国内镜像源，或软件所在软件源国内无镜像，如：<code>conda install -c hcc aspera-cli</code></p>
+</li>
+<li><p>安装时指定了官方软件源，如：<code>conda install -c bioconda sra-tools</code>；</p>
+</li>
+<li><p>待安装软件所需依赖与当前环境（这里的环境不仅仅指当前虚拟环境）中的软件包冲突过多，conda 需要大量计算分析来解决软件依赖；</p>
+</li>
+</ol>
+<p>对于第 1 种可能，如果未配置镜像源，可参考 <a href="/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/" title="conda镜像源汇总">conda镜像源汇总</a> 配置国内镜像源。</p>
+<p>conda-forge，bioconda，main，这几个软件源在国内是有镜像的。</p>
+<p>如果软件所在软件源并无国内镜像，可以开启代理后再进行软件安装、或者耐心等待、或者选择其他安装方式。</p>
+<p>对于第 2 种可能，如果所指定的软件源在国内有镜像，可指定为国内镜像源。如若该软件源没有对应的国内镜像源就只能开启代理后再进行软件安装、或者耐心等待、或者选择其他安装方式。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载时指定北外的 bioconda 镜像源为最高优先级</span>
+conda <span class="token function">install</span> -c <span class="token string">'https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda'</span> sra-tools
+<span class="token comment"># 如果你已经配置好国内镜像源，可以在下载时不指定镜像源，默认从配置的镜像源中搜索下载</span>
+conda <span class="token function">install</span> sra-tools<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于第 3 种可能，如果待安装的软件必须安装在当前<strong>虚拟环境</strong>，那就只能耐心等待 conda 处理好环境依赖了，不过出现这种情况时，没有绝对的处理方式，你也可以修改当前环境中的软件版本来减少环境依赖的冲突。最简单的方式是新创建一个虚拟环境，在其中安装最少的依赖，然后再安装待安装的软件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建一个全新的虚拟环境</span>
+conda create -n new_enviroment -y -vv
+conda activate new_enviroment
+<span class="token comment"># 安装待安装软件</span>
+conda <span class="token function">install</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不过有些软件需要在创建一个全新的虚拟环境后，再在这个虚拟环境中安装一个软件依赖，这样才能顺利安装这个软件。这样说起来有点抽象，我们假设需要安装的软件是一个 R 包，那么我们就需要创建一个环境后再安装好指定版本 r-base，然后再安装 R 包。同理，如果我们需要安装的软件是一个 python 包，我们就需要在创建一个环境后在安装好指定版本的 python，然后再安装 python 包。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 示例 1</span>
+conda create -n rpackage r-base<span class="token operator">==</span><span class="token number">4.0</span>.5 -y -vv
+conda activate rpackage
+conda <span class="token function">install</span> bioconductor-monocle<span class="token operator">==</span><span class="token number">2.18</span>.0 -y -vv
+
+<span class="token comment"># 示例 2</span>
+<span class="token comment"># 使用 conda 创建虚拟环境，并指定 python 的版本为 3.7</span>
+conda create -n CellPhoneDB <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.7</span> -y -vv
+conda activate CellPhoneDB 
+<span class="token comment"># 安装 CellPhoneDB，这个包目前使用 conda 安装会有问题，所以用 python 的包管理工具 pip 来安装</span>
+<span class="token comment"># 不过总体的思路与示例 1 是一致的</span>
+pip <span class="token function">install</span> CellPhoneDB -i https://pypi.douban.com/simple/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="换源后不生效"><a href="#换源后不生效" class="headerlink" title="换源后不生效"></a>换源后不生效</h2><p>清除软件搜索使用的本地索引，然后再次执行下载。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda clean -i<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p><em>暂时遇到的问题以及解决方式就这些，有遇到其他常见问题的小伙伴欢迎给我反馈，我会补充到文档中，让它帮助到更多的人，感谢大家的支持！​</em></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>conda</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>rstudio使用技巧</title>
     <url>/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这篇文章的目的是为了让大家关于rstudio有更多的共同语言。</p>
@@ -71,11 +128,34 @@
 <h1 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h1><p>大家都知道在R中可以使用setwd()可以设置工作目录，但有时候不知道该怎样描述设置的路径，可以参考下面图片将当前项目的目录设置为工作目录。如果你需要设置其他目录为工作路径，酌情更改即可。</p>
 <img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128225546717.png" class="" title="image-20230128225546717">
 
+<h1 id="rsession异常导致工作空间数据丢失"><a href="#rsession异常导致工作空间数据丢失" class="headerlink" title="rsession异常导致工作空间数据丢失"></a>rsession异常导致工作空间数据丢失</h1><p>这里的数据丢失可能包括计算过程中的中间结果和未保存的代码。</p>
+<p>避免数据丢失的方式是使用 ctrl + s 保存代码，将重要的工作空间中的变量保存带 Rdata 或 rds 文件中。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129221657990.png" class="" title="image-20230129221657990">
 
+<h1 id="在终端中使用R"><a href="#在终端中使用R" class="headerlink" title="在终端中使用R"></a>在终端中使用R</h1><p>在终端（Terminal）中输入 R 进入到 R 的交互界面，可以在此交互界面执行 R 代码。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129222231379.png" class="" title="image-20230129222231379">
 
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129222451090.png" class="" title="image-20230129222451090">
 
+<h1 id="重启rstudio-server服务"><a href="#重启rstudio-server服务" class="headerlink" title="重启rstudio-server服务"></a>重启rstudio-server服务</h1><p>如果 rstudio-server 服务异常，比如不能正常访问，可以尝试重启 rstudio-server 服务。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 重启</span>
+<span class="token function">sudo</span> <span class="token function">service</span> rstudio-server restart
+<span class="token comment"># 查看运行状态</span>
+<span class="token function">sudo</span> <span class="token function">service</span> rstudio-server status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h1 id="杀死rsession对应的用户进程"><a href="#杀死rsession对应的用户进程" class="headerlink" title="杀死rsession对应的用户进程"></a>杀死rsession对应的用户进程</h1><p>由于 rstudio-server 的性能问题，可能会出现在网页端访问 rstudio 卡住，不能加载出数据的情况，此时可以杀死当前的session进程，然后尝试重新登陆 rstudio-server。<strong>杀死进程可能会导致 workspace 中计算产生的结果丢失</strong>，因此要养成经常将计算结果保存在本地磁盘中的好习惯（保存为Rdata或rds文件），下次使用时直接从磁盘中加载就好了。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"/usr/lib/rstudio-server/bin/rsession -u <span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span>"</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -15<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h1 id="清除用户rsession"><a href="#清除用户rsession" class="headerlink" title="清除用户rsession"></a>清除用户rsession</h1><p>一个 rsession 对应一个 rstudio-server 的会话，用户与 rstudio-server 建立一个连接后，会话信息会保存在一个文件中，如果出现 rstudio 卡住、不能登陆等情况时，在杀死进程后还是没有解决问题，可以清除 session 文件再重新登陆。这一操作通常要搭配<a href="#%E6%9D%80%E6%AD%BBrsession%E5%AF%B9%E5%BA%94%E7%9A%84%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B">杀死rsession对应的用户进程</a>使用，因此*<em>可能会导致 workspace 中计算产生的结果丢失</em>***。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新版 rstudio 的 session 文件的存放位置</span>
+<span class="token function">ls</span> ~/.local/share/rstudio/sessions/active
+<span class="token comment"># 如果有内容，则删除</span>
+<span class="token function">rm</span> -rf ~/.local/share/rstudio/sessions/active
+
+<span class="token comment"># 旧版 rstudio 的 session 文件的存放位置</span>
+<span class="token function">ls</span> ~/.rstudio/sessions/active/session-*
+<span class="token comment"># 如果有内容则删除</span>
+<span class="token function">rm</span> -rf ~/.rstudio/sessions/active/session-*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
@@ -377,8 +457,8 @@ R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="通过pip安装"><a href="#通过pip安装" class="headerlink" title="通过pip安装"></a>通过pip安装</h2><p>pip 工具可以通过 conda 安装。</p>
-<p>如果你有 root 权限的话，也可以通过 apt 安装。</p>
+<h2 id="通过pip安装"><a href="#通过pip安装" class="headerlink" title="通过pip安装"></a>通过pip安装</h2><p>pip 工具可以通过 conda 安装，如果你有 root 权限的话，也可以通过 apt 安装。</p>
+<p><strong>所有</strong> python 包都可以在官网搜索到：<a href="https://pypi.org/">https://pypi.org/</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="pip镜像源"><a href="#pip镜像源" class="headerlink" title="pip镜像源"></a>pip镜像源</h3><table>
@@ -430,6 +510,22 @@ pip <span class="token function">install</span> requests -i https://pypi.douban.
 <li>从源码安装</li>
 <li>从 whl 文件安装，有些作者会针对不同平台（mac，linux，win）发布编译好的 whl 文件，这样安装就不用处理软件的依赖了。</li>
 </ol>
+<h2 id="如何安装指定版本的Python包"><a href="#如何安装指定版本的Python包" class="headerlink" title="如何安装指定版本的Python包"></a>如何安装指定版本的Python包</h2><ol>
+<li>使用 pip 安装时指定版本</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> <span class="token assign-left variable">requests</span><span class="token operator">==</span><span class="token number">2.28</span>.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>下载对应版本的 whl 文件安装</li>
+<li>下载对应版本的源码进行安装</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 更新Python包</span>
+pip <span class="token function">install</span> -U jupyter_server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="如何卸载Python"><a href="#如何卸载Python" class="headerlink" title="如何卸载Python"></a>如何卸载Python</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip uninstall requests<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>python</tag>
@@ -1236,8 +1332,11 @@ apt-add-repository multiverse<span aria-hidden="true" class="line-numbers-rows">
 <h3 id="更新存储库"><a href="#更新存储库" class="headerlink" title="更新存储库"></a>更新存储库</h3><p>apt 从软件源安装软件，它需要在本地维护一个软件源的存储库，这样就能在存储库中搜索软件包了。但软件源中的软件包信息是频繁更新的，如果你想使用更新版本的软件，你就需要先更新本地的存储库，再进行软件安装。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> search ^wget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h3><p>支持正则表达式</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 能搜索到的软件包才能被 apt 安装</span>
+<span class="token function">apt</span> search ^wget<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<p>如果搜索不到某软件，就去 google “xx install in ubuntu”</p>
 <h3 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> <span class="token function">wget</span>
 
 <span class="token comment"># 使用 dpkg 安装软件包</span>
@@ -1329,6 +1428,10 @@ dpkg -L rstudio-server<span aria-hidden="true" class="line-numbers-rows"><span><
 <td>删除已经卸载的软件的软件包备份</td>
 </tr>
 </tbody></table>
+<h2 id="E-Unable-to-locate-package-xxx"><a href="#E-Unable-to-locate-package-xxx" class="headerlink" title="E:Unable to locate package xxx"></a>E:Unable to locate package xxx</h2><p>有两种可能，一种可能是你要搜索的软件在软件源中并不存在。如果你没有添加其他的软件源，说明该软件在官方原中不存在，如果你知道该软件在那个软件源的话可以通过添加第三方软件源来安装该软件。</p>
+<p>另一种可能是本地的软件源没有该软件的信息，这种情况下您可以使用以下命令更新一下本地的软件信息，然后再次执行安装。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>西柚云Linux教程</tag>
@@ -1778,15 +1881,28 @@ D(else) --> E(结束 fi)</pre>
 <h2 id="网络的联通性"><a href="#网络的联通性" class="headerlink" title="网络的联通性"></a>网络的联通性</h2><p>说到联通性，自然至少涉及到两个对象，比如说主机A和主机B是联通的。那么我们怎么判断我们当前使用的电脑和某个ip或域名对应的主机是否联通呢？</p>
 <p>好了，这里提到了 ip 和域名，那么他们是什么关系呢？</p>
 <p>通常来说，网络上的两台主机能够通过 ip 来进行通信，ip 的形式如：x.x.x.x，其中 x 是一个[0,255]区间的数字。</p>
-<p>但是 4 个数字并不如一些有意义的字符好记。如: <a href="http://www.baidu.com,github.com.所以,你也可以使用域名替换掉ip与主机通信.通常来说,在公网中会有/">www.baidu.com，github.com。所以，你也可以使用域名替换掉ip与主机通信。通常来说，在公网中会有</a> DNS 服务器将域名解析成 ip，这样就能通过访问域名的方式来访问主机啦。你也可以在本地配置域名和 ip 的映射关系。</p>
+<p>但是 4 个数字并不如一些有意义的字符好记。如: <a href="http://www.baidu.com,github.com./">www.baidu.com，github.com。</a></p>
+<p>所以，你也可以使用域名替换掉ip与主机通信。通常来说，在公网中会有 DNS 服务器将域名解析成 ip，这样就能通过访问域名的方式来访问主机啦。你也可以在本地配置域名和 ip 的映射关系。</p>
 <p>linux 本地配置域名和 ip 映射的文件在 /etc/hosts 中，因为 Linux 中没有浏览器，我这里使用 windows 来演示一下，原理是一样的。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pint www.baidu.com</span><br><span class="line">http://14.215.177.38</span><br><span class="line">http://www.baidu.com</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pint www.baidu.com
+http://14.215.177.38
+http://www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1 个不能访问的链接</span></span><br><span class="line">wget  https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 github 代理访问</span></span><br><span class="line">wget https://ghproxy.com/https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个就是这个链接对应的域名</span></span><br><span class="line">ping raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+<h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1 个不能访问的链接</span>
+<span class="token function">wget</span>  https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml
+
+<span class="token comment"># 使用 github 代理访问</span>
+<span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml
+
+<span class="token comment"># 这个就是这个链接对应的域名</span>
+<span class="token function">ping</span> raw.githubusercontent.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="127-0-0-1-和-localhost"><a href="#127-0-0-1-和-localhost" class="headerlink" title="127.0.0.1 和 localhost"></a>127.0.0.1 和 localhost</h2><p>127.0.0.1 是本机的 ip 地址，localhost 是它对应的域名</p>
 <p>当然本机还有一个对外的 ip 地址，不过如果不是公网 ip 的话，对于其他和本机不属于一个局域网的主机来说没有实际意义，如 192.168.0.1，很多路由器的 ip 地址是这个，登陆它能够对路由器进行设置。但对于不跟路由器在同一个局域网的主机，是不能通过这个 ip 登陆它的。</p>
-<h2 id="依赖网络连通性的-linux-命令"><a href="#依赖网络连通性的-linux-命令" class="headerlink" title="依赖网络连通性的 linux 命令"></a>依赖网络连通性的 linux 命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh</span><br><span class="line">ftp / sftp</span><br><span class="line">wget </span><br><span class="line">curl </span><br></pre></td></tr></table></figure>
+<h2 id="依赖网络连通性的-linux-命令"><a href="#依赖网络连通性的-linux-命令" class="headerlink" title="依赖网络连通性的 linux 命令"></a>依赖网络连通性的 linux 命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span>
+<span class="token function">ftp</span> / <span class="token function">sftp</span>
+<span class="token function">wget</span> 
+<span class="token function">curl</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="github-代理"><a href="#github-代理" class="headerlink" title="github 代理"></a>github 代理</h2><p>每个代理使用的方法不一样，可以访问他们的官网查看使用方法。</p>
 <p><a href="https://hub.yzuu.cf/">https://hub.yzuu.cf/</a><br><a href="https://hub.njuu.cf/">https://hub.njuu.cf/</a><br><a href="https://ghproxy.com/">https://ghproxy.com/</a><br><a href="https://github.moeyy.xyz/">https://github.moeyy.xyz/</a><br><a href="https://kgithub.com/">https://kgithub.com/</a><br><a href="https://gitclone.com/">https://gitclone.com/</a></p>
@@ -2538,23 +2654,68 @@ P(执行,excute)-->V(1)</pre>
 <p>scp 的原理其实是使用 ssh 协议登陆到 linux 服务器，然后传输文件</p>
 <p>ssh 协议可以使用用户名和密码登陆Linux，也可以使用用户名和密钥来登陆。</p>
 <p><strong>以下的 user，host，port，xx.pem都需要代入具体的值</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh user@host -p port (需要输入密码)</span><br><span class="line">ssh user@host -p port -i xx.pem （使用密钥进行认证）</span><br><span class="line"><span class="comment"># 使用 scp 拷贝文件时使用的命令与 ssh 是类似的。</span></span><br><span class="line">scp -P port user@host:/tmp/xiyou.txt . (将远程主机的 /tmp/xiyou.txt 文件拷贝到本机的当前工作目录，这里<span class="string">&quot;.&quot;</span>表示当前目录，需要输入密码)</span><br><span class="line">scp -r -P port user@host:/tmp/ . (复制远程主机上的目录到本机的当前工作目录) </span><br><span class="line">	    </span><br><span class="line">scp -i xx.pem -P port user@host:/tmp/xiyou.txt . (使用秘钥 xx.pem 的方式认证，不需要输入密码，秘钥需要提前生成)</span><br><span class="line"><span class="comment"># 将本地的文件拷贝到远程主机上：</span></span><br><span class="line">scp -P port user@host:/tmp xiyou.txt</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> user@host -p port <span class="token punctuation">(</span>需要输入密码<span class="token punctuation">)</span>
+<span class="token function">ssh</span> user@host -p port -i xx.pem （使用密钥进行认证）
+<span class="token comment"># 使用 scp 拷贝文件时使用的命令与 ssh 是类似的。</span>
+<span class="token function">scp</span> -P port user@host:/tmp/xiyou.txt <span class="token builtin class-name">.</span> <span class="token punctuation">(</span>将远程主机的 /tmp/xiyou.txt 文件拷贝到本机的当前工作目录，这里<span class="token string">"."</span>表示当前目录，需要输入密码<span class="token punctuation">)</span>
+<span class="token function">scp</span> -r -P port user@host:/tmp/ <span class="token builtin class-name">.</span> <span class="token punctuation">(</span>复制远程主机上的目录到本机的当前工作目录<span class="token punctuation">)</span> 
+	    
+<span class="token function">scp</span> -i xx.pem -P port user@host:/tmp/xiyou.txt <span class="token builtin class-name">.</span> <span class="token punctuation">(</span>使用秘钥 xx.pem 的方式认证，不需要输入密码，秘钥需要提前生成<span class="token punctuation">)</span>
+<span class="token comment"># 将本地的文件拷贝到远程主机上：</span>
+<span class="token function">scp</span> -P port user@host:/tmp xiyou.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p>​        </p>
 <h2 id="ftp用于从文件服务器上下载文件"><a href="#ftp用于从文件服务器上下载文件" class="headerlink" title="ftp用于从文件服务器上下载文件"></a>ftp用于从文件服务器上下载文件</h2><p>首先要有一台 ftp 服务器，然后你要有这台 ftp 服务器的账号和密码。登陆后你可以使用 cd，ls，pwd 三个基础命令查看系统中文件的位置，使用 get 从 ftp 服务器获取文件，使用 put 将文件上传到 ftp 服务器。使用 quit 退出登陆。出现“500 Illegal PORT command”的报错可以通过输入 passive 来解决报错。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ftp x.x.x.x</span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">get </span><br><span class="line">put</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ftp</span> x.x.x.x
+<span class="token builtin class-name">cd</span>
+<span class="token function">ls</span>
+<span class="token builtin class-name">pwd</span>
+get 
+put
+quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><a href="https://wangchujiang.com/linux-command/c/ftp.html">https://wangchujiang.com/linux-command/c/ftp.html</a> </p>
-<h2 id="wget用于从网络中下载文件"><a href="#wget用于从网络中下载文件" class="headerlink" title="wget用于从网络中下载文件"></a>wget用于从网络中下载文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载链接中的图片 https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png 并存储为 tuna.png</span></span><br><span class="line">wget -O tuna.png <span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png&quot;</span></span><br><span class="line"><span class="built_in">ls</span> -la | grep tuna.png</span><br><span class="line"><span class="comment"># 下载一个文件，不指定文件名</span></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg</span><br><span class="line"><span class="built_in">ls</span> -la | grep gpg</span><br><span class="line"><span class="comment"># 查看 wget 其他参数的使用方法</span></span><br><span class="line">wget --<span class="built_in">help</span></span><br><span class="line"><span class="comment"># -c 参数支持断点续传，这在传输大文件时十分有用</span></span><br><span class="line">wget -c -O tuna2.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png</span><br></pre></td></tr></table></figure>
+<h2 id="wget用于从网络中下载文件"><a href="#wget用于从网络中下载文件" class="headerlink" title="wget用于从网络中下载文件"></a>wget用于从网络中下载文件</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载链接中的图片 https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png 并存储为 tuna.png</span>
+<span class="token function">wget</span> -O tuna.png <span class="token string">"https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png"</span>
+<span class="token function">ls</span> -la <span class="token operator">|</span> <span class="token function">grep</span> tuna.png
+<span class="token comment"># 下载一个文件，不指定文件名</span>
+<span class="token function">wget</span> https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg
+<span class="token function">ls</span> -la <span class="token operator">|</span> <span class="token function">grep</span> gpg
+<span class="token comment"># 查看 wget 其他参数的使用方法</span>
+<span class="token function">wget</span> --help
+<span class="token comment"># -c 参数支持断点续传，这在传输大文件时十分有用</span>
+<span class="token function">wget</span> -c -O tuna2.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h2 id="curl通常用来在终端中模拟浏览器访问网站"><a href="#curl通常用来在终端中模拟浏览器访问网站" class="headerlink" title="curl通常用来在终端中模拟浏览器访问网站"></a>curl通常用来在终端中模拟浏览器访问网站</h2><p>curl 也可以用来下载文件，不过使用体验不如 wget。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 curl 下载链接中的文件，并保存为 tuna3.png</span></span><br><span class="line">curl -o tuna3.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png</span><br><span class="line"><span class="comment"># 查看 curl 的其他用法</span></span><br><span class="line">curl --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 curl 下载链接中的文件，并保存为 tuna3.png</span>
+<span class="token function">curl</span> -o tuna3.png https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small-dark.png
+<span class="token comment"># 查看 curl 的其他用法</span>
+<span class="token function">curl</span> --help<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="rsync"><a href="#rsync" class="headerlink" title="rsync"></a>rsync</h2><p>参考链接：<a href="https://www.ruanyifeng.com/blog/2020/08/rsync.html">https://www.ruanyifeng.com/blog/2020/08/rsync.html</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 2234 端口，将本地的 source 目录拷贝到远程机的 /destination 目录</span>
+<span class="token function">rsync</span> -av -e <span class="token string">'ssh -p 2234'</span> source/ user@remote_host:/destination<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="补充内容："><a href="#补充内容：" class="headerlink" title="补充内容："></a>补充内容：</h2><h3 id="mwget"><a href="#mwget" class="headerlink" title="mwget"></a>mwget</h3><p>mwget 是 wget 的升级版，支持多线程，下载速度更快。安装方式如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装编译依赖</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install build-essential -y</span><br><span class="line">sudo apt upgrade intltool -y</span><br><span class="line">sudo apt install  libssl-dev -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/rayylee/mwget.git</span><br><span class="line"><span class="built_in">cd</span> mwget</span><br><span class="line">./configure</span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看使用方法</span></span><br><span class="line">mwget --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装编译依赖</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> build-essential -y
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade intltool -y
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span>  libssl-dev -y
+
+<span class="token comment"># 编译</span>
+<span class="token function">git</span> clone https://github.com/rayylee/mwget.git
+<span class="token builtin class-name">cd</span> mwget
+./configure
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+
+<span class="token comment"># 查看使用方法</span>
+mwget --help
+
+mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上文中提到的 ftp 和 scp 在远程传输，我们可以借助工具来实现，如 finalshell，xshell,putty,secretCRT……等工具来实现文件的上传和下载。</p>
 <p>这里推荐finalshell，因为它支持 win、mac、linux。官网：<a href="https://www.hostbuf.com/">https://www.hostbuf.com/</a></p>
@@ -2909,17 +3070,17 @@ tmp --> xiyou.txt</pre>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像，因此一般不用额外为 R 设置额外的国内镜像了。</p>
 <h3 id="1-设置国内镜像源（可选）"><a href="#1-设置国内镜像源（可选）" class="headerlink" title="1.设置国内镜像源（可选）"></a>1.设置国内镜像源（<strong>可选</strong>）</h3><ul>
 <li><p>使用 install 下载：<a href="https://cran.r-project.org/mirrors.html">https://cran.r-project.org/mirrors.html</a>（镜像源列表）</p>
-  <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
-install.packages(&quot;devtools&quot;, repos &#x3D; &quot;https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;CRAN&#x2F;&quot;)
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"devtools"</span>, repos <span class="token operator">=</span> <span class="token string">"https://mirrors.ustc.edu.cn/CRAN/"</span><span class="token punctuation">)</span>
 
-# 配置镜像源
-local(&#123;r &lt;- getOption(&quot;repos&quot;)
-r[&quot;CRAN&quot;] &lt;- &quot;http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;CRAN&#x2F;&quot;
-r[&quot;CRANextra&quot;] &lt;- &quot;http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;CRAN&#x2F;&quot;
-options(repos&#x3D;r)&#125;)
+<span class="token comment"># 配置镜像源</span>
+local<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>r <span class="token operator">&lt;</span>- getOption<span class="token punctuation">(</span><span class="token string">"repos"</span><span class="token punctuation">)</span>
+r<span class="token punctuation">[</span><span class="token string">"CRAN"</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>- <span class="token string">"http://mirrors.aliyun.com/CRAN/"</span>
+r<span class="token punctuation">[</span><span class="token string">"CRANextra"</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>- <span class="token string">"http://mirrors.aliyun.com/CRAN/"</span>
+options<span class="token punctuation">(</span>repos<span class="token operator">=</span>r<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 
-# 向 ~&#x2F;.Rprofile 文件中写入配置镜像的代码可以永久配置镜像
-file.edit(&quot;~&#x2F;.Rprofile&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># 向 ~/.Rprofile 文件中写入配置镜像的代码可以永久配置镜像</span>
+file.edit<span class="token punctuation">(</span><span class="token string">"~/.Rprofile"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>使用 BiocManager 下载 <a href="https://www.bioconductor.org/about/mirrors/">https://www.bioconductor.org/about/mirrors/</a>（镜像源列表）</p>
   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 从 BiocManager 镜像安装 XVector</span>
 options<span class="token punctuation">(</span>BioC_mirror<span class="token operator">=</span><span class="token string">"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"</span><span class="token punctuation">)</span>
@@ -3058,6 +3219,8 @@ file.edit<span class="token punctuation">(</span><span class="token string">"~/.
 
 <h2 id="加载指定libpath下的R包"><a href="#加载指定libpath下的R包" class="headerlink" title="加载指定libpath下的R包"></a>加载指定libpath下的R包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># lib 参数指定 libpath，即从那个目录下加载 R 包</span>
 library<span class="token punctuation">(</span><span class="token string">"remotes"</span>, lib <span class="token operator">=</span> <span class="token string">"xxx"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="查看已经加载的R包"><a href="#查看已经加载的R包" class="headerlink" title="查看已经加载的R包"></a>查看已经加载的R包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">(</span>.packages<span class="token punctuation">(</span><span class="token punctuation">))</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>

@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">596</span>
+            <span class="post-count">600</span>
         </span>
     </span>
 
@@ -134,15 +134,28 @@
 <h2 id="网络的联通性"><a href="#网络的联通性" class="headerlink" title="网络的联通性"></a>网络的联通性</h2><p>说到联通性，自然至少涉及到两个对象，比如说主机A和主机B是联通的。那么我们怎么判断我们当前使用的电脑和某个ip或域名对应的主机是否联通呢？</p>
 <p>好了，这里提到了 ip 和域名，那么他们是什么关系呢？</p>
 <p>通常来说，网络上的两台主机能够通过 ip 来进行通信，ip 的形式如：x.x.x.x，其中 x 是一个[0,255]区间的数字。</p>
-<p>但是 4 个数字并不如一些有意义的字符好记。如: <a target="_blank" rel="noopener" href="http://www.baidu.com,github.com.所以,你也可以使用域名替换掉ip与主机通信.通常来说,在公网中会有/">www.baidu.com，github.com。所以，你也可以使用域名替换掉ip与主机通信。通常来说，在公网中会有</a> DNS 服务器将域名解析成 ip，这样就能通过访问域名的方式来访问主机啦。你也可以在本地配置域名和 ip 的映射关系。</p>
+<p>但是 4 个数字并不如一些有意义的字符好记。如: <a target="_blank" rel="noopener" href="http://www.baidu.com,github.com./">www.baidu.com，github.com。</a></p>
+<p>所以，你也可以使用域名替换掉ip与主机通信。通常来说，在公网中会有 DNS 服务器将域名解析成 ip，这样就能通过访问域名的方式来访问主机啦。你也可以在本地配置域名和 ip 的映射关系。</p>
 <p>linux 本地配置域名和 ip 映射的文件在 /etc/hosts 中，因为 Linux 中没有浏览器，我这里使用 windows 来演示一下，原理是一样的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pint www.baidu.com</span><br><span class="line">http://14.215.177.38</span><br><span class="line">http://www.baidu.com</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pint www.baidu.com
+http://14.215.177.38
+http://www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 个不能访问的链接</span></span><br><span class="line">wget  https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 github 代理访问</span></span><br><span class="line">wget https://ghproxy.com/https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个就是这个链接对应的域名</span></span><br><span class="line">ping raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+<h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1 个不能访问的链接</span>
+<span class="token function">wget</span>  https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml
+
+<span class="token comment"># 使用 github 代理访问</span>
+<span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/qiime2/environment-files/master/2018.8/release/qiime2-2018.8-py35-linux-conda.yml
+
+<span class="token comment"># 这个就是这个链接对应的域名</span>
+<span class="token function">ping</span> raw.githubusercontent.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="127-0-0-1-和-localhost"><a href="#127-0-0-1-和-localhost" class="headerlink" title="127.0.0.1 和 localhost"></a>127.0.0.1 和 localhost</h2><p>127.0.0.1 是本机的 ip 地址，localhost 是它对应的域名</p>
 <p>当然本机还有一个对外的 ip 地址，不过如果不是公网 ip 的话，对于其他和本机不属于一个局域网的主机来说没有实际意义，如 192.168.0.1，很多路由器的 ip 地址是这个，登陆它能够对路由器进行设置。但对于不跟路由器在同一个局域网的主机，是不能通过这个 ip 登陆它的。</p>
-<h2 id="依赖网络连通性的-linux-命令"><a href="#依赖网络连通性的-linux-命令" class="headerlink" title="依赖网络连通性的 linux 命令"></a>依赖网络连通性的 linux 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh</span><br><span class="line">ftp / sftp</span><br><span class="line">wget </span><br><span class="line">curl </span><br></pre></td></tr></table></figure>
+<h2 id="依赖网络连通性的-linux-命令"><a href="#依赖网络连通性的-linux-命令" class="headerlink" title="依赖网络连通性的 linux 命令"></a>依赖网络连通性的 linux 命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span>
+<span class="token function">ftp</span> / <span class="token function">sftp</span>
+<span class="token function">wget</span> 
+<span class="token function">curl</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h1><h2 id="github-代理"><a href="#github-代理" class="headerlink" title="github 代理"></a>github 代理</h2><p>每个代理使用的方法不一样，可以访问他们的官网查看使用方法。</p>
 <p><a target="_blank" rel="noopener" href="https://hub.yzuu.cf/">https://hub.yzuu.cf/</a><br><a target="_blank" rel="noopener" href="https://hub.njuu.cf/">https://hub.njuu.cf/</a><br><a target="_blank" rel="noopener" href="https://ghproxy.com/">https://ghproxy.com/</a><br><a target="_blank" rel="noopener" href="https://github.moeyy.xyz/">https://github.moeyy.xyz/</a><br><a target="_blank" rel="noopener" href="https://kgithub.com/">https://kgithub.com/</a><br><a target="_blank" rel="noopener" href="https://gitclone.com/">https://gitclone.com/</a></p>

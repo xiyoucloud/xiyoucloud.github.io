@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">924</span>
+            <span class="post-count">892</span>
         </span>
     </span>
 
@@ -132,17 +132,17 @@
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>CRAN 在国内下载速度很快，因为它在国内有很多镜像，因此一般不用额外为 R 设置额外的国内镜像了。</p>
 <h3 id="1-设置国内镜像源（可选）"><a href="#1-设置国内镜像源（可选）" class="headerlink" title="1.设置国内镜像源（可选）"></a>1.设置国内镜像源（<strong>可选</strong>）</h3><ul>
 <li><p>使用 install 下载：<a target="_blank" rel="noopener" href="https://cran.r-project.org/mirrors.html">https://cran.r-project.org/mirrors.html</a>（镜像源列表）</p>
-  <pre class="line-numbers language-R" data-language="R"><code class="language-R"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)
-install.packages(&quot;devtools&quot;, repos &#x3D; &quot;https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;CRAN&#x2F;&quot;)
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 从 CRAN 镜像下载安装包 (通常不需要,因为 CRAN 的 R 包下载速度不慢)</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"devtools"</span>, repos <span class="token operator">=</span> <span class="token string">"https://mirrors.ustc.edu.cn/CRAN/"</span><span class="token punctuation">)</span>
 
-# 配置镜像源
-local(&#123;r &lt;- getOption(&quot;repos&quot;)
-r[&quot;CRAN&quot;] &lt;- &quot;http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;CRAN&#x2F;&quot;
-r[&quot;CRANextra&quot;] &lt;- &quot;http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;CRAN&#x2F;&quot;
-options(repos&#x3D;r)&#125;)
+<span class="token comment"># 配置镜像源</span>
+local<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>r <span class="token operator">&lt;</span>- getOption<span class="token punctuation">(</span><span class="token string">"repos"</span><span class="token punctuation">)</span>
+r<span class="token punctuation">[</span><span class="token string">"CRAN"</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>- <span class="token string">"http://mirrors.aliyun.com/CRAN/"</span>
+r<span class="token punctuation">[</span><span class="token string">"CRANextra"</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span>- <span class="token string">"http://mirrors.aliyun.com/CRAN/"</span>
+options<span class="token punctuation">(</span>repos<span class="token operator">=</span>r<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 
-# 向 ~&#x2F;.Rprofile 文件中写入配置镜像的代码可以永久配置镜像
-file.edit(&quot;~&#x2F;.Rprofile&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># 向 ~/.Rprofile 文件中写入配置镜像的代码可以永久配置镜像</span>
+file.edit<span class="token punctuation">(</span><span class="token string">"~/.Rprofile"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>使用 BiocManager 下载 <a target="_blank" rel="noopener" href="https://www.bioconductor.org/about/mirrors/">https://www.bioconductor.org/about/mirrors/</a>（镜像源列表）</p>
   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 从 BiocManager 镜像安装 XVector</span>
 options<span class="token punctuation">(</span>BioC_mirror<span class="token operator">=</span><span class="token string">"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"</span><span class="token punctuation">)</span>

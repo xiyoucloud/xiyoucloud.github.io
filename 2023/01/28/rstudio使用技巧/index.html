@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">478</span>
+            <span class="post-count">985</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -157,11 +157,34 @@
 <h1 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h1><p>大家都知道在R中可以使用setwd()可以设置工作目录，但有时候不知道该怎样描述设置的路径，可以参考下面图片将当前项目的目录设置为工作目录。如果你需要设置其他目录为工作路径，酌情更改即可。</p>
 <img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128225546717.png" class="" title="image-20230128225546717">
 
+<h1 id="rsession异常导致工作空间数据丢失"><a href="#rsession异常导致工作空间数据丢失" class="headerlink" title="rsession异常导致工作空间数据丢失"></a>rsession异常导致工作空间数据丢失</h1><p>这里的数据丢失可能包括计算过程中的中间结果和未保存的代码。</p>
+<p>避免数据丢失的方式是使用 ctrl + s 保存代码，将重要的工作空间中的变量保存带 Rdata 或 rds 文件中。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129221657990.png" class="" title="image-20230129221657990">
 
+<h1 id="在终端中使用R"><a href="#在终端中使用R" class="headerlink" title="在终端中使用R"></a>在终端中使用R</h1><p>在终端（Terminal）中输入 R 进入到 R 的交互界面，可以在此交互界面执行 R 代码。</p>
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129222231379.png" class="" title="image-20230129222231379">
 
+<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129222451090.png" class="" title="image-20230129222451090">
 
+<h1 id="重启rstudio-server服务"><a href="#重启rstudio-server服务" class="headerlink" title="重启rstudio-server服务"></a>重启rstudio-server服务</h1><p>如果 rstudio-server 服务异常，比如不能正常访问，可以尝试重启 rstudio-server 服务。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 重启</span>
+<span class="token function">sudo</span> <span class="token function">service</span> rstudio-server restart
+<span class="token comment"># 查看运行状态</span>
+<span class="token function">sudo</span> <span class="token function">service</span> rstudio-server status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h1 id="杀死rsession对应的用户进程"><a href="#杀死rsession对应的用户进程" class="headerlink" title="杀死rsession对应的用户进程"></a>杀死rsession对应的用户进程</h1><p>由于 rstudio-server 的性能问题，可能会出现在网页端访问 rstudio 卡住，不能加载出数据的情况，此时可以杀死当前的session进程，然后尝试重新登陆 rstudio-server。<strong>杀死进程可能会导致 workspace 中计算产生的结果丢失</strong>，因此要养成经常将计算结果保存在本地磁盘中的好习惯（保存为Rdata或rds文件），下次使用时直接从磁盘中加载就好了。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"/usr/lib/rstudio-server/bin/rsession -u <span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span>"</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -15<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h1 id="清除用户rsession"><a href="#清除用户rsession" class="headerlink" title="清除用户rsession"></a>清除用户rsession</h1><p>一个 rsession 对应一个 rstudio-server 的会话，用户与 rstudio-server 建立一个连接后，会话信息会保存在一个文件中，如果出现 rstudio 卡住、不能登陆等情况时，在杀死进程后还是没有解决问题，可以清除 session 文件再重新登陆。这一操作通常要搭配<a href="#%E6%9D%80%E6%AD%BBrsession%E5%AF%B9%E5%BA%94%E7%9A%84%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B">杀死rsession对应的用户进程</a>使用，因此*<em>可能会导致 workspace 中计算产生的结果丢失</em>***。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新版 rstudio 的 session 文件的存放位置</span>
+<span class="token function">ls</span> ~/.local/share/rstudio/sessions/active
+<span class="token comment"># 如果有内容，则删除</span>
+<span class="token function">rm</span> -rf ~/.local/share/rstudio/sessions/active
+
+<span class="token comment"># 旧版 rstudio 的 session 文件的存放位置</span>
+<span class="token function">ls</span> ~/.rstudio/sessions/active/session-*
+<span class="token comment"># 如果有内容则删除</span>
+<span class="token function">rm</span> -rf ~/.rstudio/sessions/active/session-*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
@@ -245,6 +268,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            conda问题汇总
+          
+        </div>
+      </a>
     
     
       <a href="/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">

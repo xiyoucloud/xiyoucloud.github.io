@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">602</span>
+            <span class="post-count">685</span>
         </span>
     </span>
 
@@ -138,8 +138,8 @@
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="通过pip安装"><a href="#通过pip安装" class="headerlink" title="通过pip安装"></a>通过pip安装</h2><p>pip 工具可以通过 conda 安装。</p>
-<p>如果你有 root 权限的话，也可以通过 apt 安装。</p>
+<h2 id="通过pip安装"><a href="#通过pip安装" class="headerlink" title="通过pip安装"></a>通过pip安装</h2><p>pip 工具可以通过 conda 安装，如果你有 root 权限的话，也可以通过 apt 安装。</p>
+<p><strong>所有</strong> python 包都可以在官网搜索到：<a target="_blank" rel="noopener" href="https://pypi.org/">https://pypi.org/</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="pip镜像源"><a href="#pip镜像源" class="headerlink" title="pip镜像源"></a>pip镜像源</h3><table>
@@ -191,6 +191,22 @@ pip <span class="token function">install</span> requests -i https://pypi.douban.
 <li>从源码安装</li>
 <li>从 whl 文件安装，有些作者会针对不同平台（mac，linux，win）发布编译好的 whl 文件，这样安装就不用处理软件的依赖了。</li>
 </ol>
+<h2 id="如何安装指定版本的Python包"><a href="#如何安装指定版本的Python包" class="headerlink" title="如何安装指定版本的Python包"></a>如何安装指定版本的Python包</h2><ol>
+<li>使用 pip 安装时指定版本</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> <span class="token assign-left variable">requests</span><span class="token operator">==</span><span class="token number">2.28</span>.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>下载对应版本的 whl 文件安装</li>
+<li>下载对应版本的源码进行安装</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 更新Python包</span>
+pip <span class="token function">install</span> -U jupyter_server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="如何卸载Python"><a href="#如何卸载Python" class="headerlink" title="如何卸载Python"></a>如何卸载Python</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip uninstall requests<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       

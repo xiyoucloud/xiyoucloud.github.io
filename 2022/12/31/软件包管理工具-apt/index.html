@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.4k</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -187,8 +187,11 @@ apt-add-repository multiverse<span aria-hidden="true" class="line-numbers-rows">
 <h3 id="更新存储库"><a href="#更新存储库" class="headerlink" title="更新存储库"></a>更新存储库</h3><p>apt 从软件源安装软件，它需要在本地维护一个软件源的存储库，这样就能在存储库中搜索软件包了。但软件源中的软件包信息是频繁更新的，如果你想使用更新版本的软件，你就需要先更新本地的存储库，再进行软件安装。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> search ^wget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h3><p>支持正则表达式</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 能搜索到的软件包才能被 apt 安装</span>
+<span class="token function">apt</span> search ^wget<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<p>如果搜索不到某软件，就去 google “xx install in ubuntu”</p>
 <h3 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> <span class="token function">wget</span>
 
 <span class="token comment"># 使用 dpkg 安装软件包</span>
@@ -280,6 +283,10 @@ dpkg -L rstudio-server<span aria-hidden="true" class="line-numbers-rows"><span><
 <td>删除已经卸载的软件的软件包备份</td>
 </tr>
 </tbody></table>
+<h2 id="E-Unable-to-locate-package-xxx"><a href="#E-Unable-to-locate-package-xxx" class="headerlink" title="E:Unable to locate package xxx"></a>E:Unable to locate package xxx</h2><p>有两种可能，一种可能是你要搜索的软件在软件源中并不存在。如果你没有添加其他的软件源，说明该软件在官方原中不存在，如果你知道该软件在那个软件源的话可以通过添加第三方软件源来安装该软件。</p>
+<p>另一种可能是本地的软件源没有该软件的信息，这种情况下您可以使用以下命令更新一下本地的软件信息，然后再次执行安装。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
