@@ -79,13 +79,15 @@ conda env create --file environment.yml
 
 ## channels 管理
 
-### 列出 conda 中配置的 channels，根据从低到高的优先级排列
+### 列出 conda 中配置的 channels，根据优先级从低到高的顺序排列
 
 ```shell
 conda config --get channels 
 ```
 
 ### 添加 channels，添加国内的 channels 也就是我们常说的添加国内源
+
+选其一添加即可，添加太多反而会“打架”。
 
 ```shell
 # 添加中科大源
@@ -115,6 +117,10 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-for
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
 conda config --set show_channel_urls yes 
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
+
+
+# 添加镜像源后清除一下本地软件搜索索引
+conda clean -i
 ```
 
 ### 删除 channels 
@@ -125,6 +131,7 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
 	conda config --get channels
 	# 删除指定的 channels
 	conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+	conda config --remove channels defaults
 	# 删除配置的所有镜像源
 	conda config --remove-key channels
 	```
@@ -133,7 +140,9 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
 	vi ~/.condarc
 	```
 
-#### 安装包时暂时添加 channels，此 channels 处于最高优先级
+#### 安装包时暂时添加 channels
+
+使用 -c 指定的软件源处于最高优先级，这可能导致一个问题，如果你已经配置好国内镜像源，在下载对应源的软件时可以不指定软件源，它会自动从你配置好国内镜像源中下载。
 
 ```shell
 conda install -c bioconda presto

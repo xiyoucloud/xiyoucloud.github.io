@@ -22,7 +22,7 @@ conda install -c conda-forge apptainer
 
 **Apptainer**是一个相对较新的容器软件，相对于 docker 来说，它不需要 root 权限，因此更符合科研应用的场景（因为共享服务器中普通用户通常不会有root权限）。
 
-Apptainer 的旧版本被称为 Singularity，关于它们之间的兼容性以及从 singularity 迁移到 apptainer 可以参考这个链接：https://apptainer.org/docs/user/main/singularity_compatibility.html。
+Apptainer 的旧版本被称为 Singularity，关于它们之间的兼容性以及从 singularity 迁移到 apptainer 可以参考这个链接：https://apptainer.org/docs/user/main/singularity_compatibility.html
 
 通常来说，singularity 可以用 apptainer 命令代替（如果你安装了 apptainer）。
 
@@ -51,6 +51,8 @@ apptainer build ubuntu22.sif  docker://ubuntu:22.04
 
 ## 转化镜像格式
 
+*.sif文件是 apptainer 使用的镜像格式。
+
 ```bash
 # 将tar包格式的docker镜像转化为sif格式
 singularity build hello_world.sif docker-archive://hello_world.tar
@@ -67,7 +69,7 @@ apptainer exec ubuntu22.sif "pwd"
 
 ## 运行容器
 
-[Apptainer](https://apptainer.org/docs/user/main/definition_files.html#runscript)容器包含运行脚本。这些是用户定义的脚本，用于定义容器在有人运行时应执行的操作。runscript 可以用 [run](https://apptainer.org/docs/user/main/cli/apptainer_run.html) 命令触发，或者简单地通过调用容器就像它是一个可执行文件一样。
+[Apptainer](https://apptainer.org/docs/user/main/definition_files.html#runscript)容器内部包含运行脚本。这些是构建容器是作者自定义的脚本，用于定义容器在运行时应执行的操作。runscript 可以用 [run](https://apptainer.org/docs/user/main/cli/apptainer_run.html) 命令触发，或者简单地通过调用容器就像它是一个可执行文件一样。
 
 ```bash
 # 方式 1
@@ -78,7 +80,7 @@ apptainer run ubuntu22.sif
 
 ## 映射
 
-默认情况下，Apptainer 会在运行时将`/home/$USER`、 `/tmp`和绑定`$PWD`到您的容器中。当然 apptainer 也提供了其他参数可以在宿主机和容器中进行映射。https://apptainer.org/docs/user/main/bind_paths_and_mounts.html
+默认情况下，Apptainer 会在运行时将`/home/$USER`、 `/tmp`和绑定`$PWD`到您的容器中。当然 apptainer 也提供了其他参数可以在宿主机和容器中进行映射。详情可以参考这个链接：https://apptainer.org/docs/user/main/bind_paths_and_mounts.html
 
 ## 构建容器
 

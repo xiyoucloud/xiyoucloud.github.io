@@ -44,7 +44,7 @@ conda create -n r-4.2 r-base=4.2.2 -y -vv
 
 ## 指定rstudio-server中的R
 
-编辑 /etc/rstudio/rserver.conf 文件来指定 rstudio-server 中使用的 R
+编辑 /etc/rstudio/rserver.conf 文件来指定 rstudio-server 中使用的 R。
 
 **rserver.conf文件示例：**
 
