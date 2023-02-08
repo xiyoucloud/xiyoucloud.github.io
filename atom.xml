@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-02-03T15:45:06.963Z</updated>
+  <updated>2023-02-08T15:03:58.378Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>x86_64-conda-linux-gnu-cc not found</title>
+    <link href="https://xiyoucloud.github.io/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/"/>
+    <id>https://xiyoucloud.github.io/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/</id>
+    <published>2023-02-08T14:33:32.000Z</published>
+    <updated>2023-02-08T15:03:58.378Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
+    
+    <category term="rstudio-server" scheme="https://xiyoucloud.github.io/tags/rstudio-server/"/>
+    
+    <category term="R" scheme="https://xiyoucloud.github.io/tags/R/"/>
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
   
   <entry>
     <title>conda问题汇总</title>
@@ -60,7 +89,7 @@
     <link href="https://xiyoucloud.github.io/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
     <published>2023-01-20T04:25:50.000Z</published>
-    <updated>2023-01-28T13:55:48.274Z</updated>
+    <updated>2023-02-08T12:23:39.654Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 安装 singularity&lt;/span&gt;
@@ -400,7 +429,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/"/>
     <id>https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/</id>
     <published>2022-12-31T02:41:35.000Z</published>
-    <updated>2023-01-05T02:12:40.620Z</updated>
+    <updated>2023-02-07T08:49:22.945Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;在Linux系统中安装多个R&quot;&gt;&lt;a href=&quot;#在Linux系统中安装多个R&quot; class=&quot;headerlink&quot; title=&quot;在Linux系统中安装多个R&quot;&gt;&lt;/a&gt;在Linux系统中安装多个R&lt;/h2&gt;&lt;p&gt;在系统中使用 apt 安装的 R 是全局安装的，无法使用 apt 安装多个版本的 R。&lt;/p&gt;
@@ -414,25 +443,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="rstudio-server" scheme="https://xiyoucloud.github.io/tags/rstudio-server/"/>
     
     <category term="R" scheme="https://xiyoucloud.github.io/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bash教程</title>
-    <link href="https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/"/>
-    <id>https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/</id>
-    <published>2022-12-30T14:09:28.000Z</published>
-    <updated>2023-01-01T04:14:37.101Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=775634812&amp;bvid=BV1114y1n7Ei&amp;cid=906225871&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot;scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="bash" scheme="https://xiyoucloud.github.io/tags/bash/"/>
     
   </entry>
   

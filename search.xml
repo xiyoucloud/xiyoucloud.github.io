@@ -34,6 +34,38 @@
       </tags>
   </entry>
   <entry>
+    <title>x86_64-conda-linux-gnu-cc not found</title>
+    <url>/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208224336781.png" class="" title="image-20230208224336781">
+
+<p>可是在 conda 的对应目录中这个 x86_64-conda-linux-gnu-cc 是已经安装好的。更奇怪的是，这个包在 R 的交互环境中可以安装好（在终端中输入 R，然后执行相关的装包代码），而在 rstudio 中运行相应的装包代码是却会出现报错。根据报错提示可以看到导致报错的行是在 <code>/home/txb/miniconda3/envs/r-4.2/lib/R/etc/Makeconf</code>文件中的第 171 行代码。然后我去查看了第 171 行代码，好像描述的是一种编译文件的方式。</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208224938575.png" class="" title="image-20230208224938575">
+
+<p>这里的 CC 看起来是一个变量，最后我在该文件的第 16 行找到了变量定义的值，它的值是 x86_64-conda-linux-gnu-cc, 我将它改为了 x86_64-conda-linux-gnu-cc 这个文件的绝对路径，这样就不会报错 <code>x86_64-conda-linux-gnu-cc not found </code>了。</p>
+<p>修改前：</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208225409775.png" class="" title="image-20230208225409775">
+
+<p>修改后：</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208225510830.png" class="" title="image-20230208225510830">
+
+<p><strong>这个报错虽然是说的 x86_64-conda-linux-gnu-cc 没找到，不过有朝一日在 rstudio-server 中安装其他 R 包时又报其他的 xx not found，而你已经使用 conda 安装了相关软件，也可以参照此法修改 Makeconf 文件</strong></p>
+<p>当然，出现这种情况还有一种可能，就是你本地没安装 x86_64-conda-linux-gnu-cc。如果是这样，你需要在你使用的 R 所在的 conda 虚拟环境中安装它。安装命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span>  gcc_linux-64 
+conda <span class="token function">install</span>  gxx_linux-64
+conda <span class="token function">install</span>  gfortran_linux-64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>conda</tag>
+        <tag>rstudio-server</tag>
+        <tag>R</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>conda问题汇总</title>
     <url>/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这篇文章汇总了使用 conda 过程中一些常见的问题。</p>
@@ -179,7 +211,7 @@ conda <span class="token function">install</span> -c conda-forge apptainer<span 
 <span id="more"></span>
 
 <p><strong>Apptainer</strong>是一个相对较新的容器软件，相对于 docker 来说，它不需要 root 权限，因此更符合科研应用的场景（因为共享服务器中普通用户通常不会有root权限）。</p>
-<p>Apptainer 的旧版本被称为 Singularity，关于它们之间的兼容性以及从 singularity 迁移到 apptainer 可以参考这个链接：<a href="https://apptainer.org/docs/user/main/singularity_compatibility.html%E3%80%82">https://apptainer.org/docs/user/main/singularity_compatibility.html。</a></p>
+<p>Apptainer 的旧版本被称为 Singularity，关于它们之间的兼容性以及从 singularity 迁移到 apptainer 可以参考这个链接：<a href="https://apptainer.org/docs/user/main/singularity_compatibility.html">https://apptainer.org/docs/user/main/singularity_compatibility.html</a></p>
 <p>通常来说，singularity 可以用 apptainer 命令代替（如果你安装了 apptainer）。</p>
 <p>Singularity官方文档：<a href="https://github.com/apptainer/singularity">https://github.com/apptainer/singularity</a></p>
 <p>Apptainer官方文档：<a href="https://github.com/apptainer/apptainer">https://github.com/apptainer/apptainer</a></p>
@@ -236,7 +268,8 @@ conda <span class="token function">install</span> -c conda-forge apptainer<span 
 <span class="token comment"># 拉取镜像之后指定镜像在本地保存的文件名称</span>
 apptainer build ubuntu22.sif  docker://ubuntu:22.04<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="转化镜像格式"><a href="#转化镜像格式" class="headerlink" title="转化镜像格式"></a>转化镜像格式</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将tar包格式的docker镜像转化为sif格式</span>
+<h2 id="转化镜像格式"><a href="#转化镜像格式" class="headerlink" title="转化镜像格式"></a>转化镜像格式</h2><p>*.sif文件是 apptainer 使用的镜像格式。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将tar包格式的docker镜像转化为sif格式</span>
 singularity build hello_world.sif docker-archive://hello_world.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="在容器中执行命令"><a href="#在容器中执行命令" class="headerlink" title="在容器中执行命令"></a>在容器中执行命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方式1：进入到容器，然后再终端中执行命令</span>
@@ -244,13 +277,13 @@ apptainer shell ubuntu22.sif
 <span class="token comment"># 方式2：在容器中执行 pwd 命令</span>
 apptainer <span class="token builtin class-name">exec</span> ubuntu22.sif <span class="token string">"pwd"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><p><a href="https://apptainer.org/docs/user/main/definition_files.html#runscript">Apptainer</a>容器包含运行脚本。这些是用户定义的脚本，用于定义容器在有人运行时应执行的操作。runscript 可以用 <a href="https://apptainer.org/docs/user/main/cli/apptainer_run.html">run</a> 命令触发，或者简单地通过调用容器就像它是一个可执行文件一样。</p>
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><p><a href="https://apptainer.org/docs/user/main/definition_files.html#runscript">Apptainer</a>容器内部包含运行脚本。这些是构建容器是作者自定义的脚本，用于定义容器在运行时应执行的操作。runscript 可以用 <a href="https://apptainer.org/docs/user/main/cli/apptainer_run.html">run</a> 命令触发，或者简单地通过调用容器就像它是一个可执行文件一样。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 方式 1</span>
 apptainer run ubuntu22.sif 
 <span class="token comment"># 方式 2</span>
 ./ubuntu22.sif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h2><p>默认情况下，Apptainer 会在运行时将<code>/home/$USER</code>、 <code>/tmp</code>和绑定<code>$PWD</code>到您的容器中。当然 apptainer 也提供了其他参数可以在宿主机和容器中进行映射。<a href="https://apptainer.org/docs/user/main/bind_paths_and_mounts.html">https://apptainer.org/docs/user/main/bind_paths_and_mounts.html</a></p>
+<h2 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h2><p>默认情况下，Apptainer 会在运行时将<code>/home/$USER</code>、 <code>/tmp</code>和绑定<code>$PWD</code>到您的容器中。当然 apptainer 也提供了其他参数可以在宿主机和容器中进行映射。详情可以参考这个链接：<a href="https://apptainer.org/docs/user/main/bind_paths_and_mounts.html">https://apptainer.org/docs/user/main/bind_paths_and_mounts.html</a></p>
 <h2 id="构建容器"><a href="#构建容器" class="headerlink" title="构建容器"></a>构建容器</h2><p>构建容器有两种方式，一种是根据原有的镜像进行更改。</p>
 <p>一种是根据镜像定义文件 xx.def 定义镜像的构建流程。构建 xx.def 的语法规则可以参考这个链接：<a href="https://apptainer.org/docs/user/latest/definition_files.html">https://apptainer.org/docs/user/latest/definition_files.html</a></p>
 <p>apptainer镜像文件默认只可以复制和验证，如果想要自己构建镜像，需要一种可写的镜像格式，此时需要以沙箱的模式运行镜像。</p>
@@ -1456,19 +1489,28 @@ dpkg -L rstudio-server<span aria-hidden="true" class="line-numbers-rows"><span><
 <a href="/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="conda使用教程">conda使用教程</a>
 
 <h2 id="使用conda安装R"><a href="#使用conda安装R" class="headerlink" title="使用conda安装R"></a>使用conda安装R</h2><p>搜索可以使用的R版本:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索 conda 软件源中的 r-base 版本</span></span><br><span class="line">conda search r-base</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 搜索 conda 软件源中的 r-base 版本</span>
+conda search r-base<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231112003765.png" class="" title="image-20221231112003765">
 
 <p>使用 conda 安装 R，推荐每安装1个R就使用conda创建一个虚拟环境并在其中安装，R版本直接在虚拟环境的名称中体现。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境 r-4.2 的同时安装 R4.2.2 版本</span></span><br><span class="line">conda create -n r-4.2 r-base=4.2.2 -y -vv</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建虚拟环境 r-4.2 的同时安装 R4.2.2 版本</span>
+conda create -n r-4.2 r-base<span class="token operator">=</span><span class="token number">4.2</span>.2 -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="指定rstudio-server中的R"><a href="#指定rstudio-server中的R" class="headerlink" title="指定rstudio-server中的R"></a>指定rstudio-server中的R</h2><p>编辑 /etc/rstudio/rserver.conf 文件来指定 rstudio-server 中使用的 R</p>
+<h2 id="指定rstudio-server中的R"><a href="#指定rstudio-server中的R" class="headerlink" title="指定rstudio-server中的R"></a>指定rstudio-server中的R</h2><p>编辑 /etc/rstudio/rserver.conf 文件来指定 rstudio-server 中使用的 R。</p>
 <p><strong>rserver.conf文件示例：</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Server Configuration File</span></span><br><span class="line"><span class="comment"># 设置rstudio-server 运行端口</span></span><br><span class="line">www-port=8787</span><br><span class="line"><span class="comment"># 设置 rstudio-server 中使用的 R</span></span><br><span class="line">rsession-which-r=/home/txb/miniconda3/envs/r-4.2/bin/R</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Server Configuration File</span>
+<span class="token comment"># 设置rstudio-server 运行端口</span>
+www-port<span class="token operator">=</span><span class="token number">8787</span>
+<span class="token comment"># 设置 rstudio-server 中使用的 R</span>
+rsession-which-r<span class="token operator">=</span>/home/txb/miniconda3/envs/r-4.2/bin/R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>还没完</strong>，如果你想在 rstudio-server 中使用该版本的需要重启一下 rstudio-server，然后在 rstudio-server 中开启一个新的 R project 使用，在新的 R project 中使用 rserver.conf 中指定的 R。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 停止 rstudio-server 服务</span></span><br><span class="line">sudo rstudio-server stop</span><br><span class="line"><span class="comment"># 运行 rstudio-server 服务</span></span><br><span class="line">sudo rstudio-server start</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 停止 rstudio-server 服务</span>
+<span class="token function">sudo</span> rstudio-server stop
+<span class="token comment"># 运行 rstudio-server 服务</span>
+<span class="token function">sudo</span> rstudio-server start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>需要新创建 1 个 R project 的原因是之前的 R project 中<strong>可能</strong>会保留之前的 libpath 信息，这样在安装 R 包时会导致混乱。</p>
 <pre class="mermaid">flowchart LR
@@ -1477,11 +1519,13 @@ A(File)-->B(New Project) --> C(New Directory) --> D(New Project) --> E(Create Pr
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/rproject-2.png" class="" title="rproject-2">
 
 <h2 id="在指定的libpath中安装R包"><a href="#在指定的libpath中安装R包" class="headerlink" title="在指定的libpath中安装R包"></a>在指定的libpath中安装R包</h2><p>参考教程：<a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过指定 lib 参数来设置 R 包的安装位置，使用 remotes,devtools,BiocManager 安装 R 包同理</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;devtools&quot;</span><span class="punctuation">,</span> lib <span class="operator">=</span> <span class="string">&quot;/home/txb/miniconda3/envs/r-4.2/lib/R/library&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># 通过指定 lib 参数来设置 R 包的安装位置，使用 remotes,devtools,BiocManager 安装 R 包同理
+install.packages(&quot;devtools&quot;, lib &#x3D; &quot;&#x2F;home&#x2F;txb&#x2F;miniconda3&#x2F;envs&#x2F;r-4.2&#x2F;lib&#x2F;R&#x2F;library&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="不能混用不同版本的R安装的R包"><a href="#不能混用不同版本的R安装的R包" class="headerlink" title="不能混用不同版本的R安装的R包"></a>不能混用不同版本的R安装的R包</h2><p>如果R版本相同，可以将另一个 R 的 libpath 加入到当前 R 的 libpath 中。</p>
 <p>参考教程：<a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># xxx 为加入的 libpath</span></span><br><span class="line">.libPaths<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> .libPaths<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># xxx 为加入的 libpath
+.libPaths(c(&quot;xxx&quot;, .libPaths()))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>使用新版本的 R 后，如果还使用原来旧版本R编译的R包<strong>可能</strong>会导致报错。同理，如果使用旧版本的 R 在 libpath 中包含新版本的 R 安装的 R 包的 libpath 也<strong>可能</strong>会导致报错。</p>
 <img src="/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231124911323.png" class="" title="image-20221231124911323">
@@ -3273,9 +3317,10 @@ conda <span class="token function">env</span> <span class="token builtin class-n
 conda create -n env_name1 --file spec-list.txt
 conda <span class="token function">env</span> create --file environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><h3 id="列出-conda-中配置的-channels，根据从低到高的优先级排列"><a href="#列出-conda-中配置的-channels，根据从低到高的优先级排列" class="headerlink" title="列出 conda 中配置的 channels，根据从低到高的优先级排列"></a>列出 conda 中配置的 channels，根据从低到高的优先级排列</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --get channels <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><h3 id="列出-conda-中配置的-channels，根据优先级从低到高的顺序排列"><a href="#列出-conda-中配置的-channels，根据优先级从低到高的顺序排列" class="headerlink" title="列出 conda 中配置的 channels，根据优先级从低到高的顺序排列"></a>列出 conda 中配置的 channels，根据优先级从低到高的顺序排列</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --get channels <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="添加-channels，添加国内的-channels-也就是我们常说的添加国内源"><a href="#添加-channels，添加国内的-channels-也就是我们常说的添加国内源" class="headerlink" title="添加 channels，添加国内的 channels 也就是我们常说的添加国内源"></a>添加 channels，添加国内的 channels 也就是我们常说的添加国内源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加中科大源</span>
+<h3 id="添加-channels，添加国内的-channels-也就是我们常说的添加国内源"><a href="#添加-channels，添加国内的-channels-也就是我们常说的添加国内源" class="headerlink" title="添加 channels，添加国内的 channels 也就是我们常说的添加国内源"></a>添加 channels，添加国内的 channels 也就是我们常说的添加国内源</h3><p>选其一添加即可，添加太多反而会“打架”。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加中科大源</span>
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
@@ -3301,18 +3346,24 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge 
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
 conda config --set show_channel_urls <span class="token function">yes</span> 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
+
+
+<span class="token comment"># 添加镜像源后清除一下本地软件搜索索引</span>
+conda clean -i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="删除-channels"><a href="#删除-channels" class="headerlink" title="删除 channels"></a>删除 channels</h3><ul>
 <li>方法 1 （通过命令删除）：  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先查看 channels</span>
 conda config --get channels
 <span class="token comment"># 删除指定的 channels</span>
 conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+conda config --remove channels defaults
 <span class="token comment"># 删除配置的所有镜像源</span>
-conda config --remove-key channels<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+conda config --remove-key channels<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>方法 2 （编辑 .condarc 文件删除想要删除 channels 对应的行）  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> ~/.condarc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-<h4 id="安装包时暂时添加-channels，此-channels-处于最高优先级"><a href="#安装包时暂时添加-channels，此-channels-处于最高优先级" class="headerlink" title="安装包时暂时添加 channels，此 channels 处于最高优先级"></a>安装包时暂时添加 channels，此 channels 处于最高优先级</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> -c bioconda presto
+<h4 id="安装包时暂时添加-channels"><a href="#安装包时暂时添加-channels" class="headerlink" title="安装包时暂时添加 channels"></a>安装包时暂时添加 channels</h4><p>使用 -c 指定的软件源处于最高优先级，这可能导致一个问题，如果你已经配置好国内镜像源，在下载对应源的软件时可以不指定软件源，它会自动从你配置好国内镜像源中下载。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> -c bioconda presto
 <span class="token comment"># 如果配置了国内镜像源，就不用指定 channels 了，这样会使用国内镜像源下载，速度更快</span>
 conda <span class="token function">install</span> presto<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 

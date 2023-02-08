@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.6k</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">6 分钟</span>
+            <span class="post-count">7 分钟</span>
         </span>
     </span>
 </div>
@@ -164,9 +164,10 @@ conda <span class="token function">env</span> <span class="token builtin class-n
 conda create -n env_name1 --file spec-list.txt
 conda <span class="token function">env</span> create --file environment.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><h3 id="列出-conda-中配置的-channels，根据从低到高的优先级排列"><a href="#列出-conda-中配置的-channels，根据从低到高的优先级排列" class="headerlink" title="列出 conda 中配置的 channels，根据从低到高的优先级排列"></a>列出 conda 中配置的 channels，根据从低到高的优先级排列</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --get channels <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="channels-管理"><a href="#channels-管理" class="headerlink" title="channels 管理"></a>channels 管理</h2><h3 id="列出-conda-中配置的-channels，根据优先级从低到高的顺序排列"><a href="#列出-conda-中配置的-channels，根据优先级从低到高的顺序排列" class="headerlink" title="列出 conda 中配置的 channels，根据优先级从低到高的顺序排列"></a>列出 conda 中配置的 channels，根据优先级从低到高的顺序排列</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --get channels <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="添加-channels，添加国内的-channels-也就是我们常说的添加国内源"><a href="#添加-channels，添加国内的-channels-也就是我们常说的添加国内源" class="headerlink" title="添加 channels，添加国内的 channels 也就是我们常说的添加国内源"></a>添加 channels，添加国内的 channels 也就是我们常说的添加国内源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加中科大源</span>
+<h3 id="添加-channels，添加国内的-channels-也就是我们常说的添加国内源"><a href="#添加-channels，添加国内的-channels-也就是我们常说的添加国内源" class="headerlink" title="添加 channels，添加国内的 channels 也就是我们常说的添加国内源"></a>添加 channels，添加国内的 channels 也就是我们常说的添加国内源</h3><p>选其一添加即可，添加太多反而会“打架”。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加中科大源</span>
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
 conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
@@ -192,18 +193,24 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge 
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
 conda config --set show_channel_urls <span class="token function">yes</span> 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
+
+
+<span class="token comment"># 添加镜像源后清除一下本地软件搜索索引</span>
+conda clean -i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="删除-channels"><a href="#删除-channels" class="headerlink" title="删除 channels"></a>删除 channels</h3><ul>
 <li>方法 1 （通过命令删除）：  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先查看 channels</span>
 conda config --get channels
 <span class="token comment"># 删除指定的 channels</span>
 conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+conda config --remove channels defaults
 <span class="token comment"># 删除配置的所有镜像源</span>
-conda config --remove-key channels<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+conda config --remove-key channels<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>方法 2 （编辑 .condarc 文件删除想要删除 channels 对应的行）  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> ~/.condarc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-<h4 id="安装包时暂时添加-channels，此-channels-处于最高优先级"><a href="#安装包时暂时添加-channels，此-channels-处于最高优先级" class="headerlink" title="安装包时暂时添加 channels，此 channels 处于最高优先级"></a>安装包时暂时添加 channels，此 channels 处于最高优先级</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> -c bioconda presto
+<h4 id="安装包时暂时添加-channels"><a href="#安装包时暂时添加-channels" class="headerlink" title="安装包时暂时添加 channels"></a>安装包时暂时添加 channels</h4><p>使用 -c 指定的软件源处于最高优先级，这可能导致一个问题，如果你已经配置好国内镜像源，在下载对应源的软件时可以不指定软件源，它会自动从你配置好国内镜像源中下载。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> -c bioconda presto
 <span class="token comment"># 如果配置了国内镜像源，就不用指定 channels 了，这样会使用国内镜像源下载，速度更快</span>
 conda <span class="token function">install</span> presto<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 

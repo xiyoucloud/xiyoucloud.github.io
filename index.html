@@ -260,6 +260,96 @@
 
     
     <article
+  id="post-x86-64-conda-linux-gnu-cc-not-found"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/"
+    >x86_64-conda-linux-gnu-cc not found</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/" class="article-date">
+  <time datetime="2023-02-08T14:33:32.000Z" itemprop="datePublished">2023-02-08</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">443</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208224336781.png" class="" title="image-20230208224336781">
+
+<p>可是在 conda 的对应目录中这个 x86_64-conda-linux-gnu-cc 是已经安装好的。更奇怪的是，这个包在 R 的交互环境中可以安装好（在终端中输入 R，然后执行相关的装包代码），而在 rstudio 中运行相应的装包代码是却会出现报错。根据报错提示可以看到导致报错的行是在 <code>/home/txb/miniconda3/envs/r-4.2/lib/R/etc/Makeconf</code>文件中的第 171 行代码。然后我去查看了第 171 行代码，好像描述的是一种编译文件的方式。</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208224938575.png" class="" title="image-20230208224938575">
+
+<p>这里的 CC 看起来是一个变量，最后我在该文件的第 16 行找到了变量定义的值，它的值是 x86_64-conda-linux-gnu-cc, 我将它改为了 x86_64-conda-linux-gnu-cc 这个文件的绝对路径，这样就不会报错 <code>x86_64-conda-linux-gnu-cc not found </code>了。</p>
+<p>修改前：</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208225409775.png" class="" title="image-20230208225409775">
+
+<p>修改后：</p>
+<img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208225510830.png" class="" title="image-20230208225510830">
+
+<p><strong>这个报错虽然是说的 x86_64-conda-linux-gnu-cc 没找到，不过有朝一日在 rstudio-server 中安装其他 R 包时又报其他的 xx not found，而你已经使用 conda 安装了相关软件，也可以参照此法修改 Makeconf 文件</strong></p>
+<p>当然，出现这种情况还有一种可能，就是你本地没安装 x86_64-conda-linux-gnu-cc。如果是这样，你需要在你使用的 R 所在的 conda 虚拟环境中安装它。安装命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span>  gcc_linux-64 
+conda <span class="token function">install</span>  gxx_linux-64
+conda <span class="token function">install</span>  gfortran_linux-64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/" rel="tag">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rstudio-server/" rel="tag">rstudio-server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-conda问题汇总"
   class="article article-type-post"
   itemscope
@@ -852,81 +942,6 @@ conda <span class="token function">install</span> -c conda-forge apptainer<span 
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E5%8C%85/" rel="tag">R包</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-permission-denied"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/01/12/permission-denied/"
-    >permission denied</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/01/12/permission-denied/" class="article-date">
-  <time datetime="2023-01-12T12:37:29.000Z" itemprop="datePublished">2023-01-12</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">893</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>造成 permission denied 的原因有很多，这个报错的意识其实就是操作不被许可，我们也可以通俗的理解为权限不足。</p>
-<p>而在 Linux 你主要操作的对象就是文件了，因此<strong>通常此类报错与文件的权限有关</strong>。说到文件的权限，你可以去看看我的另一篇文章，其中是搭配有视频演示的。<a href="/2022/12/30/%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7-chmod-chown/" title="文件的权限和属性(chmod,chown)">文件的权限和属性(chmod,chown)</a></p>
-<p>这里我就不系统地说了，系统的论述你可以查看上面的链接。</p> 
-      <a class="article-more-link" href="/2023/01/12/permission-denied/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%83%E9%99%90/" rel="tag">权限</a></li></ul>
 
     </footer>
   </div>
