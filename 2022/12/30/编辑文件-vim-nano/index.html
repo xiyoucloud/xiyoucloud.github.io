@@ -122,7 +122,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <iframe src="//player.bilibili.com/player.html?aid=474968672&bvid=BV1AK411U73x&cid=887434972&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+  <iframe src="//player.bilibili.com/player.html?aid=474968672&bvid=BV1AK411U73x&cid=887434972&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
@@ -130,13 +130,16 @@
 <p>针对 ubuntu20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统  <a target="_blank" rel="noopener" href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
 <p>使用 nano 或 vim 编辑一个文件时，都是使用命令加文件的绝对路径或相对路径。如果该路径对应的文件不存在，写入内容后，文件会自动创建。<br>为了方便演示，这里我在 /tmp 目录下创建 xiyouyun 目录作为工作目录, 之后的命令在 <code>/tmp/xiyouyun</code>工作目录下执行。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="built_in">cd</span> /tmp/xiyouyun</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /tmp/xiyouyun
+<span class="token builtin class-name">cd</span> /tmp/xiyouyun<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="简单编辑"><a href="#简单编辑" class="headerlink" title="简单编辑"></a>简单编辑</h2><h3 id="nano：nano-filepath"><a href="#nano：nano-filepath" class="headerlink" title="nano：nano [filepath]"></a>nano：nano [filepath]</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 nano 编辑一个文件</span></span><br><span class="line">nano /tmp/xiyouyun/nano.txt</span><br></pre></td></tr></table></figure>
+<h2 id="简单编辑"><a href="#简单编辑" class="headerlink" title="简单编辑"></a>简单编辑</h2><h3 id="nano：nano-filepath"><a href="#nano：nano-filepath" class="headerlink" title="nano：nano [filepath]"></a>nano：nano [filepath]</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 nano 编辑一个文件</span>
+<span class="token function">nano</span> /tmp/xiyouyun/nano.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>如果你只想用 nano 做简单的编辑，在编辑完文件后按 Ctrl + s 保存文件，然后按 Ctrl + x 退出编辑，编辑内容就被写入文件了。</p>
 <img src="/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/afa24840d5cd4fc4b2996c2fc8b9f9a9.gif" class="" title="请添加图片描述">
 
-<h3 id="vim：vim-filepath"><a href="#vim：vim-filepath" class="headerlink" title="vim：vim [filepath]"></a>vim：vim [filepath]</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 vim 编辑一个文件</span></span><br><span class="line">vim /tmp/xiyouyun/vim.txt</span><br></pre></td></tr></table></figure>
+<h3 id="vim：vim-filepath"><a href="#vim：vim-filepath" class="headerlink" title="vim：vim [filepath]"></a>vim：vim [filepath]</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 vim 编辑一个文件</span>
+<span class="token function">vim</span> /tmp/xiyouyun/vim.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>如果你只想用 vim 做简单编辑，你需要掌握它的<strong>3</strong>种工作模式。当使用命令进入 vim vim.txt 进入 vim 时，此时是<strong>命令模式</strong>，输入<kbd>i</kbd>进入 vim 的<strong>输入模式</strong>，此时可以编辑文件内容，编辑好内容后，按<kbd>Esc</kbd>回到命令模式，输入”:”进入到 vim 的<strong>编辑模式</strong>，此时可以对文件进行保存，如输入”:wq”后回车是对文件进行保存并退出。</p>
 <pre class="mermaid">    graph TB
     A(命令模式) -->|a,i,o| B(输入模式)
@@ -177,7 +180,10 @@
 <p>命令模式：<br>    dd 删除当前行<br>    yy 复制当前行<br>    p / P 粘贴缓冲区中的内容（可以是复制或者剪切的内<br>    容）<br>    u 撤销更改<br>    Ctrl + r 重做撤销的更改<br>    gg 跳转到文件的第一行<br>    Shift + g 跳转到文件的最后一行<br>    d + Shift + g 删除从当前行到文件末尾的所有内容<br>    d + g + g 删除从当前行到文件开头的所有内容<br>    v 移动光标选中文本<br>    y 复制选中的文本<br>    “&gt;” 右移选中的文本<br>    “&lt;” 左移选中的文本<br>    d 剪切选中的文本<br>    i 进入到输入模式<br>    <number> + d + d 删除当前行后的 number 行，<br>    这里的 <number> 替换为想要删除的行数<br>    Shift + z + z 退出 vim，保存改动的内容<br>    Shift + z + q 退出 vim，不保存改动的内容<br>    ：进入到编辑模式<br>编辑模式：<br>    :set number 显示行号<br>    :wq 保存并退出<br>    :q 退出vim，只有当文件未做改动时才能成功退出<br>    :q! 退出 vim，并放弃所有的更改<br>    :r <filename> 在光标后读入另一个文件的内容，<br>    这里的<filename>替换为想要读入的文件名<br>    :w <filename> 文件内容另存为 filename，这里<br>    的<filename>替换为想要保存的文件名<br>    /<search_text> 从当前行往后搜索字符串，支持正<br>    则表达式，这里的<search_test>替换为想要搜索的字符<br>    串模式<br>    ?<search_test> 从当前行往前搜索字符串，支持正<br>    则表达式，这里的<search_test>替换为想要搜索的字<br>    符串模式<br>    以上两种搜索方式都可以用 n 移动到后一个匹配项，N<br>    移动到前一个匹配项<br>    %s/<match>/<replace> 检索第一个匹配的字符<br>    串，并将其替换为另一个字符串。这里的<match>替换为<br>    要搜索的字符串模式，<replace>替换为要替换的字符串<br>    %s/<match>/<replace>/g 检索所有匹配的字符<br>    串，并将所有匹配的字符串替换为另一个字符串。这里的<br>    <match>替换为要搜索的字符串模式，<replace> 替换<br>    为要替换的字符串<br>    %s/<match>/<replace>/g 检索所有匹配的字符串，<br>    并将所有匹配的字符串替换为另一个字符串，不过在替换每一个<br>    匹配的字符串时都会询问用户是否替换。这里的<match>替<br>    换为要搜索的字符串模式，<replace>替换为要替换的字符<br>    串<br>输入模式：<br>    输入模式无快捷键</p>
 </blockquote>
 <p>将以下内容写入到 ~/.vimrc 中，可以对 vim 进行设置，设置立即生效<br> vim ~/.vimrc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示行号</span></span><br><span class="line"><span class="built_in">set</span> nu</span><br><span class="line"><span class="comment"># 复制粘贴时保持文件缩进格式</span></span><br><span class="line"><span class="built_in">set</span> <span class="built_in">paste</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示行号</span>
+<span class="token builtin class-name">set</span> nu
+<span class="token comment"># 复制粘贴时保持文件缩进格式</span>
+<span class="token builtin class-name">set</span> <span class="token function">paste</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->

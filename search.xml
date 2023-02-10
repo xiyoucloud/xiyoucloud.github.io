@@ -34,9 +34,74 @@
       </tags>
   </entry>
   <entry>
+    <title>安装R包-units</title>
+    <url>/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-units/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在安装 R 包 units 时使用正常的安装方式安装不上时，可以参考这篇文章指定一下依赖软件的位置进行安装。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 一般安装方式</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"units"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h2 id="报错截图"><a href="#报错截图" class="headerlink" title="报错截图"></a>报错截图</h2><img src="/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-units/image-20230209181433017.png" class="" title="image-20230209181433017">
+
+
+
+<p><strong>使用哪种方式安装依赖软件取决于你使用的 R 的环境。</strong></p>
+<h2 id="在apt中安装依赖软件："><a href="#在apt中安装依赖软件：" class="headerlink" title="在apt中安装依赖软件："></a>在apt中安装依赖软件：</h2><p>如果是在 rstudio 中使用 conda 安装的 r-base，你就需要在 conda 中为该 R 包安装好依赖，如果使用的是全局环境中的 R，安装好依赖后参考以下安装方式就行。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在 rstudio 中使用系统环境下的 R（使用 apt 安装的），需要根据提示安装依赖软件</span>
+<span class="token comment"># 如在 ubuntu 中安装 units 包的依赖软件。</span>
+<span class="token function">apt</span> <span class="token function">install</span> libudunits2-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="在conda中安装依赖软件"><a href="#在conda中安装依赖软件" class="headerlink" title="在conda中安装依赖软件"></a>在conda中安装依赖软件</h2><p>在终端中执行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 激活虚拟环境</span>
+conda activate r-4.2
+<span class="token comment"># 安装依赖环境</span>
+conda <span class="token function">install</span>  udunits2 -y -vv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在 R 的交互环境中执行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">config <span class="token operator">&lt;</span>- c<span class="token punctuation">(</span>units<span class="token operator">=</span><span class="token string">"--with-udunits2-lib=/home/txb/envs/r-4.2/lib --with-udunits2-include=/home/txb/envs/r-4.2/include"</span><span class="token punctuation">)</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"units"</span>, configure.args <span class="token operator">=</span> config<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<img src="/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-units/image-20230209201124780.png" class="" title="image-20230209201124780"><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>R包</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装R包-stringi</title>
+    <url>/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-stringi/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在安装 stringi 时出现报错时，可以参考一下这篇文章。</p>
+<span id="more"></span>
+
+<h2 id="报错截图"><a href="#报错截图" class="headerlink" title="报错截图"></a>报错截图</h2><img src="/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-stringi/image-20230209175220924.png" class="" title="image-20230209175220924">
+
+<p>从报错中我们可以看到，stringi 安装失败的原因是因为<a href="https://icu.unicode.org/">icu</a>这个软件下载不下来，这里我们可以通过代理将这个 zip 文件下载下来，然后使用 R CMD INSTALL 的方式安装。</p>
+<h2 id="获取安装文件"><a href="#获取安装文件" class="headerlink" title="获取安装文件"></a>获取安装文件</h2><p>在终端中执行</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://cran.r-project.org/src/contrib/stringi_1.7.12.tar.gz
+<span class="token comment"># 如果下载不下来可以使用代理下载</span>
+<span class="token function">wget</span> https://raw.githubusercontent.com/gagolews/stringi/master/src/icu69/data/icu4c-69_1-data-bin-l.zip
+
+<span class="token comment"># 使用代理下载</span>
+<span class="token function">wget</span> https://ghproxy.com/https://raw.githubusercontent.com/gagolews/stringi/master/src/icu69/data/icu4c-69_1-data-bin-l.zip
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在终端中执行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">R CMD INSTALL --configure-vars<span class="token operator">=</span><span class="token string">'ICUDT_DIR=/packages/path/'</span> stringi_1.7.5.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>R包</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>x86_64-conda-linux-gnu-cc not found</title>
     <url>/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。</p>
+<a href="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" title="在rstudio-server中使用R包的不同版本">在rstudio-server中使用R包的不同版本</a>
+
+<p>最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：</p>
 <img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208224336781.png" class="" title="image-20230208224336781">
 
 <p>可是在 conda 的对应目录中这个 x86_64-conda-linux-gnu-cc 是已经安装好的。更奇怪的是，这个包在 R 的交互环境中可以安装好（在终端中输入 R，然后执行相关的装包代码），而在 rstudio 中运行相应的装包代码是却会出现报错。根据报错提示可以看到导致报错的行是在 <code>/home/txb/miniconda3/envs/r-4.2/lib/R/etc/Makeconf</code>文件中的第 171 行代码。然后我去查看了第 171 行代码，好像描述的是一种编译文件的方式。</p>
@@ -595,8 +660,8 @@ patchelf --print-rpath xx.so<span aria-hidden="true" class="line-numbers-rows"><
 <p>RPATH 中的 $ORIGIN 表示的是当前 xx.so 文件所在的目录，”..” 表示的是当前目录的父目录。</p>
 <img src="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/image-20230119152119799.png" class="" title="image-20230119152119799">
 
-<p>可以看到 _igraph.abi3.so 中的 RPATH 为 <code>$ORIGIN/../../../</code>，翻译过来为<code>/home/txb/miniconda3/lib</code>，因为 _igraph.abi3.so 所在的目录为 <code>/home/txb/miniconda3/lib/python3.9/site-packages/igraph</code>，因此该动态链接库需要的其他动态链接库都是优先在 <code>/home/txb/miniconda3/lib</code>目录下找到的，当然，根据前文讲到的动态链接器的查找顺序，如果在该目录下没有找到对应的动态链接库，如上文中的 libc.so.6 是在 /lib 目录下找到的。</p>
-<h2 id="设置rpath"><a href="#设置rpath" class="headerlink" title="设置rpath"></a>设置rpath</h2><p>有时动态链接器在非预期的目录去找动态链接库，为了让动态链接器优先在某个目录下寻找动态链接库，可以通过设置 rpath 路径的方式来实现。因为在查找动态链接库时，rpath 的优先级高于 /etc/ld.so.conf 中配置的目录，也高于/lib 和 /usr/lib 目录。</p>
+<p>可以看到 _igraph.abi3.so 中的 RPATH 为 <code>$ORIGIN/../../../</code>，翻译过来为<code>/home/txb/miniconda3/lib</code>，因为 _igraph.abi3.so 所在的目录为 <code>/home/txb/miniconda3/lib/python3.9/site-packages/igraph</code>，因此该动态链接库需要的其他动态链接库都是优先在 <code>/home/txb/miniconda3/lib</code>目录下找到的，当然，根据前文讲到的动态链接器的查找顺序，如果在该目录下没有找到对应的动态链接库，则会根据上文中提到的动态链接库查找顺序继续查找，如上文中的 libc.so.6 是在 /lib 目录下找到的。</p>
+<h2 id="设置rpath"><a href="#设置rpath" class="headerlink" title="设置rpath"></a>设置rpath</h2><p>有时动态链接器在非预期的目录去找动态链接库，为了让动态链接器优先在某个目录下寻找动态链接库，可以通过设置 rpath 路径的方式来实现。因为在查找动态链接库时，rpath 的优先级高于 /etc/ld.so.conf 中配置的目录，也高于 /lib 和 /usr/lib 目录。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置动态链接库中的 rpath</span>
 patchelf --set-rpath /lib xx.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -834,6 +899,18 @@ conda config --add channels https://mirrors.cqupt.edu.cn/anaconda/cloud/bioconda
 <h1 id="南方科技大学"><a href="#南方科技大学" class="headerlink" title="南方科技大学"></a>南方科技大学</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --add channels https://mirrors.sustech.edu.cn/anaconda/pkgs/main/
 conda config --add channels https://mirrors.sustech.edu.cn/anaconda/cloud/conda-forge/
 conda config --add channels https://mirrors.sustech.edu.cn/anaconda/cloud/bioconda/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/free
+conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/main
+conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge
+conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda
+conda config --set show_channel_urls <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="中科大"><a href="#中科大" class="headerlink" title="中科大"></a>中科大</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
@@ -2837,7 +2914,7 @@ mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg<span aria-
   <entry>
     <title>编辑文件(vim,nano)</title>
     <url>/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=474968672&bvid=BV1AK411U73x&cid=887434972&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=474968672&bvid=BV1AK411U73x&cid=887434972&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <span id="more"></span>
 
@@ -2845,13 +2922,16 @@ mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg<span aria-
 <p>针对 ubuntu20.04<br>ubuntu 20.04 是 “西柚云” 主要使用的操作系统  <a href="https://www.xiyoucloud.net/aff/VKRWMUHQ">西柚云官网</a></p>
 </blockquote>
 <p>使用 nano 或 vim 编辑一个文件时，都是使用命令加文件的绝对路径或相对路径。如果该路径对应的文件不存在，写入内容后，文件会自动创建。<br>为了方便演示，这里我在 /tmp 目录下创建 xiyouyun 目录作为工作目录, 之后的命令在 <code>/tmp/xiyouyun</code>工作目录下执行。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /tmp/xiyouyun</span><br><span class="line"><span class="built_in">cd</span> /tmp/xiyouyun</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /tmp/xiyouyun
+<span class="token builtin class-name">cd</span> /tmp/xiyouyun<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="简单编辑"><a href="#简单编辑" class="headerlink" title="简单编辑"></a>简单编辑</h2><h3 id="nano：nano-filepath"><a href="#nano：nano-filepath" class="headerlink" title="nano：nano [filepath]"></a>nano：nano [filepath]</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 nano 编辑一个文件</span></span><br><span class="line">nano /tmp/xiyouyun/nano.txt</span><br></pre></td></tr></table></figure>
+<h2 id="简单编辑"><a href="#简单编辑" class="headerlink" title="简单编辑"></a>简单编辑</h2><h3 id="nano：nano-filepath"><a href="#nano：nano-filepath" class="headerlink" title="nano：nano [filepath]"></a>nano：nano [filepath]</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 nano 编辑一个文件</span>
+<span class="token function">nano</span> /tmp/xiyouyun/nano.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>如果你只想用 nano 做简单的编辑，在编辑完文件后按 Ctrl + s 保存文件，然后按 Ctrl + x 退出编辑，编辑内容就被写入文件了。</p>
 <img src="/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim-nano/afa24840d5cd4fc4b2996c2fc8b9f9a9.gif" class="" title="请添加图片描述">
 
-<h3 id="vim：vim-filepath"><a href="#vim：vim-filepath" class="headerlink" title="vim：vim [filepath]"></a>vim：vim [filepath]</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 vim 编辑一个文件</span></span><br><span class="line">vim /tmp/xiyouyun/vim.txt</span><br></pre></td></tr></table></figure>
+<h3 id="vim：vim-filepath"><a href="#vim：vim-filepath" class="headerlink" title="vim：vim [filepath]"></a>vim：vim [filepath]</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 vim 编辑一个文件</span>
+<span class="token function">vim</span> /tmp/xiyouyun/vim.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>如果你只想用 vim 做简单编辑，你需要掌握它的<strong>3</strong>种工作模式。当使用命令进入 vim vim.txt 进入 vim 时，此时是<strong>命令模式</strong>，输入<kbd>i</kbd>进入 vim 的<strong>输入模式</strong>，此时可以编辑文件内容，编辑好内容后，按<kbd>Esc</kbd>回到命令模式，输入”:”进入到 vim 的<strong>编辑模式</strong>，此时可以对文件进行保存，如输入”:wq”后回车是对文件进行保存并退出。</p>
 <pre class="mermaid">    graph TB
     A(命令模式) -->|a,i,o| B(输入模式)
@@ -2892,7 +2972,10 @@ mwget https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu/gpg<span aria-
 <p>命令模式：<br>    dd 删除当前行<br>    yy 复制当前行<br>    p / P 粘贴缓冲区中的内容（可以是复制或者剪切的内<br>    容）<br>    u 撤销更改<br>    Ctrl + r 重做撤销的更改<br>    gg 跳转到文件的第一行<br>    Shift + g 跳转到文件的最后一行<br>    d + Shift + g 删除从当前行到文件末尾的所有内容<br>    d + g + g 删除从当前行到文件开头的所有内容<br>    v 移动光标选中文本<br>    y 复制选中的文本<br>    “&gt;” 右移选中的文本<br>    “&lt;” 左移选中的文本<br>    d 剪切选中的文本<br>    i 进入到输入模式<br>    <number> + d + d 删除当前行后的 number 行，<br>    这里的 <number> 替换为想要删除的行数<br>    Shift + z + z 退出 vim，保存改动的内容<br>    Shift + z + q 退出 vim，不保存改动的内容<br>    ：进入到编辑模式<br>编辑模式：<br>    :set number 显示行号<br>    :wq 保存并退出<br>    :q 退出vim，只有当文件未做改动时才能成功退出<br>    :q! 退出 vim，并放弃所有的更改<br>    :r <filename> 在光标后读入另一个文件的内容，<br>    这里的<filename>替换为想要读入的文件名<br>    :w <filename> 文件内容另存为 filename，这里<br>    的<filename>替换为想要保存的文件名<br>    /<search_text> 从当前行往后搜索字符串，支持正<br>    则表达式，这里的<search_test>替换为想要搜索的字符<br>    串模式<br>    ?<search_test> 从当前行往前搜索字符串，支持正<br>    则表达式，这里的<search_test>替换为想要搜索的字<br>    符串模式<br>    以上两种搜索方式都可以用 n 移动到后一个匹配项，N<br>    移动到前一个匹配项<br>    %s/<match>/<replace> 检索第一个匹配的字符<br>    串，并将其替换为另一个字符串。这里的<match>替换为<br>    要搜索的字符串模式，<replace>替换为要替换的字符串<br>    %s/<match>/<replace>/g 检索所有匹配的字符<br>    串，并将所有匹配的字符串替换为另一个字符串。这里的<br>    <match>替换为要搜索的字符串模式，<replace> 替换<br>    为要替换的字符串<br>    %s/<match>/<replace>/g 检索所有匹配的字符串，<br>    并将所有匹配的字符串替换为另一个字符串，不过在替换每一个<br>    匹配的字符串时都会询问用户是否替换。这里的<match>替<br>    换为要搜索的字符串模式，<replace>替换为要替换的字符<br>    串<br>输入模式：<br>    输入模式无快捷键</p>
 </blockquote>
 <p>将以下内容写入到 ~/.vimrc 中，可以对 vim 进行设置，设置立即生效<br> vim ~/.vimrc</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 显示行号</span></span><br><span class="line"><span class="built_in">set</span> nu</span><br><span class="line"><span class="comment"># 复制粘贴时保持文件缩进格式</span></span><br><span class="line"><span class="built_in">set</span> <span class="built_in">paste</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示行号</span>
+<span class="token builtin class-name">set</span> nu
+<span class="token comment"># 复制粘贴时保持文件缩进格式</span>
+<span class="token builtin class-name">set</span> <span class="token function">paste</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>

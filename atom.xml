@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-02-08T15:03:58.378Z</updated>
+  <updated>2023-02-09T12:14:11.292Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>安装R包-units</title>
+    <link href="https://xiyoucloud.github.io/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-units/"/>
+    <id>https://xiyoucloud.github.io/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-units/</id>
+    <published>2023-02-09T12:09:56.000Z</published>
+    <updated>2023-02-09T12:14:11.292Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在安装 R 包 units 时使用正常的安装方式安装不上时，可以参考这篇文章指定一下依赖软件的位置进行安装。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 一般安装方式&lt;/span&gt;
+install.packages&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;units&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    
+    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装R包-stringi</title>
+    <link href="https://xiyoucloud.github.io/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-stringi/"/>
+    <id>https://xiyoucloud.github.io/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-stringi/</id>
+    <published>2023-02-09T09:46:56.000Z</published>
+    <updated>2023-02-09T12:15:47.053Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在安装 stringi 时出现报错时，可以参考一下这篇文章。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
+  
+  <entry>
     <title>x86_64-conda-linux-gnu-cc not found</title>
     <link href="https://xiyoucloud.github.io/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/"/>
     <id>https://xiyoucloud.github.io/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/</id>
     <published>2023-02-08T14:33:32.000Z</published>
-    <updated>2023-02-08T15:03:58.378Z</updated>
+    <updated>2023-02-08T15:23:39.725Z</updated>
     
     
       
@@ -152,7 +192,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
     <id>https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/</id>
     <published>2023-01-19T09:32:07.000Z</published>
-    <updated>2023-01-19T09:42:17.063Z</updated>
+    <updated>2023-02-09T03:07:35.750Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;动态链接库是一个共享函数集合。我们编写程序时，可以利用其他人或自己编译好的动态链接库中的函数。当然，动态链接库之间也可以互相依赖，比如：动态链接库A在执行时可能需要使用动态链接库B中的函数。此时需要&lt;strong&gt;动态链接器&lt;/strong&gt;在执行A中调用动态链接库B的代码时链接到B来执行代码。&lt;/p&gt;</summary>
@@ -239,7 +279,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/"/>
     <id>https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/</id>
     <published>2023-01-12T03:35:38.000Z</published>
-    <updated>2023-01-12T03:49:22.267Z</updated>
+    <updated>2023-02-09T11:58:44.376Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;conda换源教程&quot;&gt;&lt;a href=&quot;#conda换源教程&quot; class=&quot;headerlink&quot; title=&quot;conda换源教程&quot;&gt;&lt;/a&gt;conda换源教程&lt;/h1&gt;&lt;p&gt;conda 为什么要换源？有两个原因，一是因为官方源对应的服务器位于国外，下载速度慢，或者根本访问不了，需要添加国内镜像源。二是因为就算添加了国内镜像源，已知的国内镜像源没有一个是绝对稳定的，都有崩溃不能访问的记录，此时需要切换为其他的国内镜像源。&lt;/p&gt;</summary>
@@ -402,47 +442,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="代理" scheme="https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86/"/>
     
     <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件包管理工具-apt</title>
-    <link href="https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/"/>
-    <id>https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/</id>
-    <published>2022-12-31T09:22:35.000Z</published>
-    <updated>2023-01-31T16:08:37.942Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=903804972&amp;bvid=BV1yP4y1D787&amp;cid=926416540&amp;page=1&quot; style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="西柚云Linux教程" scheme="https://xiyoucloud.github.io/tags/%E8%A5%BF%E6%9F%9A%E4%BA%91Linux%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="软件安装" scheme="https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>切换rstudio-server中的R</title>
-    <link href="https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/"/>
-    <id>https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/</id>
-    <published>2022-12-31T02:41:35.000Z</published>
-    <updated>2023-02-07T08:49:22.945Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;在Linux系统中安装多个R&quot;&gt;&lt;a href=&quot;#在Linux系统中安装多个R&quot; class=&quot;headerlink&quot; title=&quot;在Linux系统中安装多个R&quot;&gt;&lt;/a&gt;在Linux系统中安装多个R&lt;/h2&gt;&lt;p&gt;在系统中使用 apt 安装的 R 是全局安装的，无法使用 apt 安装多个版本的 R。&lt;/p&gt;
-&lt;p&gt;使用apt安装好R后会在 /usr/bin 目录下回生成一个 R 的可执行文件。&lt;/p&gt;
-&lt;p&gt;如果想要在系统中安装多个版本的 R，推荐使用 conda 在不同的虚拟环境中安装不同的 R。在终端中可以通过激活虚拟环境来使用不同的虚拟环境中的R。在 rstudio-server 中可以通过修改 /etc/rstudio/rserver.conf 文件来指定使用的R。&lt;/p&gt;
-&lt;img src=&quot;/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/image-20221231104655339.png&quot; class=&quot;&quot; title=&quot;image-20221231104655339&quot;&gt;</summary>
-    
-    
-    
-    
-    <category term="rstudio-server" scheme="https://xiyoucloud.github.io/tags/rstudio-server/"/>
-    
-    <category term="R" scheme="https://xiyoucloud.github.io/tags/R/"/>
     
   </entry>
   

@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">443</span>
+            <span class="post-count">455</span>
         </span>
     </span>
 
@@ -120,7 +120,10 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：</p>
+  <p>之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。</p>
+<a href="/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/" title="在rstudio-server中使用R包的不同版本">在rstudio-server中使用R包的不同版本</a>
+
+<p>最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：</p>
 <img src="/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/image-20230208224336781.png" class="" title="image-20230208224336781">
 
 <p>可是在 conda 的对应目录中这个 x86_64-conda-linux-gnu-cc 是已经安装好的。更奇怪的是，这个包在 R 的交互环境中可以安装好（在终端中输入 R，然后执行相关的装包代码），而在 rstudio 中运行相应的装包代码是却会出现报错。根据报错提示可以看到导致报错的行是在 <code>/home/txb/miniconda3/envs/r-4.2/lib/R/etc/Makeconf</code>文件中的第 171 行代码。然后我去查看了第 171 行代码，好像描述的是一种编译文件的方式。</p>
@@ -223,6 +226,15 @@ conda <span class="token function">install</span>  gfortran_linux-64<span aria-h
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-stringi/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            安装R包-stringi
+          
+        </div>
+      </a>
     
     
       <a href="/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="article-nav-link">
