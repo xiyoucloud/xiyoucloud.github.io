@@ -28,7 +28,7 @@ file.edit("~/.Rprofile")
 
 ![image-20230118121422537](安装LESYMAP/image-20230118121422537.png)
 
-# 
+
 
 # 安装步骤
 
