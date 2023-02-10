@@ -260,6 +260,80 @@
 
     
     <article
+  id="post-使用docker运行rstudio并指定R版本"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/"
+    >使用docker运行rstudio并指定R版本</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/" class="article-date">
+  <time datetime="2023-02-10T08:35:16.000Z" itemprop="datePublished">2023-02-10</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>rstudio 官方提供了使用不同 R 版本的 rstudio 镜像，使用 docker 来运行它们就可以在容器中使用不同的 R 版本了。</p>
+<p>rstudio docker 官方镜像地址：<a target="_blank" rel="noopener" href="https://hub.docker.com/r/rocker/rstudio/tags">https://hub.docker.com/r/rocker/rstudio/tags</a></p> 
+      <a class="article-more-link" href="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/" rel="tag">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rstudio/" rel="tag">rstudio</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-安装R包-units"
   class="article article-type-post"
   itemscope
@@ -863,79 +937,6 @@ conda <span class="token function">install</span> -c conda-forge apptainer<span 
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python%E5%8C%85/" rel="tag">python包</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-动态链接库的查找"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/"
-    >动态链接库的查找</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/" class="article-date">
-  <time datetime="2023-01-19T09:32:07.000Z" itemprop="datePublished">2023-01-19</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">835</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>动态链接库是一个共享函数集合。我们编写程序时，可以利用其他人或自己编译好的动态链接库中的函数。当然，动态链接库之间也可以互相依赖，比如：动态链接库A在执行时可能需要使用动态链接库B中的函数。此时需要<strong>动态链接器</strong>在执行A中调用动态链接库B的代码时链接到B来执行代码。</p> 
-      <a class="article-more-link" href="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/" rel="tag">动态链接库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
 
     </footer>
   </div>

@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-02-09T12:14:11.292Z</updated>
+  <updated>2023-02-10T12:48:51.772Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用docker运行rstudio并指定R版本</title>
+    <link href="https://xiyoucloud.github.io/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/"/>
+    <id>https://xiyoucloud.github.io/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/</id>
+    <published>2023-02-10T08:35:16.000Z</published>
+    <updated>2023-02-10T12:48:51.772Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;rstudio 官方提供了使用不同 R 版本的 rstudio 镜像，使用 docker 来运行它们就可以在容器中使用不同的 R 版本了。&lt;/p&gt;
+&lt;p&gt;rstudio docker 官方镜像地址：&lt;a href=&quot;https://hub.docker.com/r/rocker/rstudio/tags&quot;&gt;https://hub.docker.com/r/rocker/rstudio/tags&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="R" scheme="https://xiyoucloud.github.io/tags/R/"/>
+    
+    <category term="docker" scheme="https://xiyoucloud.github.io/tags/docker/"/>
+    
+    <category term="rstudio" scheme="https://xiyoucloud.github.io/tags/rstudio/"/>
+    
+  </entry>
   
   <entry>
     <title>安装R包-units</title>
@@ -230,7 +252,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/"/>
     <id>https://xiyoucloud.github.io/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/</id>
     <published>2023-01-17T09:04:56.000Z</published>
-    <updated>2023-01-18T09:20:58.535Z</updated>
+    <updated>2023-02-10T08:30:24.363Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;环境信息说明&quot;&gt;&lt;a href=&quot;#环境信息说明&quot; class=&quot;headerlink&quot; title=&quot;环境信息说明&quot;&gt;&lt;/a&gt;环境信息说明&lt;/h1&gt;&lt;table&gt;
@@ -423,25 +445,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="rstudio-server" scheme="https://xiyoucloud.github.io/tags/rstudio-server/"/>
     
     <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github访问出错的解决办法</title>
-    <link href="https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
-    <id>https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</id>
-    <published>2022-12-31T09:57:24.000Z</published>
-    <updated>2022-12-31T10:06:42.514Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=390903031&amp;bvid=BV1Hd4y1s7XC&amp;cid=915054365&amp;page=1&quot;style=&quot;width:100%;height:500px;min-width:375px;min-height:200px&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    
-    <category term="代理" scheme="https://xiyoucloud.github.io/tags/%E4%BB%A3%E7%90%86/"/>
-    
-    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
     
   </entry>
   

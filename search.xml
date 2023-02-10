@@ -34,6 +34,78 @@
       </tags>
   </entry>
   <entry>
+    <title>使用docker运行rstudio并指定R版本</title>
+    <url>/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>rstudio 官方提供了使用不同 R 版本的 rstudio 镜像，使用 docker 来运行它们就可以在容器中使用不同的 R 版本了。</p>
+<p>rstudio docker 官方镜像地址：<a href="https://hub.docker.com/r/rocker/rstudio/tags">https://hub.docker.com/r/rocker/rstudio/tags</a></p>
+<span id="more"></span>
+
+<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>首先前往 rstudio docker 的官方镜像地址找到想要拉取的 rstudio 镜像，点击复制拉取镜像的命令，然后将它粘贴到终端中执行就可以拉取对应的 rstudio 镜像了。可以看到，rstudio 官方是根据 R 版本来给 rstudio 镜像打 TAG 的，如 TAG 为 4.1.1 的 rstudio 镜像中使用的就是 R 的 4.1.1 版本。</p>
+<img src="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/image-20230210164225916.png" class="" title="image-20230210164225916">
+
+<img src="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/docker.gif" class="" title="docker">
+
+<img src="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/image-20230210202529922.png" class="" title="image-20230210202529922">
+
+<p>这里的 5288c4999e52 就是镜像id。</p>
+<h2 id="运行rstudio镜像"><a href="#运行rstudio镜像" class="headerlink" title="运行rstudio镜像"></a>运行rstudio镜像</h2><h3 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run --name 容器名 -d --restart always -p 访问端口:8787 -e <span class="token assign-left variable"><span class="token environment constant">USER</span></span><span class="token operator">=</span>容器内用户名 -e <span class="token assign-left variable">PASSWORD</span><span class="token operator">=</span>容器内密码 -e <span class="token assign-left variable">USERID</span><span class="token operator">=</span>用户uid -e <span class="token assign-left variable">GROUPID</span><span class="token operator">=</span>用户groupid -v 宿主机目录:容器内目录 镜像id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="命令示例"><a href="#命令示例" class="headerlink" title="命令示例"></a>命令示例</h3><p>密码应该足够复杂，下文中的命令应该修改“足够复杂的密码”。</p>
+<p>复杂的密码应该包含数字、英文字母大小、特殊符号，且长度不少于8位。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 虽然是命令示例，但还是请你手动修改一下密码部分吧。</span>
+<span class="token function">docker</span> run --name rstudio-4.1.1 -d --restart always -p <span class="token number">10397</span>:8787 -e <span class="token assign-left variable"><span class="token environment constant">USER</span></span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span> -e <span class="token assign-left variable">PASSWORD</span><span class="token operator">=</span>足够复杂的密码 -e <span class="token assign-left variable">USERID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -u<span class="token variable">)</span></span> -e <span class="token assign-left variable">GROUPID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -g<span class="token variable">)</span></span> -v /home/<span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span>/docker_rstudio_home:/home/<span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span>/docker_rstudio_home 5288c4999e52<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="查看rstudio运行状态"><a href="#查看rstudio运行状态" class="headerlink" title="查看rstudio运行状态"></a>查看rstudio运行状态</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看容器运行状态</span>
+<span class="token function">docker</span> container <span class="token function">ls</span>
+<span class="token comment"># 查看容器运行日志</span>
+<span class="token function">docker</span> logs rstudio-4.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/image-20230210190407451.png" class="" title="image-20230210190407451">
+
+<p>这里的 fc77bf75cf5d 是容器id，5288c4999e52 就是镜像id。STATUS 下的信息是容器的运行状态，Up 表示容器正常运行，更详细的运行情况可以通过查看容器的日志来了解。NAMES 下的信息是容器名（rstudio-4.1.1），容器名是上文中的运行命令设置的。</p>
+<h2 id="访问rstudio"><a href="#访问rstudio" class="headerlink" title="访问rstudio"></a>访问rstudio</h2><p>关于命令的含义可以参考上文的<a href="#%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E">命令说明</a>部分。</p>
+<p>访问链接示例：</p>
+<p>http://域名或IP:端口</p>
+<p><a href="http://xiyouyun.gitee.io:10397/">http://xiyouyun.gitee.io:10397</a></p>
+<p><a href="http://localhost:9527/">http://localhost:9527</a></p>
+<p><a href="http://ip:port">http://ip:port</a></p>
+<p><strong>访问时请参考以上链接将相关信息替换为自己的域名和端口</strong></p>
+<p>登陆 rstudio 的用户名为运行命令中设置的用户名，登陆的密码为运行命令中设置的密码。如果你的运行命令是参考<a href="#%E5%91%BD%E4%BB%A4%E7%A4%BA%E4%BE%8B">命令示例</a>，那么登陆用户名就是运行该命令的当前用户的用户名，密码为你修改的密码。</p>
+<p>你可以在终端中使用 whoami 查看当前用户的用户名</p>
+<img src="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/image-20230210190233309.png" class="" title="image-20230210190233309">
+
+
+
+<img src="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/image-20230210184415504.png" class="" title="image-20230210184415504">
+
+<h2 id="宿主机与容器内的数据共享"><a href="#宿主机与容器内的数据共享" class="headerlink" title="宿主机与容器内的数据共享"></a>宿主机与容器内的数据共享</h2><p>宿主机和容器之间的文件都是独立的，互不干扰的，在容器中看不到宿主机的文件，在容器外的宿主机中也看不到容器内的文件。</p>
+<p>不过通常我们会有在宿主机和容器之间传递文件的需求，上文的运行命令中，我将宿主机的 <code>/home/$(whoami)/docker_rstudio_home</code> 目录挂载到了容器的<code>/home/$(whoami)/docker_rstudio_home</code>中，因此在宿主机的<code>/home/$(whoami)/docker_rstudio_home</code>目录下的文件也可以在容器或 rstudio 的 <code>/home/$(whoami)/docker_rstudio_home</code>中看到。</p>
+<p><strong>更重要的是，当容器被销毁时，容器内的其他文件都会被清空，而/home/$(whoami)/docker_rstudio_home目录下的文件仍然可以在宿主机中访问到</strong></p>
+<p>因此对于代码、输入文件、运行结果……等重要文件应该将它们放在 <code>/home/$(whoami)/docker_rstudio_home</code>中，以免容器异常导致数据丢失。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在容器或宿主机中执行，可以查看目录下对应的文件</span>
+<span class="token function">ls</span> /home/<span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span>/docker_rstudio_home<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="管理容器"><a href="#管理容器" class="headerlink" title="管理容器"></a>管理容器</h2><p>上文中运行容器的容器名为 rstudio-4.1.1，你可以参考以下命令来管理你的容器。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 停止容器</span>
+<span class="token function">docker</span> stop rstudio-4.1.1
+<span class="token comment"># 启动容器</span>
+<span class="token function">docker</span> start rstudio-4.1.1
+<span class="token comment"># 重启容器</span>
+<span class="token function">docker</span> restart rstudio-4.1.1
+<span class="token comment"># 查看容器日志</span>
+<span class="token function">docker</span> logs rstudio-4.1.1
+<span class="token comment"># 删除容器，谨慎操作！</span>
+<span class="token function">docker</span> stop rstudio-4.1.1 <span class="token operator">&amp;&amp;</span> <span class="token function">docker</span> <span class="token function">rm</span> rstudio-4.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>如果你对 docker 不太熟悉的话，可以查看 <a href="/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="docker使用教程">docker使用教程</a> 这篇文章。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>R</tag>
+        <tag>docker</tag>
+        <tag>rstudio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装R包-units</title>
     <url>/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-units/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在安装 R 包 units 时使用正常的安装方式安装不上时，可以参考这篇文章指定一下依赖软件的位置进行安装。</p>
@@ -721,7 +793,9 @@ file.edit(&quot;~&#x2F;.Rprofile&quot;)<span aria-hidden="true" class="line-numb
 <p>以下步骤如果下载 github 相关文件太慢，可以参考我这篇文章使用 github 代理：<a href="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="github访问出错的解决办法">github访问出错的解决办法</a></p>
 <img src="/2023/01/17/%E5%AE%89%E8%A3%85LESYMAP/image-20230118121422537.png" class="" title="image-20230118121422537">
 
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-安装依赖包"><a href="#1-安装依赖包" class="headerlink" title="1.安装依赖包"></a>1.安装依赖包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 Rcpp 等依赖包</span>
+
+
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-安装依赖包"><a href="#1-安装依赖包" class="headerlink" title="1.安装依赖包"></a>1.安装依赖包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 Rcpp 等依赖包</span>
 mylist <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"Rcpp"</span>, <span class="token string">"RcppArmadillo"</span>, <span class="token string">"graphics"</span>, <span class="token string">"grDevices"</span>, 
            <span class="token string">"magic"</span>, <span class="token string">"magrittr"</span>, <span class="token string">"misc3d"</span>, <span class="token string">"pixmap"</span>,
            <span class="token string">"psych"</span>, <span class="token string">"rsvd"</span>, <span class="token string">"stats"</span>, <span class="token string">"utils"</span>, 
