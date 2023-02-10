@@ -100,3 +100,23 @@ conda config --add channels https://mirrors.sustech.edu.cn/anaconda/cloud/conda-
 conda config --add channels https://mirrors.sustech.edu.cn/anaconda/cloud/bioconda/
 ```
 
+# 阿里云
+
+```bash
+conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/free
+conda config --add channels https://mirrors.aliyun.com/anaconda/pkgs/main
+conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/conda-forge
+conda config --add channels https://mirrors.aliyun.com/anaconda/cloud/bioconda
+conda config --set show_channel_urls yes
+```
+
+# 中科大
+
+```bash
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+```
+

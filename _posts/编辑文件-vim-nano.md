@@ -4,7 +4,7 @@ date: 2022-12-30 16:27:14
 tags: 西柚云Linux教程
 ---
 
-<iframe src="//player.bilibili.com/player.html?aid=474968672&bvid=BV1AK411U73x&cid=887434972&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=474968672&bvid=BV1AK411U73x&cid=887434972&page=1" style="width:100%;height:500px;min-width:375px;min-height:200px"scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <!--more-->
 

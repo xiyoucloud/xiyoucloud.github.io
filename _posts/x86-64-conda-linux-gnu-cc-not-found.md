@@ -4,7 +4,11 @@ date: 2023-02-08 22:33:32
 tags: [报错, conda, rstudio-server, R]
 ---
 
-之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：
+之前有一篇文章给大家介绍了如何在 rstudio-server 中切换 R 的版本，在那篇文章中不同的 R 版本是用 conda 安装的。
+
+{% post_link 在rstudio-server中使用R包的不同版本 %}
+
+最近在 rstudio 中使用 conda 中 的 R 时（在 rserver.conf 中配置的 R），发现会报错，报错截图如下：
 
 ![image-20230208224336781](x86-64-conda-linux-gnu-cc-not-found/image-20230208224336781.png)
 
