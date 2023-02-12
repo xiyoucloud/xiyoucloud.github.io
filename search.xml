@@ -34,6 +34,27 @@
       </tags>
   </entry>
   <entry>
+    <title>暂未归类的问题</title>
+    <url>/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="libssl-so-1-0-0-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libssl-so-1-0-0-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libssl.so.1.0.0: cannot open shared object file: No such file or directory"></a>libssl.so.1.0.0: cannot open shared object file: No such file or directory</h1><p>这个动态链接库已经过时了，使用 conda 安装 openssl，然后给对应的动态链接库创建一个软链接即可。</p>
+<p>base 环境的动态链接库通常保存在 <code>~/miniconda3/lib</code>目录，其他虚拟环境的动态链接库通常保存在<code>~/miniconda3/envs/xxx/lib</code>目录中。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> openssl
+
+<span class="token comment"># 以虚拟环境为 xxx 为例</span>
+<span class="token builtin class-name">cd</span> ~/miniconda3/envs/xxx/lib
+<span class="token function">ln</span> -s libssl.so libssl.so.1.0.0
+
+<span class="token comment"># 然后重新执行软件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>解决这个问题的原理是新版的 libssl.so 可能兼容旧版，所以给它创建一个别名使用。当然，如果不兼容，或许更好的方式是更新依赖旧的动态链接库的软件。</p>
+<h1 id="libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libEGL.so.1: cannot open shared object file: No such file or directory"></a>libEGL.so.1: cannot open shared object file: No such file or directory</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> libegl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用docker运行rstudio并指定R版本</title>
     <url>/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>rstudio 官方提供了使用不同 R 版本的 rstudio 镜像，使用 docker 来运行它们就可以在容器中使用不同的 R 版本了。</p>
@@ -210,12 +231,10 @@ conda <span class="token function">install</span>  gfortran_linux-64<span aria-h
 
 <h2 id="安装过程慢"><a href="#安装过程慢" class="headerlink" title="安装过程慢"></a>安装过程慢</h2><p>conda 安装过程慢有很多种可能，这里列举一下常用的几种可能：</p>
 <ol>
-<li><p>未配置国内镜像源，或软件所在软件源国内无镜像，如：<code>conda install -c hcc aspera-cli</code></p>
-</li>
-<li><p>安装时指定了官方软件源，如：<code>conda install -c bioconda sra-tools</code>；</p>
-</li>
-<li><p>待安装软件所需依赖与当前环境（这里的环境不仅仅指当前虚拟环境）中的软件包冲突过多，conda 需要大量计算分析来解决软件依赖；</p>
-</li>
+<li>未配置国内镜像源，或软件所在软件源国内无镜像，如：<code>conda install -c hcc aspera-cli</code></li>
+<li>安装时指定了官方软件源，如：<code>conda install -c bioconda sra-tools</code>；</li>
+<li>待安装软件所需依赖与当前环境（这里的环境不仅仅指当前虚拟环境）中的软件包冲突过多，conda 需要大量计算分析来解决软件依赖；</li>
+<li>国内软件源无法访问，详情可见 <a href="/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/" title="conda镜像源汇总">conda镜像源汇总</a></li>
 </ol>
 <p>对于第 1 种可能，如果未配置镜像源，可参考 <a href="/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/" title="conda镜像源汇总">conda镜像源汇总</a> 配置国内镜像源。</p>
 <p>conda-forge，bioconda，main，这几个软件源在国内是有镜像的。</p>

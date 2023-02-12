@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-02-10T12:48:51.772Z</updated>
+  <updated>2023-02-12T06:57:50.803Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>暂未归类的问题</title>
+    <link href="https://xiyoucloud.github.io/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://xiyoucloud.github.io/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2023-02-12T05:08:17.000Z</published>
+    <updated>2023-02-12T06:57:50.803Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
   
   <entry>
     <title>使用docker运行rstudio并指定R版本</title>
@@ -112,7 +135,7 @@ install.packages&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&l
     <link href="https://xiyoucloud.github.io/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
     <id>https://xiyoucloud.github.io/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</id>
     <published>2023-02-03T15:02:50.000Z</published>
-    <updated>2023-02-03T15:45:06.963Z</updated>
+    <updated>2023-02-12T05:21:24.599Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章汇总了使用 conda 过程中一些常见的问题。&lt;/p&gt;</summary>
@@ -421,30 +444,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
     
     <category term=".bashrc和.profile" scheme="https://xiyoucloud.github.io/tags/bashrc%E5%92%8C-profile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安装monocle 2.18</title>
-    <link href="https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/"/>
-    <id>https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/</id>
-    <published>2023-01-01T07:49:44.000Z</published>
-    <updated>2023-01-04T10:51:52.716Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;1-安装conda&quot;&gt;&lt;a href=&quot;#1-安装conda&quot; class=&quot;headerlink&quot; title=&quot;1.安装conda&quot;&gt;&lt;/a&gt;1.安装conda&lt;/h3&gt;&lt;a href=&quot;/2022/12/29/conda%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BD/&quot; title=&quot;conda的安装和卸载&quot;&gt;conda的安装和卸载&lt;/a&gt;
-
-&lt;h3 id=&quot;2-使用conda安装monocle2-18&quot;&gt;&lt;a href=&quot;#2-使用conda安装monocle2-18&quot; class=&quot;headerlink&quot; title=&quot;2.使用conda安装monocle2.18&quot;&gt;&lt;/a&gt;2.使用conda安装monocle2.18&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;小技巧，在安装monocle2.18之前需要先安装 r-base 4.0.5&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 创建虚拟环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda create -n rpackage r-base==4.0.5 -y -vv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda activate rpackage&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conda install bioconductor-monocle==2.18.0 -y -vv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    
-    <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
-    
-    <category term="rstudio-server" scheme="https://xiyoucloud.github.io/tags/rstudio-server/"/>
-    
-    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
     
   </entry>
   

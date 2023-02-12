@@ -260,6 +260,88 @@
 
     
     <article
+  id="post-暂未归类的问题"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/"
+    >暂未归类的问题</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2023-02-12T05:08:17.000Z" itemprop="datePublished">2023-02-12</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">207</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="libssl-so-1-0-0-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libssl-so-1-0-0-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libssl.so.1.0.0: cannot open shared object file: No such file or directory"></a>libssl.so.1.0.0: cannot open shared object file: No such file or directory</h1><p>这个动态链接库已经过时了，使用 conda 安装 openssl，然后给对应的动态链接库创建一个软链接即可。</p>
+<p>base 环境的动态链接库通常保存在 <code>~/miniconda3/lib</code>目录，其他虚拟环境的动态链接库通常保存在<code>~/miniconda3/envs/xxx/lib</code>目录中。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> openssl
+
+<span class="token comment"># 以虚拟环境为 xxx 为例</span>
+<span class="token builtin class-name">cd</span> ~/miniconda3/envs/xxx/lib
+<span class="token function">ln</span> -s libssl.so libssl.so.1.0.0
+
+<span class="token comment"># 然后重新执行软件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>解决这个问题的原理是新版的 libssl.so 可能兼容旧版，所以给它创建一个别名使用。当然，如果不兼容，或许更好的方式是更新依赖旧的动态链接库的软件。</p>
+<h1 id="libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libEGL.so.1: cannot open shared object file: No such file or directory"></a>libEGL.so.1: cannot open shared object file: No such file or directory</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> libegl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-使用docker运行rstudio并指定R版本"
   class="article article-type-post"
   itemscope
@@ -603,7 +685,7 @@ conda <span class="token function">install</span>  gfortran_linux-64<span aria-h
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">908</span>
+            <span class="post-count">927</span>
         </span>
     </span>
 
@@ -875,86 +957,13 @@ conda <span class="token function">install</span> -c conda-forge apptainer<span 
 </article>
 
     
-    <article
-  id="post-如何安装python包"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/"
-    >如何安装python包</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/" class="article-date">
-  <time datetime="2023-01-19T10:31:01.000Z" itemprop="datePublished">2023-01-19</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">685</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>这篇文章将介绍 4 种安装 python 包的方式。</p> 
-      <a class="article-more-link" href="/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python%E5%8C%85/" rel="tag">python包</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>

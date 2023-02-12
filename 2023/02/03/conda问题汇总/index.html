@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">908</span>
+            <span class="post-count">927</span>
         </span>
     </span>
 
@@ -127,12 +127,10 @@
 
 <h2 id="安装过程慢"><a href="#安装过程慢" class="headerlink" title="安装过程慢"></a>安装过程慢</h2><p>conda 安装过程慢有很多种可能，这里列举一下常用的几种可能：</p>
 <ol>
-<li><p>未配置国内镜像源，或软件所在软件源国内无镜像，如：<code>conda install -c hcc aspera-cli</code></p>
-</li>
-<li><p>安装时指定了官方软件源，如：<code>conda install -c bioconda sra-tools</code>；</p>
-</li>
-<li><p>待安装软件所需依赖与当前环境（这里的环境不仅仅指当前虚拟环境）中的软件包冲突过多，conda 需要大量计算分析来解决软件依赖；</p>
-</li>
+<li>未配置国内镜像源，或软件所在软件源国内无镜像，如：<code>conda install -c hcc aspera-cli</code></li>
+<li>安装时指定了官方软件源，如：<code>conda install -c bioconda sra-tools</code>；</li>
+<li>待安装软件所需依赖与当前环境（这里的环境不仅仅指当前虚拟环境）中的软件包冲突过多，conda 需要大量计算分析来解决软件依赖；</li>
+<li>国内软件源无法访问，详情可见 <a href="/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/" title="conda镜像源汇总">conda镜像源汇总</a></li>
 </ol>
 <p>对于第 1 种可能，如果未配置镜像源，可参考 <a href="/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/" title="conda镜像源汇总">conda镜像源汇总</a> 配置国内镜像源。</p>
 <p>conda-forge，bioconda，main，这几个软件源在国内是有镜像的。</p>
