@@ -111,6 +111,8 @@ jupyter lab password
 
 jupyter notebook 设置运行端口：
 
+**以下代码中的 9527 表示运行端口，需要自行修改为你想要分配的端口**
+
 ```bash
 # 设置 jupyter notebook 运行端口，以下 5 行是一条完整的命令，执行一次就行
 cat >> ~/.jupyter/jupyter_notebook_config.py << EOF
@@ -121,6 +123,8 @@ EOF
 ```
 
 jupyter lab 设置运行端口：
+
+**以下代码中的 9527 表示运行端口，需要自行修改为你想要分配的端口**
 
 ```bash
 # 设置 jupyter lab 运行端口，以下 6 行是一条完整的命令，执行一次就行
@@ -189,6 +193,8 @@ ps -ux | grep jupyter | grep -v grep | awk '{print $2}' | xargs kill -9
 ![image-20230111193255920](jupyter部署教程/image-20230111193255920.png)
 
 正确的配置文件后5行:
+
+**注意：以下图片中的 9527 应该显示为你实际配置的端口号**
 
 jupyter notebook:
 
