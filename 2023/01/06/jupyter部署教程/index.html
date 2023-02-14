@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">970</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -179,6 +179,7 @@ pip <span class="token function">install</span> jupyterlab -i https://pypi.douba
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jupyter lab password<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="4-设置jupyter运行端口"><a href="#4-设置jupyter运行端口" class="headerlink" title="4.设置jupyter运行端口"></a>4.设置jupyter运行端口</h2><p>jupyter notebook 设置运行端口：</p>
+<p><strong>以下代码中的 9527 表示运行端口，需要自行修改为你想要分配的端口</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置 jupyter notebook 运行端口，以下 5 行是一条完整的命令，执行一次就行</span>
 <span class="token function">cat</span> <span class="token operator">>></span> ~/.jupyter/jupyter_notebook_config.py <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
 c.NotebookApp.ip='*'  # 允许远程连接
@@ -187,6 +188,7 @@ c.NotebookApp.port = 9527  # jupyter notebook 运行端口，根据实际情况�
 EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>jupyter lab 设置运行端口：</p>
+<p><strong>以下代码中的 9527 表示运行端口，需要自行修改为你想要分配的端口</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置 jupyter lab 运行端口，以下 6 行是一条完整的命令，执行一次就行</span>
 <span class="token function">cat</span> <span class="token operator">>></span> ~/.jupyter/jupyter_lab_config.py <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
 c.ServerApp.allow_remote_access = True  # 
@@ -225,6 +227,7 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <img src="/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/image-20230111193255920.png" class="" title="image-20230111193255920">
 
 <p>正确的配置文件后5行:</p>
+<p><strong>注意：以下图片中的 9527 应该显示为你实际配置的端口号</strong></p>
 <p>jupyter notebook:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -n <span class="token number">5</span> ~/.jupyter/jupyter_lab_config.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 

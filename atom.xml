@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-02-12T06:57:50.803Z</updated>
+  <updated>2023-02-14T10:03:36.854Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>renv使用教程</title>
+    <link href="https://xiyoucloud.github.io/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://xiyoucloud.github.io/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
+    <published>2023-02-14T01:53:28.000Z</published>
+    <updated>2023-02-14T10:03:36.854Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>暂未归类的问题</title>
     <link href="https://xiyoucloud.github.io/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://xiyoucloud.github.io/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/</id>
     <published>2023-02-12T05:08:17.000Z</published>
-    <updated>2023-02-12T06:57:50.803Z</updated>
+    <updated>2023-02-12T11:15:01.224Z</updated>
     
     
       
@@ -154,7 +177,7 @@ install.packages&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&l
     <link href="https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2023-01-28T14:02:07.000Z</published>
-    <updated>2023-02-03T09:45:03.122Z</updated>
+    <updated>2023-02-14T09:13:08.210Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章的目的是为了让大家关于rstudio有更多的共同语言。&lt;/p&gt;
@@ -361,7 +384,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/</id>
     <published>2023-01-06T01:54:51.000Z</published>
-    <updated>2023-01-11T12:00:19.602Z</updated>
+    <updated>2023-02-14T01:32:08.900Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;jupyter 分为 jupyter notebook 和 jupyter lab，两者选其一配置即可。&lt;/strong&gt;&lt;/p&gt;
@@ -420,30 +443,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="vncserver" scheme="https://xiyoucloud.github.io/tags/vncserver/"/>
     
     <category term="图形化界面" scheme="https://xiyoucloud.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>command not found</title>
-    <link href="https://xiyoucloud.github.io/2023/01/02/command-not-found/"/>
-    <id>https://xiyoucloud.github.io/2023/01/02/command-not-found/</id>
-    <published>2023-01-02T07:42:49.000Z</published>
-    <updated>2023-01-05T01:26:57.966Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;PATH&quot;&gt;&lt;a href=&quot;#PATH&quot; class=&quot;headerlink&quot; title=&quot;PATH&quot;&gt;&lt;/a&gt;PATH&lt;/h2&gt;&lt;p&gt;我们运行 1 个命令，shell解释程序（以下用bash代替）首先需要知道命令对应的程序的位置，也就是程序文件对应的路径。&lt;/p&gt;
-&lt;p&gt;计算机如何找到命令对应的程序的位置呢？这是通过 PATH 这个系统变量来实现的。&lt;/p&gt;
-&lt;p&gt;使用 echo $PATH 可以查看 PATH 这个系统变量的值&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/home/txb/.local/bin:/home/txb/miniconda3/bin:/home/txb/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;PATH 变量中使用使用 “:” 来分割路径，执行命令时，bash 会去每个路径对应的目录中去找可执行程序，如果找到1个名称匹配的可执行程序，就执行这个程序，不再继续往下找了。而如果找遍PATH中配置的所有目录也找不到名称匹配的可执行程序，就会报错 “command not found xxx” &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="报错" scheme="https://xiyoucloud.github.io/tags/%E6%8A%A5%E9%94%99/"/>
-    
-    <category term=".bashrc和.profile" scheme="https://xiyoucloud.github.io/tags/bashrc%E5%92%8C-profile/"/>
     
   </entry>
   

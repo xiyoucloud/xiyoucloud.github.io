@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">207</span>
+            <span class="post-count">222</span>
         </span>
     </span>
 
@@ -133,7 +133,9 @@
 <span class="token comment"># 然后重新执行软件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>解决这个问题的原理是新版的 libssl.so 可能兼容旧版，所以给它创建一个别名使用。当然，如果不兼容，或许更好的方式是更新依赖旧的动态链接库的软件。</p>
-<h1 id="libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libEGL.so.1: cannot open shared object file: No such file or directory"></a>libEGL.so.1: cannot open shared object file: No such file or directory</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> libegl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libEGL.so.1: cannot open shared object file: No such file or directory"></a>libEGL.so.1: cannot open shared object file: No such file or directory</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libegl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="configure-error-gsl-config-not-found-is-GSL-installed"><a href="#configure-error-gsl-config-not-found-is-GSL-installed" class="headerlink" title="configure: error: gsl-config not found, is GSL installed?"></a>configure: error: gsl-config not found, is GSL installed?</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libgsl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
@@ -217,6 +219,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            renv使用教程
+          
+        </div>
+      </a>
     
     
       <a href="/2023/02/10/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Crstudio%E5%B9%B6%E6%8C%87%E5%AE%9AR%E7%89%88%E6%9C%AC/" class="article-nav-link">

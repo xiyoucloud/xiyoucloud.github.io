@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>rstudio使用技巧 |  xiyoucloud</title>
+      <title>renv使用教程 |  xiyoucloud</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -71,7 +71,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-rstudio使用技巧"
+  id="post-renv使用教程"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -82,7 +82,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  rstudio使用技巧
+  renv使用教程
 </h1>
  
 
@@ -90,15 +90,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="article-date">
-  <time datetime="2023-01-28T14:02:07.000Z" itemprop="datePublished">2023-01-28</time>
+      <a href="/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+  <time datetime="2023-02-14T01:53:28.000Z" itemprop="datePublished">2023-02-14</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">823</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -122,71 +122,79 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>这篇文章的目的是为了让大家关于rstudio有更多的共同语言。</p>
-<p>这篇文章的结构是零散的，大家按需查看对应的段落即可。</p>
-<span id="more"></span>
+  <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>官网介绍：<a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a></p>
+<p>renv 能够帮助我们创建一个私有包仓库，你也可以认为它是为 R 创建一个私有的 libpath。在这个 libpath 下安装的 R 包不受其他 libpath 的影响，在项目中使用 R 包也并不会受到其他 libpath 的干扰。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在 R 的交互环境下输入以下命令查看 libpath</span>
+.libPaths<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h1 id="rstudio布局"><a href="#rstudio布局" class="headerlink" title="rstudio布局"></a>rstudio布局</h1><p>关于rstudio的布局可以通过rstudio界面顶部的 <strong>Worksapce Panes</strong>来设置。如无特殊说明，后文中所有的界面采用下图中红色标注的设置。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1674915255918.png" class="" width="1674915255918">
+<p>renv 的好处:</p>
+<ol>
+<li><p><strong>构建了一个独立的 R 包 libpath</strong>；</p>
+</li>
+<li><p>下载 R 包有缓存，安装失败后再次安装会使用上次已经下载的缓存，而不用再次下载；</p>
+</li>
+<li><p>可以导出项目中使用的R包和版本；</p>
+</li>
+<li><p>可以根据导出的 R 包镜像；</p>
+</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>require<span class="token punctuation">(</span><span class="token string">"renv"</span>, quietly <span class="token operator">=</span> TRUE<span class="token punctuation">))</span> <span class="token punctuation">&#123;</span>
+  install.packages<span class="token punctuation">(</span><span class="token string">"renv"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="查看libpath中安装的R包"><a href="#查看libpath中安装的R包" class="headerlink" title="查看libpath中安装的R包"></a>查看libpath中安装的R包</h1><p>在rstudio右下角中选择<strong>Packages</strong>，然后再下方的搜索框中搜索。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128221710500.png" class="" title="image-20230128221710500">
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol>
+<li>创建项目目录，项目目录不能为家目录，目录名可以自定义</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dir.create<span class="token punctuation">(</span><span class="token string">"~/SCP_env"</span>, recursive <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="新建一个终端"><a href="#新建一个终端" class="headerlink" title="新建一个终端"></a>新建一个终端</h1><p>布局中左下角的位置可以查看 Console、Terminal、Background Jobs，如果不小心关掉了终端，可以这样新建一个终端。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128222302185.png" class="" title="image-20230128222302185">
+<ol start="2">
+<li>初始化项目，这一步会在项目目录中生成文件</li>
+</ol>
+<p>如果你使用 rstudio-server 的话，下面的命令应该在 rstudio-server 的 “Console” 中执行，这样它会自动刷新 rstudio-server 并自动创建 R project。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 项目名可以自定义</span>
+renv::init<span class="token punctuation">(</span>project <span class="token operator">=</span> <span class="token string">"~/SCP_env"</span>, bare <span class="token operator">=</span> TRUE, restart <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h1 id="关闭当前Session"><a href="#关闭当前Session" class="headerlink" title="关闭当前Session"></a>关闭当前Session</h1><p>布局中右上角可以关闭当前session（会话）</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128222651523.png" class="" title="image-20230128222651523">
+<ol start="3">
+<li>激活项目进行使用</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">renv::activate<span class="token punctuation">(</span>project <span class="token operator">=</span> <span class="token string">"~/SCP_env"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="Start-New-Session"><a href="#Start-New-Session" class="headerlink" title="Start New Session"></a>Start New Session</h1><p>关闭一个session后可以创建一个新的session（会话）</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128222810092.png" class="" title="image-20230128222810092">
+<p>激活项目后，可以查看此时的 libpath，之后安装的 R 包都会保存在 libpath 对应的目录中。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.libPaths<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="终止代码的执行"><a href="#终止代码的执行" class="headerlink" title="终止代码的执行"></a>终止代码的执行</h1><img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128223347164.png" class="" title="image-20230128223347164">
+<h2 id="如何安装R包"><a href="#如何安装R包" class="headerlink" title="如何安装R包"></a>如何安装R包</h2><a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a>
 
-<h1 id="执行代码"><a href="#执行代码" class="headerlink" title="执行代码"></a>执行代码</h1><img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128223711493.png" class="" title="image-20230128223711493">
+<h1 id="renv高级功能"><a href="#renv高级功能" class="headerlink" title="renv高级功能"></a>renv高级功能</h1><h2 id="1-导出指定libpath下的R包信息到lockfile中"><a href="#1-导出指定libpath下的R包信息到lockfile中" class="headerlink" title="1.导出指定libpath下的R包信息到lockfile中"></a>1.导出指定libpath下的R包信息到lockfile中</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这 3 个参数都有默认值，不用一一赋值</span>
+renv::snapshot<span class="token punctuation">(</span>project, library, lockfile<span class="token punctuation">)</span>
 
-<h1 id="保存rstudio中的文件"><a href="#保存rstudio中的文件" class="headerlink" title="保存rstudio中的文件"></a>保存rstudio中的文件</h1><p>rstudio崩溃会导致文件内容丢失，因此为了防止文件内容丢失，需要养成好习惯，经常对文件内容进行保存。使用 ctrl + s 即可保存文件。对于没有创建文件名的文件，需要手动设置一下文件名，对于已经创建文件名的文件则自动将文件内容保存在文件中。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128224329494.png" class="" title="image-20230128224329494">
+<span class="token comment"># 示例：将 SCP_env 项目下的多个 libpath 下的 R 包信息导出到 ~/SCP.lock 文件中</span>
+renv::snapshot<span class="token punctuation">(</span>project<span class="token operator">=</span><span class="token string">"~/SCP_env"</span>, <span class="token assign-left variable">lockfile</span><span class="token operator">=</span><span class="token string">"~/SCP.lock"</span><span class="token punctuation">)</span>
+<span class="token comment"># 示例：将 /home/txb/SCP_env/renv/library/R-4.2/x86_64-conda-linux-gnu 目录下的 R 包信息导出到 ~/SCP.lock 文件中</span>
+renv::snapshot<span class="token punctuation">(</span>library<span class="token operator">=</span><span class="token string">"/home/txb/SCP_env/renv/library/R-4.2/x86_64-conda-linux-gnu"</span>, <span class="token assign-left variable">lockfile</span><span class="token operator">=</span><span class="token string">"~/SCP.lock"</span><span class="token punctuation">)</span>
+<span class="token comment"># 示例：将 SCP_env 项目下的多个 libpath 下的 R 包信息导出到项目下 renv.lock 文件中</span>
+renv::snapshot<span class="token punctuation">(</span>project<span class="token operator">=</span><span class="token string">"~/SCP_env"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>未保存的文件在文件名的右上角会有一个星号：</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128224511057.png" class="" title="image-20230128224511057">
+<h2 id="2-根据lockfile将R包安装到某个libpath中"><a href="#2-根据lockfile将R包安装到某个libpath中" class="headerlink" title="2.根据lockfile将R包安装到某个libpath中"></a>2.根据lockfile将R包安装到某个libpath中</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这 3 个参数都有默认值，不用一一赋值</span>
+renv::restore<span class="token punctuation">(</span>project, library, lockfile<span class="token punctuation">)</span>
 
-<h1 id="查看R中的内存使用报告"><a href="#查看R中的内存使用报告" class="headerlink" title="查看R中的内存使用报告"></a>查看R中的内存使用报告</h1><p>在Environment中点击显示内存的下拉框按钮，然后点击 <strong>Memory Usage Report</strong> 就可以查看 R 和系统的内存使用报告了。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/1674917407599.png" class="" width="1674917407599">
+<span class="token comment"># 示例：根据 lockfile 中记录的 R 包信息将 R 包安装在某个 libpath 中</span>
+renv::restore<span class="token punctuation">(</span>library<span class="token operator">=</span><span class="token string">"/home/txb/test"</span>, <span class="token assign-left variable">lockfile</span><span class="token operator">=</span><span class="token string">"~/test.lock"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="设置工作目录"><a href="#设置工作目录" class="headerlink" title="设置工作目录"></a>设置工作目录</h1><p>大家都知道在R中可以使用setwd()可以设置工作目录，但有时候不知道该怎样描述设置的路径，可以参考下面图片将当前项目的目录设置为工作目录。如果你需要设置其他目录为工作路径，酌情更改即可。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230128225546717.png" class="" title="image-20230128225546717">
+<p>但项目不总是可重现的，详情可见官方解释：<a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html#caveats">https://rstudio.github.io/renv/articles/renv.html#caveats</a></p>
+<p>出现这种情况时需要手动处理某些安装失败的 R 包。（移除？使用其他方式安装？……）</p>
+<p>restore 和 snapshot 的更多用法可以阅读他们的源码获得，以下是它们可以接收的参数以及默认参数。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">restore<span class="token punctuation">(</span>project <span class="token operator">=</span> NULL, <span class="token punctuation">..</span>., library <span class="token operator">=</span> NULL, lockfile <span class="token operator">=</span> NULL, 
+    packages <span class="token operator">=</span> NULL, exclude <span class="token operator">=</span> NULL, rebuild <span class="token operator">=</span> FALSE, repos <span class="token operator">=</span> NULL, 
+    clean <span class="token operator">=</span> FALSE, prompt <span class="token operator">=</span> interactive<span class="token punctuation">(</span><span class="token punctuation">))</span>
+    
+snapshot<span class="token punctuation">(</span>project <span class="token operator">=</span> NULL, <span class="token punctuation">..</span>., library <span class="token operator">=</span> NULL, lockfile <span class="token operator">=</span> paths<span class="token variable">$lockfile</span><span class="token punctuation">(</span>project <span class="token operator">=</span> project<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="rsession异常导致工作空间数据丢失"><a href="#rsession异常导致工作空间数据丢失" class="headerlink" title="rsession异常导致工作空间数据丢失"></a>rsession异常导致工作空间数据丢失</h1><p>这里的数据丢失可能包括计算过程中的中间结果和未保存的代码。</p>
-<p>避免数据丢失的方式是使用 ctrl + s 保存代码，将重要的工作空间中的变量保存带 Rdata 或 rds 文件中。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129221657990.png" class="" title="image-20230129221657990">
+<h2 id="3-禁用R包缓存，这样在安装R包时会从网上重新下载"><a href="#3-禁用R包缓存，这样在安装R包时会从网上重新下载" class="headerlink" title="3.禁用R包缓存，这样在安装R包时会从网上重新下载"></a>3.禁用R包缓存，这样在安装R包时会从网上重新下载</h2><p>通常来说这个设置是不需要的，如果 R 包有更新的版本，renv 会自动下载更新的版本来替换本地缓存。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">renv::settings<span class="token variable">$use</span>.cache<span class="token punctuation">(</span>FALSE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="在终端中使用R"><a href="#在终端中使用R" class="headerlink" title="在终端中使用R"></a>在终端中使用R</h1><p>在终端（Terminal）中输入 R 进入到 R 的交互界面，可以在此交互界面执行 R 代码。</p>
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129222231379.png" class="" title="image-20230129222231379">
-
-<img src="/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20230129222451090.png" class="" title="image-20230129222451090">
-
-<h1 id="重启rstudio-server服务"><a href="#重启rstudio-server服务" class="headerlink" title="重启rstudio-server服务"></a>重启rstudio-server服务</h1><p>如果 rstudio-server 服务异常，比如不能正常访问，可以尝试重启 rstudio-server 服务。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 重启</span>
-<span class="token function">sudo</span> <span class="token function">service</span> rstudio-server restart
-<span class="token comment"># 查看运行状态</span>
-<span class="token function">sudo</span> <span class="token function">service</span> rstudio-server status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="杀死rsession对应的用户进程"><a href="#杀死rsession对应的用户进程" class="headerlink" title="杀死rsession对应的用户进程"></a>杀死rsession对应的用户进程</h1><p>由于 rstudio-server 的性能问题，可能会出现在网页端访问 rstudio 卡住，不能加载出数据的情况，此时可以杀死当前的session进程，然后尝试重新登陆 rstudio-server。<strong>杀死进程可能会导致 workspace 中计算产生的结果丢失</strong>，因此要养成经常将计算结果保存在本地磁盘中的好习惯（保存为Rdata或rds文件），下次使用时直接从磁盘中加载就好了。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"/usr/lib/rstudio-server/bin/rsession -u <span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span>"</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -15<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h1 id="清除用户rsession"><a href="#清除用户rsession" class="headerlink" title="清除用户rsession"></a>清除用户rsession</h1><p>一个 rsession 对应一个 rstudio-server 的会话，用户与 rstudio-server 建立一个连接后，会话信息会保存在一个文件中，如果出现 rstudio 卡住、不能登陆等情况时，在杀死进程后还是没有解决问题，可以清除 session 文件再重新登陆。这一操作通常要搭配<a href="#%E6%9D%80%E6%AD%BBrsession%E5%AF%B9%E5%BA%94%E7%9A%84%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B">杀死rsession对应的用户进程</a>使用，因此*<em>可能会导致 workspace 中计算产生的结果丢失</em>***。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新版 rstudio 的 session 文件的存放位置</span>
-<span class="token function">ls</span> ~/.local/share/rstudio/sessions/active
-<span class="token comment"># 如果有内容，则删除</span>
-<span class="token function">rm</span> -rf ~/.local/share/rstudio/sessions/active
-
-<span class="token comment"># 旧版 rstudio 的 session 文件的存放位置</span>
-<span class="token function">ls</span> ~/.rstudio/sessions/active/session-*
-<span class="token comment"># 如果有内容则删除</span>
-<span class="token function">rm</span> -rf ~/.rstudio/sessions/active/session-*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="不在同一个浏览器界面打开多个rstudio应用"><a href="#不在同一个浏览器界面打开多个rstudio应用" class="headerlink" title="不在同一个浏览器界面打开多个rstudio应用"></a>不在同一个浏览器界面打开多个rstudio应用</h1><p>rstudio-server 使用的登陆机制会导致同一个浏览器界面打开的多个 rstudio-server 应用会互相干扰。比如：同界面的多个 rstudio 应用中，应用 A 的登陆回到应用 B 退出登陆。是否还有其他的干扰就不得而知了，因此更好的方式是使用不同的浏览器来访问不同的rstudio应用。当然，你也可以使用浏览器的私密模式。</p>
+<h2 id="4-身份验证"><a href="#4-身份验证" class="headerlink" title="4.身份验证"></a>4.身份验证</h2><p><a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html#authentication">https://rstudio.github.io/renv/articles/renv.html#authentication</a></p>
+<h2 id="5-设置不同项目之间共享R包缓存"><a href="#5-设置不同项目之间共享R包缓存" class="headerlink" title="5.设置不同项目之间共享R包缓存"></a>5.设置不同项目之间共享R包缓存</h2><p><a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html#cache-location">https://rstudio.github.io/renv/articles/renv.html#cache-location</a></p>
+<p>关于renv的更多信息请查看官方介绍：<a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html">https://rstudio.github.io/renv/articles/renv.html</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
       
@@ -257,12 +265,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xiyoucloud.github.io/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rstudio/" rel="tag">rstudio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">使用技巧</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E5%8C%85/" rel="tag">R包</a></li></ul>
 
     </footer>
   </div>
@@ -270,19 +278,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2023/02/03/conda%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            conda问题汇总
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-nav-link">
+      <a href="/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">singularity/apptainer使用教程</div>
+        <div class="article-nav-title">暂未归类的问题</div>
       </a>
     
   </nav>
