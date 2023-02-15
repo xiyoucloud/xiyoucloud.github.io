@@ -10,6 +10,8 @@ tags: [R包]
 
 renv 能够帮助我们创建一个私有包仓库，你也可以认为它是为 R 创建一个私有的 libpath。在这个 libpath 下安装的 R 包不受其他 libpath 的影响，在项目中使用 R 包也并不会受到其他 libpath 的干扰。
 
+<!--more-->
+
 ```bash
 # 在 R 的交互环境下输入以下命令查看 libpath
 .libPaths()
