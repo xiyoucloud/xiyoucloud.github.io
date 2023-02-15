@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">680</span>
+            <span class="post-count">709</span>
         </span>
     </span>
 
@@ -137,32 +137,99 @@
 
 <h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>useradd：通常用于在脚本中创建用户</p>
 <p>adduser：交互式地创建用户，手动设置密码，自动创建家目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br><span class="line"><span class="comment"># 创建用户，并把用户添加到用户组</span></span><br><span class="line">sudo useradd -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou</span><br><span class="line"><span class="comment"># 为 xiyou 用户设置密码为 xiyou</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;xiyou\nxiyou&quot;</span> | sudo passwd xiyou</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换当前用户为 xiyou，需要输入密码</span></span><br><span class="line">su xiyou </span><br><span class="line"><span class="comment"># 交互式地创建用户</span></span><br><span class="line">sudo adduser xiyou2</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建用户组</span>
+<span class="token function">groupadd</span> xiyougroup
+<span class="token comment"># 创建用户，并把用户添加到用户组</span>
+<span class="token function">sudo</span> <span class="token function">useradd</span> -m -d /home/xiyou -s /bin/bash -g xiyougroup xiyou
+<span class="token comment"># 为 xiyou 用户设置密码</span>
+<span class="token assign-left variable">password</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> /proc/sys/kernel/random/uuid<span class="token variable">)</span></span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token variable">$password</span><span class="token entity" title="\n">\n</span><span class="token variable">$password</span>"</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">passwd</span> xiyou
+<span class="token comment"># 获取刚刚为 xiyou 用户设置的密码</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$password</span>
+
+<span class="token comment"># 切换当前用户为 xiyou，需要输入刚刚设置的密码</span>
+<span class="token function">su</span> xiyou 
+<span class="token comment"># 交互式地创建用户</span>
+<span class="token function">sudo</span> adduser xiyou2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/password.gif" class="" title="password">
 
 <h2 id="管理用户"><a href="#管理用户" class="headerlink" title="管理用户"></a>管理用户</h2><p>usermod：修改用户信息</p>
 <p>userdel：删除用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改用户名</span></span><br><span class="line">usermod -l 新用户名 旧用户名</span><br><span class="line"><span class="comment"># 修改用户家目录</span></span><br><span class="line">usermod -d 新家目录 用户名</span><br><span class="line"><span class="comment"># 锁定用户不能登陆</span></span><br><span class="line">usermod -L 用户名</span><br><span class="line"><span class="comment"># 解除用户锁定</span></span><br><span class="line">usermod -U 用户名</span><br><span class="line"><span class="comment"># 查看用户状态</span></span><br><span class="line">passwd -S 用户名</span><br><span class="line"><span class="comment"># 删除用户的同时删除家目录</span></span><br><span class="line">usermod -r 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户</span></span><br><span class="line">userdel 用户名</span><br><span class="line"><span class="comment"># 删除用户名和用户的家目录</span></span><br><span class="line">userdel -r 用户名 </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改用户名</span>
+<span class="token function">usermod</span> -l 新用户名 旧用户名
+<span class="token comment"># 修改用户家目录</span>
+<span class="token function">usermod</span> -d 新家目录 用户名
+<span class="token comment"># 锁定用户不能登陆</span>
+<span class="token function">usermod</span> -L 用户名
+<span class="token comment"># 解除用户锁定</span>
+<span class="token function">usermod</span> -U 用户名
+<span class="token comment"># 查看用户状态</span>
+<span class="token function">passwd</span> -S 用户名
+<span class="token comment"># 删除用户的同时删除家目录</span>
+<span class="token function">usermod</span> -r 用户名
 
-<h2 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看新增用户组命令的使用方法</span></span><br><span class="line">addgroup --<span class="built_in">help</span></span><br><span class="line">groupadd --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd xiyougroup</span><br></pre></td></tr></table></figure>
+<span class="token comment"># 删除用户</span>
+<span class="token function">userdel</span> 用户名
+<span class="token comment"># 删除用户名和用户的家目录</span>
+<span class="token function">userdel</span> -r 用户名 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看新增用户组命令的使用方法</span>
+addgroup --help
+<span class="token function">groupadd</span> --help
+
+<span class="token comment"># 创建用户组</span>
+<span class="token function">groupadd</span> xiyougroup<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="管理用户组"><a href="#管理用户组" class="headerlink" title="管理用户组"></a>管理用户组</h2><p>groups：查看用户组信息</p>
 <p>id：查看用户的 uid 和 gid 信息</p>
 <p>groupmod：修改用户组信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统中所有的用户组</span></span><br><span class="line"><span class="built_in">cat</span> /etc/group</span><br><span class="line"><span class="comment"># 查看当前用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span></span><br><span class="line"><span class="comment"># 查看某用户所在的用户组</span></span><br><span class="line"><span class="built_in">groups</span> txb</span><br><span class="line"><span class="comment"># 查看用户id、用户组、用户组id</span></span><br><span class="line"><span class="built_in">id</span> txb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组名</span></span><br><span class="line">groupmod -n 新组名 旧组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户组 id</span></span><br><span class="line">groupmod -g 组<span class="built_in">id</span> 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户组</span></span><br><span class="line">groupdel 组名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将用户添加到某个用户组</span></span><br><span class="line">gpasswd -a 用户名 组名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看系统中所有的用户组</span>
+<span class="token function">cat</span> /etc/group
+<span class="token comment"># 查看当前用户所在的用户组</span>
+<span class="token function">groups</span>
+<span class="token comment"># 查看某用户所在的用户组</span>
+<span class="token function">groups</span> txb
+<span class="token comment"># 查看用户id、用户组、用户组id</span>
+<span class="token function">id</span> txb
+
+<span class="token comment"># 修改用户组名</span>
+<span class="token function">groupmod</span> -n 新组名 旧组名
+
+<span class="token comment"># 修改用户组 id</span>
+<span class="token function">groupmod</span> -g 组id 组名
+
+<span class="token comment"># 删除用户组</span>
+<span class="token function">groupdel</span> 组名
+
+<span class="token comment"># 将用户添加到某个用户组</span>
+gpasswd -a 用户名 组名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>passwd:修改用户密码信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">passwd </span><br><span class="line"></span><br><span class="line"><span class="comment"># 锁定用户密码，用户不能登陆</span></span><br><span class="line">passwd -l 用户名</span><br><span class="line"><span class="comment"># 解除锁定</span></span><br><span class="line">passwd -u 用户名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看用户的密码是否被锁定</span></span><br><span class="line">passwd -S</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除用户密码，删除后用户不能登陆系统，重新设置密码后可以登陆系统</span></span><br><span class="line">passed -d 用户名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改用户密码</span>
+<span class="token function">passwd</span> 
+
+<span class="token comment"># 锁定用户密码，用户不能登陆</span>
+<span class="token function">passwd</span> -l 用户名
+<span class="token comment"># 解除锁定</span>
+<span class="token function">passwd</span> -u 用户名
+
+<span class="token comment"># 查看用户的密码是否被锁定</span>
+<span class="token function">passwd</span> -S
+
+<span class="token comment"># 删除用户密码，删除后用户不能登陆系统，重新设置密码后可以登陆系统</span>
+passed -d 用户名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221214121232905.png" class="" title="image-20221214121232905">
 
 <p>查看系统在线人员信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">who</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">who</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <img src="/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/image-20221229170041437.png" class="" title="image-20221229170041437">
 
 <p>强制用户下线：</p>
 <p>任何用户都可让自己强制下线，强制其他用户下线需要 root 权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pts/0 是用户使用的终端的名称</span></span><br><span class="line">sudo pkill -<span class="built_in">kill</span> -t pts/2</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># pts/0 是用户使用的终端的名称</span>
+<span class="token function">sudo</span> <span class="token function">pkill</span> -kill -t pts/2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 

@@ -1,3 +1,4 @@
+https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/
 https://xiyoucloud.github.io/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/
 https://xiyoucloud.github.io/2023/01/06/jupyter%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B/
@@ -32,7 +33,6 @@ https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%8
 https://xiyoucloud.github.io/2023/01/01/%E5%AE%89%E8%A3%85monocle-2-18/
 https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/
-https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/
 https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/
 https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B9%8Bawk/
 https://xiyoucloud.github.io/2022/12/30/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86-sed-xargs-wc/

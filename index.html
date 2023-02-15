@@ -307,79 +307,11 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>官网介绍：<a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a></p>
-<p>renv 能够帮助我们创建一个私有包仓库，你也可以认为它是为 R 创建一个私有的 libpath。在这个 libpath 下安装的 R 包不受其他 libpath 的影响，在项目中使用 R 包也并不会受到其他 libpath 的干扰。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在 R 的交互环境下输入以下命令查看 libpath</span>
-.libPaths<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>renv 的好处:</p>
-<ol>
-<li><p><strong>构建了一个独立的 R 包 libpath</strong>；</p>
-</li>
-<li><p>下载 R 包有缓存，安装失败后再次安装会使用上次已经下载的缓存，而不用再次下载；</p>
-</li>
-<li><p>可以导出项目中使用的R包和版本；</p>
-</li>
-<li><p>可以根据导出的 R 包镜像；</p>
-</li>
-</ol>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>require<span class="token punctuation">(</span><span class="token string">"renv"</span>, quietly <span class="token operator">=</span> TRUE<span class="token punctuation">))</span> <span class="token punctuation">&#123;</span>
-  install.packages<span class="token punctuation">(</span><span class="token string">"renv"</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol>
-<li>创建项目目录，项目目录不能为家目录，目录名可以自定义</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dir.create<span class="token punctuation">(</span><span class="token string">"~/SCP_env"</span>, recursive <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ol start="2">
-<li>初始化项目，这一步会在项目目录中生成文件</li>
-</ol>
-<p>如果你使用 rstudio-server 的话，下面的命令应该在 rstudio-server 的 “Console” 中执行，这样它会自动刷新 rstudio-server 并自动创建 R project。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 项目名可以自定义</span>
-renv::init<span class="token punctuation">(</span>project <span class="token operator">=</span> <span class="token string">"~/SCP_env"</span>, bare <span class="token operator">=</span> TRUE, restart <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ol start="3">
-<li>激活项目进行使用</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">renv::activate<span class="token punctuation">(</span>project <span class="token operator">=</span> <span class="token string">"~/SCP_env"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>激活项目后，可以查看此时的 libpath，之后安装的 R 包都会保存在 libpath 对应的目录中。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.libPaths<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="如何安装R包"><a href="#如何安装R包" class="headerlink" title="如何安装R包"></a>如何安装R包</h2><a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a>
-
-<h1 id="renv高级功能"><a href="#renv高级功能" class="headerlink" title="renv高级功能"></a>renv高级功能</h1><h2 id="1-导出指定libpath下的R包信息到lockfile中"><a href="#1-导出指定libpath下的R包信息到lockfile中" class="headerlink" title="1.导出指定libpath下的R包信息到lockfile中"></a>1.导出指定libpath下的R包信息到lockfile中</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这 3 个参数都有默认值，不用一一赋值</span>
-renv::snapshot<span class="token punctuation">(</span>project, library, lockfile<span class="token punctuation">)</span>
-
-<span class="token comment"># 示例：将 SCP_env 项目下的多个 libpath 下的 R 包信息导出到 ~/SCP.lock 文件中</span>
-renv::snapshot<span class="token punctuation">(</span>project<span class="token operator">=</span><span class="token string">"~/SCP_env"</span>, <span class="token assign-left variable">lockfile</span><span class="token operator">=</span><span class="token string">"~/SCP.lock"</span><span class="token punctuation">)</span>
-<span class="token comment"># 示例：将 /home/txb/SCP_env/renv/library/R-4.2/x86_64-conda-linux-gnu 目录下的 R 包信息导出到 ~/SCP.lock 文件中</span>
-renv::snapshot<span class="token punctuation">(</span>library<span class="token operator">=</span><span class="token string">"/home/txb/SCP_env/renv/library/R-4.2/x86_64-conda-linux-gnu"</span>, <span class="token assign-left variable">lockfile</span><span class="token operator">=</span><span class="token string">"~/SCP.lock"</span><span class="token punctuation">)</span>
-<span class="token comment"># 示例：将 SCP_env 项目下的多个 libpath 下的 R 包信息导出到项目下 renv.lock 文件中</span>
-renv::snapshot<span class="token punctuation">(</span>project<span class="token operator">=</span><span class="token string">"~/SCP_env"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="2-根据lockfile将R包安装到某个libpath中"><a href="#2-根据lockfile将R包安装到某个libpath中" class="headerlink" title="2.根据lockfile将R包安装到某个libpath中"></a>2.根据lockfile将R包安装到某个libpath中</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这 3 个参数都有默认值，不用一一赋值</span>
-renv::restore<span class="token punctuation">(</span>project, library, lockfile<span class="token punctuation">)</span>
-
-<span class="token comment"># 示例：根据 lockfile 中记录的 R 包信息将 R 包安装在某个 libpath 中</span>
-renv::restore<span class="token punctuation">(</span>library<span class="token operator">=</span><span class="token string">"/home/txb/test"</span>, <span class="token assign-left variable">lockfile</span><span class="token operator">=</span><span class="token string">"~/test.lock"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>但项目不总是可重现的，详情可见官方解释：<a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html#caveats">https://rstudio.github.io/renv/articles/renv.html#caveats</a></p>
-<p>出现这种情况时需要手动处理某些安装失败的 R 包。（移除？使用其他方式安装？……）</p>
-<p>restore 和 snapshot 的更多用法可以阅读他们的源码获得，以下是它们可以接收的参数以及默认参数。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">restore<span class="token punctuation">(</span>project <span class="token operator">=</span> NULL, <span class="token punctuation">..</span>., library <span class="token operator">=</span> NULL, lockfile <span class="token operator">=</span> NULL, 
-    packages <span class="token operator">=</span> NULL, exclude <span class="token operator">=</span> NULL, rebuild <span class="token operator">=</span> FALSE, repos <span class="token operator">=</span> NULL, 
-    clean <span class="token operator">=</span> FALSE, prompt <span class="token operator">=</span> interactive<span class="token punctuation">(</span><span class="token punctuation">))</span>
-    
-snapshot<span class="token punctuation">(</span>project <span class="token operator">=</span> NULL, <span class="token punctuation">..</span>., library <span class="token operator">=</span> NULL, lockfile <span class="token operator">=</span> paths<span class="token variable">$lockfile</span><span class="token punctuation">(</span>project <span class="token operator">=</span> project<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="3-禁用R包缓存，这样在安装R包时会从网上重新下载"><a href="#3-禁用R包缓存，这样在安装R包时会从网上重新下载" class="headerlink" title="3.禁用R包缓存，这样在安装R包时会从网上重新下载"></a>3.禁用R包缓存，这样在安装R包时会从网上重新下载</h2><p>通常来说这个设置是不需要的，如果 R 包有更新的版本，renv 会自动下载更新的版本来替换本地缓存。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">renv::settings<span class="token variable">$use</span>.cache<span class="token punctuation">(</span>FALSE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="4-身份验证"><a href="#4-身份验证" class="headerlink" title="4.身份验证"></a>4.身份验证</h2><p><a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html#authentication">https://rstudio.github.io/renv/articles/renv.html#authentication</a></p>
-<h2 id="5-设置不同项目之间共享R包缓存"><a href="#5-设置不同项目之间共享R包缓存" class="headerlink" title="5.设置不同项目之间共享R包缓存"></a>5.设置不同项目之间共享R包缓存</h2><p><a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html#cache-location">https://rstudio.github.io/renv/articles/renv.html#cache-location</a></p>
-<p>关于renv的更多信息请查看官方介绍：<a target="_blank" rel="noopener" href="https://rstudio.github.io/renv/articles/renv.html">https://rstudio.github.io/renv/articles/renv.html</a></p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
+<p>renv 能够帮助我们创建一个私有包仓库，你也可以认为它是为 R 创建一个私有的 libpath。在这个 libpath 下安装的 R 包不受其他 libpath 的影响，在项目中使用 R 包也并不会受到其他 libpath 的干扰。</p> 
+      <a class="article-more-link" href="/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
