@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">900</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -107,7 +107,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -194,6 +194,22 @@ conda <span class="token function">install</span> ipykernel -y -vv
 <span class="token comment"># 如果安装 ipykernel 后 jupyter 没有识别到，可以在安装 jupyter 的 conda 环境中执行类似下面的命令</span>
 <span class="token comment"># 这个命令会让 jupyter 识别到虚拟环境 sradownload, 并在jupyter 中显示为 Python [conda env:sradownload]</span>
 python -m ipykernel <span class="token function">install</span> --user --name sradownload --display-name <span class="token string">"Python [conda env:sradownload]"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="jupyter上能看到机器上的哪些文件"><a href="#jupyter上能看到机器上的哪些文件" class="headerlink" title="jupyter上能看到机器上的哪些文件"></a>jupyter上能看到机器上的哪些文件</h1><p>jupyter 只能看到运行 jupyter 所在的工作目录下的文件，下面我举几个例子。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 例子1：先将工作目录切换为家目录，然后运行 jupyter，此时 jupyter 中可以看到家目录下的所有文件</span>
+<span class="token builtin class-name">cd</span> ~
+<span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+
+<span class="token comment"># 例子2：将工作目录切换为 jupyter_home，此时 jupyter 中可以看到 ~/ jupyter_home 下的所有文件</span>
+<span class="token builtin class-name">cd</span> ~/jupyter_home
+<span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="切换jupyter工作目录"><a href="#切换jupyter工作目录" class="headerlink" title="切换jupyter工作目录"></a>切换jupyter工作目录</h1><p>在切换 jupyter 进程时要杀死之前的 jupyter 进程：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后切换到对应的目录后再运行jupyter：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> xxx
+<span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->

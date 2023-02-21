@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</loc>
+    <loc>https://xiyoucloud.github.io/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/</loc>
+    <lastmod>2023-02-21</lastmod>
+  </url>
+  <url>
+    <loc>https://xiyoucloud.github.io/2023/02/21/%E5%AE%89%E8%A3%85R%E5%8C%85-%E5%B1%A1%E8%B4%A5%E5%B1%A1%E6%88%98/</loc>
+    <lastmod>2023-02-21</lastmod>
+  </url>
+  <url>
+    <loc>https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2023-02-16</lastmod>
+  </url>
+  <url>
+    <loc>https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
     <lastmod>2023-02-15</lastmod>
   </url>
   <url>
     <loc>https://xiyoucloud.github.io/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-02-14</lastmod>
+    <lastmod>2023-02-15</lastmod>
+  </url>
+  <url>
+    <loc>https://xiyoucloud.github.io/2022/12/29/%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84/</loc>
+    <lastmod>2023-02-15</lastmod>
   </url>
   <url>
     <loc>https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
@@ -105,10 +121,6 @@
     <lastmod>2023-01-13</lastmod>
   </url>
   <url>
-    <loc>https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2023-01-11</lastmod>
-  </url>
-  <url>
     <loc>https://xiyoucloud.github.io/2022/12/30/%E8%BF%9B%E7%A8%8B%E4%BB%8B%E7%BB%8D-ps/</loc>
     <lastmod>2023-01-11</lastmod>
   </url>
@@ -131,10 +143,6 @@
   <url>
     <loc>https://xiyoucloud.github.io/2022/12/30/bash%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-01-01</lastmod>
-  </url>
-  <url>
-    <loc>https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
-    <lastmod>2022-12-31</lastmod>
   </url>
   <url>
     <loc>https://xiyoucloud.github.io/2022/12/29/bash%E7%BB%83%E4%B9%A0/</loc>

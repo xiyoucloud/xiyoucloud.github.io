@@ -34,6 +34,74 @@
       </tags>
   </entry>
   <entry>
+    <title>安装预编译的R包</title>
+    <url>/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对于来源于CRAN的包，如果在安装时遇到编译失败的问题，可以尝试安装它的预编译版本。</p>
+<span id="more"></span>
+
+<h2 id="设置options"><a href="#设置options" class="headerlink" title="设置options"></a>设置options</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">options<span class="token punctuation">(</span>HTTPUserAgent <span class="token operator">=</span> sprintf<span class="token punctuation">(</span><span class="token string">"R/%s R (%s)"</span>, getRversion<span class="token punctuation">(</span><span class="token punctuation">)</span>, paste<span class="token punctuation">(</span>getRversion<span class="token punctuation">(</span><span class="token punctuation">)</span>, R.version<span class="token punctuation">[</span><span class="token string">"platform"</span><span class="token punctuation">]</span>, R.version<span class="token punctuation">[</span><span class="token string">"arch"</span><span class="token punctuation">]</span>, R.version<span class="token punctuation">[</span><span class="token string">"os"</span><span class="token punctuation">]</span><span class="token punctuation">))</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="设置CRAN镜像"><a href="#设置CRAN镜像" class="headerlink" title="设置CRAN镜像"></a>设置CRAN镜像</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 以 linux 系统为例</span>
+options<span class="token punctuation">(</span><span class="token string">"repos"</span> <span class="token operator">=</span> c<span class="token punctuation">(</span>CRAN<span class="token operator">=</span><span class="token string">"https://packagemanager.rstudio.com/cran/__linux__/focal/latest"</span><span class="token punctuation">))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="安装R包"><a href="#安装R包" class="headerlink" title="安装R包"></a>安装R包</h2><a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>R包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装R包-屡败屡战</title>
+    <url>/2023/02/21/%E5%AE%89%E8%A3%85R%E5%8C%85-%E5%B1%A1%E8%B4%A5%E5%B1%A1%E6%88%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在安装R包的过程中，你可能会遇到很多问题，这篇文章罗列了使用不同安装工具来安装R包的方式，或许当一条路走不通时，可以试试其他路子~:closed_lock_with_key:</p>
+<span id="more"></span>
+
+<p>在这篇文章中演示了如何安装R包，感兴趣的同学可以看看 <a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a></p>
+<h1 id="使用R内置的install"><a href="#使用R内置的install" class="headerlink" title="使用R内置的install"></a>使用R内置的install</h1><p>这种方式通常用来安装来源于<a href="https://cran.r-project.org/">CRAN</a>的R包，除此之外 install 还经常用于根据源码来安装R包。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">install.packages<span class="token punctuation">(</span>pkgs, lib, repos <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"repos"</span><span class="token punctuation">)</span>,
+                 contriburl <span class="token operator">=</span> contrib.url<span class="token punctuation">(</span>repos, <span class="token builtin class-name">type</span><span class="token punctuation">)</span>,
+                 method, available <span class="token operator">=</span> NULL, destdir <span class="token operator">=</span> NULL,
+                 dependencies <span class="token operator">=</span> NA, <span class="token builtin class-name">type</span> <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"pkgType"</span><span class="token punctuation">)</span>,
+                 configure.args <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"configure.args"</span><span class="token punctuation">)</span>,
+                 configure.vars <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"configure.vars"</span><span class="token punctuation">)</span>,
+                 clean <span class="token operator">=</span> FALSE, Ncpus <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"Ncpus"</span>, 1L<span class="token punctuation">)</span>,
+                 verbose <span class="token operator">=</span> getOption<span class="token punctuation">(</span><span class="token string">"verbose"</span><span class="token punctuation">)</span>,
+                 libs_only <span class="token operator">=</span> FALSE, INSTALL_opts, quiet <span class="token operator">=</span> FALSE,
+                 keep_outputs <span class="token operator">=</span> FALSE, <span class="token punctuation">..</span>.<span class="token punctuation">)</span>
+<span class="token comment"># 通常，你只需要指定包名就可以进行安装了，它默认将 R 包安装在 .libPaths() 输出的第一个 libpath 下</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"stringr"</span><span class="token punctuation">)</span>
+<span class="token comment"># 根据源码安装R包</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"xx.tar.gz"</span>, <span class="token assign-left variable">repos</span><span class="token operator">=</span>NULL, <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"Source"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="使用R包安装工具"><a href="#使用R包安装工具" class="headerlink" title="使用R包安装工具"></a>使用R包安装工具</h1><p>这里说的R包安装工具是指：BiocManager,devtools,remotes。有的 R 包除了发布在CRAN，还发布在其他的平台上。</p>
+<p>BiocManager 可以安装发布在 Bioconducter 的 R 包。</p>
+<p>devtools 常用于安装来源于 github 的 R 包，remotes 也用于安装来源于 github 的 R 包。</p>
+<p>remotes 通常也用于安装来源于 github 的 R 包，两者的区别是 remotes 可以在安装时可以使用 github 代理，这个功能不是 remotes 提供的，它能实现这个功能是因为它在安装 R 包时需要指定 R 包的完整链接，而基于链接的变形可以通过 github 代理来下载 R 包。</p>
+<p>详情可以参考：<a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a></p>
+<p>当 R 包发布在 github 时，通常在它的 README.md 文件中说明它应该用 devtools 来安装。</p>
+<h1 id="使用renv"><a href="#使用renv" class="headerlink" title="使用renv"></a>使用renv</h1><p>renv 本身并不能解决一系列 R 包安装失败的问题，不过使用它可以创建一个独立的 R project，这可以避免安装 R 包过程中的一些R包版本冲突的问题。</p>
+<p>详情可以参考 <a href="/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="renv使用教程">renv使用教程</a></p>
+<h1 id="使用conda"><a href="#使用conda" class="headerlink" title="使用conda"></a>使用conda</h1><p>在安装R包时可能会遇到编译失败的报错，如果你不能设法解决它，可以使用 conda 来安装它。</p>
+<p>不过请务必记得在安装 R 包的虚拟安装中安装好对应的 R 版本，并将 conda 安装 R 包的路径添加到 libpath。</p>
+<p>下文中以 sf 为例（这个R包在编译时可能会报错）。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建 R 包环境，假设想要在 R 的 4.2.2 版本下使用这个 R 包</span>
+conda create -n rpackage r-base<span class="token operator">=</span><span class="token number">4.2</span>.2 -y -vv
+conda activate rpackage
+<span class="token comment"># 安装 R 包</span>
+conda <span class="token function">install</span> r-sf -y -vv
+
+<span class="token comment"># 将 R 包的安装路径添加到 libpath 中</span>
+.libPaths<span class="token punctuation">(</span>.libPaths<span class="token punctuation">(</span><span class="token punctuation">)</span>, c<span class="token punctuation">(</span><span class="token string">"/home/txb/envs/rpackage/lib/R/library"</span><span class="token punctuation">))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="使用docker"><a href="#使用docker" class="headerlink" title="使用docker"></a>使用docker</h1><p>如果无论如何也安装不上 R 包，且 R 包作者或其他人提供了 R 包的 docker 镜像的话，可以通过运行该镜像的方式在容器中使用 R 包。</p>
+<h1 id="安装预编译的R包"><a href="#安装预编译的R包" class="headerlink" title="安装预编译的R包"></a>安装预编译的R包</h1><p>参考文章：<a href="/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/" title="安装预编译的R包">安装预编译的R包</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>conda</tag>
+        <tag>R包</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>renv使用教程</title>
     <url>/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>官网介绍：<a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a></p>
@@ -58,22 +126,13 @@
   install.packages<span class="token punctuation">(</span><span class="token string">"renv"</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol>
-<li>创建项目目录，项目目录不能为家目录，目录名可以自定义</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dir.create<span class="token punctuation">(</span><span class="token string">"~/SCP_env"</span>, recursive <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-创建项目目录，项目目录不能为家目录，目录名可以自定义"><a href="#1-创建项目目录，项目目录不能为家目录，目录名可以自定义" class="headerlink" title="1.创建项目目录，项目目录不能为家目录，目录名可以自定义"></a>1.创建项目目录，项目目录不能为家目录，目录名可以自定义</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dir.create<span class="token punctuation">(</span><span class="token string">"~/SCP_env"</span>, recursive <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<ol start="2">
-<li>初始化项目，这一步会在项目目录中生成文件</li>
-</ol>
-<p>如果你使用 rstudio-server 的话，下面的命令应该在 rstudio-server 的 “Console” 中执行，这样它会自动刷新 rstudio-server 并自动创建 R project。</p>
+<h3 id="2-初始化项目，这一步会在项目目录中生成文件"><a href="#2-初始化项目，这一步会在项目目录中生成文件" class="headerlink" title="2.初始化项目，这一步会在项目目录中生成文件"></a>2.初始化项目，这一步会在项目目录中生成文件</h3><p>如果你使用 rstudio-server 的话，下面的命令应该在 rstudio-server 的 “Console” 中执行，这样它会自动刷新 rstudio-server 并自动创建 R project。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 项目名可以自定义</span>
 renv::init<span class="token punctuation">(</span>project <span class="token operator">=</span> <span class="token string">"~/SCP_env"</span>, bare <span class="token operator">=</span> TRUE, restart <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<ol start="3">
-<li>激活项目进行使用</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">renv::activate<span class="token punctuation">(</span>project <span class="token operator">=</span> <span class="token string">"~/SCP_env"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-激活项目进行使用"><a href="#3-激活项目进行使用" class="headerlink" title="3.激活项目进行使用"></a>3.激活项目进行使用</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">renv::activate<span class="token punctuation">(</span>project <span class="token operator">=</span> <span class="token string">"~/SCP_env"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>激活项目后，可以查看此时的 libpath，之后安装的 R 包都会保存在 libpath 对应的目录中。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.libPaths<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1173,6 +1232,22 @@ conda <span class="token function">install</span> ipykernel -y -vv
 <span class="token comment"># 这个命令会让 jupyter 识别到虚拟环境 sradownload, 并在jupyter 中显示为 Python [conda env:sradownload]</span>
 python -m ipykernel <span class="token function">install</span> --user --name sradownload --display-name <span class="token string">"Python [conda env:sradownload]"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h1 id="jupyter上能看到机器上的哪些文件"><a href="#jupyter上能看到机器上的哪些文件" class="headerlink" title="jupyter上能看到机器上的哪些文件"></a>jupyter上能看到机器上的哪些文件</h1><p>jupyter 只能看到运行 jupyter 所在的工作目录下的文件，下面我举几个例子。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 例子1：先将工作目录切换为家目录，然后运行 jupyter，此时 jupyter 中可以看到家目录下的所有文件</span>
+<span class="token builtin class-name">cd</span> ~
+<span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+
+<span class="token comment"># 例子2：将工作目录切换为 jupyter_home，此时 jupyter 中可以看到 ~/ jupyter_home 下的所有文件</span>
+<span class="token builtin class-name">cd</span> ~/jupyter_home
+<span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="切换jupyter工作目录"><a href="#切换jupyter工作目录" class="headerlink" title="切换jupyter工作目录"></a>切换jupyter工作目录</h1><p>在切换 jupyter 进程时要杀死之前的 jupyter 进程：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> -ux <span class="token operator">|</span> <span class="token function">grep</span> jupyter <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">kill</span> -9<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后切换到对应的目录后再运行jupyter：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> xxx
+<span class="token function">nohup</span> jupyter notebook <span class="token operator">></span>~/jupyter.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>jupyter</tag>
@@ -1537,19 +1612,24 @@ A(ubuntu) --> C(ubuntu server)</pre>
 <img src="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/f581cc3dc3264f05ae5e60b06fc467c4.png" class="" title="在这里插入图片描述">
 
 <h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a><strong>解决办法：</strong></h3><p>使用github代理：<br><a href="https://ghproxy.com/">https://ghproxy.com</a> </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/wu-yc/scMetabolism.git</span><br><span class="line">git <span class="built_in">clone</span> https://ghproxy.com/https://github.com/wu-yc/scMetabolism.git</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/wu-yc/scMetabolism.git
+<span class="token function">git</span> clone https://ghproxy.com/https://github.com/wu-yc/scMetabolism.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="安装R包出错"><a href="#安装R包出错" class="headerlink" title="安装R包出错"></a>安装R包出错</h2><h3 id="报错信息：-1"><a href="#报错信息：-1" class="headerlink" title="报错信息："></a><strong>报错信息：</strong></h3><p>Error: Failed to install ‘unknown package’ from GitHub:<br>gnutls_handshake() failed: Error in the pull function.</p>
 <img src="/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/4a44870deba845aba6e57b6c64be5883.png" class="" title="在这里插入图片描述">
 
 <h3 id="解决办法：-1"><a href="#解决办法：-1" class="headerlink" title="解决办法："></a><strong>解决办法：</strong></h3><p>使用github代理，以 <a href="https://phproxy.com为例：">https://phproxy.com为例：</a><br><a href="https://ghproxy.com/">https://ghproxy.com</a> </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 可能因为网络问题而导致下载 R 包失败</span></span><br><span class="line">devtools::install_github(<span class="string">&quot;wu-yc/scMetabolism&quot;</span>)</span><br><span class="line"><span class="comment"># 使用代理下载 R 包</span></span><br><span class="line">remotes::install_git(<span class="string">&quot;https://ghproxy.com/https://github.com/wu-yc/scMetabolism.git&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 可能因为网络问题而导致下载 R 包失败</span>
+devtools::install_github<span class="token punctuation">(</span><span class="token string">"wu-yc/scMetabolism"</span><span class="token punctuation">)</span>
+<span class="token comment"># 使用代理下载 R 包</span>
+remotes::install_git<span class="token punctuation">(</span><span class="token string">"https://ghproxy.com/https://github.com/wu-yc/scMetabolism.git"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>使用 wget，curl 访问 github 相关的链接失败也可以参照此法！</strong></p>
 <p>看看我的其他文章呗：<br><a href="https://blog.csdn.net/weixin_64316191/article/details/128046805">网络的连通性之ping和github代理</a><br><a href="https://blog.csdn.net/weixin_64316191/article/details/127536791">如何安装 R包：内含使用github代理的方式</a></p>
 <h3 id="更多github代理："><a href="#更多github代理：" class="headerlink" title="更多github代理："></a>更多github代理：</h3><p>github 代理使用方式需要点击链接查看网站详情。</p>
 <p><a href="https://hub.yzuu.cf/">https://hub.yzuu.cf/</a><br><a href="https://hub.njuu.cf/">https://hub.njuu.cf/</a><br><a href="https://ghproxy.com/">https://ghproxy.com/</a><br><a href="https://github.moeyy.xyz/">https://github.moeyy.xyz/</a><br><a href="https://kgithub.com/">https://kgithub.com/</a><br><a href="https://gitclone.com/">https://gitclone.com/</a></p>
 <p>在此对所有 github 代理的站长表示衷心的感谢！</p>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>增大github api 访问次数限制：<a href="https://blog.csdn.net/weixin_44022515/article/details/122022228">https://blog.csdn.net/weixin_44022515/article/details/122022228</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>代理</tag>

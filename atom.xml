@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-02-14T10:07:14.468Z</updated>
+  <updated>2023-02-21T15:10:46.423Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>安装预编译的R包</title>
+    <link href="https://xiyoucloud.github.io/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/"/>
+    <id>https://xiyoucloud.github.io/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/</id>
+    <published>2023-02-22T14:32:53.000Z</published>
+    <updated>2023-02-21T15:10:46.423Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;对于来源于CRAN的包，如果在安装时遇到编译失败的问题，可以尝试安装它的预编译版本。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装R包-屡败屡战</title>
+    <link href="https://xiyoucloud.github.io/2023/02/21/%E5%AE%89%E8%A3%85R%E5%8C%85-%E5%B1%A1%E8%B4%A5%E5%B1%A1%E6%88%98/"/>
+    <id>https://xiyoucloud.github.io/2023/02/21/%E5%AE%89%E8%A3%85R%E5%8C%85-%E5%B1%A1%E8%B4%A5%E5%B1%A1%E6%88%98/</id>
+    <published>2023-02-21T14:10:25.000Z</published>
+    <updated>2023-02-21T15:04:32.860Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在安装R包的过程中，你可能会遇到很多问题，这篇文章罗列了使用不同安装工具来安装R包的方式，或许当一条路走不通时，可以试试其他路子~:closed_lock_with_key:&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
+    
+    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
+    
+    <category term="docker" scheme="https://xiyoucloud.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>renv使用教程</title>
     <link href="https://xiyoucloud.github.io/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
     <published>2023-02-14T01:53:28.000Z</published>
-    <updated>2023-02-14T10:07:14.468Z</updated>
+    <updated>2023-02-15T03:48:56.456Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;官网介绍：&lt;a href=&quot;https://rstudio.github.io/renv/&quot;&gt;https://rstudio.github.io/renv/&lt;/a&gt;&lt;/p&gt;
@@ -361,7 +399,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2023-01-10T14:36:57.000Z</published>
-    <updated>2023-01-11T12:08:40.513Z</updated>
+    <updated>2023-02-16T14:31:08.387Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;jupyter识别kernel&quot;&gt;&lt;a href=&quot;#jupyter识别kernel&quot; class=&quot;headerlink&quot; title=&quot;jupyter识别kernel&quot;&gt;&lt;/a&gt;jupyter识别kernel&lt;/h1&gt;&lt;p&gt;jupyter 是借助 kernel 来运行程序的，在创建文件的时候，我们可以选择已经安装的kernel来运行文件。&lt;/p&gt;
@@ -391,53 +429,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="软件安装" scheme="https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
     
     <category term="jupyter" scheme="https://xiyoucloud.github.io/tags/jupyter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无root权限如何安装软件</title>
-    <link href="https://xiyoucloud.github.io/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/"/>
-    <id>https://xiyoucloud.github.io/2023/01/05/%E6%97%A0root%E6%9D%83%E9%99%90%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</id>
-    <published>2023-01-05T02:29:15.000Z</published>
-    <updated>2023-01-05T16:04:23.581Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;无-root-权限安装软件的好处&quot;&gt;&lt;a href=&quot;#无-root-权限安装软件的好处&quot; class=&quot;headerlink&quot; title=&quot;无 root 权限安装软件的好处&quot;&gt;&lt;/a&gt;无 root 权限安装软件的好处&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;不同用户可以使用不同的软件版本&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;软件可以随意安装和卸载，不会影响到其他用户&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;不需要 root 权限&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    
-    <category term="软件安装" scheme="https://xiyoucloud.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-    <category term="Linux小技巧" scheme="https://xiyoucloud.github.io/tags/Linux%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在ubuntu20.04LTS上安装图形化界面</title>
-    <link href="https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/"/>
-    <id>https://xiyoucloud.github.io/2023/01/03/%E5%9C%A8ubuntu20-04LTS%E4%B8%8A%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/</id>
-    <published>2023-01-03T14:31:57.000Z</published>
-    <updated>2023-01-04T11:56:26.795Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;ubuntu 有两种常用的系统 ubuntu desktop 和 ubuntu server。&lt;/p&gt;
-&lt;p&gt;ubuntu desktop 常用于个人电脑，是有图形化界面的，用户可以通过图形化界面与计算机交互。&lt;/p&gt;
-&lt;p&gt;ubuntu server 常用于服务器，是没有图形化界面的，用户通过终端与计算机交互。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="vncserver" scheme="https://xiyoucloud.github.io/tags/vncserver/"/>
-    
-    <category term="图形化界面" scheme="https://xiyoucloud.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/"/>
     
   </entry>
   
