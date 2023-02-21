@@ -110,3 +110,32 @@ conda install ipykernel -y -vv
 python -m ipykernel install --user --name sradownload --display-name "Python [conda env:sradownload]"
 ```
 
+# jupyter上能看到机器上的哪些文件
+
+jupyter 只能看到运行 jupyter 所在的工作目录下的文件，下面我举几个例子。
+
+```bash
+# 例子1：先将工作目录切换为家目录，然后运行 jupyter，此时 jupyter 中可以看到家目录下的所有文件
+cd ~
+nohup jupyter notebook >~/jupyter.log 2>&1 &
+
+# 例子2：将工作目录切换为 jupyter_home，此时 jupyter 中可以看到 ~/ jupyter_home 下的所有文件
+cd ~/jupyter_home
+nohup jupyter notebook >~/jupyter.log 2>&1 &
+```
+
+# 切换jupyter工作目录
+
+在切换 jupyter 进程时要杀死之前的 jupyter 进程：
+
+```bash
+ps -ux | grep jupyter | grep -v grep | awk '{print $2}' | xargs kill -9
+```
+
+然后切换到对应的目录后再运行jupyter：
+
+```bash
+cd xxx
+nohup jupyter notebook >~/jupyter.log 2>&1 &
+```
+

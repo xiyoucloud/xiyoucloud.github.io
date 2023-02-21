@@ -37,13 +37,13 @@ if (!require("renv", quietly = TRUE)) {
 
 ## 使用
 
-1. 创建项目目录，项目目录不能为家目录，目录名可以自定义
+### 1.创建项目目录，项目目录不能为家目录，目录名可以自定义
 
 ```bash
 dir.create("~/SCP_env", recursive = TRUE)
 ```
 
-2. 初始化项目，这一步会在项目目录中生成文件
+### 2.初始化项目，这一步会在项目目录中生成文件
 
 如果你使用 rstudio-server 的话，下面的命令应该在 rstudio-server 的 "Console" 中执行，这样它会自动刷新 rstudio-server 并自动创建 R project。
 
@@ -52,7 +52,7 @@ dir.create("~/SCP_env", recursive = TRUE)
 renv::init(project = "~/SCP_env", bare = TRUE, restart = TRUE)
 ```
 
-3. 激活项目进行使用
+### 3.激活项目进行使用
 
 ```bash
 renv::activate(project = "~/SCP_env")

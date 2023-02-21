@@ -74,3 +74,7 @@ github 代理使用方式需要点击链接查看网站详情。
 [https://gitclone.com/](https://gitclone.com/)
 
 在此对所有 github 代理的站长表示衷心的感谢！
+
+## 补充内容
+
+增大github api 访问次数限制：https://blog.csdn.net/weixin_44022515/article/details/122022228
