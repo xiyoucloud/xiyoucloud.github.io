@@ -34,6 +34,40 @@
       </tags>
   </entry>
   <entry>
+    <title>sftp日志</title>
+    <url>/2023/02/23/sftp%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>stfp服务默认不记录日志到文件中，不过你可以通过修改配置文件来让它将日志记录在文件中。修改配置文件需要 root 权限。</p>
+<h2 id="修改配置文件-etc-ssh-sshd-config"><a href="#修改配置文件-etc-ssh-sshd-config" class="headerlink" title="修改配置文件/etc/ssh/sshd_config"></a>修改配置文件/etc/ssh/sshd_config</h2><p><strong>注意：不要修改到配置文件的其他信息，否则可能导致无法登陆。</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 为防止改乱配置文件，需要先备份文件</span>
+<span class="token function">sudo</span> <span class="token function">cp</span> /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+
+<span class="token comment"># 编辑文件</span>
+<span class="token function">sudo</span> <span class="token function">vi</span> /etc/ssh/sshd_config
+
+<span class="token comment"># 修改前</span>
+Subsystem       <span class="token function">sftp</span>    /usr/lib/openssh/sftp-server
+<span class="token comment"># 修改后</span>
+Subsystem       <span class="token function">sftp</span>    /usr/lib/openssh/sftp-server -l VERBOSE -f LOCAL3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2023/02/23/sftp%E6%97%A5%E5%BF%97/image-20230224114758221.png" class="" title="image-20230224114758221">
+
+<h2 id="修改配置文件-etc-rsyslog-conf"><a href="#修改配置文件-etc-rsyslog-conf" class="headerlink" title="修改配置文件/etc/rsyslog.conf"></a>修改配置文件/etc/rsyslog.conf</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在文件末尾增加一行</span>
+local3.*    /var/log/sftp.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="重启sshd和rsyslog"><a href="#重启sshd和rsyslog" class="headerlink" title="重启sshd和rsyslog"></a>重启sshd和rsyslog</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> sshd restart
+<span class="token function">service</span> rsyslog restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -f /var/log/sftp.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>之后再通过sftp上传文件到服务器时，就可以到 /var/log/sftp.log 中查看日志了。以下图片是将本地的 cut.mp4 文件上传到服务器的 /home/txb 时文件中记录的日志信息，从日志中的 Permission denied 可以知道当前用户没有该目录的写入权限，因此上传文件失败了，最后会话关闭了（session closed）。</p>
+<img src="/2023/02/23/sftp%E6%97%A5%E5%BF%97/image-20230223211933788.png" class="" title="image-20230223211933788">
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>日志</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装预编译的R包</title>
     <url>/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对于来源于CRAN的包，如果在安装时遇到编译失败的问题，可以尝试安装它的预编译版本。</p>
@@ -75,14 +109,14 @@ install.packages<span class="token punctuation">(</span><span class="token strin
 <h1 id="使用R包安装工具"><a href="#使用R包安装工具" class="headerlink" title="使用R包安装工具"></a>使用R包安装工具</h1><p>这里说的R包安装工具是指：BiocManager,devtools,remotes。有的 R 包除了发布在CRAN，还发布在其他的平台上。</p>
 <p>BiocManager 可以安装发布在 Bioconducter 的 R 包。</p>
 <p>devtools 常用于安装来源于 github 的 R 包，remotes 也用于安装来源于 github 的 R 包。</p>
-<p>remotes 通常也用于安装来源于 github 的 R 包，两者的区别是 remotes 可以在安装时可以使用 github 代理，这个功能不是 remotes 提供的，它能实现这个功能是因为它在安装 R 包时需要指定 R 包的完整链接，而基于链接的变形可以通过 github 代理来下载 R 包。</p>
+<p>remotes 通常也用于安装来源于 github 的 R 包，两者的区别是 remotes 可以在安装时可以使用 github 代理，这个功能不是 remotes 提供的，它能实现这个功能是因为它在安装 R 包时可以指定 R 包所在 github 仓库的完整链接，而基于链接变形后可以通过 github 代理来下载 R 包。</p>
 <p>详情可以参考：<a href="/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/" title="如何安装R包">如何安装R包</a></p>
-<p>当 R 包发布在 github 时，通常在它的 README.md 文件中说明它应该用 devtools 来安装。</p>
+<p>当 R 包发布在 github 时，通常在它的 README.md 文件中说明它应该用 devtools 来安装，这就是我理解的 remotes 和 devtools 的区别。</p>
 <h1 id="使用renv"><a href="#使用renv" class="headerlink" title="使用renv"></a>使用renv</h1><p>renv 本身并不能解决一系列 R 包安装失败的问题，不过使用它可以创建一个独立的 R project，这可以避免安装 R 包过程中的一些R包版本冲突的问题。</p>
 <p>详情可以参考 <a href="/2023/02/14/renv%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="renv使用教程">renv使用教程</a></p>
 <h1 id="使用conda"><a href="#使用conda" class="headerlink" title="使用conda"></a>使用conda</h1><p>在安装R包时可能会遇到编译失败的报错，如果你不能设法解决它，可以使用 conda 来安装它。</p>
-<p>不过请务必记得在安装 R 包的虚拟安装中安装好对应的 R 版本，并将 conda 安装 R 包的路径添加到 libpath。</p>
-<p>下文中以 sf 为例（这个R包在编译时可能会报错）。</p>
+<p>不过请务必记得在安装 R 包的虚拟环境中安装好对应的 R 版本，并将 conda 安装 R 包的路径添加到 libpath。</p>
+<p>下文中以 sf 为例（这个 R 包在编译时可能会报错）。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建 R 包环境，假设想要在 R 的 4.2.2 版本下使用这个 R 包</span>
 conda create -n rpackage r-base<span class="token operator">=</span><span class="token number">4.2</span>.2 -y -vv
 conda activate rpackage
@@ -192,6 +226,17 @@ snapshot<span class="token punctuation">(</span>project <span class="token opera
 <h1 id="libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libEGL.so.1: cannot open shared object file: No such file or directory"></a>libEGL.so.1: cannot open shared object file: No such file or directory</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libegl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h1 id="configure-error-gsl-config-not-found-is-GSL-installed"><a href="#configure-error-gsl-config-not-found-is-GSL-installed" class="headerlink" title="configure: error: gsl-config not found, is GSL installed?"></a>configure: error: gsl-config not found, is GSL installed?</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libgsl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="GLPK-is-not-available-Unimplemented-function-call"><a href="#GLPK-is-not-available-Unimplemented-function-call" class="headerlink" title="GLPK is not available, Unimplemented function call"></a>GLPK is not available, Unimplemented function call</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y libglpk-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>报错场景：</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">library<span class="token punctuation">(</span><span class="token string">"igraph"</span><span class="token punctuation">)</span>
+g <span class="token operator">&lt;</span>- make_graph<span class="token punctuation">(</span><span class="token string">"Zachary"</span><span class="token punctuation">)</span>
+oc <span class="token operator">&lt;</span>- cluster_optimal<span class="token punctuation">(</span>g<span class="token punctuation">)</span>
+
+<span class="token comment"># 报错信息</span>
+Error <span class="token keyword">in</span> cluster_optimal<span class="token punctuation">(</span>g<span class="token punctuation">)</span> <span class="token builtin class-name">:</span> 
+  At optimal_modularity.c:85 <span class="token builtin class-name">:</span> GLPK is not available, Unimplemented <span class="token keyword">function</span> call<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
@@ -490,6 +535,7 @@ pip <span class="token function">install</span> CellPhoneDB -i https://pypi.doub
 <span class="token function">rm</span> -rf ~/.rstudio/sessions/active/session-*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="不在同一个浏览器界面打开多个rstudio应用"><a href="#不在同一个浏览器界面打开多个rstudio应用" class="headerlink" title="不在同一个浏览器界面打开多个rstudio应用"></a>不在同一个浏览器界面打开多个rstudio应用</h1><p>rstudio-server 使用的登陆机制会导致同一个浏览器界面打开的多个 rstudio-server 应用会互相干扰。比如：同界面的多个 rstudio 应用中，应用 A 的登陆回到应用 B 退出登陆。是否还有其他的干扰就不得而知了，因此更好的方式是使用不同的浏览器来访问不同的rstudio应用。当然，你也可以使用浏览器的私密模式。</p>
+<h1 id="无法使用root登陆？"><a href="#无法使用root登陆？" class="headerlink" title="无法使用root登陆？"></a>无法使用root登陆？</h1><p>处于安全考虑，rstudio-server不支持root用户登陆。需要新建其他用户用于登陆rstudio使用。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       <tags>
         <tag>rstudio</tag>

@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">222</span>
+            <span class="post-count">268</span>
         </span>
     </span>
 
@@ -136,6 +136,17 @@
 <h1 id="libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#libEGL-so-1-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="libEGL.so.1: cannot open shared object file: No such file or directory"></a>libEGL.so.1: cannot open shared object file: No such file or directory</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libegl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h1 id="configure-error-gsl-config-not-found-is-GSL-installed"><a href="#configure-error-gsl-config-not-found-is-GSL-installed" class="headerlink" title="configure: error: gsl-config not found, is GSL installed?"></a>configure: error: gsl-config not found, is GSL installed?</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libgsl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="GLPK-is-not-available-Unimplemented-function-call"><a href="#GLPK-is-not-available-Unimplemented-function-call" class="headerlink" title="GLPK is not available, Unimplemented function call"></a>GLPK is not available, Unimplemented function call</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y libglpk-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>报错场景：</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">library<span class="token punctuation">(</span><span class="token string">"igraph"</span><span class="token punctuation">)</span>
+g <span class="token operator">&lt;</span>- make_graph<span class="token punctuation">(</span><span class="token string">"Zachary"</span><span class="token punctuation">)</span>
+oc <span class="token operator">&lt;</span>- cluster_optimal<span class="token punctuation">(</span>g<span class="token punctuation">)</span>
+
+<span class="token comment"># 报错信息</span>
+Error <span class="token keyword">in</span> cluster_optimal<span class="token punctuation">(</span>g<span class="token punctuation">)</span> <span class="token builtin class-name">:</span> 
+  At optimal_modularity.c:85 <span class="token builtin class-name">:</span> GLPK is not available, Unimplemented <span class="token keyword">function</span> call<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
