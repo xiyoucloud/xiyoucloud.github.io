@@ -124,3 +124,7 @@ rm -rf ~/.rstudio/sessions/active/session-*
 # 不在同一个浏览器界面打开多个rstudio应用
 
 rstudio-server 使用的登陆机制会导致同一个浏览器界面打开的多个 rstudio-server 应用会互相干扰。比如：同界面的多个 rstudio 应用中，应用 A 的登陆回到应用 B 退出登陆。是否还有其他的干扰就不得而知了，因此更好的方式是使用不同的浏览器来访问不同的rstudio应用。当然，你也可以使用浏览器的私密模式。
+
+# 无法使用root登陆？
+
+处于安全考虑，rstudio-server不支持root用户登陆。需要新建其他用户用于登陆rstudio使用。

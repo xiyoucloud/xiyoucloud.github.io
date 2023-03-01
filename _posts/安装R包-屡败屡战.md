@@ -39,11 +39,11 @@ BiocManager 可以安装发布在 Bioconducter 的 R 包。
 
 devtools 常用于安装来源于 github 的 R 包，remotes 也用于安装来源于 github 的 R 包。
 
-remotes 通常也用于安装来源于 github 的 R 包，两者的区别是 remotes 可以在安装时可以使用 github 代理，这个功能不是 remotes 提供的，它能实现这个功能是因为它在安装 R 包时需要指定 R 包的完整链接，而基于链接的变形可以通过 github 代理来下载 R 包。
+remotes 通常也用于安装来源于 github 的 R 包，两者的区别是 remotes 可以在安装时可以使用 github 代理，这个功能不是 remotes 提供的，它能实现这个功能是因为它在安装 R 包时可以指定 R 包所在 github 仓库的完整链接，而基于链接变形后可以通过 github 代理来下载 R 包。
 
 详情可以参考：{% post_link 如何安装R包 %}
 
-当 R 包发布在 github 时，通常在它的 README.md 文件中说明它应该用 devtools 来安装。
+当 R 包发布在 github 时，通常在它的 README.md 文件中说明它应该用 devtools 来安装，这就是我理解的 remotes 和 devtools 的区别。
 
 
 
@@ -57,9 +57,9 @@ renv 本身并不能解决一系列 R 包安装失败的问题，不过使用它
 
 在安装R包时可能会遇到编译失败的报错，如果你不能设法解决它，可以使用 conda 来安装它。
 
-不过请务必记得在安装 R 包的虚拟安装中安装好对应的 R 版本，并将 conda 安装 R 包的路径添加到 libpath。
+不过请务必记得在安装 R 包的虚拟环境中安装好对应的 R 版本，并将 conda 安装 R 包的路径添加到 libpath。
 
-下文中以 sf 为例（这个R包在编译时可能会报错）。
+下文中以 sf 为例（这个 R 包在编译时可能会报错）。
 
 ```bash
 # 创建 R 包环境，假设想要在 R 的 4.2.2 版本下使用这个 R 包
