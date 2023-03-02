@@ -227,7 +227,10 @@ snapshot<span class="token punctuation">(</span>project <span class="token opera
 
 <h1 id="configure-error-gsl-config-not-found-is-GSL-installed"><a href="#configure-error-gsl-config-not-found-is-GSL-installed" class="headerlink" title="configure: error: gsl-config not found, is GSL installed?"></a>configure: error: gsl-config not found, is GSL installed?</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libgsl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h1 id="GLPK-is-not-available-Unimplemented-function-call"><a href="#GLPK-is-not-available-Unimplemented-function-call" class="headerlink" title="GLPK is not available, Unimplemented function call"></a>GLPK is not available, Unimplemented function call</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y libglpk-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="GLPK-is-not-available-Unimplemented-function-call"><a href="#GLPK-is-not-available-Unimplemented-function-call" class="headerlink" title="GLPK is not available, Unimplemented function call"></a>GLPK is not available, Unimplemented function call</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y libglpk-dev
+
+<span class="token comment"># 然后重装 igraph</span>
+install.packages<span class="token punctuation">(</span><span class="token string">"igraph"</span>, force <span class="token operator">=</span> TRUE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>报错场景：</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">library<span class="token punctuation">(</span><span class="token string">"igraph"</span><span class="token punctuation">)</span>
