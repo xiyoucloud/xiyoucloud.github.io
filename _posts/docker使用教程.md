@@ -175,3 +175,16 @@ docker info
 docker version
 ```
 
+## dial unix /var/run/docker.sock connect permission denied
+
+出现这种情况的原因是因为权限，将当前用户加入到 docker 组可以解决这个问题。
+
+```bash
+# 用户名为 txb，需要自行修改为想要使用 docker 的用户名
+sudo gpasswd -a txb docker
+# 如果未生效，切换为 root 用户再做操作
+## 切换为 root 用户
+sudo su
+gpasswd -a txb docker
+```
+
