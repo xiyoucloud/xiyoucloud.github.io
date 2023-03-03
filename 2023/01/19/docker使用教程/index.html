@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">857</span>
+            <span class="post-count">951</span>
         </span>
     </span>
 
@@ -219,6 +219,14 @@
 <span class="token function">docker</span> info
 <span class="token comment"># 查看 docker 版本</span>
 <span class="token function">docker</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="dial-unix-var-run-docker-sock-connect-permission-denied"><a href="#dial-unix-var-run-docker-sock-connect-permission-denied" class="headerlink" title="dial unix /var/run/docker.sock connect permission denied"></a>dial unix /var/run/docker.sock connect permission denied</h2><p>出现这种情况的原因是因为权限，将当前用户加入到 docker 组可以解决这个问题。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 用户名为 txb，需要自行修改为想要使用 docker 的用户名</span>
+<span class="token function">sudo</span> gpasswd -a txb <span class="token function">docker</span>
+<span class="token comment"># 如果未生效，切换为 root 用户再做操作</span>
+<span class="token comment">## 切换为 root 用户</span>
+<span class="token function">sudo</span> <span class="token function">su</span>
+gpasswd -a txb <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"> 
       <!-- reward -->
