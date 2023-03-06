@@ -1,3 +1,5 @@
+https://xiyoucloud.github.io/2023/03/06/Posit-Package-Manager/
+https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/
 https://xiyoucloud.github.io/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/
 https://xiyoucloud.github.io/2023/02/21/%E5%AE%89%E8%A3%85R%E5%8C%85-%E5%B1%A1%E8%B4%A5%E5%B1%A1%E6%88%98/
@@ -22,7 +24,6 @@ https://xiyoucloud.github.io/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%
 https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/
 https://xiyoucloud.github.io/2022/12/29/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2022/12/29/%E5%9C%A8rstudio-server%E4%B8%AD%E4%BD%BF%E7%94%A8R%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/
-https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/
 https://xiyoucloud.github.io/2022/12/31/%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-apt/
 https://xiyoucloud.github.io/2022/12/30/%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6-scp-ftp-wget-curl/
 https://xiyoucloud.github.io/2022/12/29/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85R%E5%8C%85/

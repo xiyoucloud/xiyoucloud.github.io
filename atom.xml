@@ -6,7 +6,7 @@
   <link href="https://xiyoucloud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xiyoucloud.github.io/"/>
-  <updated>2023-02-24T03:49:23.068Z</updated>
+  <updated>2023-03-06T04:28:48.631Z</updated>
   <id>https://xiyoucloud.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Posit Package Manager</title>
+    <link href="https://xiyoucloud.github.io/2023/03/06/Posit-Package-Manager/"/>
+    <id>https://xiyoucloud.github.io/2023/03/06/Posit-Package-Manager/</id>
+    <published>2023-03-06T04:24:45.000Z</published>
+    <updated>2023-03-06T04:28:48.631Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;不知道大家听说没有，rstudio 现在已经改名为 posit 了，他们的团队还出了一个包管理工具：Posit Package Manager。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="R包" scheme="https://xiyoucloud.github.io/tags/R%E5%8C%85/"/>
+    
+    <category term="rstudio" scheme="https://xiyoucloud.github.io/tags/rstudio/"/>
+    
+  </entry>
   
   <entry>
     <title>sftp日志</title>
@@ -280,7 +299,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     <id>https://xiyoucloud.github.io/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
     <published>2023-01-19T13:47:50.000Z</published>
-    <updated>2023-03-03T03:11:14.396Z</updated>
+    <updated>2023-03-03T03:21:20.115Z</updated>
     
     
     <summary type="html">&lt;p&gt;docker 安装教程：&lt;a href=&quot;https://docs.docker.com/engine/install/ubuntu/&quot;&gt;https://docs.docker.com/engine/install/ubuntu/&lt;/a&gt;&lt;/p&gt;</summary>
@@ -297,7 +316,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/"/>
     <id>https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/</id>
     <published>2023-01-19T10:31:01.000Z</published>
-    <updated>2023-02-02T03:07:49.765Z</updated>
+    <updated>2023-03-06T02:23:33.018Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章将介绍 4 种安装 python 包的方式。&lt;/p&gt;</summary>
@@ -414,24 +433,6 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <category term="conda" scheme="https://xiyoucloud.github.io/tags/conda/"/>
     
     <category term="镜像源" scheme="https://xiyoucloud.github.io/tags/%E9%95%9C%E5%83%8F%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jupyter使用技巧</title>
-    <link href="https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
-    <published>2023-01-10T14:36:57.000Z</published>
-    <updated>2023-02-16T14:31:08.387Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;jupyter识别kernel&quot;&gt;&lt;a href=&quot;#jupyter识别kernel&quot; class=&quot;headerlink&quot; title=&quot;jupyter识别kernel&quot;&gt;&lt;/a&gt;jupyter识别kernel&lt;/h1&gt;&lt;p&gt;jupyter 是借助 kernel 来运行程序的，在创建文件的时候，我们可以选择已经安装的kernel来运行文件。&lt;/p&gt;
-&lt;p&gt;如：&lt;a href=&quot;https://anaconda.org/conda-forge/r-irkernel&quot;&gt;r-irkernel 1.3.1&lt;/a&gt;、&lt;a href=&quot;https://anaconda.org/conda-forge/ipykernel&quot;&gt;ipykernel 6.20.1&lt;/a&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="jupyter" scheme="https://xiyoucloud.github.io/tags/jupyter/"/>
     
   </entry>
   

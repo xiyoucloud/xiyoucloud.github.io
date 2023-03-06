@@ -34,6 +34,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Posit Package Manager</title>
+    <url>/2023/03/06/Posit-Package-Manager/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>不知道大家听说没有，rstudio 现在已经改名为 posit 了，他们的团队还出了一个包管理工具：Posit Package Manager。</p>
+<span id="more"></span>
+
+<p>这篇文章来给大家介绍一下它的功能吧！</p>
+<p>它提供统一的包搜索页面（python、来自CRAN的R包、来自bioconductor的R包）：<a href="https://packagemanager.rstudio.com/client/#/repos/5/packages/appdirs">https://packagemanager.rstudio.com/client/#/repos/5/packages/appdirs</a></p>
+<p>对于来源于 CRAN 的 R 包，它还提供了源码链接和一个 CRAN 的镜像仓库。对于 python 包它也提供有镜像仓库，不过 Python 在国内有更好的镜像，这里就不再提了。</p>
+<p>显而易见的是，这个页面目前还没有集成 github，依我看在可见的未来也不会有这个功能，因此来自于 github 的 R 包或 python包 还是需要到 github 网站去搜索：<a href="https://github.com/">https://github.com</a></p>
+<h2 id="An-easy-way-to-access-R-and-Python-packages"><a href="#An-easy-way-to-access-R-and-Python-packages" class="headerlink" title="An easy way to access R and Python packages"></a>An easy way to access R and Python packages</h2><img src="/2023/03/06/Posit-Package-Manager/image-20230223214607816.png" class="" title="image-20230223214607816">
+
+<h2 id="使用-Posit-Package-Manager"><a href="#使用-Posit-Package-Manager" class="headerlink" title="使用 Posit Package Manager"></a>使用 Posit Package Manager</h2><p>这篇文章介绍了如何在安装 R 包是指定posit团队提供的 CRAN 镜像仓库，它还支持直接安装预编译版本的 R 包，这样能够避免部分 R 包安装过程中编译出错的问题。<a href="/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/" title="安装预编译的R包">安装预编译的R包</a></p>
+<h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p>更多详细信息请查看 Posit Package Manger 的官网：<a href="https://packagemanager.rstudio.com/client/#/">https://packagemanager.rstudio.com/client/#/</a></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>R包</tag>
+        <tag>rstudio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sftp日志</title>
     <url>/2023/02/23/sftp%E6%97%A5%E5%BF%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>stfp服务默认不记录日志到文件中，不过你可以通过修改配置文件来让它将日志记录在文件中。修改配置文件需要 root 权限。</p>
@@ -816,7 +836,7 @@ R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
 <span class="token comment"># 查看 docker 版本</span>
 <span class="token function">docker</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="dial-unix-var-run-docker-sock-connect-permission-denied"><a href="#dial-unix-var-run-docker-sock-connect-permission-denied" class="headerlink" title="dial unix /var/run/docker.sock connect permission denied"></a>dial unix /var/run/docker.sock connect permission denied</h2><p>出现这种情况的原因是因为权限，将当前用户加入到 docker 组可以解决这个问题。</p>
+<h2 id="dial-unix-var-run-docker-sock-connect-permission-denied"><a href="#dial-unix-var-run-docker-sock-connect-permission-denied" class="headerlink" title="dial unix /var/run/docker.sock connect permission denied"></a>dial unix /var/run/docker.sock connect permission denied</h2><p>出现这种情况是因为权限不够，将当前用户加入到 docker 组可以解决这个问题。或者你可以使用 <code>sudo docker xxx</code>执行 docker 相关命令来避免权限问题。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 用户名为 txb，需要自行修改为想要使用 docker 的用户名</span>
 <span class="token function">sudo</span> gpasswd -a txb <span class="token function">docker</span>
 <span class="token comment"># 如果未生效，切换为 root 用户再做操作</span>
@@ -849,7 +869,7 @@ gpasswd -a txb <span class="token function">docker</span><span aria-hidden="true
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="通过pip安装"><a href="#通过pip安装" class="headerlink" title="通过pip安装"></a>通过pip安装</h2><p>pip 工具可以通过 conda 安装，如果你有 root 权限的话，也可以通过 apt 安装。</p>
-<p><strong>所有</strong> python 包都可以在官网搜索到：<a href="https://pypi.org/">https://pypi.org/</a></p>
+<p>几乎<strong>所有</strong> python 包都可以在官网搜索到：<a href="https://pypi.org/">https://pypi.org/</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="pip镜像源"><a href="#pip镜像源" class="headerlink" title="pip镜像源"></a>pip镜像源</h3><table>
