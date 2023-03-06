@@ -119,7 +119,7 @@ docker diff 容器id
 
 ### 运行
 
-更多参数的使用方法请查看这个链接：https://www.runoob.com/docker/docker-run-command.html
+更多参数的使用方法请查看这个链接：[https://www.runoob.com/docker/docker-run-command.html](https://www.runoob.com/docker/docker-run-command.html)
 
 ```bash
 # 让容器后台运行，退出容器后，容器不会立即停止运行
@@ -177,7 +177,7 @@ docker version
 
 ## dial unix /var/run/docker.sock connect permission denied
 
-出现这种情况的原因是因为权限，将当前用户加入到 docker 组可以解决这个问题。
+出现这种情况是因为权限不够，将当前用户加入到 docker 组可以解决这个问题。或者你可以使用 `sudo docker xxx`执行 docker 相关命令来避免权限问题。
 
 ```bash
 # 用户名为 txb，需要自行修改为想要使用 docker 的用户名

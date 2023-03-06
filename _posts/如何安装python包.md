@@ -31,7 +31,7 @@ conda install xxx
 
 pip 工具可以通过 conda 安装，如果你有 root 权限的话，也可以通过 apt 安装。
 
-**所有** python 包都可以在官网搜索到：https://pypi.org/
+几乎**所有** python 包都可以在官网搜索到：https://pypi.org/
 
 ```bash
 sudo apt install python3-pip
