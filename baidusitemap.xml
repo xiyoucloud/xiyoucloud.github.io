@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/</loc>
+    <lastmod>2023-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2023-03-06</lastmod>
+  </url>
+  <url>
+    <loc>https://xiyoucloud.github.io/2023/02/23/sftp%E6%97%A5%E5%BF%97/</loc>
+    <lastmod>2023-03-06</lastmod>
+  </url>
+  <url>
     <loc>https://xiyoucloud.github.io/2023/03/06/Posit-Package-Manager/</loc>
     <lastmod>2023-03-06</lastmod>
   </url>
@@ -19,14 +31,6 @@
   <url>
     <loc>https://xiyoucloud.github.io/2023/02/21/%E5%AE%89%E8%A3%85R%E5%8C%85-%E5%B1%A1%E8%B4%A5%E5%B1%A1%E6%88%98/</loc>
     <lastmod>2023-03-01</lastmod>
-  </url>
-  <url>
-    <loc>https://xiyoucloud.github.io/2023/02/23/sftp%E6%97%A5%E5%BF%97/</loc>
-    <lastmod>2023-02-24</lastmod>
-  </url>
-  <url>
-    <loc>https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2023-02-23</lastmod>
   </url>
   <url>
     <loc>https://xiyoucloud.github.io/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/</loc>
@@ -78,10 +82,6 @@
   </url>
   <url>
     <loc>https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/</loc>
-    <lastmod>2023-02-09</lastmod>
-  </url>
-  <url>
-    <loc>https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/</loc>
     <lastmod>2023-02-09</lastmod>
   </url>
   <url>

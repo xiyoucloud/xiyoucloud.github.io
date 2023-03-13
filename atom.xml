@@ -40,16 +40,10 @@
     <link href="https://xiyoucloud.github.io/2023/02/23/sftp%E6%97%A5%E5%BF%97/"/>
     <id>https://xiyoucloud.github.io/2023/02/23/sftp%E6%97%A5%E5%BF%97/</id>
     <published>2023-02-23T13:02:45.000Z</published>
-    <updated>2023-02-24T03:49:23.068Z</updated>
+    <updated>2023-03-06T04:36:17.328Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;sftp服务默认不记录日志到文件中，不过你可以通过修改配置文件来让它将日志记录在文件中。修改配置文件需要 root 权限。&lt;/p&gt;</summary>
     
     
     
@@ -252,7 +246,7 @@ install.packages&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&l
     <link href="https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2023-01-28T14:02:07.000Z</published>
-    <updated>2023-02-23T13:01:26.732Z</updated>
+    <updated>2023-03-06T04:36:44.440Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章的目的是为了让大家关于rstudio有更多的共同语言。&lt;/p&gt;
@@ -335,7 +329,7 @@ conda &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -c conda
     <link href="https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
     <id>https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/</id>
     <published>2023-01-19T09:32:07.000Z</published>
-    <updated>2023-02-09T03:07:35.750Z</updated>
+    <updated>2023-03-13T12:52:40.574Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;动态链接库是一个共享函数集合。我们编写程序时，可以利用其他人或自己编译好的动态链接库中的函数。当然，动态链接库之间也可以互相依赖，比如：动态链接库A在执行时可能需要使用动态链接库B中的函数。此时需要&lt;strong&gt;动态链接器&lt;/strong&gt;在执行A中调用动态链接库B的代码时链接到B来执行代码。&lt;/p&gt;</summary>

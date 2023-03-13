@@ -122,7 +122,11 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>stfp服务默认不记录日志到文件中，不过你可以通过修改配置文件来让它将日志记录在文件中。修改配置文件需要 root 权限。</p>
+  <p>sftp服务默认不记录日志到文件中，不过你可以通过修改配置文件来让它将日志记录在文件中。修改配置文件需要 root 权限。</p>
+<span id="more"></span>
+
+
+
 <h2 id="修改配置文件-etc-ssh-sshd-config"><a href="#修改配置文件-etc-ssh-sshd-config" class="headerlink" title="修改配置文件/etc/ssh/sshd_config"></a>修改配置文件/etc/ssh/sshd_config</h2><p><strong>注意：不要修改到配置文件的其他信息，否则可能导致无法登陆。</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 为防止改乱配置文件，需要先备份文件</span>
 <span class="token function">sudo</span> <span class="token function">cp</span> /etc/ssh/sshd_config /etc/ssh/sshd_config.bak

@@ -1,10 +1,11 @@
+https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/
+https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/
+https://xiyoucloud.github.io/2023/02/23/sftp%E6%97%A5%E5%BF%97/
 https://xiyoucloud.github.io/2023/03/06/Posit-Package-Manager/
 https://xiyoucloud.github.io/2023/01/19/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85python%E5%8C%85/
 https://xiyoucloud.github.io/2023/01/19/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2023/02/12/%E6%9A%82%E6%9C%AA%E5%BD%92%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98/
 https://xiyoucloud.github.io/2023/02/21/%E5%AE%89%E8%A3%85R%E5%8C%85-%E5%B1%A1%E8%B4%A5%E5%B1%A1%E6%88%98/
-https://xiyoucloud.github.io/2023/02/23/sftp%E6%97%A5%E5%BF%97/
-https://xiyoucloud.github.io/2023/01/28/rstudio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/
 https://xiyoucloud.github.io/2023/02/22/%E5%AE%89%E8%A3%85%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84R%E5%8C%85/
 https://xiyoucloud.github.io/2023/01/10/jupyter%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/
 https://xiyoucloud.github.io/2022/12/31/github%E8%AE%BF%E9%97%AE%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/
@@ -18,7 +19,6 @@ https://xiyoucloud.github.io/2022/12/30/%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6-vim
 https://xiyoucloud.github.io/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-stringi/
 https://xiyoucloud.github.io/2023/02/09/%E5%AE%89%E8%A3%85R%E5%8C%85-units/
 https://xiyoucloud.github.io/2023/01/12/conda%E9%95%9C%E5%83%8F%E6%BA%90%E6%B1%87%E6%80%BB/
-https://xiyoucloud.github.io/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/
 https://xiyoucloud.github.io/2023/02/08/x86-64-conda-linux-gnu-cc-not-found/
 https://xiyoucloud.github.io/2023/01/20/singularity-apptainer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
 https://xiyoucloud.github.io/2022/12/31/%E5%88%87%E6%8D%A2rstudio-server%E4%B8%AD%E7%9A%84R/

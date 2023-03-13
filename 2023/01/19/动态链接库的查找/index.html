@@ -98,7 +98,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">835</span>
+            <span class="post-count">866</span>
         </span>
     </span>
 
@@ -152,7 +152,10 @@ patchelf --print-rpath xx.so<span aria-hidden="true" class="line-numbers-rows"><
 <p>可以看到 _igraph.abi3.so 中的 RPATH 为 <code>$ORIGIN/../../../</code>，翻译过来为<code>/home/txb/miniconda3/lib</code>，因为 _igraph.abi3.so 所在的目录为 <code>/home/txb/miniconda3/lib/python3.9/site-packages/igraph</code>，因此该动态链接库需要的其他动态链接库都是优先在 <code>/home/txb/miniconda3/lib</code>目录下找到的，当然，根据前文讲到的动态链接器的查找顺序，如果在该目录下没有找到对应的动态链接库，则会根据上文中提到的动态链接库查找顺序继续查找，如上文中的 libc.so.6 是在 /lib 目录下找到的。</p>
 <h2 id="设置rpath"><a href="#设置rpath" class="headerlink" title="设置rpath"></a>设置rpath</h2><p>有时动态链接器在非预期的目录去找动态链接库，为了让动态链接器优先在某个目录下寻找动态链接库，可以通过设置 rpath 路径的方式来实现。因为在查找动态链接库时，rpath 的优先级高于 /etc/ld.so.conf 中配置的目录，也高于 /lib 和 /usr/lib 目录。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置动态链接库中的 rpath</span>
-patchelf --set-rpath /lib xx.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+patchelf --set-rpath /lib xx.so
+
+<span class="token comment"># 示例 2</span>
+patchelf --set-rpath /home/txb/miniconda3/envs/scanpy/lib /home/txb/miniconda3/envs/scanpy/lib/python3.8/site-packages/scipy/spatial/_ckdtree.cpython-38-x86_64-linux-gnu.so<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上文中的<code>_igraph.abi3.so</code> 的 RPATH 刚开始指向的是 <code>/home/txb/miniconda3/lib</code> 目录，如果将 rpath 修改为<code>/lib</code>目录，再次使用 <code>ldd _igraph.abi3.so</code> 查看各动态链接库的位置，发现动态链接器是优先在 <code>/lib</code>目录下找的。</p>
 <img src="/2023/01/19/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%9F%A5%E6%89%BE/image-20230119153945148.png" class="" title="image-20230119153945148">
