@@ -127,4 +127,4 @@ rstudio-server 使用的登陆机制会导致同一个浏览器界面打开的�
 
 # 无法使用root登陆？
 
-处于安全考虑，rstudio-server不支持root用户登陆。需要新建其他用户用于登陆rstudio使用。
+出于安全考虑，rstudio-server不支持root用户登陆。需要新建其他用户用于登陆 rstudio 。
